@@ -6,7 +6,7 @@ import { company, siteUrl, regions } from "@/lib/content";
 
 const orgId = `${siteUrl}/#organization`;
 const description =
-  "행사기획 전문 하람파트너스. 기업 행사·컨퍼런스, 공연·페스티벌, 브랜드 프로모션, 포토부스, 교육·기관 행사를 기획부터 현장 운영까지 직접 진행합니다.";
+  "웨딩홀 마케팅 전문 하람마케팅. 네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 예약 홈페이지까지 — 예식장의 상담 문의와 예약을 데이터로 책임지는 웨딩홀 특화 마케팅 파트너입니다.";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,10 +15,10 @@ const jsonLd = {
       "@type": "Organization",
       "@id": orgId,
       name: company.nameKo,
-      alternateName: [company.nameEn, "행사기획 하람파트너스"],
+      alternateName: [company.nameEn, "웨딩홀 마케팅 하람마케팅", "예식장 마케팅"],
       url: siteUrl,
       logo: `${siteUrl}/icon.svg`,
-      image: `${siteUrl}/hero/concert-hall.png`,
+      image: `${siteUrl}/icon.svg`,
       description,
       founder: { "@type": "Person", name: company.ceo },
       address: {
@@ -40,7 +40,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
       name: company.nameKo,
-      alternateName: [company.nameEn, "하람파트너스 행사기획"],
+      alternateName: [company.nameEn, "하람마케팅 웨딩홀 마케팅"],
       inLanguage: "ko-KR",
       publisher: { "@id": orgId },
     },
@@ -60,14 +60,14 @@ const jsonLd = {
       },
       areaServed: regions.map((r) => ({ "@type": "AdministrativeArea", name: r })),
       knowsAbout: [
-        "행사기획",
-        "기업행사",
-        "컨퍼런스",
-        "공연기획",
-        "페스티벌",
-        "브랜드 프로모션",
-        "포토부스",
-        "교육·기관 행사",
+        "웨딩홀 마케팅",
+        "예식장 마케팅",
+        "예식장 홍보",
+        "네이버 플레이스 마케팅",
+        "블로그 마케팅",
+        "인스타그램 마케팅",
+        "퍼포먼스 광고",
+        "예식장 홈페이지 제작",
       ],
     },
   ],
@@ -76,22 +76,22 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "하람파트너스 | 행사기획·운영 전문",
+    default: "하람마케팅 | 웨딩홀 마케팅 전문",
     template: `%s | ${company.nameKo}`,
   },
   description:
-    "행사기획 전문 하람파트너스. 기업 행사·컨퍼런스, 공연·페스티벌, 브랜드 프로모션부터 음향·조명 장비와 현장 운영까지 — 기획부터 마무리까지 직접 책임지는 행사기획 파트너입니다.",
+    "웨딩홀 마케팅 전문 하람마케팅. 네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 예약 홈페이지까지 — 노출에서 끝나지 않고 예약까지 책임지는 웨딩홀 특화 마케팅 파트너입니다.",
   keywords: [
-    "행사기획",
-    "하람파트너스",
-    "행사 기획",
-    "행사대행",
-    "행사 운영",
-    "기업행사",
-    "컨퍼런스",
-    "공연기획",
-    "페스티벌",
-    "이벤트대행",
+    "웨딩홀 마케팅",
+    "하람마케팅",
+    "예식장 마케팅",
+    "예식장 홍보",
+    "웨딩홀 광고",
+    "예식장 네이버 플레이스",
+    "웨딩홀 블로그",
+    "예식장 인스타그램",
+    "웨딩홀 홈페이지 제작",
+    "웨딩 마케팅 대행",
   ],
   applicationName: company.nameKo,
   alternates: {
@@ -104,28 +104,23 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: siteUrl,
     siteName: company.nameKo,
-    title: "하람파트너스 | 행사기획·운영 전문",
+    title: "하람마케팅 | 웨딩홀 마케팅 전문",
     description:
-      "행사기획 전문 하람파트너스 — 브랜드의 순간을 설계합니다. 기획부터 현장 운영까지.",
+      "웨딩홀 마케팅 전문 하람마케팅 — 예식장을 예약으로 채웁니다. 검색 노출부터 상담 예약까지.",
     images: [
       {
-        url: "/hero/concert-hall.png",
-        width: 1672,
-        height: 941,
-        alt: "하람파트너스 행사기획",
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "하람마케팅 웨딩홀 마케팅",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "하람파트너스 | 행사기획·운영 전문",
-    description: "행사기획 전문 하람파트너스 — 브랜드의 순간을 설계합니다.",
-    images: ["/hero/concert-hall.png"],
-  },
-  verification: {
-    other: {
-      "naver-site-verification": "3b3a7ef6f32bac899fb9de75197725e1207f4602",
-    },
+    title: "하람마케팅 | 웨딩홀 마케팅 전문",
+    description: "웨딩홀 마케팅 전문 하람마케팅 — 예식장을 예약으로 채웁니다.",
+    images: ["/og.png"],
   },
 };
 

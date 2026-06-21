@@ -13,14 +13,14 @@ function esc(s: string) {
 export async function GET() {
   const items = [
     {
-      title: "회사소개 — 하람파트너스",
+      title: "회사소개 — 하람마케팅",
       link: `${siteUrl}/about`,
       desc: company.intro,
     },
     {
-      title: "행사 기획·운영 서비스",
+      title: "웨딩홀 마케팅 서비스",
       link: `${siteUrl}/services`,
-      desc: "기업 행사·컨퍼런스, 공연·페스티벌, 브랜드 프로모션, 의전·운영, 포토부스, 교육·기관 행사까지 직접 진행합니다.",
+      desc: "네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 예약 홈페이지까지 직접 진행합니다.",
     },
     ...services.map((s) => ({
       title: s.title,
@@ -38,9 +38,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>${esc(company.nameKo)} | 행사기획</title>
+    <title>${esc(company.nameKo)} | 웨딩홀 마케팅</title>
     <link>${siteUrl}</link>
-    <description>행사기획 전문 하람파트너스 — 기획부터 현장 운영까지.</description>
+    <description>웨딩홀 마케팅 전문 하람마케팅 — 노출에서 끝나지 않고 예약까지.</description>
     <language>ko</language>
     <lastBuildDate>${buildDate}</lastBuildDate>
 ${items

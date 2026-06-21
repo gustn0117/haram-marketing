@@ -3,10 +3,10 @@ import { company } from "@/lib/content";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${company.nameKo} | 행사기획·운영 전문`,
+    name: `${company.nameKo} | 웨딩홀 마케팅 전문`,
     short_name: company.nameKo,
     description:
-      "행사기획 전문 하람파트너스 — 기획부터 현장 운영까지 직접 책임집니다.",
+      "웨딩홀 마케팅 전문 하람마케팅 — 노출에서 끝나지 않고 예약까지 책임집니다.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
