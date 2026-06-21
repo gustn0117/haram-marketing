@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { company, siteUrl, regions } from "@/lib/content";
 
 const orgId = `${siteUrl}/#organization`;
@@ -151,9 +149,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Header />
-        <main className="relative z-2 flex-1">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

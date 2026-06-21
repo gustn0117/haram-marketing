@@ -27,7 +27,7 @@ export function Footer() {
         {/* Link grid */}
         <div className="grid grid-cols-2 gap-10 py-16 md:grid-cols-[1.4fr_1fr_1fr_1.4fr]">
           <div className="col-span-2 flex flex-col gap-5 md:col-span-1">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/home" className="flex items-center gap-3">
               <Monogram className="h-8 w-8 text-gold" />
               <span className="flex flex-col leading-none">
                 <span className="font-serif text-base">{company.nameKo}</span>

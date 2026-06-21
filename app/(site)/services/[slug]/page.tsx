@@ -53,7 +53,7 @@ export default async function OfferingDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
+      { "@type": "ListItem", position: 1, name: "홈", item: `${siteUrl}/home` },
       {
         "@type": "ListItem",
         position: 2,

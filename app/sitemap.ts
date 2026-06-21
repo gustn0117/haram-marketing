@@ -3,7 +3,7 @@ import { siteUrl, services, addons } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const staticPaths = ["", "/about", "/services", "/addons", "/contact"];
+  const staticPaths = ["", "/home", "/about", "/services", "/addons", "/contact"];
   const servicePaths = services.map((s) => `/services/${s.id}`);
   const addonPaths = addons.map((a) => `/addons/${a.id}`);
 

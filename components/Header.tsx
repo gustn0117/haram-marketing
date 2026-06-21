@@ -42,7 +42,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-18 max-w-[1200px] items-center justify-between px-6 sm:px-8">
         <Link
-          href="/"
+          href="/home"
           className="group flex items-center gap-3"
           aria-label={`${company.nameKo} 홈`}
         >
