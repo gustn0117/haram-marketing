@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { services, processSteps, faqs } from "@/lib/content";
+import { services, processSteps, faqs, heroImage } from "@/lib/content";
 import { Container, Eyebrow, SectionHeading } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { Strengths } from "@/components/Strengths";
@@ -25,8 +25,8 @@ export default function HomePage() {
       {/* ───────────────── Hero ───────────────── */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-paper">
         <Image
-          src="/hero/concert-hall.png"
-          alt="하람파트너스 행사기획 — 공연·행사 현장"
+          src={heroImage}
+          alt="하람마케팅 웨딩홀 마케팅 — 예식장 전경"
           fill
           priority
           sizes="100vw"
@@ -48,18 +48,18 @@ export default function HomePage() {
               className="rise w-full min-w-0 break-normal text-xs font-semibold uppercase tracking-[0.18em] text-white/70"
               style={{ animationDelay: "120ms" }}
             >
-              EVENT PLANNING &amp; OPERATION
+              WEDDING HALL MARKETING
             </p>
             <h1 className="rise font-serif w-full min-w-0 text-[2.4rem] leading-[1.15] text-white sm:text-5xl md:text-[4rem] md:leading-[1.05] md:whitespace-nowrap text-balance" style={{ animationDelay: "220ms" }}>
-              브랜드의 순간을 설계합니다.
+              예식장을 예약으로 채웁니다.
             </h1>
             <p
               className="rise w-full max-w-[21rem] break-normal text-base leading-relaxed text-white/80 sm:max-w-xl sm:text-lg"
               style={{ animationDelay: "520ms" }}
             >
-              <span className="block">기획부터 연출, 현장 운영까지 —</span>
+              <span className="block">검색 노출부터 상담 예약까지 —</span>
               <span className="block">
-                기업 행사와 공연·페스티벌의 모든 순간을 하나의 흐름으로
+                웨딩홀 마케팅의 모든 단계를 하나의 흐름으로
                 완성합니다.
               </span>
             </p>
@@ -71,7 +71,7 @@ export default function HomePage() {
                 href="/contact"
                 className="group inline-flex w-full items-center justify-center gap-3 rounded-sm bg-white px-7 py-3.5 text-sm font-medium tracking-tight text-gold transition-colors duration-500 hover:bg-white/90 sm:w-auto"
               >
-                프로젝트 의뢰하기
+                무료 마케팅 진단
                 <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
               </Link>
               <Link
@@ -103,26 +103,26 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={120} className="flex flex-col gap-7">
               <p className="font-serif text-2xl leading-[1.6] sm:text-[1.75rem] text-balance">
-                하람파트너스는 단순한 행사 대행이 아니라,
+                하람마케팅은 단순한 마케팅 대행이 아니라,
                 <span className="text-muted">
                   {" "}
-                  브랜드가 전하고 싶은 메시지를 사람들의 기억에 남는 경험으로
-                  번역합니다.{" "}
+                  예식장이 가진 강점을 신랑신부의 선택으로 번역합니다.{" "}
                 </span>
-                기획의 정교함과 현장의 안정감, 그 사이의 모든 디테일을 책임집니다.
+                검색의 정교함과 콘텐츠의 신뢰, 그 사이의 모든 디테일을 책임집니다.
               </p>
               <p className="text-base leading-[1.85] text-muted">
-                기업 행사와 컨퍼런스, 공연과 페스티벌, 브랜드 프로모션, 의전과
-                현장 운영, 포토부스, 그리고 학교·기관 행사까지 — 성격이 다른
-                행사들을 하나의 팀이 같은 기준으로 다룹니다. 음향·조명 장비를
-                직접 보유하고 모든 스태프가 당사 직속으로 움직이기에, 기획에서
-                시작된 의도가 현장의 마지막 순간까지 흐트러지지 않습니다.
+                네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스
+                광고와 상담 DB, 영상·사진 콘텐츠, 그리고 브랜딩과 예약
+                홈페이지까지 — 흩어지기 쉬운 마케팅 채널을 하나의 팀이 같은
+                기준으로 다룹니다. 촬영·콘텐츠·광고를 모두 자사 팀이 직접
+                운영하기에, 전략에서 시작된 의도가 마지막 예약까지 흐트러지지
+                않습니다.
               </p>
               <p className="text-base leading-[1.85] text-muted">
-                화려한 한 장면보다, 행사가 끝난 뒤 남는 인상을 중요하게
-                생각합니다. 그래서 우리는 보이는 무대만큼이나 보이지 않는 준비와
-                운영에 공을 들입니다. 그 차이가 결국 행사의 격을 만든다고
-                믿습니다.
+                보기 좋은 조회수보다, 실제로 식장을 채우는 예약을 중요하게
+                생각합니다. 그래서 우리는 눈에 보이는 노출만큼이나 문의를
+                예약으로 잇는 보이지 않는 동선에 공을 들입니다. 그 차이가 결국
+                마케팅의 성패를 가른다고 믿습니다.
               </p>
             </Reveal>
           </div>
@@ -140,9 +140,9 @@ export default function HomePage() {
               eyebrow="WHAT WE DO"
               title={
                 <>
-                  기획부터 부스까지,
+                  검색부터 예약까지,
                   <br />
-                  하나의 완성도.
+                  하나의 흐름.
                 </>
               }
             />
@@ -201,7 +201,7 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="HOW WE WORK"
-            title="검증된 4단계 운영 프로세스"
+            title="검증된 4단계 마케팅 프로세스"
             align="center"
             className="mx-auto max-w-2xl"
           />
@@ -242,7 +242,7 @@ export default function HomePage() {
             <Reveal delay={150} className="max-w-sm">
               <p className="text-sm leading-relaxed text-muted">
                 더 궁금한 점이 있으시면 언제든 편하게 문의해 주세요. 담당
-                기획자가 직접 답변드립니다.
+                마케터가 직접 답변드립니다.
               </p>
             </Reveal>
           </div>
