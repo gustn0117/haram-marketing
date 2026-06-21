@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { addons, addonImages, aboutImage } from "@/lib/content";
+import { addons, aboutImage } from "@/lib/content";
 import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
@@ -38,52 +37,48 @@ export default function AddonsPage() {
           <>
             마케팅을 둘러싼
             <br />
-            <span className="text-white">모든 것까지.</span>
+            <span className="text-gold">모든 것까지.</span>
           </>
         }
         description="마케팅 그 자체를 넘어, 진단부터 예약 전환까지 필요한 일들을 함께 해결해 드립니다. 마케팅 운영과 묶어 한 번에 진행할 수 있습니다."
         backgroundImage={aboutImage}
       />
 
-      {/* Add-on services */}
+      {/* 지원서비스 — 줄 구분 2열 리스트 */}
       <section className="border-b border-line py-20 md:py-28">
         <Container>
           <SectionHeading eyebrow="WHAT WE OFFER" title="지원서비스 영역" />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid border-t border-line sm:grid-cols-2">
             {addons.map((a, i) => {
               const Icon = addonIcons[a.icon];
               return (
-                <Reveal key={a.id} delay={i * 70}>
+                <Reveal
+                  key={a.id}
+                  delay={i * 60}
+                  className="border-b border-line sm:odd:border-r"
+                >
                   <Link
                     href={`/addons/${a.id}`}
-                    className="card-hover group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface"
+                    className="group flex h-full flex-col gap-6 px-2 py-8 transition-colors duration-500 hover:bg-surface/40 sm:p-9 md:p-10"
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden border-b border-line">
-                      <Image
-                        src={addonImages[a.id]}
-                        alt=""
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-black/25" aria-hidden />
-                      <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-sm border border-line-strong bg-ink/70 text-gold backdrop-blur">
+                    <div className="flex items-center justify-between">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-line-strong text-gold transition-colors duration-500 group-hover:border-gold">
                         <Icon className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex flex-1 flex-col gap-3 p-7">
+                      </span>
                       <span className="font-display text-xs tracking-wide text-gold">
                         {a.tagline}
                       </span>
-                      <h3 className="font-serif text-xl">{a.name}</h3>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <h3 className="font-serif text-xl md:text-2xl">{a.name}</h3>
                       <p className="text-sm leading-relaxed text-muted">
                         {a.description}
                       </p>
-                      <span className="mt-auto inline-flex items-center gap-2 pt-3 text-sm text-gold">
-                        자세히 보기
-                        <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </span>
                     </div>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm text-gold">
+                      자세히 보기
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
                   </Link>
                 </Reveal>
               );

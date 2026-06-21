@@ -192,12 +192,12 @@ body::after {
   transform-origin: left;
 }
 
-/* ---------- Reveal on scroll ---------- */
+/* ---------- Reveal on scroll (절제된 페이드) ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.9s var(--ease-out-soft),
-    transform 0.9s var(--ease-out-soft);
+  transform: translateY(12px);
+  transition: opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
@@ -219,7 +219,7 @@ body::after {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -228,7 +228,7 @@ body::after {
 }
 .rise {
   opacity: 0;
-  animation: rise 1.1s var(--ease-out-soft) forwards;
+  animation: rise 0.8s var(--ease-out-soft) forwards;
 }
 
 @keyframes drift {
@@ -279,14 +279,10 @@ body::after {
   box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.16);
 }
 
-/* Card hover — 다크 위 샴페인 보더 + 미세한 리프트 */
+/* Card hover — 정적: 보더 색만 변화 (움직임 없음) */
 .card-hover {
-  transition: border-color 0.5s var(--ease-out-soft),
-    transform 0.5s var(--ease-out-soft),
-    box-shadow 0.5s var(--ease-out-soft);
+  transition: border-color 0.5s var(--ease-out-soft);
 }
 .card-hover:hover {
   border-color: rgba(201, 168, 106, 0.45);
-  transform: translateY(-3px);
-  box-shadow: 0 22px 50px -28px rgba(0, 0, 0, 0.7);
 }

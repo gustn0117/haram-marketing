@@ -5,7 +5,7 @@ import { services, processSteps, offeringImages, heroImage } from "@/lib/content
 import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
-import { ServiceIcon, ArrowUpRight } from "@/components/icons";
+import { ArrowUpRight } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -13,53 +13,6 @@ export const metadata: Metadata = {
     "네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 브랜딩·예약 홈페이지까지. 하람마케팅의 웨딩홀 마케팅 서비스 영역을 한눈에 확인하세요.",
   alternates: { canonical: "/services" },
 };
-
-type Card = {
-  id: string;
-  title: string;
-  tagline: string;
-  description: string;
-};
-
-function OfferingCard({
-  card,
-  icon,
-}: {
-  card: Card;
-  icon: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={`/services/${card.id}`}
-      className="card-hover group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface"
-    >
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-line">
-        <Image
-          src={offeringImages[card.id]}
-          alt=""
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/25" aria-hidden />
-        <span className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-sm border border-line-strong bg-ink/70 text-gold backdrop-blur">
-          {icon}
-        </span>
-      </div>
-      <div className="flex flex-1 flex-col gap-3 p-7">
-        <span className="font-display text-xs tracking-wide text-gold">
-          {card.tagline}
-        </span>
-        <h3 className="font-serif text-xl">{card.title}</h3>
-        <p className="text-sm leading-relaxed text-muted">{card.description}</p>
-        <span className="mt-auto inline-flex items-center gap-2 pt-3 text-sm text-gold">
-          자세히 보기
-          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </span>
-      </div>
-    </Link>
-  );
-}
 
 export default function ServicesPage() {
   return (
@@ -70,14 +23,14 @@ export default function ServicesPage() {
           <>
             검색 노출부터 예약까지,
             <br />
-            <span className="text-white">하나의 팀이.</span>
+            <span className="text-gold">하나의 팀이.</span>
           </>
         }
         description="웨딩홀 마케팅의 검색·콘텐츠·광고·콘텐츠 제작을 직접 책임집니다. 각 영역을 눌러 자세한 내용을 확인하세요."
         backgroundImage={heroImage}
       />
 
-      {/* 서비스 영역 */}
+      {/* 서비스 영역 — 좌우 교차 에디토리얼 행 */}
       <section className="border-b border-line py-20 md:py-28">
         <Container>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -91,21 +44,62 @@ export default function ServicesPage() {
               </p>
             </Reveal>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
-              <Reveal key={s.id} delay={i * 80}>
-                <OfferingCard
-                  card={s}
-                  icon={<ServiceIcon id={s.id as never} className="h-5 w-5" />}
-                />
-              </Reveal>
-            ))}
+
+          <div className="mt-14 border-t border-line">
+            {services.map((s, i) => {
+              const flip = i % 2 === 1;
+              return (
+                <Reveal key={s.id} delay={i * 60}>
+                  <Link
+                    href={`/services/${s.id}`}
+                    className="group grid items-center gap-8 border-b border-line py-9 md:grid-cols-2 md:gap-14 md:py-12"
+                  >
+                    <div
+                      className={`relative aspect-[16/10] overflow-hidden rounded-xl border border-line ${
+                        flip ? "md:order-2" : ""
+                      }`}
+                    >
+                      <Image
+                        src={offeringImages[s.id]}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-ink/25" aria-hidden />
+                    </div>
+                    <div
+                      className={`flex flex-col gap-4 ${flip ? "md:order-1" : ""}`}
+                    >
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-display text-3xl text-gold/70">
+                          {s.no}
+                        </span>
+                        <span className="font-display text-xs tracking-wide text-gold">
+                          {s.tagline}
+                        </span>
+                      </div>
+                      <h3 className="font-serif text-2xl md:text-[2rem]">
+                        {s.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-muted md:text-base">
+                        {s.description}
+                      </p>
+                      <span className="inline-flex items-center gap-2 pt-2 text-sm text-gold">
+                        자세히 보기
+                        <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      {/* Process */}
-      <section className="border-b border-line py-24 md:py-32">
+      {/* Process — 상단 룰 + 대형 넘버 (박스 그리드 제거) */}
+      <section className="border-b border-line bg-ink-2 py-24 md:py-32">
         <Container>
           <SectionHeading
             eyebrow="HOW WE WORK"
@@ -113,20 +107,21 @@ export default function ServicesPage() {
             align="center"
             className="mx-auto max-w-2xl"
           />
-          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <div
+          <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step, i) => (
+              <Reveal
                 key={step.no}
-                className="group flex flex-col gap-5 bg-surface p-8 md:p-9"
+                delay={i * 70}
+                className="flex flex-col gap-4 border-t border-gold/30 pt-6"
               >
-                <span className="font-display text-5xl text-faint transition-colors duration-500 group-hover:text-gold">
+                <span className="font-display text-4xl text-gold">
                   {step.no}
                 </span>
-                <h3 className="font-serif text-xl">{step.title}</h3>
+                <h3 className="font-serif text-lg">{step.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">
                   {step.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>

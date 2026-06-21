@@ -1,12 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { services, processSteps, faqs, heroImage } from "@/lib/content";
+import {
+  services,
+  processSteps,
+  faqs,
+  metrics,
+  heroImage,
+} from "@/lib/content";
 import { Container, Eyebrow, SectionHeading } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { Strengths } from "@/components/Strengths";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
-import { ServiceIcon, ArrowUpRight, ArrowRight } from "@/components/icons";
+import { ArrowUpRight, ArrowRight } from "@/components/icons";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -22,48 +28,35 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqJsonLd} />
-      {/* ───────────────── Hero — Noir Atelier ───────────────── */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-ink pt-24 pb-28 md:pb-32">
+      {/* ───────────────── Hero — 좌측 에디토리얼 (정적) ───────────────── */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-ink pt-24 pb-20">
         <Image
           src={heroImage}
           alt="하람마케팅 웨딩홀 마케팅 — 예식장 전경"
           fill
           priority
           sizes="100vw"
-          className="drift absolute inset-0 object-cover"
+          className="absolute inset-0 object-cover"
         />
-        {/* 좌측 가독성 + 다크 무드 그라데이션 */}
         <div
           className="absolute inset-0 bg-linear-to-r from-ink via-ink/85 to-ink/30"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/60"
+          className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/55"
           aria-hidden
         />
 
-        {/* 샴페인 헤어라인 인셋 프레임 (시그니처) */}
+        {/* 샴페인 헤어라인 인셋 프레임 */}
         <div
           className="pointer-events-none absolute inset-4 z-2 rounded-2xl border sm:inset-6 md:inset-8"
-          style={{ borderColor: "rgba(201, 168, 106, 0.28)" }}
+          style={{ borderColor: "rgba(201, 168, 106, 0.26)" }}
           aria-hidden
         />
-
-        {/* 우측 세로 라벨 */}
-        <span
-          className="rise pointer-events-none absolute right-9 top-1/2 z-2 hidden -translate-y-1/2 rotate-90 font-display text-xs uppercase tracking-[0.5em] text-gold/70 lg:block"
-          style={{ animationDelay: "900ms" }}
-        >
-          Est. — Wedding Hall Marketing
-        </span>
 
         <Container className="relative z-3">
           <div className="flex w-full min-w-0 max-w-3xl flex-col gap-8">
-            {/* eyebrow + 헤어라인 */}
-            <div
-              className="rise flex items-center gap-4"
-              style={{ animationDelay: "120ms" }}
-            >
+            <div className="rise flex items-center gap-4" style={{ animationDelay: "100ms" }}>
               <span className="h-px w-12 bg-gold/70" />
               <p className="min-w-0 text-xs font-semibold uppercase tracking-[0.32em] text-gold">
                 Wedding Hall Marketing
@@ -72,7 +65,7 @@ export default function HomePage() {
 
             <h1
               className="rise font-serif min-w-0 break-normal text-[2.9rem] leading-[1.06] text-paper sm:text-6xl md:text-[5rem] md:leading-[0.98]"
-              style={{ animationDelay: "240ms" }}
+              style={{ animationDelay: "200ms" }}
             >
               비어 있는 홀을
               <br />
@@ -81,7 +74,7 @@ export default function HomePage() {
 
             <p
               className="rise min-w-0 max-w-xl break-normal text-base leading-[1.8] text-paper/75 sm:text-lg"
-              style={{ animationDelay: "560ms" }}
+              style={{ animationDelay: "440ms" }}
             >
               검색 노출부터 상담 예약까지 — 예식장만 전문으로,
               <br className="hidden sm:block" /> 웨딩홀 마케팅의 모든 단계를 하나의 흐름으로 완성합니다.
@@ -89,7 +82,7 @@ export default function HomePage() {
 
             <div
               className="rise flex w-full max-w-md flex-col gap-4 pt-2 sm:max-w-none sm:flex-row sm:items-center"
-              style={{ animationDelay: "700ms" }}
+              style={{ animationDelay: "560ms" }}
             >
               <Link
                 href="/contact"
@@ -108,54 +101,41 @@ export default function HomePage() {
             </div>
           </div>
         </Container>
-
-        {/* 하단 서비스 마퀴 (시그니처 에디토리얼 스트립) */}
-        <div className="absolute inset-x-0 bottom-0 z-3 overflow-hidden border-t border-gold/15 bg-ink/55 py-4 backdrop-blur-sm">
-          <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap">
-            {[...services, ...services].map((s, i) => (
-              <span
-                key={`${s.id}-${i}`}
-                className="flex items-center gap-10 text-sm tracking-wide text-paper/55"
-              >
-                <span className="font-display text-gold/80">✦</span>
-                <span>{s.title}</span>
-              </span>
-            ))}
-          </div>
-        </div>
       </section>
 
-      {/* ───────────────── Intro statement ───────────────── */}
+      {/* ───────────────── Intro — 중앙 선언문 + 지표 밴드 ───────────────── */}
       <section className="border-t border-line py-24 md:py-32">
         <Container>
-          <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
-            <Reveal>
-              <Eyebrow>WHO WE ARE</Eyebrow>
-            </Reveal>
-            <Reveal delay={120} className="flex flex-col gap-7">
-              <p className="font-serif text-2xl leading-[1.6] sm:text-[1.75rem] text-balance">
-                하람마케팅은 단순한 마케팅 대행이 아니라,
-                <span className="text-muted">
-                  {" "}
-                  예식장이 가진 강점을 신랑신부의 선택으로 번역합니다.{" "}
+          <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
+            <Eyebrow>WHO WE ARE</Eyebrow>
+            <p className="font-serif text-[1.7rem] leading-[1.45] sm:text-3xl md:text-[2.5rem] md:leading-[1.4] text-balance">
+              하람마케팅은 단순한 마케팅 대행이 아니라,{" "}
+              <span className="text-gold">예식장의 강점을 신랑신부의 선택으로 번역</span>
+              합니다.
+            </p>
+            <p className="max-w-2xl text-base leading-[1.9] text-muted">
+              네이버 검색·플레이스, 블로그·체험단, SNS, 퍼포먼스 광고와 상담 DB,
+              영상·사진 콘텐츠, 브랜딩과 예약 홈페이지까지 — 흩어지기 쉬운 채널을
+              한 팀이 같은 기준으로 다룹니다. 보기 좋은 조회수가 아니라, 실제로
+              식장을 채우는 예약을 만듭니다.
+            </p>
+          </Reveal>
+
+          {/* 성과 지표 밴드 */}
+          <div className="mt-16 grid grid-cols-2 gap-y-10 border-t border-line pt-12 md:mt-20 md:grid-cols-4">
+            {metrics.map((m, i) => (
+              <Reveal
+                key={m.label}
+                delay={i * 80}
+                className="flex flex-col items-center gap-2 border-line text-center md:border-l md:first:border-l-0"
+              >
+                <span className="font-display text-4xl text-gold sm:text-5xl">
+                  {m.value}
+                  {m.suffix ? <span className="text-2xl">{m.suffix}</span> : null}
                 </span>
-                검색의 정교함과 콘텐츠의 신뢰, 그 사이의 모든 디테일을 책임집니다.
-              </p>
-              <p className="text-base leading-[1.85] text-muted">
-                네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스
-                광고와 상담 DB, 영상·사진 콘텐츠, 그리고 브랜딩과 예약
-                홈페이지까지 — 흩어지기 쉬운 마케팅 채널을 하나의 팀이 같은
-                기준으로 다룹니다. 촬영·콘텐츠·광고를 모두 자사 팀이 직접
-                운영하기에, 전략에서 시작된 의도가 마지막 예약까지 흐트러지지
-                않습니다.
-              </p>
-              <p className="text-base leading-[1.85] text-muted">
-                보기 좋은 조회수보다, 실제로 식장을 채우는 예약을 중요하게
-                생각합니다. 그래서 우리는 눈에 보이는 노출만큼이나 문의를
-                예약으로 잇는 보이지 않는 동선에 공을 들입니다. 그 차이가 결국
-                마케팅의 성패를 가른다고 믿습니다.
-              </p>
-            </Reveal>
+                <span className="text-xs leading-relaxed text-muted">{m.label}</span>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </section>
@@ -163,7 +143,7 @@ export default function HomePage() {
       {/* ───────────────── Strengths ───────────────── */}
       <Strengths background="alt" />
 
-      {/* ───────────────── Services ───────────────── */}
+      {/* ───────────────── Services — 에디토리얼 인덱스 리스트 ───────────────── */}
       <section className="border-t border-line py-24 md:py-32">
         <Container>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -188,38 +168,28 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          <div className="mt-14 border-t border-line">
             {services.map((service, i) => (
-              <Reveal
-                key={service.id}
-                delay={i * 90}
-                className={
-                  i === services.length - 1 && services.length % 2 === 1
-                    ? "sm:col-span-2"
-                    : ""
-                }
-              >
+              <Reveal key={service.id} delay={i * 60}>
                 <Link
                   href={`/services/${service.id}`}
-                  className="card-hover group flex h-full flex-col gap-6 rounded-2xl border border-line bg-surface p-8 md:p-10"
+                  className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-5 border-b border-line px-1 py-7 transition-colors duration-500 hover:bg-surface/40 md:grid-cols-[5rem_1fr_1.5fr_auto] md:gap-10 md:px-4 md:py-9"
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-line-strong text-gold transition-colors duration-500 group-hover:border-gold">
-                      <ServiceIcon id={service.id as never} className="h-7 w-7" />
-                    </div>
-                    <span className="font-display text-3xl text-faint">
-                      {service.no}
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3">
+                  <span className="font-display text-2xl text-faint transition-colors duration-500 group-hover:text-gold md:text-4xl">
+                    {service.no}
+                  </span>
+                  <div className="flex min-w-0 flex-col gap-1.5">
                     <span className="font-display text-xs tracking-wide text-gold">
                       {service.tagline}
                     </span>
-                    <h3 className="font-serif text-2xl">{service.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted">
-                      {service.description}
-                    </p>
+                    <h3 className="font-serif text-xl md:text-[1.65rem]">
+                      {service.title}
+                    </h3>
                   </div>
+                  <p className="hidden text-sm leading-relaxed text-muted md:block">
+                    {service.description}
+                  </p>
+                  <ArrowUpRight className="h-5 w-5 text-faint transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
                 </Link>
               </Reveal>
             ))}
@@ -227,31 +197,51 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ───────────────── Process ───────────────── */}
-      <section className="relative overflow-hidden border-t border-line bg-ink-2 py-24 md:py-32">
+      {/* ───────────────── Process — 세로 타임라인 ───────────────── */}
+      <section className="border-t border-line bg-ink-2 py-24 md:py-32">
         <Container>
-          <SectionHeading
-            eyebrow="HOW WE WORK"
-            title="검증된 4단계 마케팅 프로세스"
-            align="center"
-            className="mx-auto max-w-2xl"
-          />
-          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step, i) => (
-              <Reveal
-                key={step.no}
-                delay={i * 90}
-                className="group relative flex flex-col gap-5 bg-ink-2 p-8 md:p-9"
-              >
-                <span className="font-display text-5xl text-faint transition-colors duration-500 group-hover:text-gold">
-                  {step.no}
-                </span>
-                <h3 className="font-serif text-xl">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">
-                  {step.description}
-                </p>
-              </Reveal>
-            ))}
+          <div className="grid gap-14 md:grid-cols-[0.85fr_1.15fr] md:gap-20">
+            <div className="md:sticky md:top-28 md:self-start">
+              <SectionHeading
+                eyebrow="HOW WE WORK"
+                title={
+                  <>
+                    검증된 4단계
+                    <br />
+                    마케팅 프로세스
+                  </>
+                }
+              />
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">
+                진단에서 시작해 성과 리포트로 매듭짓습니다. 각 단계의 결과를
+                숫자로 확인하며 다음 운영을 개선합니다.
+              </p>
+            </div>
+
+            <div className="flex flex-col">
+              {processSteps.map((step, i) => (
+                <Reveal
+                  key={step.no}
+                  delay={i * 80}
+                  className="grid grid-cols-[3rem_1fr] gap-6 md:grid-cols-[3.5rem_1fr] md:gap-8"
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 font-display text-lg text-gold md:h-14 md:w-14 md:text-xl">
+                      {step.no}
+                    </span>
+                    {i < processSteps.length - 1 ? (
+                      <span className="my-2 w-px flex-1 bg-line" />
+                    ) : null}
+                  </div>
+                  <div className="pt-2 pb-12 last:pb-0">
+                    <h3 className="font-serif text-xl md:text-2xl">{step.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
+                      {step.description}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -259,27 +249,21 @@ export default function HomePage() {
       {/* ───────────────── FAQ ───────────────── */}
       <section className="border-t border-line py-24 md:py-32">
         <Container>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="mx-auto max-w-3xl">
             <SectionHeading
               eyebrow="FAQ"
-              title={
-                <>
-                  자주 묻는
-                  <br />
-                  질문들.
-                </>
-              }
+              title="자주 묻는 질문"
+              align="center"
+              className="mx-auto"
             />
-            <Reveal delay={150} className="max-w-sm">
-              <p className="text-sm leading-relaxed text-muted">
-                더 궁금한 점이 있으시면 언제든 편하게 문의해 주세요. 담당
-                마케터가 직접 답변드립니다.
-              </p>
+            <p className="mx-auto mt-5 max-w-md text-center text-sm leading-relaxed text-muted">
+              더 궁금한 점이 있으시면 언제든 편하게 문의해 주세요. 담당 마케터가
+              직접 답변드립니다.
+            </p>
+            <Reveal className="mt-12">
+              <FaqList items={faqs} />
             </Reveal>
           </div>
-          <Reveal className="mt-12">
-            <FaqList items={faqs} />
-          </Reveal>
         </Container>
       </section>
     </>

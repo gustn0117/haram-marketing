@@ -1,7 +1,6 @@
 import { strengths } from "@/lib/content";
 import { Container, SectionHeading } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
-import { StrengthIcon } from "@/components/icons";
 
 export function Strengths({
   background = "alt",
@@ -37,18 +36,21 @@ export function Strengths({
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 줄 구분 2×2 에디토리얼 그리드 */}
+        <div className="mt-16 grid border-t border-line sm:grid-cols-2">
           {strengths.map((item, i) => (
             <Reveal
               key={item.id}
-              delay={i * 90}
-              className="card-hover flex h-full flex-col gap-6 rounded-2xl border border-line bg-surface p-8"
+              delay={i * 80}
+              className="flex gap-6 border-b border-line px-2 py-9 sm:px-8 sm:odd:border-r"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-line-strong text-gold">
-                <StrengthIcon id={item.id} className="h-7 w-7" />
-              </div>
+              <span className="font-serif text-3xl leading-none text-gold/80 sm:text-4xl">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <div className="flex flex-col gap-3">
-                <h3 className="font-serif text-xl leading-snug">{item.title}</h3>
+                <h3 className="font-serif text-xl leading-snug sm:text-2xl">
+                  {item.title}
+                </h3>
                 <p className="text-sm leading-relaxed text-muted">
                   {item.description}
                 </p>
