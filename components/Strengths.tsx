@@ -20,19 +20,19 @@ export function Strengths({
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            eyebrow="WHY HARAM PARTNERS"
+            eyebrow="WHY HARAM MARKETING"
             title={
               <>
-                장비도, 사람도
+                노출이 아니라,
                 <br />
-                모두 우리 안에.
+                예약으로 증명합니다.
               </>
             }
           />
           <Reveal delay={150} className="max-w-sm">
             <p className="text-sm leading-relaxed text-muted">
-              음향·조명 장비를 직접 보유하고, 기획·연출·운영 전 스태프가 당사
-              직속으로 움직입니다. 외주로 흩어지지 않는 한 팀의 완성도.
+              웨딩홀 한 분야에만 집중합니다. 촬영·콘텐츠·광고를 자사 팀이 직접
+              운영하고, 상담 문의와 예약 계약까지 숫자로 책임집니다.
             </p>
           </Reveal>
         </div>

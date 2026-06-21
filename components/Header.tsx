@@ -123,7 +123,7 @@ export function Header() {
                 : "border-line-strong text-paper hover:border-gold hover:text-gold"
             }`}
           >
-            프로젝트 의뢰
+            마케팅 문의
             <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </nav>
@@ -182,7 +182,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3.5 text-sm font-medium text-white"
           >
-            프로젝트 의뢰하기
+            마케팅 문의하기
           </Link>
         </nav>
       </div>

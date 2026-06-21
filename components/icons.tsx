@@ -256,20 +256,46 @@ export function IconEducation(props: IconProps) {
   );
 }
 
+export function IconSearch(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="m16 16 4.5 4.5" />
+    </svg>
+  );
+}
+
+export function IconHeart(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 20.3 4.2 12.5a4.6 4.6 0 0 1 6.5-6.5l1.3 1.3 1.3-1.3a4.6 4.6 0 0 1 6.5 6.5L12 20.3Z" />
+    </svg>
+  );
+}
+
+export function IconChart(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 4v15.5a.5.5 0 0 0 .5.5H20" />
+      <path d="M7.5 16.5v-3M11.5 16.5V9M15.5 16.5v-5M19 16.5V6.5" />
+    </svg>
+  );
+}
+
 const serviceIconMap = {
-  corporate: IconConference,
-  festival: IconFestival,
+  search: IconSearch,
+  blog: IconDoc,
+  sns: Instagram,
+  ad: IconChart,
+  content: IconImage,
   brand: IconBrand,
-  operation: IconProtocol,
-  photobooth: IconPhotoBooth,
-  education: IconEducation,
 } as const;
 
 const strengthIconMap = {
-  equipment: IconCase,
-  operator: IconFaders,
-  staff: IconTeam,
-  onestop: IconHub,
+  wedding: IconHeart,
+  data: IconChart,
+  inhouse: IconTeam,
+  conversion: IconHub,
 } as const;
 
 export function StrengthIcon({

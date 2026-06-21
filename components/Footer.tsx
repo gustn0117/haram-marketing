@@ -9,17 +9,17 @@ export function Footer() {
         {/* CTA band */}
         <div className="flex flex-col gap-8 border-b border-line py-16 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-4">
-            <span className="eyebrow text-lg">Let&apos;s create something memorable</span>
+            <span className="eyebrow text-lg">Let&apos;s fill your wedding hall</span>
             <h2 className="font-serif text-3xl leading-tight sm:text-4xl text-balance">
-              다음 행사, <span className="gold-text">하람파트너스</span>와
-              <br className="hidden sm:block" /> 함께 만들어보세요.
+              우리 예식장 마케팅, <span className="gold-text">하람마케팅</span>과
+              <br className="hidden sm:block" /> 함께 시작해보세요.
             </h2>
           </div>
           <Link
             href="/contact"
             className="group inline-flex w-fit items-center gap-3 rounded-sm bg-gold px-7 py-4 text-sm font-medium text-white transition-colors duration-500 hover:bg-gold-deep"
           >
-            프로젝트 의뢰하기
+            무료 진단 신청하기
             <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
