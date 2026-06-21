@@ -12,6 +12,7 @@ import { Reveal } from "@/components/Reveal";
 import { Strengths } from "@/components/Strengths";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
+import { Cover } from "@/components/Cover";
 import { ArrowUpRight, ArrowRight } from "@/components/icons";
 
 const faqJsonLd = {
@@ -27,6 +28,7 @@ const faqJsonLd = {
 export default function HomePage() {
   return (
     <>
+      <Cover />
       <JsonLd data={faqJsonLd} />
       {/* ───────────────── Hero — 좌측 에디토리얼 (정적) ───────────────── */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-ink pt-24 pb-20">
