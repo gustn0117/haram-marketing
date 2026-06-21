@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { company, contactFlow, faqs } from "@/lib/content";
+import { company, contactFlow, faqs, heroImage } from "@/lib/content";
 import { Container, SectionHeading } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
@@ -10,7 +10,7 @@ import { MapPin, Phone, Clock } from "@/components/icons";
 export const metadata: Metadata = {
   title: "문의",
   description:
-    "하람파트너스에 행사기획·운영을 문의하세요. 전화 또는 문의 폼으로 남겨주시면 영업일 기준 1일 이내에 담당 기획자가 회신드립니다.",
+    "하람마케팅에 웨딩홀 마케팅을 문의하세요. 전화 또는 문의 폼으로 남겨주시면 영업일 기준 1일 이내에 담당 마케터가 무료 진단과 함께 회신드립니다.",
   alternates: { canonical: "/contact" },
 };
 
@@ -32,13 +32,13 @@ export default function ContactPage() {
         eyebrow="GET IN TOUCH"
         title={
           <>
-            행사의 시작은
+            예식장 마케팅의 시작은
             <br />
             <span className="text-white">한 통의 문의</span>입니다.
           </>
         }
-        description="기획 단계부터 함께합니다. 행사에 대한 간단한 정보만 남겨주시면 담당 기획자가 맞춤 제안을 드립니다."
-        backgroundImage="/contact/hero.png"
+        description="진단 단계부터 함께합니다. 예식장에 대한 간단한 정보만 남겨주시면 담당 마케터가 무료 진단과 맞춤 제안을 드립니다."
+        backgroundImage={heroImage}
       />
 
       <section className="py-20 md:py-28">
@@ -86,7 +86,7 @@ export default function ContactPage() {
         <Container>
           <SectionHeading
             eyebrow="HOW IT WORKS"
-            title="문의부터 행사까지, 이렇게 진행됩니다"
+            title="문의부터 예약까지, 이렇게 진행됩니다"
           />
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {contactFlow.map((step) => (

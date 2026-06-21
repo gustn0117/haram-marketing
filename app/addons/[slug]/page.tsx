@@ -2,21 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { addons, faqs, siteUrl } from "@/lib/content";
+import { addons, faqs, siteUrl, addonImages } from "@/lib/content";
 import { Container, CTAButton, SectionHeading } from "@/components/ui";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { ArrowLeft, Plus } from "@/components/icons";
 
 type Params = { slug: string };
-
-const addonHeroImages: Record<string, string> = {
-  web: "/addons/detail/web.png",
-  venue: "/addons/detail/venue.png",
-  marketing: "/addons/detail/marketing.png",
-  media: "/addons/detail/media.png",
-  print: "/addons/detail/print.png",
-};
 
 export function generateStaticParams() {
   return addons.map((a) => ({ slug: a.id }));
@@ -29,7 +21,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const addon = addons.find((a) => a.id === slug);
-  if (!addon) return { title: "부가서비스" };
+  if (!addon) return { title: "지원서비스" };
   return {
     title: addon.name,
     description: addon.description,
@@ -47,7 +39,7 @@ export default async function AddonDetailPage({
   if (!addon) notFound();
 
   const { name, tagline, description } = addon;
-  const heroImage = addonHeroImages[addon.id];
+  const heroImage = addonImages[addon.id];
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -57,7 +49,7 @@ export default async function AddonDetailPage({
       {
         "@type": "ListItem",
         position: 2,
-        name: "부가서비스",
+        name: "지원서비스",
         item: `${siteUrl}/addons`,
       },
       {
@@ -76,7 +68,7 @@ export default async function AddonDetailPage({
       <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-paper pt-32 pb-14 md:min-h-[54vh] md:pb-20">
         <Image
           src={heroImage}
-          alt={`${name} — 하람파트너스 부가서비스`}
+          alt={`${name} — 하람마케팅 지원서비스`}
           fill
           priority
           sizes="100vw"
@@ -97,7 +89,7 @@ export default async function AddonDetailPage({
             className="inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            부가서비스 전체
+            지원서비스 전체
           </Link>
           <div className="mt-6 flex max-w-2xl flex-col gap-5">
             <span className="font-display text-sm tracking-wide text-white/70">
@@ -191,10 +183,10 @@ export default async function AddonDetailPage({
         <Container>
           <div className="flex flex-col items-center gap-7 text-center">
             <h2 className="max-w-2xl font-serif text-3xl leading-tight sm:text-4xl text-balance">
-              {name}, 하람파트너스와 함께하세요.
+              {name}, 하람마케팅과 함께하세요.
             </h2>
             <p className="max-w-md text-base leading-relaxed text-muted">
-              행사 기획과 묶어 한 번에 진행할 수 있습니다. 필요한 구성을
+              마케팅 운영과 묶어 한 번에 진행할 수 있습니다. 필요한 구성을
               알려주시면 맞춤 제안과 견적을 보내드립니다.
             </p>
             <CTAButton href="/contact">상담·견적 신청하기</CTAButton>

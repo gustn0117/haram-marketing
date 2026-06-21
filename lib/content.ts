@@ -672,3 +672,11 @@ export const offeringImages: Record<string, string> = {
   content: U("1492691527719-9d1e07e534b4", 1100),
   brand: U("1522199755839-a2bacb67c546", 1100),
 };
+
+export const addonImages: Record<string, string> = {
+  web: U("1467232004584-a241de8bcf5d", 1100),
+  venue: U("1454165804606-c3d57bc86b40", 1100),
+  marketing: U("1551288049-bebda4e38f71", 1100),
+  media: U("1519741497674-611481863552", 1100),
+  print: U("1606107557195-0e29a4b5b4aa", 1100),
+};

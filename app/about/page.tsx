@@ -6,7 +6,9 @@ import {
   aboutStory,
   departments,
   equipment,
+  metrics,
   faqs,
+  aboutImage,
 } from "@/lib/content";
 import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -18,7 +20,7 @@ import { Quote } from "@/components/icons";
 export const metadata: Metadata = {
   title: "회사소개",
   description:
-    "행사기획 전문 하람파트너스의 운영 철학과 조직, 자체 보유 장비 이야기. 장비도 사람도 모두 당사 안에서, 기획부터 현장 운영까지 직접 책임집니다.",
+    "웨딩홀 마케팅 전문 하람마케팅의 운영 철학과 조직, 운영 채널 이야기. 촬영·콘텐츠·광고를 모두 자사 팀이 직접 운영하며, 노출에서 끝나지 않고 예약까지 책임집니다.",
   alternates: { canonical: "/about" },
 };
 
@@ -26,16 +28,16 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="ABOUT HARAM PARTNERS"
+        eyebrow="ABOUT HARAM MARKETING"
         title={
           <>
-            행사의 격은
+            마케팅의 끝은
             <br />
-            <span className="text-white">디테일</span>에서 완성됩니다.
+            <span className="text-white">예약</span>이라 믿습니다.
           </>
         }
         description={company.intro}
-        backgroundImage="/about/hero.png"
+        backgroundImage={aboutImage}
       />
 
       {/* Mission statement */}
@@ -48,13 +50,13 @@ export default function AboutPage() {
             <Reveal delay={120} className="flex flex-col gap-8">
               <Quote className="h-10 w-10 text-gold/40" />
               <p className="font-serif text-2xl leading-[1.6] sm:text-3xl sm:leading-[1.55] text-balance">
-                우리는 행사를 &lsquo;진행&rsquo;하지 않습니다.
+                우리는 &lsquo;노출&rsquo;을 팔지 않습니다.
                 <span className="text-muted">
                   {" "}
-                  브랜드의 메시지가 사람의 마음에 닿는 순간을 설계하고, 그 순간이
-                  완벽하게 작동하도록{" "}
+                  신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이
+                  예약으로 이어지도록{" "}
                 </span>
-                보이지 않는 모든 것을 준비합니다.
+                보이지 않는 모든 동선을 준비합니다.
               </p>
               <p className="text-sm text-faint">
                 — {company.nameKo} 대표 {company.ceo}
@@ -93,18 +95,18 @@ export default function AboutPage() {
       {/* Strengths */}
       <Strengths background="plain" id="strengths" />
 
-      {/* Equipment / 자체 보유 장비 */}
+      {/* Channels / 운영 채널·역량 + 성과 지표 */}
       <section
         id="equipment"
         className="scroll-mt-20 border-b border-line bg-ink-2 py-24 md:py-32"
       >
         <Container>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="OUR EQUIPMENT" title="자체 보유 장비" />
+            <SectionHeading eyebrow="OUR CHANNELS" title="운영 채널·역량" />
             <Reveal delay={150} className="max-w-md">
               <p className="text-sm leading-relaxed text-muted">
-                음향·조명 핵심 장비를 직접 보유합니다. 외주 렌탈 없이 검증된
-                장비를 행사에 바로 투입하고, 자사 오퍼레이터가 직접 운용합니다.
+                신랑신부가 예식장을 찾는 모든 채널을 직접 운영합니다. 검색·플레이스부터
+                블로그·SNS·숏폼까지, 자사 콘텐츠팀이 만든 콘텐츠로 채웁니다.
               </p>
             </Reveal>
           </div>
@@ -115,12 +117,12 @@ export default function AboutPage() {
                 delay={i * 90}
                 className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface"
               >
-                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-line bg-surface p-6">
+                <div className="aspect-[4/3] overflow-hidden border-b border-line bg-surface">
                   <img
                     src={item.image}
                     alt={item.name}
                     loading="lazy"
-                    className="mx-auto max-h-full max-w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <div className="flex flex-col gap-2 p-7">
@@ -132,6 +134,27 @@ export default function AboutPage() {
                     {item.description}
                   </p>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* 성과 지표 */}
+          <div className="mt-5 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {metrics.map((m, i) => (
+              <Reveal
+                key={m.label}
+                delay={i * 70}
+                className="flex flex-col gap-2 bg-surface p-8 text-center"
+              >
+                <span className="font-display text-4xl text-gold sm:text-5xl">
+                  {m.value}
+                  {m.suffix ? (
+                    <span className="text-2xl sm:text-3xl">{m.suffix}</span>
+                  ) : null}
+                </span>
+                <span className="text-xs leading-relaxed text-muted">
+                  {m.label}
+                </span>
               </Reveal>
             ))}
           </div>
@@ -148,8 +171,8 @@ export default function AboutPage() {
             <SectionHeading eyebrow="OUR TEAM" title="조직도" />
             <Reveal delay={150} className="max-w-md">
               <p className="text-sm leading-relaxed text-muted">
-                기획부터 연출, 기술, 현장 운영까지 — 행사에 필요한 모든 조직을
-                당사 안에 두고, 전 스태프가 직속으로 움직입니다. 외주로
+                전략부터 콘텐츠 제작, 광고·DB 운영까지 — 마케팅에 필요한 모든
+                조직을 당사 안에 두고, 전 스태프가 직속으로 움직입니다. 외주로
                 흩어지지 않는 한 팀의 완성도를 만듭니다.
               </p>
             </Reveal>
@@ -255,10 +278,10 @@ export default function AboutPage() {
           <Reveal className="flex flex-col items-center gap-8 text-center">
             <SectionHeading
               align="center"
-              title="함께 만들 행사가 있으신가요?"
+              title="우리 예식장, 어디서부터 시작할까요?"
               className="mx-auto max-w-xl"
             />
-            <CTAButton href="/contact">프로젝트 문의하기</CTAButton>
+            <CTAButton href="/contact">무료 진단 신청하기</CTAButton>
           </Reveal>
         </Container>
       </section>

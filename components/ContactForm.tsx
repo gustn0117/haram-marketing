@@ -55,7 +55,7 @@ export function ContactForm() {
         </span>
         <h3 className="font-serif text-2xl">문의가 접수되었습니다</h3>
         <p className="max-w-sm text-sm leading-relaxed text-muted">
-          담당 기획자가 영업일 기준 1일 이내에 남겨주신 연락처로 회신드리겠습니다.
+          담당 마케터가 영업일 기준 1일 이내에 남겨주신 연락처로 회신드리겠습니다.
           감사합니다.
         </p>
         <button
@@ -84,7 +84,7 @@ export function ContactForm() {
             className="form-input"
           />
         </Field>
-        <Field label="회사·단체명" htmlFor="company">
+        <Field label="예식장·업체명" htmlFor="company">
           <input
             id="company"
             name="company"
@@ -103,7 +103,7 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Field label="행사 유형" htmlFor="type">
+      <Field label="관심 서비스" htmlFor="type">
         <div className="flex flex-wrap gap-2">
           {services.map((s) => (
             <button
@@ -133,13 +133,13 @@ export function ContactForm() {
         </select>
       </Field>
 
-      <Field label="프로젝트 내용" htmlFor="message">
+      <Field label="문의 내용" htmlFor="message">
         <textarea
           id="message"
           name="message"
           rows={5}
           required
-          placeholder="행사 일정, 규모, 장소, 원하시는 방향 등을 자유롭게 적어주세요."
+          placeholder="예식장 위치·규모, 현재 마케팅 상황, 원하시는 방향 등을 자유롭게 적어주세요."
           className="form-input resize-none"
         />
       </Field>

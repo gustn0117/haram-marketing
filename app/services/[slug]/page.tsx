@@ -2,22 +2,21 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { services, processSteps, faqs, siteUrl, type Service } from "@/lib/content";
+import {
+  services,
+  processSteps,
+  faqs,
+  siteUrl,
+  company,
+  offeringImages,
+  type Service,
+} from "@/lib/content";
 import { Container, CTAButton, SectionHeading } from "@/components/ui";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { ArrowLeft, Plus } from "@/components/icons";
 
 type Params = { slug: string };
-
-const serviceHeroImages: Record<string, string> = {
-  corporate: "/services/hero/corporate.png",
-  festival: "/services/hero/festival.png",
-  brand: "/services/hero/brand.png",
-  operation: "/services/hero/operation.png",
-  photobooth: "/services/hero/photobooth.png",
-  education: "/services/hero/education.png",
-};
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.id }));
@@ -48,7 +47,7 @@ export default async function OfferingDetailPage({
   if (!service) notFound();
 
   const { title, tagline, description } = service;
-  const heroImage = serviceHeroImages[service.id];
+  const heroImage = offeringImages[service.id];
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -76,7 +75,7 @@ export default async function OfferingDetailPage({
     name: title,
     serviceType: title,
     description,
-    provider: { "@type": "Organization", name: "하람파트너스", url: siteUrl },
+    provider: { "@type": "Organization", name: company.nameKo, url: siteUrl },
     areaServed: "KR",
     url: `${siteUrl}/services/${service.id}`,
   };
@@ -89,7 +88,7 @@ export default async function OfferingDetailPage({
       <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-paper pt-32 pb-14 md:min-h-[54vh] md:pb-20">
         <Image
           src={heroImage}
-          alt={`${title} 행사기획 — 하람파트너스`}
+          alt={`${title} — 하람마케팅 웨딩홀 마케팅`}
           fill
           priority
           sizes="100vw"
@@ -143,10 +142,10 @@ export default async function OfferingDetailPage({
         <Container>
           <div className="flex flex-col items-center gap-7 text-center">
             <h2 className="max-w-2xl font-serif text-3xl leading-tight sm:text-4xl text-balance">
-              {title}, 하람파트너스와 함께하세요.
+              {title}, 하람마케팅과 함께하세요.
             </h2>
             <p className="max-w-md text-base leading-relaxed text-muted">
-              간단한 정보만 남겨주시면 담당 기획자가 맞춤 제안과 견적을
+              간단한 정보만 남겨주시면 담당 마케터가 맞춤 제안과 견적을
               보내드립니다.
             </p>
             <CTAButton href="/contact">견적·상담 신청하기</CTAButton>

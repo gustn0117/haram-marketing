@@ -1,39 +1,31 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { addons } from "@/lib/content";
+import { addons, addonImages, aboutImage } from "@/lib/content";
 import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import {
   IconWeb,
   IconDoc,
-  MapPin,
-  IconBrand,
+  IconSearch,
+  IconChart,
   IconPhotoBooth,
   ArrowUpRight,
 } from "@/components/icons";
 
 const addonIcons = {
   web: IconWeb,
-  venue: MapPin,
-  marketing: IconBrand,
+  venue: IconSearch,
+  marketing: IconChart,
   media: IconPhotoBooth,
   print: IconDoc,
 } as const;
 
-const addonCardImages: Record<string, string> = {
-  web: "/addons/detail/web.png",
-  venue: "/addons/detail/venue.png",
-  marketing: "/addons/detail/marketing.png",
-  media: "/addons/detail/media.png",
-  print: "/addons/detail/print.png",
-};
-
 export const metadata: Metadata = {
-  title: "부가서비스",
+  title: "지원서비스",
   description:
-    "홈페이지 제작, 장소 섭외·대관, 마케팅·홍보, 사진·영상, 인쇄물까지. 행사 준비부터 마무리까지 필요한 부가서비스를 함께 제공합니다.",
+    "예약 홈페이지·랜딩 제작, 마케팅 진단·컨설팅, 상담 DB·예약 전환 관리, 웨딩 촬영·릴스, 박람회 부스·인쇄물까지. 웨딩홀 마케팅에 필요한 지원 서비스를 함께 제공합니다.",
   alternates: { canonical: "/addons" },
 };
 
@@ -44,19 +36,19 @@ export default function AddonsPage() {
         eyebrow="ADD-ON SERVICES"
         title={
           <>
-            행사를 둘러싼
+            마케팅을 둘러싼
             <br />
             <span className="text-white">모든 것까지.</span>
           </>
         }
-        description="행사 그 자체를 넘어, 준비부터 마무리까지 필요한 일들을 함께 해결해 드립니다. 행사 기획과 묶어 한 번에 진행할 수 있습니다."
-        backgroundImage="/addons/hero.png"
+        description="마케팅 그 자체를 넘어, 진단부터 예약 전환까지 필요한 일들을 함께 해결해 드립니다. 마케팅 운영과 묶어 한 번에 진행할 수 있습니다."
+        backgroundImage={aboutImage}
       />
 
       {/* Add-on services */}
       <section className="border-b border-line py-20 md:py-28">
         <Container>
-          <SectionHeading eyebrow="WHAT WE OFFER" title="부가서비스 영역" />
+          <SectionHeading eyebrow="WHAT WE OFFER" title="지원서비스 영역" />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {addons.map((a, i) => {
               const Icon = addonIcons[a.icon];
@@ -68,7 +60,7 @@ export default function AddonsPage() {
                   >
                     <div className="relative aspect-[16/10] overflow-hidden border-b border-line">
                       <Image
-                        src={addonCardImages[a.id]}
+                        src={addonImages[a.id]}
                         alt=""
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -109,7 +101,7 @@ export default function AddonsPage() {
               필요한 구성을 함께 정리해 드립니다
             </h2>
             <p className="max-w-md text-base leading-relaxed text-muted">
-              행사 기획과 부가서비스를 어떻게 묶을지 막막하시면, 목적만 알려주세요.
+              마케팅 운영과 지원서비스를 어떻게 묶을지 막막하시면, 목표만 알려주세요.
               맞춤으로 제안과 견적을 보내드립니다.
             </p>
             <CTAButton href="/contact">상담·견적 신청하기</CTAButton>
