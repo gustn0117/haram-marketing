@@ -1,45 +1,47 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap");
 @import "tailwindcss";
 
 @theme {
-  /* Light palette — neutral white/gray canvas, near-black ink, navy accent */
-  --color-ink: #ffffff;
-  --color-ink-2: #f4f5f7;
-  --color-surface: #ffffff;
-  --color-surface-2: #eceef1;
-  --color-line: rgba(17, 24, 39, 0.1);
-  --color-line-strong: rgba(17, 24, 39, 0.18);
+  /* ── Noir Atelier — 다크 차콜 캔버스 + 샴페인 골드 + 로즈 ── */
+  --color-ink: #14110f; /* 메인 배경 — 따뜻한 차콜 */
+  --color-ink-2: #1b1714; /* 교차 섹션 배경 (살짝 들림) */
+  --color-surface: #1f1a16; /* 카드 배경 */
+  --color-surface-2: #2a2420; /* 한 단계 밝은 표면 */
+  --color-line: rgba(237, 230, 219, 0.1); /* 다크 위 헤어라인 */
+  --color-line-strong: rgba(237, 230, 219, 0.22);
 
-  /* 포인트색: 검정에 가까운 아주 짙은 남색 — 밝은 배경에서만 사용 (이름은 호환을 위해 gold 유지) */
-  --color-gold: #0d1b2e; /* 메인 — 흰 배경 위 텍스트·버튼 채움 */
-  --color-gold-bright: #1e3a5f; /* 보조 남색 (밝은 배경용) */
-  --color-gold-deep: #213b5e; /* 버튼 호버 (살짝 밝게 떠 보이도록) */
+  /* 포인트색: 샴페인 골드 (이름은 호환을 위해 gold 유지) */
+  --color-gold: #c9a86a; /* 메인 — 샴페인 골드 */
+  --color-gold-bright: #dcc189; /* 밝은 샴페인 (강조) */
+  --color-gold-deep: #b8965a; /* 버튼 호버 (살짝 가라앉게) */
+  --color-rose: #b98a7a; /* 보조 — 로즈 */
 
-  --color-paper: #181a1d;
-  --color-muted: #565b64;
-  --color-faint: #99a0a8;
-
+  --color-paper: #ede6db; /* 본문 — 따뜻한 오프화이트 */
+  --color-muted: #a89d8e; /* 보조 텍스트 */
+  --color-faint: #6e655b; /* 약한 텍스트 */
 
   --font-sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui,
     sans-serif;
-  /* Single sans family throughout — clean, modern, not "luxury" */
-  --font-serif: var(--font-sans);
-  --font-display: var(--font-sans);
+  /* 제목: 명조 세리프(국문 Noto Serif KR + 라틴 Cormorant) — 에디토리얼 웨딩 무드 */
+  --font-serif: "Cormorant Garamond", "Noto Serif KR", var(--font-sans);
+  /* 라벨/숫자: 라틴 세리프로 디테일에 운치 */
+  --font-display: "Cormorant Garamond", "Noto Serif KR", var(--font-sans);
 
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* 각진 인상 — 라운딩 최소화 (rounded-full 은 점·글로우 원형용으로 유지) */
-  --radius-xs: 1px;
-  --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
-  --radius-xl: 2px;
-  --radius-2xl: 2px;
-  --radius-3xl: 3px;
+  /* 부드러운 라운딩 — 정제된 럭셔리 무드 (각진 하람파트너스와 대비) */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 9px;
+  --radius-lg: 13px;
+  --radius-xl: 17px;
+  --radius-2xl: 20px;
+  --radius-3xl: 28px;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 * {
@@ -63,18 +65,38 @@ body {
 
 ::selection {
   background: var(--color-gold);
-  color: #ffffff;
+  color: #14110f;
 }
 
-/* Atmospheric grain overlay */
+/* Atmospheric grain overlay — 다크에서 살짝 더 보이게 */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.02;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* 상단 은은한 샴페인 광원 — 다크 캔버스에 깊이 부여 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      120% 80% at 50% -10%,
+      rgba(201, 168, 106, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      90% 60% at 85% 110%,
+      rgba(185, 138, 122, 0.06),
+      transparent 55%
+    );
 }
 
 /* ---------- 한글 워드랩(어절 단위 줄바꿈) ----------
@@ -93,16 +115,18 @@ body::before {
 }
 
 /* ---------- Typography helpers ---------- */
-/* Headings: same sans family, heavier weight + tight tracking for presence */
+/* 제목: 명조 세리프 — Cormorant(라틴) + Noto Serif KR(국문) 글리프 폴백.
+   국문은 600, 라틴은 high-contrast 세리프라 살짝 가볍게 보여 균형이 맞음. */
 .font-serif {
   font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
+/* 라벨·대형 숫자: 라틴 세리프로 운치 (영문/숫자 위주) */
 .font-display {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .eyebrow {
@@ -236,8 +260,8 @@ body::before {
 .form-input {
   width: 100%;
   border: 1px solid var(--color-line);
-  background: rgba(17, 24, 39, 0.02);
-  border-radius: 2px;
+  background: rgba(237, 230, 219, 0.04);
+  border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
   color: var(--color-paper);
@@ -251,14 +275,18 @@ body::before {
 .form-input:focus {
   outline: none;
   border-color: var(--color-gold);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.15);
+  background: rgba(237, 230, 219, 0.07);
+  box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.16);
 }
 
-/* Card hover — flat, border-only emphasis (no shadow) */
+/* Card hover — 다크 위 샴페인 보더 + 미세한 리프트 */
 .card-hover {
-  transition: border-color 0.4s var(--ease-out-soft);
+  transition: border-color 0.5s var(--ease-out-soft),
+    transform 0.5s var(--ease-out-soft),
+    box-shadow 0.5s var(--ease-out-soft);
 }
 .card-hover:hover {
-  border-color: var(--color-line-strong);
+  border-color: rgba(201, 168, 106, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px -28px rgba(0, 0, 0, 0.7);
 }

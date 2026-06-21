@@ -125,7 +125,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d1b2e",
+  themeColor: "#14110f",
 };
 
 export default function RootLayout({
@@ -139,6 +139,12 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://cdn.jsdelivr.net"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
         <script

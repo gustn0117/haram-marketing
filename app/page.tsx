@@ -22,61 +22,85 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqJsonLd} />
-      {/* ───────────────── Hero ───────────────── */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-paper">
+      {/* ───────────────── Hero — Noir Atelier ───────────────── */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-ink pt-24 pb-28 md:pb-32">
         <Image
           src={heroImage}
           alt="하람마케팅 웨딩홀 마케팅 — 예식장 전경"
           fill
           priority
           sizes="100vw"
-          className="absolute inset-0 object-cover"
+          className="drift absolute inset-0 object-cover"
         />
-        <div className="absolute inset-0 bg-black/55" aria-hidden />
+        {/* 좌측 가독성 + 다크 무드 그라데이션 */}
         <div
-          className="absolute inset-0 bg-linear-to-b from-black/45 via-transparent to-black/75"
+          className="absolute inset-0 bg-linear-to-r from-ink via-ink/85 to-ink/30"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-linear-to-r from-black/35 via-transparent to-black/35"
+          className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/60"
           aria-hidden
         />
 
-        <Container className="relative z-2 text-center">
-          <div className="mx-auto flex w-full min-w-0 max-w-3xl flex-col items-center gap-7">
-            <p
-              className="rise w-full min-w-0 break-normal text-xs font-semibold uppercase tracking-[0.18em] text-white/70"
+        {/* 샴페인 헤어라인 인셋 프레임 (시그니처) */}
+        <div
+          className="pointer-events-none absolute inset-4 z-2 rounded-2xl border sm:inset-6 md:inset-8"
+          style={{ borderColor: "rgba(201, 168, 106, 0.28)" }}
+          aria-hidden
+        />
+
+        {/* 우측 세로 라벨 */}
+        <span
+          className="rise pointer-events-none absolute right-9 top-1/2 z-2 hidden -translate-y-1/2 rotate-90 font-display text-xs uppercase tracking-[0.5em] text-gold/70 lg:block"
+          style={{ animationDelay: "900ms" }}
+        >
+          Est. — Wedding Hall Marketing
+        </span>
+
+        <Container className="relative z-3">
+          <div className="flex w-full min-w-0 max-w-3xl flex-col gap-8">
+            {/* eyebrow + 헤어라인 */}
+            <div
+              className="rise flex items-center gap-4"
               style={{ animationDelay: "120ms" }}
             >
-              WEDDING HALL MARKETING
-            </p>
-            <h1 className="rise font-serif w-full min-w-0 text-[2.4rem] leading-[1.15] text-white sm:text-5xl md:text-[4rem] md:leading-[1.05] md:whitespace-nowrap text-balance" style={{ animationDelay: "220ms" }}>
-              예식장을 예약으로 채웁니다.
-            </h1>
-            <p
-              className="rise w-full max-w-[21rem] break-normal text-base leading-relaxed text-white/80 sm:max-w-xl sm:text-lg"
-              style={{ animationDelay: "520ms" }}
+              <span className="h-px w-12 bg-gold/70" />
+              <p className="min-w-0 text-xs font-semibold uppercase tracking-[0.32em] text-gold">
+                Wedding Hall Marketing
+              </p>
+            </div>
+
+            <h1
+              className="rise font-serif min-w-0 break-normal text-[2.9rem] leading-[1.06] text-paper sm:text-6xl md:text-[5rem] md:leading-[0.98]"
+              style={{ animationDelay: "240ms" }}
             >
-              <span className="block">검색 노출부터 상담 예약까지 —</span>
-              <span className="block">
-                웨딩홀 마케팅의 모든 단계를 하나의 흐름으로
-                완성합니다.
-              </span>
+              비어 있는 홀을
+              <br />
+              <span className="text-gold">예약</span>으로 채웁니다.
+            </h1>
+
+            <p
+              className="rise min-w-0 max-w-xl break-normal text-base leading-[1.8] text-paper/75 sm:text-lg"
+              style={{ animationDelay: "560ms" }}
+            >
+              검색 노출부터 상담 예약까지 — 예식장만 전문으로,
+              <br className="hidden sm:block" /> 웨딩홀 마케팅의 모든 단계를 하나의 흐름으로 완성합니다.
             </p>
+
             <div
-              className="rise flex w-full max-w-[21rem] min-w-0 flex-col items-center justify-center gap-4 pt-2 sm:max-w-none sm:flex-row"
-              style={{ animationDelay: "660ms" }}
+              className="rise flex w-full max-w-md flex-col gap-4 pt-2 sm:max-w-none sm:flex-row sm:items-center"
+              style={{ animationDelay: "700ms" }}
             >
               <Link
                 href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-3 rounded-sm bg-white px-7 py-3.5 text-sm font-medium tracking-tight text-gold transition-colors duration-500 hover:bg-white/90 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-3 rounded-sm bg-gold px-8 py-4 text-sm font-medium tracking-tight text-ink transition-colors duration-500 hover:bg-gold-bright sm:w-auto"
               >
                 무료 마케팅 진단
                 <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/services"
-                className="group inline-flex w-full items-center justify-center gap-3 rounded-sm border border-white/45 px-7 py-3.5 text-sm font-medium tracking-tight text-white transition-colors duration-500 hover:border-white hover:bg-white/10 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-3 rounded-sm border border-gold/40 px-8 py-4 text-sm font-medium tracking-tight text-paper transition-colors duration-500 hover:border-gold hover:text-gold sm:w-auto"
               >
                 서비스 살펴보기
                 <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
@@ -85,12 +109,19 @@ export default function HomePage() {
           </div>
         </Container>
 
-        {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
-          <span className="text-[0.65rem] font-medium tracking-[0.3em] text-white/60">
-            SCROLL
-          </span>
-          <span className="h-10 w-px bg-linear-to-b from-white/60 to-transparent" />
+        {/* 하단 서비스 마퀴 (시그니처 에디토리얼 스트립) */}
+        <div className="absolute inset-x-0 bottom-0 z-3 overflow-hidden border-t border-gold/15 bg-ink/55 py-4 backdrop-blur-sm">
+          <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap">
+            {[...services, ...services].map((s, i) => (
+              <span
+                key={`${s.id}-${i}`}
+                className="flex items-center gap-10 text-sm tracking-wide text-paper/55"
+              >
+                <span className="font-display text-gold/80">✦</span>
+                <span>{s.title}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

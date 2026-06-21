@@ -85,7 +85,7 @@ export default async function OfferingDetailPage({
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={serviceJsonLd} />
       {/* Header — 배경형 히어로 */}
-      <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-paper pt-32 pb-14 md:min-h-[54vh] md:pb-20">
+      <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-ink pt-32 pb-14 md:min-h-[54vh] md:pb-20">
         <Image
           src={heroImage}
           alt={`${title} — 하람마케팅 웨딩홀 마케팅`}

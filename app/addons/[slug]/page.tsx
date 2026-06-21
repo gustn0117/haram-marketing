@@ -65,7 +65,7 @@ export default async function AddonDetailPage({
     <>
       <JsonLd data={breadcrumbJsonLd} />
       {/* Header — 배경형 히어로 */}
-      <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-paper pt-32 pb-14 md:min-h-[54vh] md:pb-20">
+      <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-ink pt-32 pb-14 md:min-h-[54vh] md:pb-20">
         <Image
           src={heroImage}
           alt={`${name} — 하람마케팅 지원서비스`}

@@ -15,7 +15,7 @@ export function PageHero({
   backgroundImage?: string;
 }) {
   return (
-    <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-paper pt-40 pb-14 md:min-h-[56vh] md:pb-20">
+    <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-ink pt-40 pb-14 md:min-h-[56vh] md:pb-20">
       {backgroundImage ? (
         <>
           <Image
