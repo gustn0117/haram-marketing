@@ -4,32 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { company, navLinks, dropdownMenus } from "@/lib/content";
-import { Monogram, Menu, Close, ArrowUpRight } from "@/components/icons";
+import { Menu, Close } from "@/components/icons";
 
 function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-/* 데스크톱(lg+) 상단 고정 내비게이션 바 (높이 5rem) */
+/* 데스크톱(lg+) 상단 미니멀 바 */
 export function SpineRail() {
   const pathname = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50 hidden h-20 border-b border-gold/14 bg-ink/78 backdrop-blur-xl lg:block">
+    <header className="fixed inset-x-0 top-0 z-50 hidden h-20 border-b border-line bg-ink/85 backdrop-blur-xl lg:block">
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-8">
         <Link
           href="/home"
-          className="flex items-center gap-3"
+          className="text-base font-light tracking-tight text-paper"
           aria-label={`${company.nameKo} 홈`}
         >
-          <Monogram className="h-9 w-9 text-gold transition-transform duration-500 hover:rotate-3" />
-          <span className="flex flex-col leading-none">
-            <span className="font-serif text-lg">
-              {company.nameKo}
-            </span>
-            <span className="mt-1 font-display text-[0.6rem] tracking-[0.34em] text-gold/62">
-              PRIVATE VENUE GROWTH
-            </span>
-          </span>
+          {company.nameKo}
         </Link>
 
         <nav className="flex items-center gap-9">
@@ -37,7 +29,7 @@ export function SpineRail() {
             const active = isActive(pathname, l.href);
             const menu = dropdownMenus[l.href];
             const cls = `link-underline text-sm transition-colors ${
-              active ? "text-gold" : "text-paper/66 hover:text-paper"
+              active ? "text-gold" : "text-muted hover:text-paper"
             }`;
             if (menu) {
               return (
@@ -50,12 +42,12 @@ export function SpineRail() {
                     {l.label}
                   </Link>
                   <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                    <div className="w-60 border border-gold/18 bg-ink/96 p-2 shadow-[0_30px_80px_-28px_rgba(0,0,0,0.78)] backdrop-blur-xl">
+                    <div className="w-56 border border-line bg-ink/96 p-2 backdrop-blur-xl">
                       {menu.map((it) => (
                         <Link
                           key={it.href}
                           href={it.href}
-                          className="block px-4 py-2.5 text-sm text-paper/72 transition-colors hover:bg-paper/5 hover:text-gold"
+                          className="block px-4 py-2.5 text-sm text-muted transition-colors hover:text-gold"
                         >
                           {it.label}
                         </Link>
@@ -78,10 +70,9 @@ export function SpineRail() {
           })}
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-[4px] border border-gold/58 px-5 py-2.5 text-sm font-medium text-gold transition-colors duration-500 hover:bg-gold hover:text-ink"
+            className="link-underline text-sm text-gold"
           >
-            프리미엄 진단
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            무료 진단
           </Link>
         </nav>
       </div>
@@ -89,7 +80,7 @@ export function SpineRail() {
   );
 }
 
-/* 모바일(md 이하) — 상단 56px 미니바 + 풀스크린 인덱스 드로어 */
+/* 모바일(md 이하) — 상단 미니바 + 풀스크린 드로어 */
 export function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -114,12 +105,9 @@ export function MobileNav() {
 
   return (
     <div className="lg:hidden">
-      <div className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-gold/14 bg-ink/88 px-5 backdrop-blur-xl">
-        <Link href="/home" className="flex items-center gap-2.5">
-          <Monogram className="h-7 w-7 text-gold" />
-          <span className="font-serif text-sm">
-            {company.nameKo}
-          </span>
+      <div className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-line bg-ink/85 px-5 backdrop-blur-xl">
+        <Link href="/home" className="text-sm font-light tracking-tight text-paper">
+          {company.nameKo}
         </Link>
         <button
           type="button"
@@ -144,7 +132,7 @@ export function MobileNav() {
         }`}
       >
         <nav className="flex min-h-full flex-col gap-1 px-6 pb-12 pt-20">
-          {navLinks.map((l, i) => {
+          {navLinks.map((l) => {
             const active = isActive(pathname, l.href);
             const menu = dropdownMenus[l.href];
             return (
@@ -153,15 +141,12 @@ export function MobileNav() {
                   href={l.href}
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
-                  className="flex items-center gap-4 py-5"
+                  className="block py-5 text-3xl font-light tracking-tight text-paper"
                 >
-                  <span className="folio text-sm text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-serif-display text-3xl">{l.label}</span>
+                  {l.label}
                 </Link>
                 {menu ? (
-                  <div className="flex flex-col gap-1 pb-4 pl-9">
+                  <div className="flex flex-col gap-1 pb-4">
                     {menu.map((it) => (
                       <Link
                         key={it.href}
@@ -180,10 +165,9 @@ export function MobileNav() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-[4px] bg-gold px-6 py-4 text-sm font-medium text-ink"
+            className="link-underline mt-10 inline-block text-base text-gold"
           >
-            프리미엄 진단
-            <ArrowUpRight className="h-4 w-4" />
+            무료 진단 신청 →
           </Link>
         </nav>
       </div>

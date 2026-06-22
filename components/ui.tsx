@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/Reveal";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 
 export function Container({
@@ -132,25 +133,34 @@ export function CTASection({
 }) {
   return (
     <section className="px-6 py-40 md:py-56">
-      <Container size="narrow" className="text-center">
-        <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-          {eyebrow}
-        </span>
-        <h2 className="mx-auto mt-10 max-w-2xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-          {title}
-        </h2>
-        {description ? (
-          <p className="mx-auto mt-7 max-w-md text-sm font-light leading-[1.9] text-muted">
-            {description}
-          </p>
-        ) : null}
-        <Link
-          href={href}
-          className="link-underline mt-12 inline-block text-sm tracking-[0.18em] text-gold"
-        >
-          {label} →
-        </Link>
-      </Container>
+      <Reveal>
+        <Container size="narrow" className="text-center">
+          <span className="hair-line mx-auto mb-14 block w-16" aria-hidden />
+          <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            {eyebrow}
+          </span>
+          <h2 className="mx-auto mt-10 max-w-2xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+            {title}
+          </h2>
+          {description ? (
+            <p className="mx-auto mt-7 max-w-md text-sm font-light leading-[1.9] text-muted">
+              {description}
+            </p>
+          ) : null}
+          <Link
+            href={href}
+            className="link-underline group mt-12 inline-flex items-center gap-2 text-sm tracking-[0.18em] text-gold"
+          >
+            {label}
+            <span
+              aria-hidden
+              className="transition-transform duration-500 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        </Container>
+      </Reveal>
     </section>
   );
 }

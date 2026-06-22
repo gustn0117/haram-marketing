@@ -1,10 +1,12 @@
 import { strengths } from "@/lib/content";
 import { Container } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 
 // 강점 — 중앙 정렬 미니멀 (갤러리 톤)
 export function Strengths({ id }: { id?: string }) {
   return (
     <section id={id} className="scroll-mt-24 px-6 py-28 md:py-44">
+      <Reveal>
       <Container size="narrow">
         <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
           Why Haram
@@ -22,6 +24,7 @@ export function Strengths({ id }: { id?: string }) {
           ))}
         </div>
       </Container>
+      </Reveal>
     </section>
   );
 }

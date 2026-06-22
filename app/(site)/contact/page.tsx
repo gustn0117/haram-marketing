@@ -4,6 +4,7 @@ import { Container } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { FaqList } from "@/components/FaqList";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "문의",
@@ -39,35 +40,37 @@ export default function ContactPage() {
 
       {/* ── 연락처 — 중앙 정렬 텍스트 ── */}
       <section className="px-6 py-28 md:py-44">
-        <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            Contact
-          </p>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12 text-center">
-            {channels.map((ch) => (
-              <div key={ch.label}>
-                <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                  {ch.label}
-                </span>
-                {ch.href ? (
-                  <a
-                    href={ch.href}
-                    className="mt-4 block text-2xl font-light tracking-tight text-paper transition-colors duration-500 hover:text-gold md:text-[1.9rem]"
-                  >
-                    {ch.value}
-                  </a>
-                ) : (
-                  <p className="mt-4 text-2xl font-light tracking-tight text-paper md:text-[1.9rem]">
-                    {ch.value}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
+        <Reveal>
+          <Container size="narrow">
+            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Contact
+            </p>
+            <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12 text-center">
+              {channels.map((ch) => (
+                <div key={ch.label}>
+                  <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                    {ch.label}
+                  </span>
+                  {ch.href ? (
+                    <a
+                      href={ch.href}
+                      className="mt-4 block text-2xl font-light tracking-tight text-paper transition-colors duration-500 hover:text-gold md:text-[1.9rem]"
+                    >
+                      {ch.value}
+                    </a>
+                  ) : (
+                    <p className="mt-4 text-2xl font-light tracking-tight text-paper md:text-[1.9rem]">
+                      {ch.value}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Reveal>
       </section>
 
-      {/* ── 문의 폼 — 중앙 ── */}
+      {/* ── 문의 폼 — 중앙 (즉시 표시, 모션 없음) ── */}
       <section className="px-6 pb-28 md:pb-44">
         <Container size="narrow">
           <div className="mx-auto max-w-xl">
@@ -78,38 +81,42 @@ export default function ContactPage() {
 
       {/* ── 진행 절차 — 6단계, 중앙 미니멀 ── */}
       <section className="px-6 py-28 md:py-44">
-        <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            How it works
-          </p>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
-            {contactFlow.map((step) => (
-              <div key={step.no} className="text-center">
-                <span className="text-sm font-light tracking-[0.2em] text-gold">
-                  {step.no}
-                </span>
-                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                  {step.title}
-                </h3>
-                <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
+        <Reveal>
+          <Container size="narrow">
+            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              How it works
+            </p>
+            <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
+              {contactFlow.map((step) => (
+                <div key={step.no} className="text-center">
+                  <span className="folio text-xs tracking-[0.24em] text-gold">
+                    {step.no}
+                  </span>
+                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                    {step.title}
+                  </h3>
+                  <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Reveal>
       </section>
 
       {/* ── FAQ ── */}
       <section className="px-6 py-28 md:py-44">
-        <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            FAQ
-          </p>
-          <div className="mx-auto mt-16 max-w-2xl">
-            <FaqList items={faqs} />
-          </div>
-        </Container>
+        <Reveal>
+          <Container size="narrow">
+            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              FAQ
+            </p>
+            <div className="mx-auto mt-16 max-w-2xl">
+              <FaqList items={faqs} />
+            </div>
+          </Container>
+        </Reveal>
       </section>
     </>
   );

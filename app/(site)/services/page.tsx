@@ -3,6 +3,7 @@ import Link from "next/link";
 import { services, processSteps } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -28,6 +29,7 @@ export default function ServicesPage() {
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
       <section className="px-6 py-28 md:py-44">
+        <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Services
@@ -37,9 +39,9 @@ export default function ServicesPage() {
               <li key={s.id} className="border-t border-line last:border-b">
                 <Link
                   href={`/services/${s.id}`}
-                  className="group block py-9 text-center transition-colors"
+                  className="svc-row block py-9 text-center"
                 >
-                  <span className="text-2xl font-light tracking-tight text-paper transition-colors duration-500 group-hover:text-gold md:text-[1.9rem]">
+                  <span className="svc-title text-2xl font-light text-paper md:text-[1.9rem]">
                     {s.title}
                   </span>
                   <span className="mt-2 block text-[0.66rem] uppercase tracking-[0.24em] text-faint">
@@ -50,10 +52,12 @@ export default function ServicesPage() {
             ))}
           </ul>
         </Container>
+        </Reveal>
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
       <section className="px-6 py-28 md:py-44">
+        <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Approach
@@ -74,6 +78,7 @@ export default function ServicesPage() {
             ))}
           </div>
         </Container>
+        </Reveal>
       </section>
 
       <CTASection

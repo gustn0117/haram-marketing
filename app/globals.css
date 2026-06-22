@@ -124,15 +124,15 @@ body::after {
 /* ---------- Typography helpers ---------- */
 /* 제목: 명조 세리프 — Cormorant(라틴) + Noto Serif KR(국문) 글리프 폴백.
    Pretendard 산세리프 — 미니멀 프리미엄(MOOD). 자간 타이트, weight 절제. */
+/* 갤러리 미니멀 — 제목도 가벼운 weight (얇은 타이포 원칙) */
 .font-serif {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: -0.02em;
 }
-/* 대형 디스플레이 제목 — 굵고 타이트하게 */
 .font-serif-display {
   font-family: var(--font-serif);
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: -0.035em;
 }
 /* 라벨·숫자: 라이닝/고정폭 숫자 */
@@ -143,11 +143,19 @@ body::after {
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
+/* 섹션 키커 라벨 — 전 페이지 단일 규격 */
 .label {
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
   color: var(--color-gold);
+  font-weight: 500;
+}
+.label-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-faint);
   font-weight: 500;
 }
 
@@ -233,7 +241,8 @@ body::after {
   transform-origin: right;
   transition: transform 0.45s var(--ease-out-soft);
 }
-.link-underline:hover::after {
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -398,6 +407,85 @@ body::after {
 /* 그리드브레이크 overflow 안전장치 */
 .bleed-clip {
   overflow-x: clip;
+}
+
+/* ── 갤러리 미니멀 보강 ── */
+
+/* 서비스 중앙 리스트 행 — hover/focus 시 → 페이드·슬라이드 + 자간 미세 확장 (요소 추가 없음) */
+.svc-row {
+  position: relative;
+}
+.svc-title {
+  display: inline-block;
+  letter-spacing: -0.01em;
+  transition:
+    color 0.5s var(--ease-out-soft),
+    letter-spacing 0.5s var(--ease-out-soft);
+}
+.svc-row:hover .svc-title,
+.svc-row:focus-visible .svc-title {
+  color: var(--color-gold);
+  letter-spacing: 0.014em;
+}
+.svc-title::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.5em;
+  opacity: 0;
+  transform: translateX(-0.35em);
+  color: var(--color-gold);
+  transition:
+    opacity 0.45s var(--ease-out-soft),
+    transform 0.45s var(--ease-out-soft);
+}
+.svc-row:hover .svc-title::after,
+.svc-row:focus-visible .svc-title::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 히어로 스크롤 신호 — 가는 골드 라인 + 하강 점 (사이트 유일한 느린 루프) */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 0.2;
+  }
+}
+.scroll-cue {
+  position: relative;
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, var(--color-gold), transparent);
+}
+.scroll-cue::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 3px;
+  margin-left: -1.5px;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  animation: scroll-cue 2.4s var(--ease-out-soft) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-title,
+  .svc-title::after {
+    transition: none;
+  }
+  .svc-title::after {
+    transform: none;
+  }
+  .scroll-cue::after {
+    animation: none;
+  }
 }
 
 /* Form fields */
