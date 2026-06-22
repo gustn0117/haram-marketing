@@ -4,6 +4,7 @@ import { services, metrics, processSteps } from "@/lib/content";
 import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
+import { GrowthChart, Funnel, ChannelBars } from "@/components/charts";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/home" },
@@ -118,6 +119,37 @@ export default function HomePage() {
             </div>
           </Container>
         </Reveal>
+      </section>
+
+      {/* ── 성과(데이터 시각화) ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Proof
+            </p>
+            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+              노출이 아니라, 숫자로 증명합니다.
+            </h2>
+          </Reveal>
+
+          <Reveal className="mx-auto mt-16 max-w-3xl">
+            <GrowthChart />
+          </Reveal>
+
+          <div className="mt-20 grid gap-14 md:grid-cols-2 md:gap-20">
+            <Reveal>
+              <Funnel />
+            </Reveal>
+            <Reveal>
+              <ChannelBars />
+            </Reveal>
+          </div>
+
+          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 성과는 예식장별로 상이합니다
+          </p>
+        </Container>
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
