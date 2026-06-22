@@ -19,7 +19,7 @@ export default function HomePage() {
           className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.42em] text-gold"
           style={{ animationDelay: "80ms" }}
         >
-          Wedding Hall Marketing · 예식장 전문
+          Wedding Hall Marketing
         </span>
         <h1
           className="rise relative z-2 mt-12 text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.98] tracking-[-0.035em] text-paper"
@@ -37,7 +37,7 @@ export default function HomePage() {
           className="rise relative z-2 mt-9 max-w-md text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
           style={{ animationDelay: "440ms" }}
         >
-          예식장만 전문으로 하는 웨딩홀 마케팅 —
+          오직 예식장을 위한 마케팅.
           <br />
           노출이 아니라, 예약으로 증명합니다.
         </p>
