@@ -14,6 +14,7 @@ export default function HomePage() {
     <>
       {/* ── HERO — 풀스크린, 중앙, 극대 여백 ── */}
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <span className="hero-photo-bg" aria-hidden />
         <span className="hero-glow" aria-hidden />
         <span
           className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.42em] text-gold"

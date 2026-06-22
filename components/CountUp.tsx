@@ -23,8 +23,8 @@ export function CountUp({
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      setN(target);
-      return;
+      const frame = requestAnimationFrame(() => setN(target));
+      return () => cancelAnimationFrame(frame);
     }
 
     const io = new IntersectionObserver(
