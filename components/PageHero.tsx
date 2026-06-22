@@ -1,13 +1,10 @@
 import type { ReactNode } from "react";
-import Image from "next/image";
-import { Container } from "@/components/ui";
 
-// 하위페이지 진입 — 새 홈과 동일한 풀블리드 프리미엄 히어로
+// 하위페이지 진입 — 중앙 정렬 미니멀 히어로 (갤러리 톤)
 export function PageHero({
   eyebrow,
   title,
   description,
-  backgroundImage,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -15,42 +12,27 @@ export function PageHero({
   backgroundImage?: string;
 }) {
   return (
-    <section className="premium-hero relative overflow-hidden">
-      {backgroundImage ? (
-        <Image
-          src={backgroundImage}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      ) : null}
-      <div className="premium-hero-shade absolute inset-0" aria-hidden />
-      <Container
-        size="wide"
-        className="relative z-[2] flex min-h-[calc(60svh-3.5rem)] items-end pb-12 pt-24 lg:min-h-[calc(62svh-5rem)] lg:pb-16 lg:pt-28"
+    <section className="flex min-h-[60svh] flex-col items-center justify-center px-6 pb-16 pt-28 text-center md:min-h-[66svh]">
+      <span
+        className="rise text-[0.72rem] uppercase tracking-[0.4em] text-gold"
+        style={{ animationDelay: "60ms" }}
       >
-        <div className="max-w-4xl">
-          <span className="label rise text-gold" style={{ animationDelay: "60ms" }}>
-            {eyebrow}
-          </span>
-          <h1
-            className="rise mt-5 font-serif-display text-[clamp(2.6rem,7vw,5.6rem)] leading-[0.98] text-paper"
-            style={{ animationDelay: "150ms" }}
-          >
-            {title}
-          </h1>
-          {description ? (
-            <p
-              className="rise mt-6 max-w-2xl text-base leading-[1.85] text-paper/80 md:text-lg"
-              style={{ animationDelay: "250ms" }}
-            >
-              {description}
-            </p>
-          ) : null}
-        </div>
-      </Container>
+        {eyebrow}
+      </span>
+      <h1
+        className="rise mt-10 max-w-4xl text-[clamp(2.4rem,6vw,5rem)] font-light leading-[1.04] tracking-[-0.03em] text-paper"
+        style={{ animationDelay: "160ms" }}
+      >
+        {title}
+      </h1>
+      {description ? (
+        <p
+          className="rise mt-8 max-w-xl text-base font-light leading-[1.85] text-muted"
+          style={{ animationDelay: "260ms" }}
+        >
+          {description}
+        </p>
+      ) : null}
     </section>
   );
 }

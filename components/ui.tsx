@@ -1,7 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { ReactNode } from "react";
-import { offeringImages } from "@/lib/content";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 
 export function Container({
@@ -117,14 +115,13 @@ export function SectionHeading({
   );
 }
 
-// 페이지 하단 마무리 CTA — 새 홈과 동일한 풀블리드 프리미엄 CTA
+// 페이지 하단 마무리 CTA — 중앙 정렬 미니멀 (갤러리 톤)
 export function CTASection({
   eyebrow = "Start with diagnosis",
   title,
   description,
   href = "/contact",
-  label = "무료 마케팅 진단 신청",
-  image,
+  label = "무료 진단 신청",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -134,37 +131,25 @@ export function CTASection({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden">
-      <Image
-        src={image ?? offeringImages.brand}
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover"
-      />
-      <div className="premium-cta-shade absolute inset-0" aria-hidden />
-      <Container
-        size="wide"
-        className="relative z-2 flex min-h-[480px] items-center py-20 md:py-28"
-      >
-        <div className="max-w-3xl">
-          <span className="label text-gold">{eyebrow}</span>
-          <h2 className="mt-5 font-serif-display text-[clamp(2.4rem,5.5vw,4.8rem)] leading-none text-paper">
-            {title}
-          </h2>
-          {description ? (
-            <p className="mt-7 max-w-xl text-base leading-[1.9] text-paper/74 md:text-lg">
-              {description}
-            </p>
-          ) : null}
-          <Link
-            href={href}
-            className="group mt-9 inline-flex items-center gap-3 rounded-[4px] bg-gold px-8 py-4 text-sm font-semibold text-ink transition-colors hover:bg-gold-bright"
-          >
-            {label}
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </div>
+    <section className="px-6 py-40 md:py-56">
+      <Container size="narrow" className="text-center">
+        <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          {eyebrow}
+        </span>
+        <h2 className="mx-auto mt-10 max-w-2xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+          {title}
+        </h2>
+        {description ? (
+          <p className="mx-auto mt-7 max-w-md text-sm font-light leading-[1.9] text-muted">
+            {description}
+          </p>
+        ) : null}
+        <Link
+          href={href}
+          className="link-underline mt-12 inline-block text-sm tracking-[0.18em] text-gold"
+        >
+          {label} →
+        </Link>
       </Container>
     </section>
   );
