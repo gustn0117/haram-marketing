@@ -101,12 +101,9 @@ body::after {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.6;
   background:
-    linear-gradient(180deg, rgba(28, 24, 22, 0.88), rgba(28, 24, 22, 0.96)),
-    linear-gradient(90deg, rgba(212, 180, 133, 0.05), transparent 28%, transparent 72%, rgba(185, 138, 122, 0.045)),
-    url("/images/luxury-wedding-hall-ambient.png") center / cover no-repeat;
-  background-blend-mode: normal, screen, soft-light;
+    linear-gradient(180deg, rgba(242, 236, 228, 0.055), transparent 18rem),
+    linear-gradient(90deg, rgba(212, 180, 133, 0.045), transparent 28%, transparent 72%, rgba(185, 138, 122, 0.045));
 }
 
 /* ---------- 한글 워드랩(어절 단위 줄바꿈) ----------
@@ -326,18 +323,31 @@ body::after {
 }
 
 /* ---------- 히어로 앰비언트 글로우 (은은히 호흡) ---------- */
-/* 생성 이미지 기반 히어로 배경 — 아주 낮은 농도의 호텔식 예식장 무드 */
+/* 생성 이미지 기반 섹션 배경 — 어울리는 섹션에만 낮은 농도로 사용 */
 .hero-photo-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.28;
+  opacity: 0.24;
   background:
     linear-gradient(180deg, rgba(28, 24, 22, 0.38), rgba(28, 24, 22, 0.9)),
     linear-gradient(90deg, rgba(28, 24, 22, 0.9), rgba(28, 24, 22, 0.5), rgba(28, 24, 22, 0.9)),
     url("/images/luxury-wedding-hall-ambient.png") center / cover no-repeat;
   filter: saturate(0.7) contrast(1.04) brightness(0.72);
+}
+
+.closing-photo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background:
+    linear-gradient(180deg, rgba(28, 24, 22, 0.8), rgba(28, 24, 22, 0.96)),
+    linear-gradient(90deg, rgba(28, 24, 22, 0.94), rgba(28, 24, 22, 0.58), rgba(28, 24, 22, 0.94)),
+    url("/images/luxury-wedding-hall-ambient.png") center 54% / cover no-repeat;
+  filter: saturate(0.62) contrast(1.03) brightness(0.65);
 }
 
 @keyframes ambient {

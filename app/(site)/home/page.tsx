@@ -143,9 +143,10 @@ export default function HomePage() {
       </section>
 
       {/* ── 마무리 ── */}
-      <section className="px-6 py-40 md:py-56">
+      <section className="relative overflow-hidden px-6 py-40 md:py-56">
+        <span className="closing-photo-bg" aria-hidden />
         <Reveal>
-          <Container size="narrow" className="text-center">
+          <Container size="narrow" className="relative z-2 text-center">
             <span className="hair-line mx-auto mb-14 block w-16" aria-hidden />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Start with diagnosis
