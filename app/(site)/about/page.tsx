@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import {
   company,
@@ -8,7 +7,6 @@ import {
   equipment,
   metrics,
   faqs,
-  aboutImage,
 } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
@@ -35,122 +33,79 @@ export default function AboutPage() {
           </>
         }
         description={company.intro}
-        backgroundImage={aboutImage}
       />
 
-      {/* Mission statement — 라이트 크림 선언문 */}
-      <section className="bg-ink text-paper">
-        <Container
-          size="wide"
-          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.42fr_1.58fr] lg:items-start"
-        >
-          <span className="label text-gold">Our mission</span>
-          <div>
-            <p className="font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.12]">
-              우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
-              신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
-              <span className="text-gold">예약</span>으로 이어지도록 보이지
-              않는 모든 동선을 준비합니다.
-            </p>
-            <p className="mt-8 text-sm text-paper/55">
-              — {company.nameKo} 대표 {company.ceo}
-            </p>
-          </div>
+      {/* ── 미션 — 중앙 선언문 ── */}
+      <section className="px-6 py-40 md:py-56">
+        <Container size="narrow" className="text-center">
+          <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.65] tracking-[-0.01em] text-paper/90">
+            우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
+            신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
+            <span className="text-gold">예약</span>으로 이어지도록 보이지 않는
+            모든 동선을 준비합니다.
+          </p>
+          <p className="mt-12 text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+            — 대표 {company.ceo}
+          </p>
         </Container>
       </section>
 
-      {/* Story / 운영 철학 — 라이트 페이퍼 2열 행 */}
-      <section id="philosophy" className="scroll-mt-24 bg-ink-2 text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="mb-12 max-w-2xl">
-            <span className="label text-gold">Our philosophy</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-              우리가 일을 대하는 태도
-            </h2>
-          </div>
-          <div className="flex flex-col">
-            {aboutStory.map((s, i) => (
-              <article
-                key={s.heading}
-                className="grid gap-6 border-t border-line py-10 last:border-b md:grid-cols-[0.16fr_0.84fr_1fr] md:items-start md:gap-10"
-              >
-                <span className="folio text-3xl text-gold">
-                  0{i + 1}
-                </span>
-                <h3 className="font-serif text-2xl leading-snug">
+      {/* ── 운영 철학 — 중앙 텍스트 블록 스택 ── */}
+      <section id="philosophy" className="scroll-mt-24 px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Our Philosophy
+          </p>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-14 text-center">
+            {aboutStory.map((s) => (
+              <div key={s.heading}>
+                <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                   {s.heading}
                 </h3>
-                <p className="max-w-[60ch] text-base leading-[1.9] text-paper/68">
+                <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                   {s.body}
                 </p>
-              </article>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Strengths — 다크 카드 섹션 */}
+      {/* ── 강점 ── */}
       <Strengths id="strengths" />
 
-      {/* Channels / 운영 채널·역량 + 성과 지표 — 라이트 크림 */}
-      <section id="equipment" className="scroll-mt-24 bg-ink-2 text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <span className="label text-gold">Our channels</span>
-              <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-                운영 채널·역량
-              </h2>
-            </div>
-            <p className="max-w-md text-base leading-[1.9] text-paper/68">
-              신랑신부가 예식장을 찾는 모든 채널을 직접 운영합니다.
-              검색·플레이스부터 블로그·SNS·숏폼까지, 자사 콘텐츠팀이 만든
-              콘텐츠로 채웁니다.
-            </p>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
+      {/* ── 운영 채널 + 성과 지표 ── */}
+      <section id="equipment" className="scroll-mt-24 px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Our Channels
+          </p>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-14 text-center">
             {equipment.map((item) => (
-              <article
-                key={item.name}
-                className="group overflow-hidden rounded-[8px] border border-line bg-surface shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
-              >
-                <div className="relative aspect-[5/3] overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                  />
-                  <div className="absolute inset-0 bg-ink/18" aria-hidden />
-                </div>
-                <div className="p-6">
-                  <span className="label text-gold">{item.tagline}</span>
-                  <h3 className="mt-3 font-serif text-2xl leading-snug">
-                    {item.name}
-                  </h3>
-                  <p className="mt-4 text-sm leading-[1.8] text-paper/64">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
+              <div key={item.name}>
+                <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                  {item.tagline}
+                </span>
+                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  {item.name}
+                </h3>
+                <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  {item.description}
+                </p>
+              </div>
             ))}
           </div>
 
-          {/* 성과 지표 — 홈 메트릭 바 스타일 */}
-          <div className="mt-12 grid border-x border-b border-line bg-surface sm:grid-cols-4">
+          <div className="mt-24 grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((m) => (
-              <div
-                key={m.label}
-                className="border-b border-r border-line p-5 last:border-r-0 sm:border-b-0 md:p-7"
-              >
-                <p className="font-display text-4xl text-gold md:text-5xl">
+              <div key={m.label}>
+                <p className="text-5xl font-light tracking-tight text-paper md:text-6xl">
                   {m.value}
                   {m.suffix ? (
-                    <span className="text-lg text-gold/80">{m.suffix}</span>
+                    <span className="text-2xl text-gold">{m.suffix}</span>
                   ) : null}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-paper/62">
+                <p className="mt-5 text-[0.66rem] uppercase tracking-[0.22em] text-faint">
                   {m.label}
                 </p>
               </div>
@@ -159,102 +114,71 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Departments / 조직도 — 다크 딥그린 카드 그리드 */}
-      <section id="team" className="scroll-mt-24 bg-ink-2 text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      {/* ── 조직 ── */}
+      <section id="team" className="scroll-mt-24 px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Our Team
+          </p>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-14 text-center">
             <div>
-              <span className="label text-gold">Our team</span>
-              <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-                조직도
-              </h2>
+              <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                CEO
+              </span>
+              <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                {company.ceo}
+              </h3>
+              <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                대표이사
+              </p>
             </div>
-            <p className="max-w-md text-base leading-[1.9] text-paper/68">
-              전략부터 콘텐츠 제작, 광고·DB 운영까지 — 마케팅에 필요한 모든
-              조직을 당사 안에 두고, 전 스태프가 직속으로 움직입니다. 외주로
-              흩어지지 않는 한 팀의 완성도를 만듭니다.
-            </p>
-          </div>
-
-          <div className="mb-5 rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6">
-            <span className="label text-gold">CEO</span>
-            <h3 className="mt-3 font-serif text-2xl">{company.ceo}</h3>
-            <p className="mt-2 text-sm text-paper/64">대표이사</p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-3">
             {departments.map((dept) => (
-              <article
-                key={dept.name}
-                className="rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6 transition-colors hover:border-gold/55"
-              >
-                <span className="label text-gold">{dept.tagline}</span>
-                <h3 className="mt-3 font-serif text-2xl leading-snug">
+              <div key={dept.name}>
+                <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                  {dept.tagline}
+                </span>
+                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {dept.name}
                 </h3>
-                <p className="mt-4 text-sm leading-[1.8] text-paper/64">
-                  {dept.description}
+                <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  {dept.duties.join(", ")}
                 </p>
-                <ul className="mt-6 flex flex-col gap-2 border-t border-paper/12 pt-5">
-                  {dept.duties.map((d) => (
-                    <li
-                      key={d}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-paper/64"
-                    >
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Values — 라이트 페이퍼 번호 카드 */}
-      <section id="values" className="scroll-mt-24 bg-ink-2 text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="mb-12 max-w-2xl">
-            <span className="label text-gold">Our values</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-              우리가 일하는 방식
-            </h2>
-          </div>
-          <div className="grid gap-3 md:grid-cols-3">
-            {values.map((value, i) => (
-              <article
-                key={value.title}
-                className="rounded-[8px] border border-line bg-surface p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
-              >
-                <span className="folio text-3xl text-gold">
-                  0{i + 1}
-                </span>
-                <h3 className="mt-5 font-serif text-2xl leading-snug">
+      {/* ── 우리가 일하는 방식 ── */}
+      <section id="values" className="scroll-mt-24 px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Our Values
+          </p>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-14 text-center">
+            {values.map((value) => (
+              <div key={value.title}>
+                <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                   {value.title}
                 </h3>
-                <p className="mt-4 text-sm leading-[1.85] text-paper/66">
+                <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                   {value.description}
                 </p>
-              </article>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* FAQ — 다크 섹션 + 좌 제목/우 목록 2열 */}
-      <section id="faq" className="scroll-mt-24 bg-ink text-paper">
-        <Container
-          size="wide"
-          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.62fr_1.38fr]"
-        >
-          <div>
-            <span className="label text-gold">Q&amp;A</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4vw,3.6rem)] leading-[1.05]">
-              자주 묻는 질문
-            </h2>
+      {/* ── FAQ ── */}
+      <section id="faq" className="scroll-mt-24 px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            FAQ
+          </p>
+          <div className="mx-auto mt-16 max-w-2xl">
+            <FaqList items={faqs} />
           </div>
-          <FaqList items={faqs} />
         </Container>
       </section>
 

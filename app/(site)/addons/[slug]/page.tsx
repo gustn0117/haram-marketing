@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { addons, faqs, siteUrl, addonImages } from "@/lib/content";
+import { addons, faqs, siteUrl } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { FaqList } from "@/components/FaqList";
@@ -62,30 +62,19 @@ export default async function AddonDetailPage({
     <>
       <JsonLd data={breadcrumbJsonLd} />
 
-      <PageHero
-        eyebrow={tagline}
-        title={name}
-        description={description}
-        backgroundImage={addonImages[addon.id]}
-      />
+      <PageHero eyebrow={tagline} title={name} description={description} />
 
-      {/* Overview — 라이트 */}
-      <section className="bg-ink-2 text-paper">
-        <Container
-          size="wide"
-          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.78fr_1.22fr] lg:items-start"
-        >
-          <div className="lg:sticky lg:top-28 lg:h-fit">
-            <span className="label text-gold">Overview</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-              이렇게 진행합니다.
-            </h2>
-          </div>
-          <div className="flex flex-col gap-7">
+      {/* ── Overview — 중앙 본문 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow" className="text-center">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Overview
+          </p>
+          <div className="mx-auto mt-14 flex max-w-xl flex-col gap-7">
             {addon.overview.map((p, i) => (
               <p
                 key={i}
-                className="max-w-3xl text-base leading-[1.9] text-paper/70 md:text-lg"
+                className="text-sm font-light leading-[1.9] text-muted md:text-base"
               >
                 {p}
               </p>
@@ -94,81 +83,64 @@ export default async function AddonDetailPage({
         </Container>
       </section>
 
-      {/* Scope — 다크 */}
-      <section className="bg-ink text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="mb-12 max-w-2xl">
-            <span className="label text-gold">Scope</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-              포함 내용
-            </h2>
-            <p className="mt-6 text-base leading-[1.9] text-paper/68">
-              {name} 진행에 필요한 구성을 한 번에 묶어 제공합니다.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {addon.scope.map((s, i) => (
-              <article
+      {/* ── Scope — 중앙 정렬 리스트 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Scope
+          </p>
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+            포함 내용
+          </h2>
+          <ul className="mx-auto mt-16 max-w-2xl">
+            {addon.scope.map((s) => (
+              <li
                 key={s}
-                className="rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6 transition-colors hover:border-gold/55"
+                className="border-t border-line py-7 text-center last:border-b"
               >
-                <span className="folio text-3xl text-gold">
-                  {String(i + 1).padStart(2, "0")}
+                <span className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                  {s}
                 </span>
-                <p className="mt-5 text-base leading-[1.7] text-paper/85">{s}</p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </section>
 
-      {/* Recommended For — 라이트(크림) */}
-      <section className="bg-ink text-paper">
-        <Container
-          size="wide"
-          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.72fr_1.28fr]"
-        >
-          <div>
-            <span className="label text-gold">Who it&apos;s for</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
-              이런 경우 추천합니다.
-            </h2>
-            <p className="mt-6 max-w-xl text-base leading-[1.9] text-paper/68">
-              지금 예식장의 상황에 맞춰 가장 효과가 큰 순서로 제안드립니다.
-            </p>
-          </div>
-          <div className="grid border-t border-line">
-            {addon.recommendedFor.map((r, i) => (
-              <div
+      {/* ── Recommended For — 중앙, 여백 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Who it&apos;s for
+          </p>
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+            이런 경우 추천합니다.
+          </h2>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-10 text-center">
+            {addon.recommendedFor.map((r) => (
+              <p
                 key={r}
-                className="flex items-center gap-6 border-b border-line py-6"
+                className="mx-auto max-w-md text-base font-light leading-[1.8] text-paper/85"
               >
-                <span className="folio text-3xl text-gold">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-base leading-[1.7] text-paper/80 md:text-lg">
-                  {r}
-                </p>
-              </div>
+                {r}
+              </p>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* FAQ — 다크 */}
-      <section className="bg-ink text-paper">
-        <Container
-          size="wide"
-          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.62fr_1.38fr]"
-        >
-          <div>
-            <span className="label text-gold">FAQ</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4vw,3.6rem)] leading-[1.05]">
-              자주 묻는 질문
-            </h2>
+      {/* ── FAQ — 중앙 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            FAQ
+          </p>
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+            자주 묻는 질문
+          </h2>
+          <div className="mx-auto mt-16 max-w-2xl">
+            <FaqList items={faqs} />
           </div>
-          <FaqList items={faqs} />
         </Container>
       </section>
 

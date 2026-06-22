@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import type { ComponentProps } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { services, processSteps, offeringImages, heroImage } from "@/lib/content";
+import { services, processSteps } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
-import { ServiceIcon } from "@/components/icons";
-
-type ServiceIconId = ComponentProps<typeof ServiceIcon>["id"];
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -28,86 +23,54 @@ export default function ServicesPage() {
             <span className="text-gold">하나의 팀이.</span>
           </>
         }
-        description="웨딩홀 마케팅의 검색·콘텐츠·광고·콘텐츠 제작을 직접 책임집니다. 각 영역을 눌러 자세한 내용을 확인하세요."
-        backgroundImage={heroImage}
+        description="웨딩홀 마케팅의 검색·콘텐츠·광고·제작을 한 팀이 같은 기준으로 책임집니다. 각 영역을 눌러 자세한 내용을 확인하세요."
       />
 
-      <section className="bg-ink text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="mb-12 max-w-3xl">
-            <span className="label text-gold">Conversion system</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.7vw,4.3rem)] leading-[1.05]">
-              예약을 만드는 6개의 운영 축
-            </h2>
-            <p className="mt-6 text-base leading-[1.9] text-paper/68">
-              흩어지기 쉬운 마케팅 채널을 한 팀이 같은 기준으로 다룹니다. 각
-              영역은 독립적으로, 또는 하나의 캠페인으로 함께 구성할 수 있습니다.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
-              <Link
-                key={service.id}
-                href={`/services/${service.id}`}
-                className="group overflow-hidden rounded-[8px] border border-line bg-surface shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
-              >
-                <div className="relative aspect-[5/3] overflow-hidden">
-                  <Image
-                    src={offeringImages[service.id]}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                  />
-                  <div className="absolute inset-0 bg-ink/18" aria-hidden />
-                </div>
-                <div className="p-6">
-                  <div className="mb-5 flex items-center justify-between gap-4">
-                    <ServiceIcon
-                      id={service.id as ServiceIconId}
-                      className="h-7 w-7 text-gold"
-                    />
-                    <span className="folio text-sm text-paper/42">
-                      {service.no}
-                    </span>
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.22em] text-gold">
-                    {service.tagline}
-                  </p>
-                  <h3 className="mt-3 font-serif text-2xl leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-[1.8] text-paper/64">
-                    {service.description}
-                  </p>
-                </div>
-              </Link>
+      {/* ── 서비스 — 중앙 정렬 리스트 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Services
+          </p>
+          <ul className="mx-auto mt-16 max-w-2xl">
+            {services.map((s) => (
+              <li key={s.id} className="border-t border-line last:border-b">
+                <Link
+                  href={`/services/${s.id}`}
+                  className="group block py-9 text-center transition-colors"
+                >
+                  <span className="text-2xl font-light tracking-tight text-paper transition-colors duration-500 group-hover:text-gold md:text-[1.9rem]">
+                    {s.title}
+                  </span>
+                  <span className="mt-2 block text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                    {s.tagline}
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </section>
 
-      <section className="bg-ink-2 text-paper">
-        <Container size="wide" className="py-20 md:py-28">
-          <div className="max-w-2xl">
-            <span className="label text-gold">How we work</span>
-            <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.8vw,4.4rem)] leading-[1.05]">
-              모든 마케팅은 같은 원칙으로.
-            </h2>
-          </div>
-          <div className="mt-14 grid border-t border-line md:grid-cols-4">
+      {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            Approach
+          </p>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
             {processSteps.map((step) => (
-              <article
-                key={step.no}
-                className="border-b border-line py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
-              >
-                <span className="folio text-4xl text-gold">{step.no}</span>
-                <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>
-                <p className="mt-4 text-sm leading-[1.8] text-paper/64">
+              <div key={step.no} className="text-center">
+                <span className="text-sm font-light tracking-[0.2em] text-gold">
+                  {step.no}
+                </span>
+                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  {step.title}
+                </h3>
+                <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
                   {step.description}
                 </p>
-              </article>
+              </div>
             ))}
           </div>
         </Container>
