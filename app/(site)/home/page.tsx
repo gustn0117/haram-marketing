@@ -60,9 +60,10 @@ export default function HomePage() {
         <Reveal>
           <Container size="narrow" className="text-center">
             <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
-              하람마케팅은 <span className="text-gold">예식장·웨딩홀만</span>{" "}
-              마케팅합니다. 보기 좋은 조회수가 아니라, 실제로 식장을 채우는
-              예약을 만듭니다.
+              하람마케팅에는 <span className="text-gold">정해진 상품이 없습니다.</span>{" "}
+              예식장마다 위치도, 강점도, 채워야 할 자리도 다르기 때문입니다.
+              우리는 그 예식장에 맞게 설계합니다. 다만 우리가 쓰는 방법 —
+              검색·블로그·SNS·광고·콘텐츠·브랜딩 — 은 분명합니다.
             </p>
           </Container>
         </Reveal>
@@ -73,7 +74,7 @@ export default function HomePage() {
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Services
+              Our Methods
             </p>
             <ul className="mx-auto mt-16 max-w-2xl">
               {services.map((s) => (

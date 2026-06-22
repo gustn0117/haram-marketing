@@ -228,7 +228,10 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
-      <CTASection title="우리 예식장, 어디서부터 시작할까요?" />
+      <CTASection
+        title="우리 예식장, 어디서부터 시작할까요?"
+        description="정해진 상품을 권하지 않습니다. 예식장의 상황과 목표만 알려주시면, 그 예식장에 맞게 설계한 제안과 견적을 보내드립니다."
+      />
     </>
   );
 }

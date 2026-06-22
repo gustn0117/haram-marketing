@@ -17,7 +17,7 @@ export default function AddonsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Add-on services"
+        eyebrow="How We Support"
         title={
           <>
             마케팅을 둘러싼
@@ -25,14 +25,17 @@ export default function AddonsPage() {
             <span className="text-gold">모든 것까지.</span>
           </>
         }
-        description="마케팅 그 자체를 넘어, 진단부터 예약 전환까지 필요한 일들을 함께 해결해 드립니다. 마케팅 운영과 묶어 한 번에 진행할 수 있습니다."
+        description="홈페이지·CRM·촬영 — 마케팅이 제대로 돌아가려면 함께 갖춰야 할 것들입니다. 모든 예식장에 똑같이 권하지 않습니다. 지금 그 예식장에 필요한 만큼만, 마케팅 설계 안에서 함께 준비합니다."
       />
 
       <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            What we offer
+            How We Support
           </p>
+          <h2 className="mx-auto mt-8 max-w-2xl text-center text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            마케팅을 떠받치는, 필요한 만큼의 지원.
+          </h2>
           <ul className="mx-auto mt-16 max-w-2xl">
             {addons.map((a) => (
               <li key={a.id} className="border-t border-line last:border-b">
@@ -96,8 +99,8 @@ export default function AddonsPage() {
       </section>
 
       <CTASection
-        title="필요한 구성을 함께 정리해 드립니다"
-        description="마케팅 운영과 지원서비스를 어떻게 묶을지 막막하시면, 목표만 알려주세요. 맞춤으로 제안과 견적을 보내드립니다."
+        title="어떤 예식장을 운영하고 계신가요?"
+        description="정해진 상품을 권하지 않습니다. 예식장의 상황과 목표만 알려주시면, 지금 그 예식장에 필요한 만큼만 골라 설계한 제안과 견적을 보내드립니다."
       />
     </>
   );

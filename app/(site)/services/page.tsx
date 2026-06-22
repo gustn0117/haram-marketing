@@ -25,7 +25,7 @@ export default function ServicesPage() {
             <span className="text-gold">하나의 팀이.</span>
           </>
         }
-        description="웨딩홀 마케팅의 검색·콘텐츠·광고·제작을 한 팀이 같은 기준으로 책임집니다. 각 영역을 눌러 자세한 내용을 확인하세요."
+        description="검색·콘텐츠·광고·제작 — 우리가 쓰는 방법은 분명합니다. 다만 무엇을 어떻게 엮을지는 예식장마다 다르게 설계합니다. 각 영역을 눌러 자세한 내용을 확인하세요."
       />
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
@@ -33,7 +33,15 @@ export default function ServicesPage() {
         <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            Services
+            Our Methods
+          </p>
+          <h2 className="mx-auto mt-8 max-w-2xl text-center text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            상품 목록이 아니라, 우리가 쓰는 방법입니다.
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-center text-sm font-light leading-[1.9] text-muted">
+            아래는 정해진 패키지가 아닙니다. 예식장마다 무엇이 부족하고 무엇이
+            강점인지 다르기에, 우리는 이 방법들 중 그 예식장에 필요한 것만 골라
+            다르게 설계합니다. 방법은 분명하고, 조합은 예식장마다 달라집니다.
           </p>
           <ul className="mx-auto mt-16 max-w-2xl">
             {services.map((s) => (
@@ -125,7 +133,7 @@ export default function ServicesPage() {
 
       <CTASection
         title="어떤 예식장을 운영하고 계신가요?"
-        description="예식장의 상황과 목표를 알려주시면 맞춤 제안과 견적을 보내드립니다."
+        description="정해진 상품을 권하지 않습니다. 예식장의 상황과 목표를 알려주시면, 그 예식장에 맞게 설계한 제안과 견적을 보내드립니다."
       />
     </>
   );
