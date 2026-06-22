@@ -55,7 +55,7 @@ export default function AddonsPage() {
                 <Reveal
                   key={a.id}
                   delay={i * 60}
-                  className="border-b border-line-strong sm:odd:border-r"
+                  className="border-b border-line-strong sm:odd:border-r sm:last:border-r-0"
                 >
                   <Link
                     href={`/addons/${a.id}`}

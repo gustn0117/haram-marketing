@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { addons, faqs, siteUrl, addonImages } from "@/lib/content";
-import { Container, CTAButton, SectionHeading } from "@/components/ui";
+import { Container, CTASection, SectionHeading } from "@/components/ui";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { ArrowLeft, Plus } from "@/components/icons";
@@ -72,33 +72,36 @@ export default async function AddonDetailPage({
           fill
           priority
           sizes="100vw"
-          className="absolute inset-0 object-cover"
+          className="absolute inset-0 object-cover [filter:grayscale(0.55)_sepia(0.18)_brightness(0.9)]"
         />
-        <div className="absolute inset-0 bg-black/45" aria-hidden />
+        <div className="absolute inset-0 bg-gold/10 mix-blend-overlay" aria-hidden />
         <div
-          className="absolute inset-0 bg-linear-to-r from-black/75 via-black/40 to-black/20"
+          className="absolute inset-0 bg-linear-to-r from-ink via-ink/70 to-ink/20"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-linear-to-b from-black/25 via-transparent to-black/70"
+          className="absolute inset-0 bg-linear-to-b from-ink/10 via-transparent to-ink/80"
           aria-hidden
         />
-        <Container className="relative z-2">
+        <div
+          className="pointer-events-none absolute inset-4 z-2 rounded-2xl border sm:inset-6 md:inset-8"
+          style={{ borderColor: "var(--color-gold-frame)" }}
+          aria-hidden
+        />
+        <Container className="relative z-3">
           <Link
             href="/addons"
-            className="inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
+            className="inline-flex items-center gap-2 text-sm text-paper/70 transition-colors hover:text-gold"
           >
             <ArrowLeft className="h-4 w-4" />
             지원서비스 전체
           </Link>
           <div className="mt-6 flex max-w-2xl flex-col gap-5">
-            <span className="font-display text-sm tracking-wide text-white/70">
-              {tagline}
-            </span>
-            <h1 className="font-serif min-w-0 break-normal text-3xl leading-[1.15] text-white [text-wrap:wrap] sm:text-4xl md:text-[2.9rem]">
+            <span className="label text-gold">{tagline}</span>
+            <h1 className="font-serif-display min-w-0 break-normal text-3xl leading-[1.1] text-paper [text-wrap:wrap] sm:text-4xl md:text-[2.9rem]">
               {name}
             </h1>
-            <p className="min-w-0 break-normal text-base leading-relaxed text-white/80 [text-wrap:wrap]">
+            <p className="min-w-0 break-normal text-base leading-[1.8] text-paper/80 [text-wrap:wrap]">
               {description}
             </p>
           </div>
@@ -172,27 +175,17 @@ export default async function AddonDetailPage({
       <section className="border-b border-line bg-ink-2 py-24 md:py-32">
         <Container>
           <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
-          <div className="mt-10">
+          <div className="mt-12 md:mt-16">
             <FaqList items={faqs} />
           </div>
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 md:py-28">
-        <Container>
-          <div className="flex flex-col items-center gap-7 text-center">
-            <h2 className="max-w-2xl font-serif text-3xl leading-tight sm:text-4xl text-balance">
-              {name}, 하람마케팅과 함께하세요.
-            </h2>
-            <p className="max-w-md text-base leading-relaxed text-muted">
-              마케팅 운영과 묶어 한 번에 진행할 수 있습니다. 필요한 구성을
-              알려주시면 맞춤 제안과 견적을 보내드립니다.
-            </p>
-            <CTAButton href="/contact">상담·견적 신청하기</CTAButton>
-          </div>
-        </Container>
-      </section>
+      <CTASection
+        title={`${name}, 하람마케팅과 함께하세요.`}
+        description="마케팅 운영과 묶어 한 번에 진행할 수 있습니다. 필요한 구성을 알려주시면 맞춤 제안과 견적을 보내드립니다."
+        label="상담·견적 신청하기"
+      />
     </>
   );
 }

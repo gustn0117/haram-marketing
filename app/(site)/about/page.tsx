@@ -181,9 +181,7 @@ export default function AboutPage() {
             {/* CEO */}
             <Reveal className="flex flex-col items-center">
               <div className="w-full max-w-xs rounded-2xl border border-line-strong bg-surface px-6 py-5 text-center">
-                <span className="font-display text-xs tracking-wide text-gold">
-                  CEO
-                </span>
+                <span className="label text-gold">CEO</span>
                 <h3 className="mt-1 font-serif text-xl">{company.ceo}</h3>
                 <p className="mt-1 text-xs text-muted">대표이사</p>
               </div>

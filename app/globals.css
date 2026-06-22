@@ -70,7 +70,7 @@ body {
 }
 
 /* ---------- 키보드 포커스 링 (골드, 무드 유지) ---------- */
-:where(a, button, summary, [tabindex], select):focus-visible {
+:where(a, button, summary, [tabindex]):focus-visible {
   outline: none;
   border-radius: var(--radius-sm);
   box-shadow:
@@ -156,14 +156,6 @@ body::after {
   font-weight: 500;
   letter-spacing: -0.01em;
   font-feature-settings: "lnum" 1, "tnum" 1;
-}
-
-.eyebrow {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-gold);
 }
 
 .label {
