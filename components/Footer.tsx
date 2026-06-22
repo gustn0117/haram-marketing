@@ -7,12 +7,17 @@ export function Footer() {
   return (
     <footer className="border-t border-line px-6 py-20 md:py-28">
       <Container size="narrow" className="flex flex-col items-center text-center">
-        <Link
-          href="/home"
-          className="text-lg font-light tracking-tight text-paper"
-        >
-          {company.nameKo}
+        <Link href="/home" className="flex flex-col items-center gap-2">
+          <span className="text-lg font-light tracking-tight text-paper">
+            {company.nameKo}
+          </span>
+          <span className="text-[0.62rem] uppercase tracking-[0.4em] text-gold/80">
+            {company.nameEn}
+          </span>
         </Link>
+        <p className="mt-2 text-[0.66rem] uppercase tracking-[0.28em] text-faint">
+          Wedding Hall Marketing
+        </p>
         <p className="mt-6 max-w-md text-sm font-light leading-[1.9] text-muted">
           {company.tagline}
         </p>

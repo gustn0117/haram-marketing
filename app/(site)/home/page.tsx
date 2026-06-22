@@ -19,7 +19,7 @@ export default function HomePage() {
           className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.42em] text-gold"
           style={{ animationDelay: "80ms" }}
         >
-          Wedding Hall Marketing
+          Wedding Hall Marketing · 예식장 전문
         </span>
         <h1
           className="rise relative z-2 mt-12 text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.98] tracking-[-0.035em] text-paper"
@@ -27,16 +27,24 @@ export default function HomePage() {
         >
           하람마케팅
         </h1>
-        <p
-          className="rise relative z-2 mt-10 text-base font-light tracking-tight text-muted sm:text-lg"
-          style={{ animationDelay: "360ms" }}
+        <span
+          className="rise relative z-2 mt-5 text-[0.7rem] uppercase tracking-[0.5em] text-gold/75"
+          style={{ animationDelay: "300ms" }}
         >
-          예식장을 예약으로 채웁니다
+          HARAM MARKETING
+        </span>
+        <p
+          className="rise relative z-2 mt-9 max-w-md text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
+          style={{ animationDelay: "440ms" }}
+        >
+          예식장만 전문으로 하는 웨딩홀 마케팅 —
+          <br />
+          노출이 아니라, 예약으로 증명합니다.
         </p>
 
         <span
           className="scroll-cue rise absolute bottom-12 left-1/2 -translate-x-1/2"
-          style={{ animationDelay: "640ms" }}
+          style={{ animationDelay: "680ms" }}
           aria-hidden
         />
       </section>
@@ -46,9 +54,9 @@ export default function HomePage() {
         <Reveal>
           <Container size="narrow" className="text-center">
             <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
-              보기 좋은 조회수가 아니라,{" "}
-              <span className="text-gold">실제로 식장을 채우는 예약</span>을
-              만듭니다.
+              하람마케팅은 <span className="text-gold">예식장·웨딩홀만</span>{" "}
+              마케팅합니다. 보기 좋은 조회수가 아니라, 실제로 식장을 채우는
+              예약을 만듭니다.
             </p>
           </Container>
         </Reveal>
