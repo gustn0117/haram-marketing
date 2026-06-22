@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
+import { offeringImages } from "@/lib/content";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 
 export function Container({
@@ -115,36 +117,54 @@ export function SectionHeading({
   );
 }
 
-// 페이지 하단 마무리 CTA 블록 — services/addons/about 통일
+// 페이지 하단 마무리 CTA — 새 홈과 동일한 풀블리드 프리미엄 CTA
 export function CTASection({
-  eyebrow = "START A PROJECT",
+  eyebrow = "Start with diagnosis",
   title,
   description,
   href = "/contact",
-  label = "무료 진단 신청하기",
+  label = "무료 마케팅 진단 신청",
+  image,
 }: {
   eyebrow?: string;
   title: ReactNode;
   description?: string;
   href?: string;
   label?: string;
+  image?: string;
 }) {
   return (
-    <section className="py-28 md:py-40">
+    <section className="relative overflow-hidden">
+      <Image
+        src={image ?? offeringImages.brand}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="premium-cta-shade absolute inset-0" aria-hidden />
       <Container
-        size="narrow"
-        className="flex flex-col items-center gap-8 text-center"
+        size="wide"
+        className="relative z-2 flex min-h-[480px] items-center py-20 md:py-28"
       >
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h2 className="font-serif text-3xl leading-tight tracking-[-0.02em] sm:text-4xl text-balance">
-          {title}
-        </h2>
-        {description ? (
-          <p className="max-w-md text-base leading-relaxed text-muted">
-            {description}
-          </p>
-        ) : null}
-        <CTAButton href={href}>{label}</CTAButton>
+        <div className="max-w-3xl">
+          <span className="label text-gold">{eyebrow}</span>
+          <h2 className="mt-5 font-serif-display text-[clamp(2.4rem,5.5vw,4.8rem)] leading-none text-paper">
+            {title}
+          </h2>
+          {description ? (
+            <p className="mt-7 max-w-xl text-base leading-[1.9] text-paper/74 md:text-lg">
+              {description}
+            </p>
+          ) : null}
+          <Link
+            href={href}
+            className="group mt-9 inline-flex items-center gap-3 rounded-[4px] bg-gold px-8 py-4 text-sm font-semibold text-ink transition-colors hover:bg-gold-bright"
+          >
+            {label}
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </div>
       </Container>
     </section>
   );

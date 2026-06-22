@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import type { ComponentProps } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { services, processSteps, offeringImages, heroImage } from "@/lib/content";
-import { CTASection } from "@/components/ui";
+import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
-import { Chapter, Plate } from "@/components/carnet";
+import { ServiceIcon } from "@/components/icons";
+
+type ServiceIconId = ComponentProps<typeof ServiceIcon>["id"];
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -16,8 +20,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        folio="No. 020"
-        eyebrow="OUR SERVICES"
+        eyebrow="Our services"
         title={
           <>
             검색 노출부터 예약까지,
@@ -29,56 +32,86 @@ export default function ServicesPage() {
         backgroundImage={heroImage}
       />
 
-      {/* 서비스 영역 — 좌우교차 플레이트 스프레드 */}
-      <Chapter folio="01 / 02" label="WHAT WE DO" title="서비스 영역.">
-        <div className="border-t border-line-strong">
-          {services.map((s, i) => {
-            const flip = i % 2 === 1;
-            return (
+      <section className="bg-[#f7f1e8] text-ink">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="mb-12 max-w-3xl">
+            <span className="label text-gold-deep">Conversion system</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.7vw,4.3rem)] leading-[1.05]">
+              예약을 만드는 6개의 운영 축
+            </h2>
+            <p className="mt-6 text-base leading-[1.9] text-ink/68">
+              흩어지기 쉬운 마케팅 채널을 한 팀이 같은 기준으로 다룹니다. 각
+              영역은 독립적으로, 또는 하나의 캠페인으로 함께 구성할 수 있습니다.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => (
               <Link
-                key={s.id}
-                href={`/services/${s.id}`}
-                className="group grid items-center gap-10 border-b border-line-strong py-12 lg:grid-cols-2 lg:gap-14"
+                key={service.id}
+                href={`/services/${service.id}`}
+                className="group overflow-hidden rounded-[8px] border border-ink/10 bg-[#fffaf3] shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
               >
-                <div className={flip ? "lg:order-2" : ""}>
-                  <span className="folio text-sm text-faint">{s.no} / 06</span>
-                  <span className="label mt-4 block text-gold">{s.tagline}</span>
-                  <h3 className="mt-2 font-serif-display text-[clamp(1.9rem,3vw,2.8rem)] leading-[1.02] tracking-[-0.02em] transition-colors duration-500 group-hover:text-gold">
-                    {s.title}
+                <div className="relative aspect-[5/3] overflow-hidden">
+                  <Image
+                    src={offeringImages[service.id]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                  />
+                  <div className="absolute inset-0 bg-ink/18" aria-hidden />
+                </div>
+                <div className="p-6">
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <ServiceIcon
+                      id={service.id as ServiceIconId}
+                      className="h-7 w-7 text-gold-deep"
+                    />
+                    <span className="folio text-sm text-ink/42">
+                      {service.no}
+                    </span>
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.22em] text-gold-deep">
+                    {service.tagline}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl leading-snug">
+                    {service.title}
                   </h3>
-                  <p className="mt-4 max-w-[46ch] text-[0.95rem] leading-[1.85] text-muted">
-                    {s.description}
+                  <p className="mt-4 text-sm leading-[1.8] text-ink/64">
+                    {service.description}
                   </p>
                 </div>
-                <Plate
-                  src={offeringImages[s.id]}
-                  bleed={flip ? "left" : "right"}
-                  ratio="aspect-[5/4]"
-                  caption={`Plate ${String(i + 1).padStart(2, "0")}`}
-                />
               </Link>
-            );
-          })}
-        </div>
-      </Chapter>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-      {/* 프로세스 — 악보형 인덱스 */}
-      <Chapter folio="02 / 02" label="HOW WE WORK" title="모든 마케팅은 같은 원칙으로.">
-        <div className="grid divide-y divide-line-strong border-t border-line-strong md:grid-cols-4 md:divide-x md:divide-y-0">
-          {processSteps.map((p) => (
-            <div key={p.no} className="px-1 py-8 md:px-6 md:first:pl-0">
-              <span className="folio text-[clamp(2rem,3vw,3rem)] text-gold">
-                {p.no}
-              </span>
-              <span className="my-4 block h-5 w-px bg-gold/40" />
-              <h3 className="font-serif text-xl">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {p.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Chapter>
+      <section className="bg-[#17231f] text-paper">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="max-w-2xl">
+            <span className="label text-gold">How we work</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.8vw,4.4rem)] leading-[1.05]">
+              모든 마케팅은 같은 원칙으로.
+            </h2>
+          </div>
+          <div className="mt-14 grid border-t border-paper/16 md:grid-cols-4">
+            {processSteps.map((step) => (
+              <article
+                key={step.no}
+                className="border-b border-paper/16 py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
+              >
+                <span className="folio text-4xl text-gold">{step.no}</span>
+                <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>
+                <p className="mt-4 text-sm leading-[1.8] text-paper/64">
+                  {step.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <CTASection
         title="어떤 예식장을 운영하고 계신가요?"

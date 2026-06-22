@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -11,10 +10,11 @@ import {
   offeringImages,
   type Service,
 } from "@/lib/content";
-import { Container, CTASection, SectionHeading } from "@/components/ui";
+import { Container, CTASection } from "@/components/ui";
+import { PageHero } from "@/components/PageHero";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
-import { ArrowLeft, Plus } from "@/components/icons";
+import { ArrowUpRight, Plus } from "@/components/icons";
 
 type Params = { slug: string };
 
@@ -47,7 +47,6 @@ export default async function OfferingDetailPage({
   if (!service) notFound();
 
   const { title, tagline, description } = service;
-  const heroImage = offeringImages[service.id];
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -84,59 +83,29 @@ export default async function OfferingDetailPage({
     <>
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={serviceJsonLd} />
-      {/* Header — 배경형 히어로 */}
-      <section className="relative flex min-h-[48vh] items-end overflow-hidden border-b border-line bg-ink pt-32 pb-14 md:min-h-[54vh] md:pb-20">
-        <Image
-          src={heroImage}
-          alt={`${title} — 하람마케팅 웨딩홀 마케팅`}
-          fill
-          priority
-          sizes="100vw"
-          className="absolute inset-0 object-cover [filter:grayscale(0.55)_sepia(0.18)_brightness(0.9)]"
-        />
-        <div className="absolute inset-0 bg-gold/10 mix-blend-overlay" aria-hidden />
-        <div
-          className="absolute inset-0 bg-linear-to-r from-ink via-ink/70 to-ink/20"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-linear-to-b from-ink/10 via-transparent to-ink/80"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-4 z-2 rounded-2xl border sm:inset-6 md:inset-8"
-          style={{ borderColor: "var(--color-gold-frame)" }}
-          aria-hidden
-        />
-        <Container className="relative z-3">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-paper/70 transition-colors hover:text-gold"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            서비스 전체
-          </Link>
-          <div className="mt-6 flex w-full min-w-0 max-w-2xl flex-col gap-5">
-            <span className="label text-gold">{tagline}</span>
-            <h1 className="font-serif-display min-w-0 break-normal text-3xl leading-[1.1] text-paper [text-wrap:wrap] sm:text-4xl md:text-[2.9rem]">
-              {title}
-            </h1>
-            <p className="min-w-0 break-normal text-base leading-[1.8] text-paper/80 [text-wrap:wrap]">
-              {description}
-            </p>
-          </div>
-        </Container>
-      </section>
+
+      <PageHero
+        eyebrow={tagline}
+        title={title}
+        description={description}
+        backgroundImage={offeringImages[service.id]}
+      />
 
       <ServiceBody service={service} />
 
-      {/* FAQ */}
-      <section className="border-t border-line bg-ink-2 py-24 md:py-32">
-        <Container>
-          <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
-          <div className="mt-12 md:mt-16">
-            <FaqList items={faqs} />
+      {/* FAQ — 다크 */}
+      <section className="bg-ink text-paper">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.62fr_1.38fr]"
+        >
+          <div>
+            <span className="label text-gold">Q&amp;A</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4vw,3.6rem)] leading-[1.05]">
+              결정 전에 많이 묻는 질문
+            </h2>
           </div>
+          <FaqList items={faqs} />
         </Container>
       </section>
 
@@ -144,6 +113,7 @@ export default async function OfferingDetailPage({
         title={`${title}, 하람마케팅과 함께하세요.`}
         description="간단한 정보만 남겨주시면 담당 마케터가 맞춤 제안과 견적을 보내드립니다."
         label="견적·상담 신청하기"
+        image={offeringImages[service.id]}
       />
     </>
   );
@@ -152,120 +122,133 @@ export default async function OfferingDetailPage({
 function ServiceBody({ service }: { service: Service }) {
   return (
     <>
-      {/* Overview */}
-      <section className="border-b border-line py-20 md:py-28">
-        <Container>
-          <div className="grid min-w-0 gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-            <div className="flex min-w-0 flex-col gap-3">
-              <span className="label">OVERVIEW</span>
-              <h2 className="font-serif text-2xl sm:text-3xl">
-                이렇게 접근합니다
-              </h2>
-            </div>
-            <div className="flex min-w-0 flex-col gap-6">
-              {service.overview.map((p, i) => (
-                <p
-                  key={i}
-                  className="min-w-0 break-normal text-base leading-[1.85] text-paper/90 [text-wrap:wrap] sm:text-lg"
-                >
-                  {p}
-                </p>
-              ))}
-            </div>
+      {/* OVERVIEW — 라이트 2열 */}
+      <section className="bg-paper text-ink">
+        <Container
+          size="wide"
+          className="grid gap-10 py-20 md:py-28 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-16"
+        >
+          <div className="lg:sticky lg:top-28 lg:h-fit">
+            <Link
+              href="/services"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-ink/55 transition-colors hover:text-gold-deep"
+            >
+              <ArrowUpRight className="h-4 w-4 -rotate-90 transition-transform duration-300 group-hover:-translate-x-0.5" />
+              서비스 전체
+            </Link>
+            <span className="label mt-6 block text-gold-deep">Overview</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+              이렇게 접근합니다
+            </h2>
           </div>
-        </Container>
-      </section>
-
-      {/* Program + Scope */}
-      <section className="border-b border-line py-20 md:py-28">
-        <Container>
-          <div className="grid min-w-0 gap-12 md:grid-cols-2 md:gap-16">
-            <div className="flex min-w-0 flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <span className="label">PROGRAM</span>
-                <h2 className="font-serif text-2xl">주요 진행 항목</h2>
-              </div>
-              <ul className="flex flex-col">
-                {service.items.map((item, i) => (
-                  <li
-                    key={item}
-                    className="group flex items-center gap-5 border-t border-line py-4 last:border-b"
-                  >
-                    <span className="font-display text-sm text-gold">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="min-w-0 break-normal text-base [text-wrap:wrap] transition-transform duration-500 group-hover:translate-x-1">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex min-w-0 flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <span className="label">SCOPE</span>
-                <h2 className="font-serif text-2xl">진행 범위</h2>
-              </div>
-              <ul className="flex flex-col gap-3.5">
-                {service.scope.map((s) => (
-                  <li key={s} className="flex items-start gap-3 text-base">
-                    <Plus className="mt-1 h-4 w-4 shrink-0 text-gold" />
-                    <span className="min-w-0 break-normal text-paper/90 [text-wrap:wrap]">
-                      {s}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Recommended for */}
-      <section className="border-b border-line bg-ink-2 py-20 md:py-28">
-        <Container>
-          <SectionHeading eyebrow="WHO IT'S FOR" title="이런 분들께 추천합니다" />
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            {service.recommendedFor.map((r, i) => (
-              <div
-                key={r}
-                className="flex min-w-0 flex-col gap-4 rounded-2xl border border-line bg-surface p-7"
+          <div className="flex flex-col gap-7">
+            {service.overview.map((p, i) => (
+              <p
+                key={i}
+                className="max-w-3xl text-base leading-[1.9] text-ink/68 md:text-lg"
               >
-                <span className="font-display text-3xl text-faint">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="min-w-0 break-normal text-base leading-relaxed text-paper/90 [text-wrap:wrap]">
-                  {r}
-                </p>
-              </div>
+                {p}
+              </p>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Process */}
-      <section className="py-20 md:py-28">
-        <Container>
-          <SectionHeading
-            eyebrow="HOW WE WORK"
-            title="진행 프로세스"
-            align="center"
-            className="mx-auto max-w-2xl"
-          />
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <div
-                key={step.no}
-                className="group flex flex-col gap-4 bg-surface p-7"
+      {/* PROGRAM + SCOPE — 크림 배경, 번호 리스트 + 카드 */}
+      <section className="bg-[#f7f1e8] text-ink">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-16"
+        >
+          <div>
+            <span className="label text-gold-deep">Program</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
+              주요 진행 항목
+            </h2>
+            <ul className="mt-10 border-t border-ink/10">
+              {service.items.map((item, i) => (
+                <li
+                  key={item}
+                  className="group flex items-center gap-6 border-b border-ink/10 py-5"
+                >
+                  <span className="folio text-2xl text-gold-deep">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-serif text-lg leading-snug transition-transform duration-500 group-hover:translate-x-1">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <span className="label text-gold-deep">Scope</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
+              진행 범위
+            </h2>
+            <div className="mt-10 rounded-[8px] border border-ink/10 bg-[#fffaf3] p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] md:p-8">
+              <ul className="flex flex-col gap-4">
+                {service.scope.map((s) => (
+                  <li key={s} className="flex items-start gap-3 text-base">
+                    <Plus className="mt-1 h-4 w-4 shrink-0 text-gold-deep" />
+                    <span className="leading-[1.7] text-ink/70">{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* WHO IT'S FOR — 다크 카드 3열 */}
+      <section className="bg-ink text-paper">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="max-w-3xl">
+            <span className="label text-gold">Who it&apos;s for</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+              이런 분들께 추천합니다
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {service.recommendedFor.map((r, i) => (
+              <article
+                key={r}
+                className="rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6 transition-colors hover:border-gold/55"
               >
-                <span className="font-display text-4xl text-faint transition-colors duration-500 group-hover:text-gold">
-                  {step.no}
+                <span className="folio text-3xl text-gold">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-serif text-lg">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">
+                <p className="mt-5 text-base leading-[1.85] text-paper/68">
+                  {r}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* PROCESS — 딥그린 번호 그리드 */}
+      <section className="bg-[#17231f] text-paper">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="max-w-3xl">
+            <span className="label text-gold">How we work</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.8vw,4.4rem)] leading-[1.05]">
+              진행 프로세스
+            </h2>
+          </div>
+          <div className="mt-14 grid border-t border-paper/16 md:grid-cols-4">
+            {processSteps.map((step) => (
+              <article
+                key={step.no}
+                className="border-b border-paper/16 py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
+              >
+                <span className="folio text-4xl text-gold">{step.no}</span>
+                <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>
+                <p className="mt-4 text-sm leading-[1.8] text-paper/64">
                   {step.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </Container>

@@ -10,12 +10,10 @@ import {
   faqs,
   aboutImage,
 } from "@/lib/content";
-import { Container, Eyebrow, SectionHeading, CTASection } from "@/components/ui";
-import { Reveal } from "@/components/Reveal";
+import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Strengths } from "@/components/Strengths";
 import { FaqList } from "@/components/FaqList";
-import { Quote } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -28,8 +26,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        folio="No. 010"
-        eyebrow="ABOUT HARAM MARKETING"
+        eyebrow="About Haram Marketing"
         title={
           <>
             마케팅의 끝은
@@ -41,229 +38,223 @@ export default function AboutPage() {
         backgroundImage={aboutImage}
       />
 
-      {/* Mission statement */}
-      <section className="border-b border-line py-24 md:py-32">
-        <Container>
-          <div className="grid gap-12 md:grid-cols-[0.6fr_1.4fr] md:gap-16">
-            <Reveal>
-              <Eyebrow>OUR MISSION</Eyebrow>
-            </Reveal>
-            <Reveal delay={120} className="flex flex-col gap-8">
-              <Quote className="h-10 w-10 text-gold/40" />
-              <p className="font-serif text-2xl leading-[1.6] sm:text-3xl sm:leading-[1.55] text-balance">
-                우리는 &lsquo;노출&rsquo;을 팔지 않습니다.
-                <span className="text-muted">
-                  {" "}
-                  신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이
-                  예약으로 이어지도록{" "}
-                </span>
-                보이지 않는 모든 동선을 준비합니다.
-              </p>
-              <p className="text-sm text-faint">
-                — {company.nameKo} 대표 {company.ceo}
-              </p>
-            </Reveal>
+      {/* Mission statement — 라이트 크림 선언문 */}
+      <section className="bg-[#f7f1e8] text-ink">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.42fr_1.58fr] lg:items-start"
+        >
+          <span className="label text-gold-deep">Our mission</span>
+          <div>
+            <p className="font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.12]">
+              우리는 <span className="text-gold-deep">노출</span>을 팔지 않습니다.
+              신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
+              <span className="text-gold-deep">예약</span>으로 이어지도록 보이지
+              않는 모든 동선을 준비합니다.
+            </p>
+            <p className="mt-8 text-sm text-ink/55">
+              — {company.nameKo} 대표 {company.ceo}
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* Story / 운영 철학 */}
-      <section
-        id="philosophy"
-        className="scroll-mt-20 border-b border-line bg-ink-2 py-24 md:py-32"
-      >
-        <Container>
-          <SectionHeading eyebrow="OUR PHILOSOPHY" title="우리가 일을 대하는 태도" />
-          <div className="mt-12 flex flex-col md:mt-16">
+      {/* Story / 운영 철학 — 라이트 페이퍼 2열 행 */}
+      <section id="philosophy" className="scroll-mt-24 bg-paper text-ink">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="mb-12 max-w-2xl">
+            <span className="label text-gold-deep">Our philosophy</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+              우리가 일을 대하는 태도
+            </h2>
+          </div>
+          <div className="flex flex-col">
             {aboutStory.map((s, i) => (
-              <Reveal
+              <article
                 key={s.heading}
-                delay={i * 90}
-                className="grid gap-5 border-t border-line-strong py-10 last:border-b md:grid-cols-[0.9fr_1.4fr] md:gap-12"
+                className="grid gap-6 border-t border-ink/10 py-10 last:border-b md:grid-cols-[0.16fr_0.84fr_1fr] md:items-start md:gap-10"
               >
-                <h3 className="font-serif text-xl leading-snug sm:text-2xl">
+                <span className="folio text-3xl text-gold-deep">
+                  0{i + 1}
+                </span>
+                <h3 className="font-serif text-2xl leading-snug">
                   {s.heading}
                 </h3>
-                <p className="max-w-[60ch] text-base leading-[1.9] text-paper/80">
+                <p className="max-w-[60ch] text-base leading-[1.9] text-ink/68">
                   {s.body}
                 </p>
-              </Reveal>
+              </article>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Strengths */}
+      {/* Strengths — 다크 카드 섹션 */}
       <Strengths id="strengths" />
 
-      {/* Channels / 운영 채널·역량 + 성과 지표 */}
-      <section
-        id="equipment"
-        className="scroll-mt-20 border-b border-line bg-ink-2 py-24 md:py-32"
-      >
-        <Container>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="OUR CHANNELS" title="운영 채널·역량" />
-            <Reveal delay={150} className="max-w-md">
-              <p className="text-sm leading-relaxed text-muted">
-                신랑신부가 예식장을 찾는 모든 채널을 직접 운영합니다. 검색·플레이스부터
-                블로그·SNS·숏폼까지, 자사 콘텐츠팀이 만든 콘텐츠로 채웁니다.
-              </p>
-            </Reveal>
+      {/* Channels / 운영 채널·역량 + 성과 지표 — 라이트 크림 */}
+      <section id="equipment" className="scroll-mt-24 bg-[#fffaf3] text-ink">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="label text-gold-deep">Our channels</span>
+              <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+                운영 채널·역량
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-[1.9] text-ink/68">
+              신랑신부가 예식장을 찾는 모든 채널을 직접 운영합니다.
+              검색·플레이스부터 블로그·SNS·숏폼까지, 자사 콘텐츠팀이 만든
+              콘텐츠로 채웁니다.
+            </p>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-16">
-            {equipment.map((item, i) => (
-              <Reveal
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {equipment.map((item) => (
+              <article
                 key={item.name}
-                delay={i * 90}
-                className="panel-elevated flex flex-col overflow-hidden rounded-2xl border border-line-strong bg-surface"
+                className="group overflow-hidden rounded-[8px] border border-ink/10 bg-[#fffaf3] shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
               >
-                <div className="aspect-[4/3] overflow-hidden border-b border-line-strong bg-surface">
+                <div className="relative aspect-[5/3] overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
                     loading="lazy"
-                    className="h-full w-full object-cover [filter:grayscale(0.4)_sepia(0.14)_brightness(0.95)]"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                   />
+                  <div className="absolute inset-0 bg-ink/18" aria-hidden />
                 </div>
-                <div className="flex flex-col gap-2 p-7">
-                  <span className="label text-gold">{item.tagline}</span>
-                  <h3 className="font-serif text-xl">{item.name}</h3>
-                  <p className="text-sm leading-relaxed text-muted">
+                <div className="p-6">
+                  <span className="label text-gold-deep">{item.tagline}</span>
+                  <h3 className="mt-3 font-serif text-2xl leading-snug">
+                    {item.name}
+                  </h3>
+                  <p className="mt-4 text-sm leading-[1.8] text-ink/64">
                     {item.description}
                   </p>
                 </div>
-              </Reveal>
+              </article>
             ))}
           </div>
 
-          {/* 성과 지표 */}
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line-strong bg-line-strong sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
-            {metrics.map((m, i) => (
-              <Reveal
+          {/* 성과 지표 — 홈 메트릭 바 스타일 */}
+          <div className="mt-12 grid border-x border-b border-ink/10 bg-[#fffaf3] sm:grid-cols-4">
+            {metrics.map((m) => (
+              <div
                 key={m.label}
-                delay={i * 70}
-                className="flex flex-col gap-2 bg-surface p-8 text-center"
+                className="border-b border-r border-ink/10 p-5 last:border-r-0 sm:border-b-0 md:p-7"
               >
-                <span className="font-display text-4xl text-gold sm:text-5xl">
+                <p className="font-display text-4xl text-gold-deep md:text-5xl">
                   {m.value}
                   {m.suffix ? (
-                    <span className="text-2xl sm:text-3xl">{m.suffix}</span>
+                    <span className="text-lg text-gold-deep/80">{m.suffix}</span>
                   ) : null}
-                </span>
-                <span className="text-xs leading-relaxed text-muted">
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-ink/62">
                   {m.label}
-                </span>
-              </Reveal>
+                </p>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Departments / 조직도 */}
-      <section
-        id="team"
-        className="scroll-mt-20 border-b border-line bg-ink-2 py-24 md:py-32"
-      >
-        <Container>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="OUR TEAM" title="조직도" />
-            <Reveal delay={150} className="max-w-md">
-              <p className="text-sm leading-relaxed text-muted">
-                전략부터 콘텐츠 제작, 광고·DB 운영까지 — 마케팅에 필요한 모든
-                조직을 당사 안에 두고, 전 스태프가 직속으로 움직입니다. 외주로
-                흩어지지 않는 한 팀의 완성도를 만듭니다.
-              </p>
-            </Reveal>
+      {/* Departments / 조직도 — 다크 딥그린 카드 그리드 */}
+      <section id="team" className="scroll-mt-24 bg-[#17231f] text-paper">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="label text-gold">Our team</span>
+              <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+                조직도
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-[1.9] text-paper/68">
+              전략부터 콘텐츠 제작, 광고·DB 운영까지 — 마케팅에 필요한 모든
+              조직을 당사 안에 두고, 전 스태프가 직속으로 움직입니다. 외주로
+              흩어지지 않는 한 팀의 완성도를 만듭니다.
+            </p>
           </div>
 
-          {/* Org chart */}
-          <div className="mt-16">
-            {/* CEO */}
-            <Reveal className="flex flex-col items-center">
-              <div className="w-full max-w-xs rounded-2xl border border-line-strong bg-surface px-6 py-5 text-center">
-                <span className="label text-gold">CEO</span>
-                <h3 className="mt-1 font-serif text-xl">{company.ceo}</h3>
-                <p className="mt-1 text-xs text-muted">대표이사</p>
-              </div>
-              <span className="h-12 w-px bg-line-strong" />
-            </Reveal>
+          <div className="mb-5 rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6">
+            <span className="label text-gold">CEO</span>
+            <h3 className="mt-3 font-serif text-2xl">{company.ceo}</h3>
+            <p className="mt-2 text-sm text-paper/64">대표이사</p>
+          </div>
 
-            {/* Departments */}
-            <div className="relative">
-              <span className="absolute top-0 left-[16.66%] right-[16.66%] hidden h-px bg-line-strong sm:block" />
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                {departments.map((dept, i) => (
-                  <Reveal
-                    key={dept.name}
-                    delay={i * 70}
-                    className="flex flex-col items-center"
-                  >
-                    <span className="hidden h-12 w-px bg-line-strong sm:block" />
-                    <div className="panel-elevated flex h-full w-full flex-col gap-4 rounded-2xl border border-line-strong bg-surface p-6 sm:p-7">
-                      <div className="flex flex-col gap-1">
-                        <span className="label text-gold">{dept.tagline}</span>
-                        <h4 className="font-serif text-lg leading-snug">
-                          {dept.name}
-                        </h4>
-                      </div>
-                      <ul className="flex flex-col gap-2 border-t border-line pt-4">
-                        {dept.duties.map((d) => (
-                          <li
-                            key={d}
-                            className="flex items-start gap-2 text-xs leading-relaxed text-muted"
-                          >
-                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" />
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {departments.map((dept) => (
+              <article
+                key={dept.name}
+                className="rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6 transition-colors hover:border-gold/55"
+              >
+                <span className="label text-gold">{dept.tagline}</span>
+                <h3 className="mt-3 font-serif text-2xl leading-snug">
+                  {dept.name}
+                </h3>
+                <p className="mt-4 text-sm leading-[1.8] text-paper/64">
+                  {dept.description}
+                </p>
+                <ul className="mt-6 flex flex-col gap-2 border-t border-paper/12 pt-5">
+                  {dept.duties.map((d) => (
+                    <li
+                      key={d}
+                      className="flex items-start gap-3 text-sm leading-relaxed text-paper/64"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </Container>
       </section>
 
-      {/* Values */}
-      <section
-        id="values"
-        className="scroll-mt-20 border-b border-line py-24 md:py-32"
-      >
-        <Container>
-          <SectionHeading eyebrow="OUR VALUES" title="우리가 일하는 방식" />
-          <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-3">
+      {/* Values — 라이트 페이퍼 번호 카드 */}
+      <section id="values" className="scroll-mt-24 bg-paper text-ink">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="mb-12 max-w-2xl">
+            <span className="label text-gold-deep">Our values</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+              우리가 일하는 방식
+            </h2>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3">
             {values.map((value, i) => (
-              <Reveal
+              <article
                 key={value.title}
-                delay={i * 110}
-                className="card-hover panel-elevated flex h-full flex-col gap-5 rounded-2xl border border-line-strong bg-surface p-8 md:p-10"
+                className="rounded-[8px] border border-ink/10 bg-[#fffaf3] p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
               >
-                <span className="font-display text-4xl text-gold">
+                <span className="folio text-3xl text-gold-deep">
                   0{i + 1}
                 </span>
-                <h3 className="font-serif text-xl leading-snug">{value.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">
+                <h3 className="mt-5 font-serif text-2xl leading-snug">
+                  {value.title}
+                </h3>
+                <p className="mt-4 text-sm leading-[1.85] text-ink/66">
                   {value.description}
                 </p>
-              </Reveal>
+              </article>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* FAQ */}
-      <section
-        id="faq"
-        className="scroll-mt-20 border-b border-line py-24 md:py-32"
-      >
-        <Container>
-          <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
-          <div className="mt-12 md:mt-16">
-            <FaqList items={faqs} />
+      {/* FAQ — 다크 섹션 + 좌 제목/우 목록 2열 */}
+      <section id="faq" className="scroll-mt-24 bg-ink text-paper">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.62fr_1.38fr]"
+        >
+          <div>
+            <span className="label text-gold">Q&amp;A</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4vw,3.6rem)] leading-[1.05]">
+              자주 묻는 질문
+            </h2>
           </div>
+          <FaqList items={faqs} />
         </Container>
       </section>
 
