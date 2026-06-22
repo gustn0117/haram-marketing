@@ -1,7 +1,7 @@
 import { SpineRail, MobileNav } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-// 본문 레이아웃 — 좌측 책등 레일(lg) + 상단 미니바(mobile). 표지(/)에는 미적용.
+// 본문 레이아웃 — 상단 내비게이션 + 모바일 미니바. 표지(/)에는 미적용.
 export default function SiteLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -9,7 +9,7 @@ export default function SiteLayout({
     <>
       <SpineRail />
       <MobileNav />
-      <div className="flex min-h-screen flex-col pt-14 lg:pl-20 lg:pt-0">
+      <div className="flex min-h-screen flex-col pt-14 lg:pt-20">
         <main className="relative z-2 flex-1">{children}</main>
         <Footer />
       </div>

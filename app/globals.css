@@ -60,7 +60,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   overflow-x: hidden;
 }
 
@@ -96,7 +96,7 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* 상단 은은한 샴페인 광원 — 다크 캔버스에 깊이 부여 */
+/* 다크 캔버스 깊이 — 선형 비네트로 광원을 정리 */
 body::after {
   content: "";
   position: fixed;
@@ -104,16 +104,8 @@ body::after {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(
-      120% 80% at 50% -10%,
-      rgba(201, 168, 106, 0.08),
-      transparent 60%
-    ),
-    radial-gradient(
-      90% 60% at 85% 110%,
-      rgba(185, 138, 122, 0.06),
-      transparent 55%
-    );
+    linear-gradient(180deg, rgba(237, 230, 219, 0.055), transparent 18rem),
+    linear-gradient(90deg, rgba(201, 168, 106, 0.045), transparent 28%, transparent 72%, rgba(185, 138, 122, 0.045));
 }
 
 /* ---------- 한글 워드랩(어절 단위 줄바꿈) ----------
@@ -137,13 +129,13 @@ body::after {
 .font-serif {
   font-family: var(--font-serif);
   font-weight: 500;
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
 }
 /* 대형 디스플레이 제목 — 고대비 세리프는 클수록 가볍고 타이트하게 */
 .font-serif-display {
   font-family: var(--font-serif);
   font-weight: 500;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 @media (min-width: 768px) {
   .font-serif-display {
@@ -154,7 +146,7 @@ body::after {
 .font-display {
   font-family: var(--font-display);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
@@ -168,6 +160,33 @@ body::after {
 
 .text-balance {
   text-wrap: balance;
+}
+
+/* ---------- Premium homepage ---------- */
+.premium-hero {
+  isolation: isolate;
+  background: var(--color-ink);
+}
+
+.premium-hero-shade {
+  background:
+    linear-gradient(90deg, rgba(16, 13, 11, 0.92), rgba(16, 13, 11, 0.68) 42%, rgba(16, 13, 11, 0.2)),
+    linear-gradient(180deg, rgba(16, 13, 11, 0.08), rgba(16, 13, 11, 0.62));
+}
+
+.premium-cta-shade {
+  background:
+    linear-gradient(90deg, rgba(16, 13, 11, 0.9), rgba(16, 13, 11, 0.62) 44%, rgba(16, 13, 11, 0.28)),
+    linear-gradient(180deg, rgba(16, 13, 11, 0.18), rgba(16, 13, 11, 0.78));
+}
+
+@media (max-width: 767px) {
+  .premium-hero-shade,
+  .premium-cta-shade {
+    background:
+      linear-gradient(180deg, rgba(16, 13, 11, 0.42), rgba(16, 13, 11, 0.92)),
+      linear-gradient(90deg, rgba(16, 13, 11, 0.82), rgba(16, 13, 11, 0.28));
+  }
 }
 
 /* 흰 배경 위 강조 헤드라인용 짙은 남색 (플랫 — 솔리드) */

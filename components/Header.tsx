@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { company, navLinks, dropdownMenus } from "@/lib/content";
 import { Monogram, Menu, Close, ArrowUpRight } from "@/components/icons";
 
@@ -10,85 +10,106 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-/* 데스크톱(lg+) 좌측 80px 고정 책등 레일 — 상단 가로바 대체 */
+/* 데스크톱(lg+) 상단 고정 내비게이션 바 (높이 5rem) */
 export function SpineRail() {
   const pathname = usePathname();
   return (
-    <aside className="fixed inset-y-0 left-0 z-50 hidden w-20 flex-col items-center justify-between border-r border-line bg-ink py-7 lg:flex">
-      <div className="flex flex-col items-center gap-8">
-        <Link href="/home" aria-label={`${company.nameKo} 홈`}>
+    <header className="fixed inset-x-0 top-0 z-50 hidden h-20 border-b border-line bg-ink/85 backdrop-blur-xl lg:block">
+      <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-8">
+        <Link
+          href="/home"
+          className="flex items-center gap-3"
+          aria-label={`${company.nameKo} 홈`}
+        >
           <Monogram className="h-8 w-8 text-gold transition-transform duration-500 hover:rotate-3" />
+          <span className="flex flex-col leading-none">
+            <span className="font-serif text-base tracking-tight">
+              {company.nameKo}
+            </span>
+            <span className="font-display text-[0.6rem] tracking-[0.34em] text-faint">
+              {company.nameEn}
+            </span>
+          </span>
         </Link>
-        <span className="rail-label" aria-hidden>
-          HARAM · MARKETING
-        </span>
-      </div>
 
-      <nav className="flex flex-col items-center gap-7">
-        {navLinks.map((l, i) => {
-          const active = isActive(pathname, l.href);
-          const menu = dropdownMenus[l.href];
-          return (
-            <div key={l.href} className="group relative flex items-center">
-              <Link
-                href={l.href}
-                aria-label={l.label}
-                className="flex h-6 w-6 items-center justify-center"
-              >
-                <span className="rail-dot" data-active={active} />
-              </Link>
-              {/* 호버 플라이아웃 — 라벨 + (있으면) 세로 서브인덱스 */}
-              <div className="pointer-events-none absolute left-full top-1/2 z-50 -translate-y-1/2 pl-3 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
-                <div className="min-w-48 rounded-lg border border-line-strong bg-ink/95 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+        <nav className="flex items-center gap-9">
+          {navLinks.map((l) => {
+            const active = isActive(pathname, l.href);
+            const menu = dropdownMenus[l.href];
+            const cls = `link-underline text-sm tracking-tight transition-colors ${
+              active ? "text-gold" : "text-muted hover:text-paper"
+            }`;
+            if (menu) {
+              return (
+                <div key={l.href} className="group relative">
                   <Link
                     href={l.href}
-                    className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-paper transition-colors hover:text-gold"
+                    aria-current={active ? "page" : undefined}
+                    className={cls}
                   >
-                    <span className="folio text-[0.7rem] text-gold">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
                     {l.label}
                   </Link>
-                  {menu
-                    ? menu.map((it) => (
+                  <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <div className="w-56 rounded-lg border border-line-strong bg-ink/95 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+                      {menu.map((it) => (
                         <Link
                           key={it.href}
                           href={it.href}
-                          className="block rounded-md px-3 py-1.5 pl-8 text-xs text-muted transition-colors hover:text-gold"
+                          className="block rounded-md px-4 py-2.5 text-sm text-paper transition-colors hover:bg-surface-2 hover:text-gold"
                         >
                           {it.label}
                         </Link>
-                      ))
-                    : null}
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          );
-        })}
-      </nav>
-
-      <Link
-        href="/contact"
-        aria-label="문의"
-        className="folio text-center text-[0.6rem] leading-tight text-faint transition-colors hover:text-gold"
-      >
-        N°
-        <br />
-        {String(navLinks.length).padStart(2, "0")}
-      </Link>
-    </aside>
+              );
+            }
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={cls}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 rounded-sm bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright"
+          >
+            무료 진단
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </nav>
+      </div>
+    </header>
   );
 }
 
 /* 모바일(md 이하) — 상단 56px 미니바 + 풀스크린 인덱스 드로어 */
 export function MobileNav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    panelRef.current?.querySelector<HTMLElement>("a")?.focus();
+    return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
@@ -105,6 +126,7 @@ export function MobileNav() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
+          aria-controls="mobile-nav"
           className="flex h-10 w-10 items-center justify-center text-paper"
         >
           {open ? <Close className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -112,18 +134,25 @@ export function MobileNav() {
       </div>
 
       <div
+        id="mobile-nav"
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="사이트 메뉴"
         className={`fixed inset-0 z-40 overflow-y-auto bg-ink transition-opacity duration-500 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
         <nav className="flex min-h-full flex-col gap-1 px-6 pb-12 pt-20">
           {navLinks.map((l, i) => {
+            const active = isActive(pathname, l.href);
             const menu = dropdownMenus[l.href];
             return (
               <div key={l.href} className="border-b border-line">
                 <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
                   className="flex items-center gap-4 py-5"
                 >
                   <span className="folio text-sm text-gold">

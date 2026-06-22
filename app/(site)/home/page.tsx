@@ -1,6 +1,9 @@
+import type { ComponentProps } from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
+  company,
   services,
   processSteps,
   faqs,
@@ -11,10 +14,15 @@ import {
   regions,
 } from "@/lib/content";
 import { Container } from "@/components/ui";
-import { Chapter, IndexTable, Plate } from "@/components/carnet";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
-import { ArrowRight } from "@/components/icons";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Phone,
+  ServiceIcon,
+  StrengthIcon,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/home" },
@@ -30,188 +38,364 @@ const faqJsonLd = {
   })),
 };
 
+type ServiceIconId = ComponentProps<typeof ServiceIcon>["id"];
+
+const strategyCards = [
+  {
+    no: "01",
+    title: "지역 검색을 선점",
+    description:
+      "예비부부가 가장 먼저 검색하는 지역·웨딩 키워드에서 발견되는 구조를 만듭니다.",
+  },
+  {
+    no: "02",
+    title: "후기로 신뢰를 축적",
+    description:
+      "홀투어, 식사, 주차, 응대 경험이 검색 결과와 SNS에서 설득력 있게 쌓이게 합니다.",
+  },
+  {
+    no: "03",
+    title: "상담 DB를 예약으로 연결",
+    description:
+      "광고와 랜딩, 응대 동선까지 하나로 묶어 문의가 홀투어와 계약으로 이어지게 합니다.",
+  },
+];
+
+const operatingSignals = [
+  "네이버 검색·플레이스",
+  "블로그·체험단 후기",
+  "인스타그램·릴스",
+  "상담 DB·광고 전환",
+  "사진·영상 콘텐츠",
+  "예약 랜딩·홈페이지",
+];
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={faqJsonLd} />
 
-      {/* ── 표제 스프레드 (No.000) ── */}
-      <section className="chapter-tall bleed-clip pt-24 lg:pt-16">
-        <Container size="wide">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-            <div className="flex flex-col gap-7">
-              <span className="folio rise text-sm tracking-[0.34em] text-faint" style={{ animationDelay: "60ms" }}>
-                001 — INDEX
-              </span>
-              <h1
-                className="rise border-l border-gold/30 pl-6 font-serif-display text-[clamp(3.2rem,8vw,7rem)] leading-[0.92] tracking-[-0.025em] text-paper"
-                style={{ animationDelay: "160ms" }}
+      <section className="premium-hero relative overflow-hidden">
+        <Image
+          src={heroImage}
+          alt="고급 웨딩홀 연회장"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="premium-hero-shade absolute inset-0" aria-hidden />
+        <Container
+          size="wide"
+          className="relative z-[2] flex min-h-[calc(88svh-3.5rem)] items-end pb-10 pt-24 lg:min-h-[calc(88svh-5rem)] lg:pb-14 lg:pt-28"
+        >
+          <div className="max-w-5xl">
+            <span className="label rise text-gold" style={{ animationDelay: "60ms" }}>
+              Wedding hall growth partner
+            </span>
+            <h1
+              className="rise mt-5 font-serif-display text-[clamp(4rem,13vw,9rem)] leading-none text-paper"
+              style={{ animationDelay: "140ms" }}
+            >
+              하람마케팅
+            </h1>
+            <p
+              className="rise mt-6 max-w-2xl text-lg leading-[1.85] text-paper/82 md:text-2xl"
+              style={{ animationDelay: "240ms" }}
+            >
+              웨딩홀의 품격을 예비부부의 상담 문의와 홀투어 예약으로
+              바꾸는 예식장 전문 마케팅 파트너입니다.
+            </p>
+
+            <div
+              className="rise mt-9 flex flex-col gap-3 sm:flex-row"
+              style={{ animationDelay: "340ms" }}
+            >
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 rounded-[4px] bg-gold px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-gold-bright"
               >
-                비어 있는 홀을
-                <br />
-                <span className="italic text-gold">예약</span>으로 채웁니다.
-              </h1>
-              <p
-                className="rise max-w-md text-base leading-[1.8] text-paper/70"
-                style={{ animationDelay: "320ms" }}
+                무료 진단 신청
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+              <a
+                href={`tel:${company.phone.replace(/-/g, "")}`}
+                className="group inline-flex items-center justify-center gap-3 rounded-[4px] border border-paper/28 px-7 py-4 text-sm font-semibold text-paper transition-colors hover:border-gold hover:text-gold"
               >
-                검색 노출부터 상담 예약까지 — 예식장만 전문으로, 웨딩홀
-                마케팅의 모든 단계를 하나의 흐름으로 완성합니다.
-              </p>
-              <div
-                className="rise flex flex-col gap-5 pt-1"
-                style={{ animationDelay: "440ms" }}
-              >
-                <Link
-                  href="/contact"
-                  className="link-underline group inline-flex w-fit items-center gap-2 text-sm tracking-[0.05em] text-gold"
-                >
-                  무료 마케팅 진단
-                  <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-                </Link>
-                <p className="max-w-lg text-[0.7rem] uppercase leading-relaxed tracking-[0.16em] text-faint">
-                  {regions.join("  ·  ")}
-                </p>
-              </div>
+                <Phone className="h-4 w-4" />
+                {company.phone}
+              </a>
             </div>
 
-            <Plate
-              src={heroImage}
-              caption="Plate 01 — Wedding Hall"
-              bleed="right"
-              priority
-            />
           </div>
         </Container>
       </section>
 
-      {/* ── Ch.01 — 선언 + 지표 인덱스표 ── */}
-      <Chapter folio="01 / 06" label="WHO WE ARE">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <p className="font-serif text-[clamp(1.6rem,2.6vw,2.4rem)] leading-[1.5] tracking-[-0.01em]">
-            하람마케팅은 단순한 마케팅 대행이 아니라,{" "}
-            <span className="text-gold">
-              예식장의 강점을 신랑신부의 선택으로 번역
-            </span>
-            합니다. 보기 좋은 조회수가 아니라, 실제로 식장을 채우는 예약을
-            만듭니다.
-          </p>
-          <IndexTable rows={metrics} />
-        </div>
-      </Chapter>
-
-      {/* ── Ch.02 — 강점 지그재그 펼침면 ── */}
-      <Chapter folio="02 / 06" label="WHY HARAM" title="노출이 아니라, 예약으로.">
-        <div className="border-t border-line-strong">
-          {strengths.map((s, i) => (
-            <div
-              key={s.id}
-              className="index-row grid gap-6 border-b border-line-strong py-10 lg:grid-cols-[0.42fr_0.58fr] lg:gap-12"
-            >
-              <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                <span className="folio text-[clamp(2.4rem,4vw,3.8rem)] text-gold/70">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-serif text-2xl leading-snug">
-                  {s.title}
-                </h3>
+      <section className="bg-paper text-ink">
+        <Container size="wide">
+          <div className="grid border-x border-b border-ink/10 bg-[#fffaf3] sm:grid-cols-4">
+            {metrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="border-b border-r border-ink/10 p-5 last:border-r-0 sm:border-b-0 md:p-7"
+              >
+                <p className="font-display text-4xl text-gold-deep md:text-5xl">
+                  {metric.value}
+                  {metric.suffix ? (
+                    <span className="text-lg text-gold-deep/80">
+                      {metric.suffix}
+                    </span>
+                  ) : null}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-ink/62">
+                  {metric.label}
+                </p>
               </div>
-              <p
-                className={`max-w-[52ch] text-[0.95rem] leading-[1.95] text-muted ${
-                  i % 2 === 1 ? "lg:order-1" : ""
-                }`}
-              >
-                {s.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Chapter>
+            ))}
+          </div>
+        </Container>
 
-      {/* ── Ch.03 — 서비스 좌우교차 플레이트 스프레드 ── */}
-      <Chapter folio="03 / 06" label="WHAT WE DO" title="검색부터 예약까지.">
-        <div className="border-t border-line-strong">
-          {services.map((s, i) => {
-            const flip = i % 2 === 1;
-            return (
-              <Link
-                key={s.id}
-                href={`/services/${s.id}`}
-                className="group grid items-center gap-10 border-b border-line-strong py-12 lg:grid-cols-2 lg:gap-14"
+        <Container
+          size="wide"
+          className="grid gap-10 py-16 md:py-20 lg:grid-cols-[0.88fr_1.12fr] lg:items-end"
+        >
+          <div>
+            <span className="label text-gold-deep">Premium positioning</span>
+            <h2 className="mt-5 max-w-2xl font-serif-display text-[clamp(2.3rem,5vw,4.8rem)] leading-[1.04]">
+              웨딩홀은 예쁜 광고보다 정교한 예약 흐름이 필요합니다.
+            </h2>
+          </div>
+          <p className="max-w-3xl text-base leading-[1.9] text-ink/70 md:text-lg">
+            신랑신부는 검색에서 후보를 좁히고, 후기로 신뢰를 확인하고, SNS로
+            분위기를 감각한 뒤 상담을 남깁니다. 하람마케팅은 그 모든 접점을
+            하나의 예약 동선으로 설계합니다.
+          </p>
+        </Container>
+
+        <Container size="wide" className="pb-20 md:pb-28">
+          <div className="grid gap-3 md:grid-cols-3">
+            {strategyCards.map((card) => (
+              <article
+                key={card.no}
+                className="rounded-[8px] border border-ink/10 bg-white/55 p-6 shadow-[0_20px_60px_-46px_rgba(16,13,11,0.55)]"
               >
-                <div className={flip ? "lg:order-2" : ""}>
-                  <span className="folio text-sm text-faint">{s.no} / 06</span>
-                  <span className="label mt-4 block text-gold">{s.tagline}</span>
-                  <h3 className="mt-2 font-serif-display text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.02] tracking-[-0.02em] transition-colors duration-500 group-hover:text-gold">
-                    {s.title}
+                <span className="folio text-3xl text-gold-deep">{card.no}</span>
+                <h3 className="mt-5 font-serif text-2xl">{card.title}</h3>
+                <p className="mt-4 text-sm leading-[1.85] text-ink/66">
+                  {card.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-[#f7f1e8] text-ink">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="label text-gold-deep">Conversion system</span>
+              <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.7vw,4.3rem)] leading-[1.05]">
+                예약을 만드는 6개의 운영 축
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="group inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-gold-deep"
+            >
+              전체 서비스 보기
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => (
+              <Link
+                key={service.id}
+                href={`/services/${service.id}`}
+                className="group overflow-hidden rounded-[8px] border border-ink/10 bg-[#fffaf3] shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
+              >
+                <div className="relative aspect-[5/3] overflow-hidden">
+                  <Image
+                    src={offeringImages[service.id]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                  />
+                  <div className="absolute inset-0 bg-ink/18" aria-hidden />
+                </div>
+                <div className="p-6">
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <ServiceIcon
+                      id={service.id as ServiceIconId}
+                      className="h-7 w-7 text-gold-deep"
+                    />
+                    <span className="folio text-sm text-ink/42">{service.no}</span>
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.22em] text-gold-deep">
+                    {service.tagline}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl leading-snug">
+                    {service.title}
                   </h3>
-                  <p className="mt-4 max-w-[46ch] text-[0.95rem] leading-[1.85] text-muted">
-                    {s.description}
+                  <p className="mt-4 text-sm leading-[1.8] text-ink/64">
+                    {service.description}
                   </p>
                 </div>
-                <Plate
-                  src={offeringImages[s.id]}
-                  bleed={flip ? "left" : "right"}
-                  ratio="aspect-[5/4]"
-                  caption={`Plate ${String(i + 2).padStart(2, "0")}`}
-                />
               </Link>
-            );
-          })}
-        </div>
-      </Chapter>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-      {/* ── Ch.04 — 프로세스 악보형 인덱스 ── */}
-      <Chapter folio="04 / 06" label="HOW WE WORK" title="검증된 4단계.">
-        <div className="grid divide-y divide-line-strong border-t border-line-strong md:grid-cols-4 md:divide-x md:divide-y-0">
-          {processSteps.map((p) => (
-            <div key={p.no} className="px-1 py-8 md:px-6 md:first:pl-0">
-              <span className="folio text-[clamp(2rem,3vw,3rem)] text-gold">
-                {p.no}
-              </span>
-              <span className="my-4 block h-5 w-px bg-gold/40" />
-              <h3 className="font-serif text-xl">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {p.description}
-              </p>
+      <section className="bg-ink text-paper">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.78fr_1.22fr]"
+        >
+          <div className="lg:sticky lg:top-28 lg:h-fit">
+            <span className="label text-gold">Why HARAM</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
+              노출 보고서가 아니라 예약 성과로 말합니다.
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-[1.9] text-paper/68">
+              웨딩홀 마케팅은 감각적인 콘텐츠와 촘촘한 전환 관리가 같이
+              움직여야 합니다. 하람마케팅은 전략, 촬영, 광고, DB 운영을 한 팀의
+              기준으로 묶습니다.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {strengths.map((strength) => (
+              <article
+                key={strength.id}
+                className="rounded-[8px] border border-paper/12 bg-[rgba(237,230,219,0.045)] p-6"
+              >
+                <StrengthIcon id={strength.id} className="h-8 w-8 text-gold" />
+                <h3 className="mt-6 font-serif text-2xl">{strength.title}</h3>
+                <p className="mt-4 text-sm leading-[1.85] text-paper/64">
+                  {strength.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-[#17231f] text-paper">
+        <Container size="wide" className="py-20 md:py-28">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <span className="label text-gold">Operating loop</span>
+              <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.8vw,4.4rem)] leading-[1.05]">
+                매월 더 정교해지는 예약 운영 루프
+              </h2>
             </div>
-          ))}
-        </div>
-      </Chapter>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {operatingSignals.map((signal) => (
+                <span
+                  key={signal}
+                  className="border border-paper/12 px-3 py-3 text-center text-xs text-paper/70"
+                >
+                  {signal}
+                </span>
+              ))}
+            </div>
+          </div>
 
-      {/* ── Ch.05 — FAQ ── */}
-      <Chapter folio="05 / 06" label="Q&A">
-        <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:gap-14">
-          <h2 className="font-serif-display text-[clamp(2rem,4vw,3.4rem)] leading-[1.02] tracking-[-0.02em]">
-            자주 묻는
-            <br />
-            질문.
-          </h2>
+          <div className="mt-14 grid border-t border-paper/16 md:grid-cols-4">
+            {processSteps.map((step) => (
+              <article
+                key={step.no}
+                className="border-b border-paper/16 py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
+              >
+                <span className="folio text-4xl text-gold">{step.no}</span>
+                <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>
+                <p className="mt-4 text-sm leading-[1.8] text-paper/64">
+                  {step.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper text-ink">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.72fr_1.28fr]"
+        >
+          <div>
+            <span className="label text-gold-deep">Coverage</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
+              전국 주요 웨딩 상권을 읽고 움직입니다.
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-[1.9] text-ink/68">
+              지역별 검색량, 경쟁 홀 노출, 시즌성, 박람회 흐름까지 함께 보고
+              예식장마다 다른 성장 우선순위를 잡습니다.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 border border-ink/10 sm:grid-cols-4">
+            {regions.map((region) => (
+              <span
+                key={region}
+                className="border-b border-r border-ink/10 px-4 py-4 text-center text-sm text-ink/70"
+              >
+                {region}
+              </span>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-ink text-paper">
+        <Container
+          size="wide"
+          className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.62fr_1.38fr]"
+        >
+          <div>
+            <span className="label text-gold">Q&A</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2rem,4vw,3.6rem)] leading-[1.05]">
+              결정 전에 많이 묻는 질문
+            </h2>
+          </div>
           <FaqList items={faqs} />
-        </div>
-      </Chapter>
+        </Container>
+      </section>
 
-      {/* ── Ch.06 — 마무리 ── */}
-      <Chapter folio="06 / 06" label="CONTACT">
-        <div className="flex flex-col items-start gap-7">
-          <h2 className="font-serif-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.0] tracking-[-0.025em]">
-            예식장을 예약으로
-            <br />
-            채울 시간입니다.
-          </h2>
-          <p className="max-w-md text-base leading-relaxed text-muted">
-            무료 진단으로 지금 우리 예식장의 노출·문의 상태부터 확인해 보세요.
-            담당 마케터가 1영업일 이내에 회신드립니다.
-          </p>
-          <Link
-            href="/contact"
-            className="group mt-2 inline-flex items-center gap-3 rounded-sm bg-gold px-8 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright"
-          >
-            무료 마케팅 진단
-            <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </Chapter>
+      <section className="relative overflow-hidden">
+        <Image
+          src={offeringImages.brand}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="premium-cta-shade absolute inset-0" aria-hidden />
+        <Container
+          size="wide"
+          className="relative z-[2] flex min-h-[560px] items-center py-20 md:py-28"
+        >
+          <div className="max-w-3xl">
+            <span className="label text-gold">Start with diagnosis</span>
+            <h2 className="mt-5 font-serif-display text-[clamp(2.6rem,6vw,5.4rem)] leading-none text-paper">
+              우리 예식장의 빈 자리를 예약으로 바꿀 시간입니다.
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-[1.9] text-paper/74 md:text-lg">
+              무료 진단으로 현재 노출, 문의, 상담 전환 상태를 먼저 확인해
+              보세요. 담당 마케터가 1영업일 이내에 회신드립니다.
+            </p>
+            <Link
+              href="/contact"
+              className="group mt-9 inline-flex items-center gap-3 rounded-[4px] bg-gold px-8 py-4 text-sm font-semibold text-ink transition-colors hover:bg-gold-bright"
+            >
+              무료 마케팅 진단 신청
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
