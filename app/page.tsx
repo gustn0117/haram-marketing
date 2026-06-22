@@ -11,10 +11,14 @@ export const metadata: Metadata = {
 export default function CoverPage() {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
-      {/* 얇은 샴페인 인셋 프레임 */}
+      {/* 더블 샴페인 인셋 프레임 시그니처 */}
       <div
         className="pointer-events-none absolute inset-5 rounded-2xl border sm:inset-8 md:inset-10"
-        style={{ borderColor: "rgba(201, 168, 106, 0.2)" }}
+        style={{ borderColor: "var(--color-gold-frame)" }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-8 rounded-xl border border-paper/5 sm:inset-11 md:inset-14"
         aria-hidden
       />
 
@@ -30,22 +34,25 @@ export default function CoverPage() {
         className="rise flex items-center gap-4"
         style={{ animationDelay: "160ms" }}
       >
-        <span className="h-px w-8 bg-gold/45" />
+        <span className="h-px w-8 bg-linear-to-r from-transparent to-gold/55" />
         <span className="text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-gold">
           Wedding Hall Marketing
         </span>
-        <span className="h-px w-8 bg-gold/45" />
+        <span className="h-px w-8 bg-linear-to-l from-transparent to-gold/55" />
       </div>
 
       {/* 워드마크 */}
       <h1
-        className="rise mt-9 font-serif text-[3.4rem] leading-[1.02] text-paper sm:text-7xl md:text-8xl"
-        style={{ animationDelay: "300ms" }}
+        className="rise mt-9 font-serif-display text-[3.4rem] leading-[1.0] tracking-[-0.01em] text-paper sm:text-7xl md:text-8xl"
+        style={{
+          animationDelay: "300ms",
+          textShadow: "0 1px 40px rgba(201, 168, 106, 0.12)",
+        }}
       >
         {company.nameKo}
       </h1>
       <span
-        className="rise mt-5 font-display text-xs uppercase tracking-[0.62em] text-gold/75 sm:text-sm"
+        className="rise mt-5 font-display text-xs uppercase tracking-[0.42em] text-gold/75 sm:text-sm"
         style={{ animationDelay: "400ms" }}
       >
         {company.nameEn}
@@ -56,7 +63,7 @@ export default function CoverPage() {
         className="rise mt-11 flex flex-col items-center gap-6"
         style={{ animationDelay: "520ms" }}
       >
-        <span className="h-px w-14 bg-line-strong" />
+        <span className="h-px w-16 bg-linear-to-r from-transparent via-gold/50 to-transparent" />
         <p className="max-w-md font-serif text-xl leading-relaxed text-paper/80 sm:text-2xl">
           예식장의 품격을 예약으로 잇습니다.
         </p>

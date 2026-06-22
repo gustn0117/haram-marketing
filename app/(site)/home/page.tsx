@@ -8,7 +8,7 @@ import {
   metrics,
   heroImage,
 } from "@/lib/content";
-import { Container, Eyebrow, SectionHeading } from "@/components/ui";
+import { Container, Eyebrow, SectionHeading, TextLink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { Strengths } from "@/components/Strengths";
 import { FaqList } from "@/components/FaqList";
@@ -41,10 +41,12 @@ export default function HomePage() {
           fill
           priority
           sizes="100vw"
-          className="absolute inset-0 object-cover"
+          className="absolute inset-0 object-cover [filter:grayscale(0.55)_sepia(0.18)_contrast(1.02)_brightness(0.92)]"
         />
+        {/* 웜 듀오톤 블렌드 — 사진을 브랜드 톤에 융화 */}
+        <div className="absolute inset-0 bg-gold/12 mix-blend-overlay" aria-hidden />
         <div
-          className="absolute inset-0 bg-linear-to-r from-ink via-ink/85 to-ink/30"
+          className="absolute inset-0 bg-linear-to-r from-ink via-ink/80 to-ink/35"
           aria-hidden
         />
         <div
@@ -52,24 +54,29 @@ export default function HomePage() {
           aria-hidden
         />
 
-        {/* 샴페인 헤어라인 인셋 프레임 */}
+        {/* 샴페인 인셋 프레임 시그니처 (더블 헤어라인) */}
         <div
           className="pointer-events-none absolute inset-4 z-2 rounded-2xl border sm:inset-6 md:inset-8"
-          style={{ borderColor: "rgba(201, 168, 106, 0.26)" }}
+          style={{ borderColor: "var(--color-gold-frame)" }}
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-6 z-2 rounded-xl border border-paper/5 sm:inset-8 md:inset-10"
           aria-hidden
         />
 
         <Container className="relative z-3">
           <div className="flex w-full min-w-0 max-w-3xl flex-col gap-8">
-            <div className="rise flex items-center gap-4" style={{ animationDelay: "100ms" }}>
-              <span className="h-px w-12 bg-gold/70" />
-              <p className="min-w-0 text-xs font-semibold uppercase tracking-[0.32em] text-gold">
-                Wedding Hall Marketing
-              </p>
-            </div>
+            <span
+              className="rise inline-flex items-center gap-3 label"
+              style={{ animationDelay: "100ms" }}
+            >
+              <span className="inline-block h-px w-10 bg-linear-to-r from-gold to-transparent" />
+              Wedding Hall Marketing
+            </span>
 
             <h1
-              className="rise font-serif min-w-0 break-normal text-[2.9rem] leading-[1.06] text-paper sm:text-6xl md:text-[5rem] md:leading-[0.98]"
+              className="rise font-serif-display min-w-0 break-normal text-[2.9rem] leading-[1.04] text-paper sm:text-6xl md:text-[5rem] md:leading-[0.96]"
               style={{ animationDelay: "200ms" }}
             >
               비어 있는 홀을
@@ -109,7 +116,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── Intro — 중앙 선언문 + 지표 밴드 ───────────────── */}
-      <section className="border-t border-line py-24 md:py-32">
+      <section className="border-t border-line py-28 md:py-40">
         <Container>
           <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
             <Eyebrow>WHO WE ARE</Eyebrow>
@@ -118,7 +125,7 @@ export default function HomePage() {
               <span className="text-gold">예식장의 강점을 신랑신부의 선택으로 번역</span>
               합니다.
             </p>
-            <p className="max-w-2xl text-base leading-[1.9] text-muted">
+            <p className="max-w-[58ch] text-[0.95rem] leading-[1.95] text-paper/65">
               네이버 검색·플레이스, 블로그·체험단, SNS, 퍼포먼스 광고와 상담 DB,
               영상·사진 콘텐츠, 브랜딩과 예약 홈페이지까지 — 흩어지기 쉬운 채널을
               한 팀이 같은 기준으로 다룹니다. 보기 좋은 조회수가 아니라, 실제로
@@ -127,12 +134,12 @@ export default function HomePage() {
           </Reveal>
 
           {/* 성과 지표 밴드 */}
-          <div className="mt-16 grid grid-cols-2 gap-y-10 border-t border-line pt-12 md:mt-20 md:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-y-10 border-t border-line-strong pt-12 md:mt-24 md:grid-cols-4">
             {metrics.map((m, i) => (
               <Reveal
                 key={m.label}
                 delay={i * 80}
-                className="flex flex-col items-center gap-2 border-line text-center md:border-l md:first:border-l-0"
+                className="flex flex-col items-center gap-2 border-line-strong text-center md:border-l md:first:border-l-0"
               >
                 <span className="font-display text-4xl text-gold sm:text-5xl">
                   {m.value}
@@ -163,35 +170,27 @@ export default function HomePage() {
               }
             />
             <Reveal delay={150}>
-              <Link
-                href="/services"
-                className="link-underline inline-flex items-center gap-2 text-sm text-gold"
-              >
-                전체 서비스 보기
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
+              <TextLink href="/services">전체 서비스 보기</TextLink>
             </Reveal>
           </div>
 
-          <div className="mt-14 border-t border-line">
+          <div className="mt-12 border-t border-line-strong md:mt-16">
             {services.map((service, i) => (
               <Reveal key={service.id} delay={i * 60}>
                 <Link
                   href={`/services/${service.id}`}
-                  className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-5 border-b border-line px-1 py-7 transition-colors duration-500 hover:bg-surface/40 md:grid-cols-[5rem_1fr_1.5fr_auto] md:gap-10 md:px-4 md:py-9"
+                  className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-5 border-b border-line-strong px-3 py-8 transition-colors duration-500 hover:bg-surface/40 md:grid-cols-[5rem_1fr_1.5fr_auto] md:gap-10 md:px-5 md:py-9"
                 >
                   <span className="font-display text-2xl text-faint transition-colors duration-500 group-hover:text-gold md:text-4xl">
                     {service.no}
                   </span>
                   <div className="flex min-w-0 flex-col gap-1.5">
-                    <span className="font-display text-xs tracking-wide text-gold">
-                      {service.tagline}
-                    </span>
+                    <span className="label text-gold">{service.tagline}</span>
                     <h3 className="font-serif text-xl md:text-[1.65rem]">
                       {service.title}
                     </h3>
                   </div>
-                  <p className="hidden text-sm leading-relaxed text-muted md:block">
+                  <p className="hidden max-w-[42ch] text-sm leading-relaxed text-muted md:block">
                     {service.description}
                   </p>
                   <ArrowUpRight className="h-5 w-5 text-faint transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
@@ -231,7 +230,7 @@ export default function HomePage() {
                   className="grid grid-cols-[3rem_1fr] gap-6 md:grid-cols-[3.5rem_1fr] md:gap-8"
                 >
                   <div className="flex flex-col items-center">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 font-display text-lg text-gold md:h-14 md:w-14 md:text-xl">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line-strong font-display text-lg text-gold md:h-14 md:w-14 md:text-xl">
                       {step.no}
                     </span>
                     {i < processSteps.length - 1 ? (

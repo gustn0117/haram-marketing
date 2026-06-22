@@ -10,8 +10,8 @@ export function Placeholder({
   label?: string;
 }) {
   const dark = tone === "dark";
-  const line = dark ? "rgba(255,255,255,0.10)" : "rgba(13,27,46,0.14)";
-  const bg = dark ? "#0d1b2e" : "#eceef1";
+  const line = dark ? "rgba(201,168,106,0.12)" : "rgba(13,27,46,0.14)";
+  const bg = dark ? "var(--color-ink-2)" : "#eceef1";
 
   return (
     <div

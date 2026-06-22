@@ -516,7 +516,7 @@ export const equipment: {
   {
     name: "검색·플레이스 채널",
     tagline: "Search & Place",
-    image: U("1556761175-5973dc0f32e7", 1100),
+    image: U("1464366400600-7168b8af9bc3", 1100),
     description:
       "신랑신부가 예식장을 찾는 출발점인 네이버 검색과 플레이스를, 키워드 상위노출과 정보 최적화로 직접 운영합니다.",
   },
@@ -665,10 +665,10 @@ export const heroImage = U("1519741497674-611481863552", 1400);
 export const aboutImage = U("1511285560929-80b456fea0bc", 1100);
 
 export const offeringImages: Record<string, string> = {
-  search: U("1556761175-5973dc0f32e7", 1100),
-  blog: U("1499750310107-5fef28a66643", 1100),
-  sns: U("1611162617213-7d7a39e9b1d7", 1100),
-  ad: U("1460925895917-afdab827c52f", 1100),
+  search: U("1606490194859-07c18c9f0968", 1100),
+  blog: U("1465495976277-4387d4b0b4c6", 1100),
+  sns: U("1525258946800-98cfd641d0de", 1100),
+  ad: U("1519225421980-715cb0215aed", 1100),
   content: U("1492691527719-9d1e07e534b4", 1100),
   brand: U("1522199755839-a2bacb67c546", 1100),
 };
@@ -676,7 +676,7 @@ export const offeringImages: Record<string, string> = {
 export const addonImages: Record<string, string> = {
   web: U("1467232004584-a241de8bcf5d", 1100),
   venue: U("1454165804606-c3d57bc86b40", 1100),
-  marketing: U("1551288049-bebda4e38f71", 1100),
-  media: U("1519741497674-611481863552", 1100),
+  marketing: U("1583939003579-730e3918a45a", 1100),
+  media: U("1513278974582-3e1b4a4fa21e", 1100),
   print: U("1606107557195-0e29a4b5b4aa", 1100),
 };

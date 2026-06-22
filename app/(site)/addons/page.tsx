@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { addons, aboutImage } from "@/lib/content";
-import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
+import { Container, SectionHeading, CTASection } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import {
@@ -45,33 +45,31 @@ export default function AddonsPage() {
       />
 
       {/* 지원서비스 — 줄 구분 2열 리스트 */}
-      <section className="border-b border-line py-20 md:py-28">
+      <section className="border-b border-line py-24 md:py-32">
         <Container>
           <SectionHeading eyebrow="WHAT WE OFFER" title="지원서비스 영역" />
-          <div className="mt-12 grid border-t border-line sm:grid-cols-2">
+          <div className="mt-12 grid border-t border-line-strong sm:grid-cols-2 md:mt-16">
             {addons.map((a, i) => {
               const Icon = addonIcons[a.icon];
               return (
                 <Reveal
                   key={a.id}
                   delay={i * 60}
-                  className="border-b border-line sm:odd:border-r"
+                  className="border-b border-line-strong sm:odd:border-r"
                 >
                   <Link
                     href={`/addons/${a.id}`}
-                    className="group flex h-full flex-col gap-6 px-2 py-8 transition-colors duration-500 hover:bg-surface/40 sm:p-9 md:p-10"
+                    className="group flex h-full flex-col gap-6 px-5 py-9 transition-colors duration-500 hover:bg-surface/40 sm:p-9 md:p-10"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-line-strong text-gold transition-colors duration-500 group-hover:border-gold">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line-strong text-gold transition-colors duration-500 group-hover:border-gold">
                         <Icon className="h-6 w-6" />
                       </span>
-                      <span className="font-display text-xs tracking-wide text-gold">
-                        {a.tagline}
-                      </span>
+                      <span className="label text-gold">{a.tagline}</span>
                     </div>
                     <div className="flex flex-col gap-3">
                       <h3 className="font-serif text-xl md:text-2xl">{a.name}</h3>
-                      <p className="text-sm leading-relaxed text-muted">
+                      <p className="max-w-[46ch] text-sm leading-relaxed text-muted">
                         {a.description}
                       </p>
                     </div>
@@ -87,22 +85,10 @@ export default function AddonsPage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 md:py-28">
-        <Container>
-          <Reveal className="flex flex-col items-center gap-8 text-center">
-            <Eyebrow>START A PROJECT</Eyebrow>
-            <h2 className="max-w-2xl font-serif text-3xl leading-tight sm:text-4xl text-balance">
-              필요한 구성을 함께 정리해 드립니다
-            </h2>
-            <p className="max-w-md text-base leading-relaxed text-muted">
-              마케팅 운영과 지원서비스를 어떻게 묶을지 막막하시면, 목표만 알려주세요.
-              맞춤으로 제안과 견적을 보내드립니다.
-            </p>
-            <CTAButton href="/contact">상담·견적 신청하기</CTAButton>
-          </Reveal>
-        </Container>
-      </section>
+      <CTASection
+        title="필요한 구성을 함께 정리해 드립니다"
+        description="마케팅 운영과 지원서비스를 어떻게 묶을지 막막하시면, 목표만 알려주세요. 맞춤으로 제안과 견적을 보내드립니다."
+      />
     </>
   );
 }

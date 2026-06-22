@@ -4,21 +4,22 @@
 
 @theme {
   /* ── Noir Atelier — 다크 차콜 캔버스 + 샴페인 골드 + 로즈 ── */
-  --color-ink: #14110f; /* 메인 배경 — 따뜻한 차콜 */
-  --color-ink-2: #1b1714; /* 교차 섹션 배경 (살짝 들림) */
-  --color-surface: #1f1a16; /* 카드 배경 */
-  --color-surface-2: #2a2420; /* 한 단계 밝은 표면 */
-  --color-line: rgba(237, 230, 219, 0.1); /* 다크 위 헤어라인 */
-  --color-line-strong: rgba(237, 230, 219, 0.22);
+  --color-ink: #100d0b; /* 메인 배경 — 더 깊은 차콜(레이어 부양감↑) */
+  --color-ink-2: #181410; /* 교차 섹션 배경 (살짝 들림) */
+  --color-surface: #211b16; /* 카드 배경 */
+  --color-surface-2: #2c251f; /* 한 단계 밝은 표면 */
+  --color-line: rgba(237, 230, 219, 0.13); /* 다크 위 헤어라인 — 구조선 또렷하게 */
+  --color-line-strong: rgba(237, 230, 219, 0.24);
 
   /* 포인트색: 샴페인 골드 (이름은 호환을 위해 gold 유지) */
   --color-gold: #c9a86a; /* 메인 — 샴페인 골드 */
-  --color-gold-bright: #dcc189; /* 밝은 샴페인 (강조) */
-  --color-gold-deep: #b8965a; /* 버튼 호버 (살짝 가라앉게) */
-  --color-rose: #b98a7a; /* 보조 — 로즈 */
+  --color-gold-bright: #dcc189; /* 밝은 샴페인 (강조·버튼 호버) */
+  --color-gold-deep: #b8965a; /* 가라앉는 골드 */
+  --color-gold-frame: rgba(201, 168, 106, 0.22); /* 인셋 프레임 시그니처(전 히어로 통일) */
+  --color-rose: #b98a7a; /* 보조 — 로즈(분위기 보조광) */
 
   --color-paper: #ede6db; /* 본문 — 따뜻한 오프화이트 */
-  --color-muted: #a89d8e; /* 보조 텍스트 */
+  --color-muted: #ada291; /* 보조 텍스트 (대비 소폭 상향) */
   --color-faint: #6e655b; /* 약한 텍스트 */
 
   --font-sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui,
@@ -65,7 +66,23 @@ body {
 
 ::selection {
   background: var(--color-gold);
-  color: #14110f;
+  color: var(--color-ink);
+}
+
+/* ---------- 키보드 포커스 링 (골드, 무드 유지) ---------- */
+:where(a, button, summary, [tabindex], select):focus-visible {
+  outline: none;
+  border-radius: var(--radius-sm);
+  box-shadow:
+    0 0 0 2px var(--color-ink),
+    0 0 0 4px rgba(201, 168, 106, 0.55);
+}
+
+/* ---------- 정적 깊이 패널 (따뜻한 그림자 + 상단 베젤) ---------- */
+.panel-elevated {
+  box-shadow:
+    inset 0 1px 0 0 rgba(237, 230, 219, 0.05),
+    0 24px 48px -28px rgba(0, 0, 0, 0.6);
 }
 
 /* Atmospheric grain overlay — 다크에서 살짝 더 보이게 */
@@ -119,29 +136,42 @@ body::after {
    국문은 600, 라틴은 high-contrast 세리프라 살짝 가볍게 보여 균형이 맞음. */
 .font-serif {
   font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
-/* 라벨·대형 숫자: 라틴 세리프로 운치 (영문/숫자 위주) */
+/* 대형 디스플레이 제목 — 고대비 세리프는 클수록 가볍고 타이트하게 */
+.font-serif-display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+@media (min-width: 768px) {
+  .font-serif-display {
+    font-weight: 400;
+  }
+}
+/* 라벨·대형 숫자: 라틴 세리프 + 라이닝/고정폭 숫자로 정렬 균질 */
 .font-display {
   font-family: var(--font-display);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+  font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
 .eyebrow {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--color-gold);
 }
 
 .label {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-gold);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .text-balance {
@@ -285,4 +315,19 @@ body::after {
 }
 .card-hover:hover {
   border-color: rgba(201, 168, 106, 0.45);
+}
+
+/* FAQ 아코디언 — grid-rows 0fr→1fr 절제된 펼침 */
+.faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-out-soft);
+}
+.faq-item[open] .faq-body {
+  grid-template-rows: 1fr;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-body {
+    transition: none;
+  }
 }

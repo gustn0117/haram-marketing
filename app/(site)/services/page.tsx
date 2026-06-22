@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { services, processSteps, offeringImages, heroImage } from "@/lib/content";
-import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
+import { Container, SectionHeading, CTASection } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { ArrowUpRight } from "@/components/icons";
@@ -31,12 +31,12 @@ export default function ServicesPage() {
       />
 
       {/* 서비스 영역 — 좌우 교차 에디토리얼 행 */}
-      <section className="border-b border-line py-20 md:py-28">
+      <section className="border-b border-line py-24 md:py-32">
         <Container>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading eyebrow="WHAT WE DO" title="서비스 영역" />
             <Reveal delay={150} className="max-w-md">
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="max-w-[44ch] text-sm leading-relaxed text-muted">
                 흩어지기 쉬운 마케팅 채널을 하나의 팀이 같은 기준으로 다룹니다.
                 각 영역은 독립적으로 진행할 수도, 하나의 캠페인 안에서 함께
                 구성할 수도 있습니다. 필요한 영역을 눌러 진행 범위와 방식을
@@ -45,17 +45,17 @@ export default function ServicesPage() {
             </Reveal>
           </div>
 
-          <div className="mt-14 border-t border-line">
+          <div className="mt-12 border-t border-line-strong md:mt-16">
             {services.map((s, i) => {
               const flip = i % 2 === 1;
               return (
                 <Reveal key={s.id} delay={i * 60}>
                   <Link
                     href={`/services/${s.id}`}
-                    className="group grid items-center gap-8 border-b border-line py-9 md:grid-cols-2 md:gap-14 md:py-12"
+                    className="group grid items-center gap-8 border-b border-line-strong py-9 md:grid-cols-2 md:gap-14 md:py-12"
                   >
                     <div
-                      className={`relative aspect-[16/10] overflow-hidden rounded-xl border border-line ${
+                      className={`relative aspect-[16/10] overflow-hidden rounded-xl border border-line-strong ring-1 ring-inset ring-paper/5 transition-colors duration-700 group-hover:border-gold/30 ${
                         flip ? "md:order-2" : ""
                       }`}
                     >
@@ -64,9 +64,13 @@ export default function ServicesPage() {
                         alt=""
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover"
+                        className="object-cover [filter:grayscale(0.5)_sepia(0.16)_brightness(0.95)] transition-[filter] duration-700 group-hover:[filter:grayscale(0.2)_sepia(0.08)]"
                       />
-                      <div className="absolute inset-0 bg-ink/25" aria-hidden />
+                      <div className="absolute inset-0 bg-gold/8 mix-blend-overlay" aria-hidden />
+                      <div
+                        className="absolute inset-0 bg-linear-to-t from-ink/45 via-transparent to-transparent"
+                        aria-hidden
+                      />
                     </div>
                     <div
                       className={`flex flex-col gap-4 ${flip ? "md:order-1" : ""}`}
@@ -75,14 +79,12 @@ export default function ServicesPage() {
                         <span className="font-display text-3xl text-gold/70">
                           {s.no}
                         </span>
-                        <span className="font-display text-xs tracking-wide text-gold">
-                          {s.tagline}
-                        </span>
+                        <span className="label text-gold">{s.tagline}</span>
                       </div>
                       <h3 className="font-serif text-2xl md:text-[2rem]">
                         {s.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-muted md:text-base">
+                      <p className="max-w-[48ch] text-sm leading-relaxed text-muted md:text-base">
                         {s.description}
                       </p>
                       <span className="inline-flex items-center gap-2 pt-2 text-sm text-gold">
@@ -127,21 +129,10 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 md:py-28">
-        <Container>
-          <Reveal className="flex flex-col items-center gap-8 text-center">
-            <Eyebrow>START A PROJECT</Eyebrow>
-            <h2 className="max-w-2xl font-serif text-3xl leading-tight sm:text-4xl text-balance">
-              어떤 예식장을 운영하고 계신가요?
-            </h2>
-            <p className="max-w-md text-base leading-relaxed text-muted">
-              예식장의 상황과 목표를 알려주시면 맞춤 제안과 견적을 보내드립니다.
-            </p>
-            <CTAButton href="/contact">상담·견적 신청하기</CTAButton>
-          </Reveal>
-        </Container>
-      </section>
+      <CTASection
+        title="어떤 예식장을 운영하고 계신가요?"
+        description="예식장의 상황과 목표를 알려주시면 맞춤 제안과 견적을 보내드립니다."
+      />
     </>
   );
 }

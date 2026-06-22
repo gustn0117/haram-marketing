@@ -37,14 +37,14 @@ export function Strengths({
         </div>
 
         {/* 줄 구분 2×2 에디토리얼 그리드 */}
-        <div className="mt-16 grid border-t border-line sm:grid-cols-2">
+        <div className="mt-12 grid border-t border-line-strong sm:grid-cols-2 md:mt-16">
           {strengths.map((item, i) => (
             <Reveal
               key={item.id}
               delay={i * 80}
-              className="flex gap-6 border-b border-line px-2 py-9 sm:px-8 sm:odd:border-r"
+              className="flex gap-6 border-b border-line-strong px-4 py-10 sm:px-8 sm:py-11 sm:odd:border-r"
             >
-              <span className="font-serif text-3xl leading-none text-gold/80 sm:text-4xl">
+              <span className="font-display text-3xl leading-none text-gold/70 sm:text-4xl">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="flex flex-col gap-3">

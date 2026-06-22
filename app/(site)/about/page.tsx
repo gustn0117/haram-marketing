@@ -10,7 +10,7 @@ import {
   faqs,
   aboutImage,
 } from "@/lib/content";
-import { Container, Eyebrow, SectionHeading, CTAButton } from "@/components/ui";
+import { Container, Eyebrow, SectionHeading, CTASection } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { Strengths } from "@/components/Strengths";
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <>
             마케팅의 끝은
             <br />
-            <span className="text-white">예약</span>이라 믿습니다.
+            <span className="text-gold">예약</span>이라 믿습니다.
           </>
         }
         description={company.intro}
@@ -73,17 +73,17 @@ export default function AboutPage() {
       >
         <Container>
           <SectionHeading eyebrow="OUR PHILOSOPHY" title="우리가 일을 대하는 태도" />
-          <div className="mt-14 flex flex-col">
+          <div className="mt-12 flex flex-col md:mt-16">
             {aboutStory.map((s, i) => (
               <Reveal
                 key={s.heading}
                 delay={i * 90}
-                className="grid gap-5 border-t border-line py-10 last:border-b md:grid-cols-[0.9fr_1.4fr] md:gap-12"
+                className="grid gap-5 border-t border-line-strong py-10 last:border-b md:grid-cols-[0.9fr_1.4fr] md:gap-12"
               >
                 <h3 className="font-serif text-xl leading-snug sm:text-2xl">
                   {s.heading}
                 </h3>
-                <p className="text-base leading-[1.85] text-paper/90">
+                <p className="max-w-[60ch] text-base leading-[1.9] text-paper/80">
                   {s.body}
                 </p>
               </Reveal>
@@ -110,25 +110,23 @@ export default function AboutPage() {
               </p>
             </Reveal>
           </div>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-16">
             {equipment.map((item, i) => (
               <Reveal
                 key={item.name}
                 delay={i * 90}
-                className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface"
+                className="panel-elevated flex flex-col overflow-hidden rounded-2xl border border-line-strong bg-surface"
               >
-                <div className="aspect-[4/3] overflow-hidden border-b border-line bg-surface">
+                <div className="aspect-[4/3] overflow-hidden border-b border-line-strong bg-surface">
                   <img
                     src={item.image}
                     alt={item.name}
                     loading="lazy"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover [filter:grayscale(0.4)_sepia(0.14)_brightness(0.95)]"
                   />
                 </div>
                 <div className="flex flex-col gap-2 p-7">
-                  <span className="font-display text-xs tracking-wide text-gold">
-                    {item.tagline}
-                  </span>
+                  <span className="label text-gold">{item.tagline}</span>
                   <h3 className="font-serif text-xl">{item.name}</h3>
                   <p className="text-sm leading-relaxed text-muted">
                     {item.description}
@@ -139,7 +137,7 @@ export default function AboutPage() {
           </div>
 
           {/* 성과 지표 */}
-          <div className="mt-5 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line-strong bg-line-strong sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
             {metrics.map((m, i) => (
               <Reveal
                 key={m.label}
@@ -203,11 +201,9 @@ export default function AboutPage() {
                     className="flex flex-col items-center"
                   >
                     <span className="hidden h-12 w-px bg-line-strong sm:block" />
-                    <div className="flex h-full w-full flex-col gap-4 rounded-2xl border border-line bg-surface p-6">
+                    <div className="panel-elevated flex h-full w-full flex-col gap-4 rounded-2xl border border-line-strong bg-surface p-6 sm:p-7">
                       <div className="flex flex-col gap-1">
-                        <span className="font-display text-xs tracking-wide text-gold">
-                          {dept.tagline}
-                        </span>
+                        <span className="label text-gold">{dept.tagline}</span>
                         <h4 className="font-serif text-lg leading-snug">
                           {dept.name}
                         </h4>
@@ -239,12 +235,12 @@ export default function AboutPage() {
       >
         <Container>
           <SectionHeading eyebrow="OUR VALUES" title="우리가 일하는 방식" />
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-3">
             {values.map((value, i) => (
               <Reveal
                 key={value.title}
                 delay={i * 110}
-                className="card-hover flex h-full flex-col gap-5 rounded-2xl border border-line bg-surface/50 p-8 md:p-10"
+                className="card-hover panel-elevated flex h-full flex-col gap-5 rounded-2xl border border-line-strong bg-surface p-8 md:p-10"
               >
                 <span className="font-display text-4xl text-gold">
                   0{i + 1}
@@ -266,25 +262,13 @@ export default function AboutPage() {
       >
         <Container>
           <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
-          <div className="mt-10">
+          <div className="mt-12 md:mt-16">
             <FaqList items={faqs} />
           </div>
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 md:py-28">
-        <Container>
-          <Reveal className="flex flex-col items-center gap-8 text-center">
-            <SectionHeading
-              align="center"
-              title="우리 예식장, 어디서부터 시작할까요?"
-              className="mx-auto max-w-xl"
-            />
-            <CTAButton href="/contact">무료 진단 신청하기</CTAButton>
-          </Reveal>
-        </Container>
-      </section>
+      <CTASection title="우리 예식장, 어디서부터 시작할까요?" />
     </>
   );
 }

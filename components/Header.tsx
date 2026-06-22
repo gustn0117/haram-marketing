@@ -93,12 +93,12 @@ export function Header() {
                   </Link>
                   {/* Hover dropdown — 아이콘 없이 1열 목록 */}
                   <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                    <div className="w-56 rounded-2xl border border-line bg-ink/95 p-2 shadow-[0_30px_60px_-30px_rgba(17,24,39,0.35)] backdrop-blur-xl">
+                    <div className="w-56 rounded-lg border border-line-strong bg-ink/95 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] backdrop-blur-xl">
                       {menu.map((it) => (
                         <Link
                           key={it.href}
                           href={it.href}
-                          className="block rounded-lg px-4 py-2.5 text-sm text-paper transition-colors hover:bg-surface-2 hover:text-gold"
+                          className="block rounded-md px-4 py-2.5 text-sm text-paper transition-colors hover:bg-surface-2 hover:text-gold"
                         >
                           {it.label}
                         </Link>
@@ -180,7 +180,7 @@ export function Header() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3.5 text-sm font-medium text-white"
+            className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3.5 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright"
           >
             마케팅 문의하기
           </Link>
