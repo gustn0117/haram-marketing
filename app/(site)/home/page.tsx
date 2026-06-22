@@ -3,6 +3,7 @@ import Link from "next/link";
 import { services, metrics, processSteps } from "@/lib/content";
 import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/home" },
@@ -12,21 +13,22 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO — 풀스크린, 중앙, 극대 여백 ── */}
-      <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 text-center">
+      <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <span className="hero-glow" aria-hidden />
         <span
-          className="rise text-[0.72rem] uppercase tracking-[0.42em] text-gold"
+          className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.42em] text-gold"
           style={{ animationDelay: "80ms" }}
         >
           Wedding Hall Marketing
         </span>
         <h1
-          className="rise mt-12 text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.98] tracking-[-0.035em] text-paper"
+          className="rise relative z-2 mt-12 text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.98] tracking-[-0.035em] text-paper"
           style={{ animationDelay: "200ms" }}
         >
           하람마케팅
         </h1>
         <p
-          className="rise mt-10 text-base font-light tracking-tight text-muted sm:text-lg"
+          className="rise relative z-2 mt-10 text-base font-light tracking-tight text-muted sm:text-lg"
           style={{ animationDelay: "360ms" }}
         >
           예식장을 예약으로 채웁니다
@@ -88,7 +90,7 @@ export default function HomePage() {
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
-                    {m.value}
+                    <CountUp value={m.value} />
                     {m.suffix ? (
                       <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
                         {m.suffix}

@@ -250,19 +250,24 @@ body::after {
 /* ---------- Reveal on scroll (절제된 페이드) ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.7s var(--ease-out-soft),
-    transform 0.7s var(--ease-out-soft);
-  will-change: opacity, transform;
+  transform: translateY(16px);
+  filter: blur(7px);
+  transition:
+    opacity 0.85s var(--ease-out-soft),
+    transform 0.85s var(--ease-out-soft),
+    filter 0.85s var(--ease-out-soft);
+  will-change: opacity, transform, filter;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
   html {
@@ -270,20 +275,91 @@ body::after {
   }
 }
 
-/* ---------- Hero load-in stagger ---------- */
+/* ---------- Hero load-in (블러 인) ---------- */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
+    filter: blur(9px);
   }
   to {
     opacity: 1;
     transform: none;
+    filter: blur(0);
   }
 }
 .rise {
   opacity: 0;
-  animation: rise 0.8s var(--ease-out-soft) forwards;
+  animation: rise 1s var(--ease-out-soft) forwards;
+}
+
+/* ---------- 상단 스크롤 진행 헤어라인 (CSS 스크롤타임라인, JS 0) ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  height: 1.5px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(
+    90deg,
+    var(--color-gold),
+    var(--color-gold-bright)
+  );
+  pointer-events: none;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes scroll-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- 히어로 앰비언트 글로우 (은은히 호흡) ---------- */
+@keyframes ambient {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+.hero-glow {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  z-index: 0;
+  width: min(70vw, 640px);
+  height: min(70vw, 640px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(212, 180, 133, 0.16),
+    rgba(212, 180, 133, 0.05) 38%,
+    transparent 66%
+  );
+  animation: ambient 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    animation: none;
+  }
+  .hero-glow {
+    animation: none;
+    opacity: 0.5;
+  }
 }
 
 /* ──────────────────────────────────────────────────────────

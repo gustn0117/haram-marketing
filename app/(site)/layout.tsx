@@ -7,6 +7,7 @@ export default function SiteLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
+      <span className="scroll-progress" aria-hidden />
       <SpineRail />
       <MobileNav />
       <div className="flex min-h-screen flex-col pt-14 lg:pt-20">

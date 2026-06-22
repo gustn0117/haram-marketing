@@ -13,6 +13,7 @@ import { PageHero } from "@/components/PageHero";
 import { Strengths } from "@/components/Strengths";
 import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -110,7 +111,7 @@ export default function AboutPage() {
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
-                    {m.value}
+                    <CountUp value={m.value} />
                     {m.suffix ? (
                       <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
                         {m.suffix}
