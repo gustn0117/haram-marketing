@@ -23,8 +23,11 @@ export default function HomePage() {
           Wedding Hall Marketing
         </span>
         <h1
-          className="rise relative z-2 mt-10 whitespace-nowrap text-[clamp(1.9rem,7vw,4.7rem)] font-light leading-none tracking-[0.07em] text-paper"
-          style={{ animationDelay: "200ms" }}
+          className="rise relative z-2 mt-10 whitespace-nowrap text-[clamp(2rem,7.2vw,4.8rem)] font-medium leading-none tracking-[0.12em] text-paper"
+          style={{
+            animationDelay: "200ms",
+            textShadow: "0 2px 40px rgba(0,0,0,0.45)",
+          }}
         >
           HARAM MARKETING
         </h1>

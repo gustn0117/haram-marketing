@@ -324,17 +324,27 @@ body::after {
 
 /* ---------- 히어로 앰비언트 글로우 (은은히 호흡) ---------- */
 /* 생성 이미지 기반 섹션 배경 — 어울리는 섹션에만 낮은 농도로 사용 */
+/* 히어로 풀블리드 사진 — 시네마틱하게 보이되, 중앙 텍스트 가독은 라디얼로 확보 */
 .hero-photo-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.24;
   background:
-    linear-gradient(180deg, rgba(28, 24, 22, 0.38), rgba(28, 24, 22, 0.9)),
-    linear-gradient(90deg, rgba(28, 24, 22, 0.9), rgba(28, 24, 22, 0.5), rgba(28, 24, 22, 0.9)),
+    radial-gradient(
+      125% 95% at 50% 40%,
+      rgba(28, 24, 22, 0.34),
+      rgba(28, 24, 22, 0.66) 60%,
+      rgba(28, 24, 22, 0.92)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(28, 24, 22, 0.32),
+      rgba(28, 24, 22, 0.18) 38%,
+      rgba(28, 24, 22, 0.9)
+    ),
     url("/images/luxury-wedding-hall-ambient.png") center / cover no-repeat;
-  filter: saturate(0.7) contrast(1.04) brightness(0.72);
+  filter: saturate(1.05) contrast(1.05) brightness(0.92) sepia(0.06);
 }
 
 .closing-photo-bg {
@@ -342,12 +352,16 @@ body::after {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.18;
   background:
-    linear-gradient(180deg, rgba(28, 24, 22, 0.8), rgba(28, 24, 22, 0.96)),
-    linear-gradient(90deg, rgba(28, 24, 22, 0.94), rgba(28, 24, 22, 0.58), rgba(28, 24, 22, 0.94)),
+    radial-gradient(
+      120% 95% at 50% 46%,
+      rgba(28, 24, 22, 0.5),
+      rgba(28, 24, 22, 0.8) 64%,
+      rgba(28, 24, 22, 0.95)
+    ),
+    linear-gradient(180deg, rgba(28, 24, 22, 0.62), rgba(28, 24, 22, 0.92)),
     url("/images/luxury-wedding-hall-ambient.png") center 54% / cover no-repeat;
-  filter: saturate(0.62) contrast(1.03) brightness(0.65);
+  filter: saturate(0.98) contrast(1.04) brightness(0.82) sepia(0.05);
 }
 
 @keyframes ambient {
