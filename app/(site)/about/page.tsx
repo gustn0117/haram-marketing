@@ -39,7 +39,7 @@ export default function AboutPage() {
       />
 
       {/* ── 미션 — 중앙 선언문 ── */}
-      <section className="px-6 py-40 md:py-56">
+      <section className="px-6 py-20 md:py-32">
         <Reveal>
           <Container size="narrow" className="text-center">
             <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
@@ -56,7 +56,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 운영 철학 ── */}
-      <section id="philosophy" className="scroll-mt-24 px-6 py-28 md:py-44">
+      <section id="philosophy" className="scroll-mt-16 px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -82,7 +82,7 @@ export default function AboutPage() {
       <Strengths id="strengths" />
 
       {/* ── 운영 채널 + 성과 지표 ── */}
-      <section id="equipment" className="scroll-mt-24 px-6 py-28 md:py-44">
+      <section id="equipment" className="scroll-mt-16 px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -108,7 +108,7 @@ export default function AboutPage() {
 
         <Reveal>
           <Container size="wide">
-            <div className="mt-24 grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-16 grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
@@ -126,7 +126,7 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <Reveal className="mx-auto mt-24 max-w-3xl">
+            <Reveal className="mx-auto mt-16 max-w-3xl">
               <GrowthChart
                 title="누적 관리 예식장"
                 data={[4, 9, 15, 21, 27, 33]}
@@ -135,7 +135,7 @@ export default function AboutPage() {
               />
             </Reveal>
 
-            <Reveal className="mx-auto mt-20 max-w-xl">
+            <Reveal className="mx-auto mt-14 max-w-xl">
               <ChannelBars
                 title="운영 채널 비중"
                 items={[
@@ -155,7 +155,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 조직 ── */}
-      <section id="team" className="scroll-mt-24 px-6 py-28 md:py-44">
+      <section id="team" className="scroll-mt-16 px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -192,7 +192,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 우리가 일하는 방식 ── */}
-      <section id="values" className="scroll-mt-24 px-6 py-28 md:py-44">
+      <section id="values" className="scroll-mt-16 px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -215,7 +215,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-24 px-6 py-28 md:py-44">
+      <section id="faq" className="scroll-mt-16 px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">

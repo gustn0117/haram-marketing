@@ -28,7 +28,7 @@ export default function AddonsPage() {
         description="마케팅 그 자체를 넘어, 진단부터 예약 전환까지 필요한 일들을 함께 해결해 드립니다. 마케팅 운영과 묶어 한 번에 진행할 수 있습니다."
       />
 
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             What we offer
@@ -54,7 +54,7 @@ export default function AddonsPage() {
       </section>
 
       {/* ── 지원서비스 효과(데이터 시각화) ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -65,7 +65,7 @@ export default function AddonsPage() {
             </h2>
           </Reveal>
 
-          <div className="mx-auto mt-20 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
+          <div className="mx-auto mt-14 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
             <Reveal>
               <DonutChart
                 value={92}

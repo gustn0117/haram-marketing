@@ -40,7 +40,7 @@ export default function ContactPage() {
       />
 
       {/* ── 연락처 — 중앙 정렬 텍스트 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -72,7 +72,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 문의 폼 — 중앙 (즉시 표시, 모션 없음) ── */}
-      <section className="px-6 pb-28 md:pb-44">
+      <section className="px-6 pb-16 md:pb-24">
         <Container size="narrow">
           <div className="mx-auto max-w-xl">
             <ContactForm />
@@ -81,7 +81,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 응답 — 회신율 단일 시각자료 (절제, 중앙 1개) ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -107,7 +107,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 진행 절차 — 6단계, 중앙 미니멀 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -133,7 +133,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">

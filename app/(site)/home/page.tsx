@@ -56,7 +56,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 선언문 ── */}
-      <section className="px-6 py-32 md:py-56">
+      <section className="px-6 py-20 md:py-32">
         <Reveal>
           <Container size="narrow" className="text-center">
             <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
@@ -69,7 +69,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -97,7 +97,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 지표 — 절제된 중앙 숫자 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
           <Container size="wide">
             <div className="grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
@@ -122,7 +122,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 성과(데이터 시각화) ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -137,7 +137,7 @@ export default function HomePage() {
             <GrowthChart />
           </Reveal>
 
-          <div className="mt-20 grid gap-14 md:grid-cols-2 md:gap-20">
+          <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-20">
             <Reveal>
               <Funnel />
             </Reveal>
@@ -153,7 +153,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -179,7 +179,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 마무리 ── */}
-      <section className="relative overflow-hidden px-6 py-40 md:py-56">
+      <section className="relative overflow-hidden px-6 py-20 md:py-32">
         <span className="closing-photo-bg" aria-hidden />
         <Reveal>
           <Container size="narrow" className="relative z-2 text-center">

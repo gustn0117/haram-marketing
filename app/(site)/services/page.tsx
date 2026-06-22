@@ -29,7 +29,7 @@ export default function ServicesPage() {
       />
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -57,7 +57,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -83,7 +83,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 성과(데이터 시각화) — 서비스 전후 비교 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -94,7 +94,7 @@ export default function ServicesPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-20 grid gap-14 md:grid-cols-2 md:gap-20">
+          <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-20">
             <Reveal>
               <CompareBars
                 title="마케팅 전후 월 상담 문의"

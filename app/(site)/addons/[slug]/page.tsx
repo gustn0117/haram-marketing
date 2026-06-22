@@ -67,7 +67,7 @@ export default async function AddonDetailPage({
       <PageHero eyebrow={tagline} title={name} description={description} />
 
       {/* ── Overview — 중앙 본문 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow" className="text-center">
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Overview
@@ -86,7 +86,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Scope — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
@@ -110,7 +110,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Recommended For — 중앙, 여백 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
@@ -132,7 +132,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Proof — 단일 도넛, 중앙 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -158,7 +158,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── FAQ — 중앙 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             FAQ

@@ -102,7 +102,7 @@ function ServiceBody({ service }: { service: Service }) {
   return (
     <>
       {/* ── OVERVIEW — 중앙 2문단 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow" className="text-center">
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Overview
@@ -121,7 +121,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROGRAM — 중앙 리스트 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Program
@@ -142,7 +142,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── SCOPE — 중앙 리스트 (아이콘 없이) ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
@@ -161,7 +161,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── WHO IT'S FOR — 중앙 텍스트 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
@@ -180,7 +180,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROCESS — 중앙 미니멀 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How we work
@@ -204,7 +204,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROOF — 도입 전후 비교 (서비스별 작은 차트) ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -231,7 +231,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── FAQ — 중앙 미니멀 ── */}
-      <section className="px-6 py-28 md:py-44">
+      <section className="px-6 py-16 md:py-24">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Q&amp;A
