@@ -1,33 +1,31 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap");
 @import "tailwindcss";
 
 @theme {
-  /* ── Noir Atelier — 다크 차콜 캔버스 + 샴페인 골드 + 로즈 ── */
-  --color-ink: #100d0b; /* 메인 배경 — 더 깊은 차콜(레이어 부양감↑) */
-  --color-ink-2: #181410; /* 교차 섹션 배경 (살짝 들림) */
-  --color-surface: #211b16; /* 카드 배경 */
-  --color-surface-2: #2c251f; /* 한 단계 밝은 표면 */
-  --color-line: rgba(237, 230, 219, 0.13); /* 다크 위 헤어라인 — 구조선 또렷하게 */
-  --color-line-strong: rgba(237, 230, 219, 0.24);
+  /* ── MOOD — 따뜻한 토프-브라운 올다크 + 샌드골드 (산세리프) ── */
+  --color-ink: #1c1816; /* 메인 배경 — 따뜻한 다크 브라운 */
+  --color-ink-2: #242019; /* 교차 섹션 배경 (살짝 들림) */
+  --color-surface: #2e2820; /* 카드 배경 */
+  --color-surface-2: #3d3428; /* 한 단계 밝은 표면 */
+  --color-line: rgba(242, 236, 228, 0.1); /* 다크 위 헤어라인 */
+  --color-line-strong: rgba(242, 236, 228, 0.18);
 
-  /* 포인트색: 샴페인 골드 (이름은 호환을 위해 gold 유지) */
-  --color-gold: #c9a86a; /* 메인 — 샴페인 골드 */
-  --color-gold-bright: #dcc189; /* 밝은 샴페인 (강조·버튼 호버) */
-  --color-gold-deep: #b8965a; /* 가라앉는 골드 */
-  --color-gold-frame: rgba(201, 168, 106, 0.22); /* 인셋 프레임 시그니처(전 히어로 통일) */
+  /* 포인트색: 샌드골드 (이름은 호환을 위해 gold 유지) */
+  --color-gold: #d4b485; /* 메인 — 샌드골드 */
+  --color-gold-bright: #e2c79e; /* 밝은 샌드 (강조·호버) */
+  --color-gold-deep: #b89a6e; /* 가라앉는 샌드 */
+  --color-gold-frame: rgba(212, 180, 133, 0.22);
   --color-rose: #b98a7a; /* 보조 — 로즈(분위기 보조광) */
 
-  --color-paper: #ede6db; /* 본문 — 따뜻한 오프화이트 */
-  --color-muted: #ada291; /* 보조 텍스트 (대비 소폭 상향) */
-  --color-faint: #6e655b; /* 약한 텍스트 */
+  --color-paper: #f2ece4; /* 본문 — 따뜻한 오프화이트 */
+  --color-muted: #c8b9a8; /* 보조 텍스트 — 토프 */
+  --color-faint: #8e7f6f; /* 약한 텍스트 — 머디 브라운 */
 
   --font-sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui,
     sans-serif;
-  /* 제목: 명조 세리프(국문 Noto Serif KR + 라틴 Cormorant) — 에디토리얼 웨딩 무드 */
-  --font-serif: "Cormorant Garamond", "Noto Serif KR", var(--font-sans);
-  /* 라벨/숫자: 라틴 세리프로 디테일에 운치 */
-  --font-display: "Cormorant Garamond", "Noto Serif KR", var(--font-sans);
+  /* 제목·라벨·숫자 모두 Pretendard 산세리프 — 미니멀·정제 (MOOD 감) */
+  --font-serif: var(--font-sans);
+  --font-display: var(--font-sans);
 
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -75,13 +73,13 @@ body {
   border-radius: var(--radius-sm);
   box-shadow:
     0 0 0 2px var(--color-ink),
-    0 0 0 4px rgba(201, 168, 106, 0.55);
+    0 0 0 4px rgba(212, 180, 133, 0.55);
 }
 
 /* ---------- 정적 깊이 패널 (따뜻한 그림자 + 상단 베젤) ---------- */
 .panel-elevated {
   box-shadow:
-    inset 0 1px 0 0 rgba(237, 230, 219, 0.05),
+    inset 0 1px 0 0 rgba(242, 236, 228, 0.05),
     0 24px 48px -28px rgba(0, 0, 0, 0.6);
 }
 
@@ -104,8 +102,8 @@ body::after {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(237, 230, 219, 0.055), transparent 18rem),
-    linear-gradient(90deg, rgba(201, 168, 106, 0.045), transparent 28%, transparent 72%, rgba(185, 138, 122, 0.045));
+    linear-gradient(180deg, rgba(242, 236, 228, 0.055), transparent 18rem),
+    linear-gradient(90deg, rgba(212, 180, 133, 0.045), transparent 28%, transparent 72%, rgba(185, 138, 122, 0.045));
 }
 
 /* ---------- 한글 워드랩(어절 단위 줄바꿈) ----------
@@ -125,24 +123,19 @@ body::after {
 
 /* ---------- Typography helpers ---------- */
 /* 제목: 명조 세리프 — Cormorant(라틴) + Noto Serif KR(국문) 글리프 폴백.
-   국문은 600, 라틴은 high-contrast 세리프라 살짝 가볍게 보여 균형이 맞음. */
+   Pretendard 산세리프 — 미니멀 프리미엄(MOOD). 자간 타이트, weight 절제. */
 .font-serif {
   font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
-/* 대형 디스플레이 제목 — 고대비 세리프는 클수록 가볍고 타이트하게 */
+/* 대형 디스플레이 제목 — 굵고 타이트하게 */
 .font-serif-display {
   font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: -0.035em;
 }
-@media (min-width: 768px) {
-  .font-serif-display {
-    font-weight: 400;
-  }
-}
-/* 라벨·대형 숫자: 라틴 세리프 + 라이닝/고정폭 숫자로 정렬 균질 */
+/* 라벨·숫자: 라이닝/고정폭 숫자 */
 .font-display {
   font-family: var(--font-display);
   font-weight: 500;
@@ -168,24 +161,36 @@ body::after {
   background: var(--color-ink);
 }
 
+.luxury-image {
+  filter: saturate(0.82) contrast(1.08) brightness(0.9);
+}
+
+.luxury-hero-shade {
+  background:
+    linear-gradient(90deg, rgba(28, 24, 22, 0.96), rgba(28, 24, 22, 0.72) 38%, rgba(28, 24, 22, 0.18)),
+    linear-gradient(180deg, rgba(28, 24, 22, 0.12), rgba(28, 24, 22, 0.78)),
+    linear-gradient(135deg, rgba(212, 180, 133, 0.16), transparent 34%, rgba(58, 20, 23, 0.18));
+}
+
 .premium-hero-shade {
   background:
-    linear-gradient(90deg, rgba(16, 13, 11, 0.92), rgba(16, 13, 11, 0.68) 42%, rgba(16, 13, 11, 0.2)),
-    linear-gradient(180deg, rgba(16, 13, 11, 0.08), rgba(16, 13, 11, 0.62));
+    linear-gradient(90deg, rgba(28, 24, 22, 0.92), rgba(28, 24, 22, 0.68) 42%, rgba(28, 24, 22, 0.2)),
+    linear-gradient(180deg, rgba(28, 24, 22, 0.08), rgba(28, 24, 22, 0.62));
 }
 
 .premium-cta-shade {
   background:
-    linear-gradient(90deg, rgba(16, 13, 11, 0.9), rgba(16, 13, 11, 0.62) 44%, rgba(16, 13, 11, 0.28)),
-    linear-gradient(180deg, rgba(16, 13, 11, 0.18), rgba(16, 13, 11, 0.78));
+    linear-gradient(90deg, rgba(28, 24, 22, 0.9), rgba(28, 24, 22, 0.62) 44%, rgba(28, 24, 22, 0.28)),
+    linear-gradient(180deg, rgba(28, 24, 22, 0.18), rgba(28, 24, 22, 0.78));
 }
 
 @media (max-width: 767px) {
+  .luxury-hero-shade,
   .premium-hero-shade,
   .premium-cta-shade {
     background:
-      linear-gradient(180deg, rgba(16, 13, 11, 0.42), rgba(16, 13, 11, 0.92)),
-      linear-gradient(90deg, rgba(16, 13, 11, 0.82), rgba(16, 13, 11, 0.28));
+      linear-gradient(180deg, rgba(28, 24, 22, 0.34), rgba(28, 24, 22, 0.94)),
+      linear-gradient(90deg, rgba(28, 24, 22, 0.9), rgba(28, 24, 22, 0.36));
   }
 }
 
@@ -399,7 +404,7 @@ body::after {
 .form-input {
   width: 100%;
   border: 1px solid var(--color-line);
-  background: rgba(237, 230, 219, 0.04);
+  background: rgba(242, 236, 228, 0.04);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
@@ -414,8 +419,8 @@ body::after {
 .form-input:focus {
   outline: none;
   border-color: var(--color-gold);
-  background: rgba(237, 230, 219, 0.07);
-  box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.16);
+  background: rgba(242, 236, 228, 0.07);
+  box-shadow: 0 0 0 3px rgba(212, 180, 133, 0.16);
 }
 
 /* Card hover — 정적: 보더 색만 변화 (움직임 없음) */
@@ -423,7 +428,7 @@ body::after {
   transition: border-color 0.5s var(--ease-out-soft);
 }
 .card-hover:hover {
-  border-color: rgba(201, 168, 106, 0.45);
+  border-color: rgba(212, 180, 133, 0.45);
 }
 
 /* FAQ 아코디언 — grid-rows 0fr→1fr 절제된 펼침 */

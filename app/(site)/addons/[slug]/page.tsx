@@ -70,13 +70,13 @@ export default async function AddonDetailPage({
       />
 
       {/* Overview — 라이트 */}
-      <section className="bg-paper text-ink">
+      <section className="bg-ink-2 text-paper">
         <Container
           size="wide"
           className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.78fr_1.22fr] lg:items-start"
         >
           <div className="lg:sticky lg:top-28 lg:h-fit">
-            <span className="label text-gold-deep">Overview</span>
+            <span className="label text-gold">Overview</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
               이렇게 진행합니다.
             </h2>
@@ -85,7 +85,7 @@ export default async function AddonDetailPage({
             {addon.overview.map((p, i) => (
               <p
                 key={i}
-                className="max-w-3xl text-base leading-[1.9] text-ink/70 md:text-lg"
+                className="max-w-3xl text-base leading-[1.9] text-paper/70 md:text-lg"
               >
                 {p}
               </p>
@@ -124,30 +124,30 @@ export default async function AddonDetailPage({
       </section>
 
       {/* Recommended For — 라이트(크림) */}
-      <section className="bg-[#f7f1e8] text-ink">
+      <section className="bg-ink text-paper">
         <Container
           size="wide"
           className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.72fr_1.28fr]"
         >
           <div>
-            <span className="label text-gold-deep">Who it&apos;s for</span>
+            <span className="label text-gold">Who it&apos;s for</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
               이런 경우 추천합니다.
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-[1.9] text-ink/68">
+            <p className="mt-6 max-w-xl text-base leading-[1.9] text-paper/68">
               지금 예식장의 상황에 맞춰 가장 효과가 큰 순서로 제안드립니다.
             </p>
           </div>
-          <div className="grid border-t border-ink/10">
+          <div className="grid border-t border-line">
             {addon.recommendedFor.map((r, i) => (
               <div
                 key={r}
-                className="flex items-center gap-6 border-b border-ink/10 py-6"
+                className="flex items-center gap-6 border-b border-line py-6"
               >
-                <span className="folio text-3xl text-gold-deep">
+                <span className="folio text-3xl text-gold">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="text-base leading-[1.7] text-ink/80 md:text-lg">
+                <p className="text-base leading-[1.7] text-paper/80 md:text-lg">
                   {r}
                 </p>
               </div>

@@ -43,10 +43,10 @@ export default function AddonsPage() {
         backgroundImage={aboutImage}
       />
 
-      <section className="bg-paper text-ink">
+      <section className="bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 max-w-3xl">
-            <span className="label text-gold-deep">What we offer</span>
+            <span className="label text-gold">What we offer</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.7vw,4.3rem)] leading-[1.05]">
               지원서비스 영역
             </h2>
@@ -59,7 +59,7 @@ export default function AddonsPage() {
                 <Link
                   key={a.id}
                   href={`/addons/${a.id}`}
-                  className="group overflow-hidden rounded-[8px] border border-ink/10 bg-[#fffaf3] shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
+                  className="group overflow-hidden rounded-[8px] border border-line bg-surface shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
                 >
                   <div className="relative aspect-[5/3] overflow-hidden">
                     <Image
@@ -72,14 +72,14 @@ export default function AddonsPage() {
                     <div className="absolute inset-0 bg-ink/18" aria-hidden />
                   </div>
                   <div className="p-6">
-                    <Icon className="h-7 w-7 text-gold-deep" />
-                    <p className="mt-5 text-xs uppercase tracking-[0.22em] text-gold-deep">
+                    <Icon className="h-7 w-7 text-gold" />
+                    <p className="mt-5 text-xs uppercase tracking-[0.22em] text-gold">
                       {a.tagline}
                     </p>
                     <h3 className="mt-3 font-serif text-2xl leading-snug">
                       {a.name}
                     </h3>
-                    <p className="mt-4 text-sm leading-[1.8] text-ink/64">
+                    <p className="mt-4 text-sm leading-[1.8] text-paper/64">
                       {a.description}
                     </p>
                   </div>

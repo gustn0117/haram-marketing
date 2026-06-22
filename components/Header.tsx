@@ -14,20 +14,20 @@ function isActive(pathname: string, href: string) {
 export function SpineRail() {
   const pathname = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50 hidden h-20 border-b border-line bg-ink/85 backdrop-blur-xl lg:block">
-      <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-8">
+    <header className="fixed inset-x-0 top-0 z-50 hidden h-20 border-b border-gold/14 bg-ink/78 backdrop-blur-xl lg:block">
+      <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-8">
         <Link
           href="/home"
           className="flex items-center gap-3"
           aria-label={`${company.nameKo} 홈`}
         >
-          <Monogram className="h-8 w-8 text-gold transition-transform duration-500 hover:rotate-3" />
+          <Monogram className="h-9 w-9 text-gold transition-transform duration-500 hover:rotate-3" />
           <span className="flex flex-col leading-none">
-            <span className="font-serif text-base tracking-tight">
+            <span className="font-serif text-lg">
               {company.nameKo}
             </span>
-            <span className="font-display text-[0.6rem] tracking-[0.34em] text-faint">
-              {company.nameEn}
+            <span className="mt-1 font-display text-[0.6rem] tracking-[0.34em] text-gold/62">
+              PRIVATE VENUE GROWTH
             </span>
           </span>
         </Link>
@@ -36,8 +36,8 @@ export function SpineRail() {
           {navLinks.map((l) => {
             const active = isActive(pathname, l.href);
             const menu = dropdownMenus[l.href];
-            const cls = `link-underline text-sm tracking-tight transition-colors ${
-              active ? "text-gold" : "text-muted hover:text-paper"
+            const cls = `link-underline text-sm transition-colors ${
+              active ? "text-gold" : "text-paper/66 hover:text-paper"
             }`;
             if (menu) {
               return (
@@ -50,12 +50,12 @@ export function SpineRail() {
                     {l.label}
                   </Link>
                   <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                    <div className="w-56 rounded-lg border border-line-strong bg-ink/95 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+                    <div className="w-60 border border-gold/18 bg-ink/96 p-2 shadow-[0_30px_80px_-28px_rgba(0,0,0,0.78)] backdrop-blur-xl">
                       {menu.map((it) => (
                         <Link
                           key={it.href}
                           href={it.href}
-                          className="block rounded-md px-4 py-2.5 text-sm text-paper transition-colors hover:bg-surface-2 hover:text-gold"
+                          className="block px-4 py-2.5 text-sm text-paper/72 transition-colors hover:bg-paper/5 hover:text-gold"
                         >
                           {it.label}
                         </Link>
@@ -78,9 +78,9 @@ export function SpineRail() {
           })}
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-sm bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright"
+            className="group inline-flex items-center gap-2 rounded-[4px] border border-gold/58 px-5 py-2.5 text-sm font-medium text-gold transition-colors duration-500 hover:bg-gold hover:text-ink"
           >
-            무료 진단
+            프리미엄 진단
             <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </nav>
@@ -114,10 +114,10 @@ export function MobileNav() {
 
   return (
     <div className="lg:hidden">
-      <div className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-line bg-ink/85 px-5 backdrop-blur-xl">
+      <div className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-gold/14 bg-ink/88 px-5 backdrop-blur-xl">
         <Link href="/home" className="flex items-center gap-2.5">
           <Monogram className="h-7 w-7 text-gold" />
-          <span className="font-serif text-sm tracking-tight">
+          <span className="font-serif text-sm">
             {company.nameKo}
           </span>
         </Link>
@@ -180,9 +180,9 @@ export function MobileNav() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-4 text-sm font-medium text-ink"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-[4px] bg-gold px-6 py-4 text-sm font-medium text-ink"
           >
-            무료 마케팅 진단
+            프리미엄 진단
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </nav>

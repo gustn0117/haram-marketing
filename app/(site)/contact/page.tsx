@@ -41,18 +41,18 @@ export default function ContactPage() {
       />
 
       {/* 문의 — 연락처 + 폼 */}
-      <section className="bg-paper text-ink">
+      <section className="bg-ink-2 text-paper">
         <Container
           size="wide"
           className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16"
         >
           {/* 연락처 채널 */}
           <div>
-            <span className="label text-gold-deep">Contact</span>
+            <span className="label text-gold">Contact</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
-              편하게 먼저 <span className="text-gold-deep">연락</span>하세요.
+              편하게 먼저 <span className="text-gold">연락</span>하세요.
             </h2>
-            <p className="mt-6 max-w-md text-base leading-[1.9] text-ink/68">
+            <p className="mt-6 max-w-md text-base leading-[1.9] text-paper/68">
               전화가 빠르고, 문의 폼은 자세합니다. 어느 쪽이든 담당 마케터가
               직접 확인하고 회신드립니다.
             </p>
@@ -61,15 +61,15 @@ export default function ContactPage() {
               {channels.map((ch) => {
                 const Icon = ch.icon;
                 const content = (
-                  <div className="group flex items-start gap-5 rounded-[8px] border border-ink/10 bg-[#fffaf3] p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[6px] border border-ink/12 text-gold-deep transition-colors group-hover:border-gold-deep">
+                  <div className="group flex items-start gap-5 rounded-[8px] border border-line bg-surface p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[6px] border border-line text-gold transition-colors group-hover:border-gold">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div className="flex flex-col gap-1.5 pt-0.5">
-                      <span className="text-xs uppercase tracking-[0.2em] text-gold-deep">
+                      <span className="text-xs uppercase tracking-[0.2em] text-gold">
                         {ch.label}
                       </span>
-                      <span className="text-base text-ink/82">{ch.value}</span>
+                      <span className="text-base text-paper/82">{ch.value}</span>
                     </div>
                   </div>
                 );
@@ -92,7 +92,7 @@ export default function ContactPage() {
       </section>
 
       {/* 진행 절차 */}
-      <section className="bg-[#17231f] text-paper">
+      <section className="bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 max-w-2xl">
             <span className="label text-gold">How it works</span>
@@ -101,11 +101,11 @@ export default function ContactPage() {
             </h2>
           </div>
 
-          <div className="grid border-l border-t border-paper/16 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {contactFlow.map((step) => (
               <article
                 key={step.no}
-                className="border-b border-r border-paper/16 p-8"
+                className="border-b border-r border-line p-8"
               >
                 <span className="folio text-4xl text-gold">{step.no}</span>
                 <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>

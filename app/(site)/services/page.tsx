@@ -32,14 +32,14 @@ export default function ServicesPage() {
         backgroundImage={heroImage}
       />
 
-      <section className="bg-[#f7f1e8] text-ink">
+      <section className="bg-ink text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 max-w-3xl">
-            <span className="label text-gold-deep">Conversion system</span>
+            <span className="label text-gold">Conversion system</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.2rem,4.7vw,4.3rem)] leading-[1.05]">
               예약을 만드는 6개의 운영 축
             </h2>
-            <p className="mt-6 text-base leading-[1.9] text-ink/68">
+            <p className="mt-6 text-base leading-[1.9] text-paper/68">
               흩어지기 쉬운 마케팅 채널을 한 팀이 같은 기준으로 다룹니다. 각
               영역은 독립적으로, 또는 하나의 캠페인으로 함께 구성할 수 있습니다.
             </p>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
               <Link
                 key={service.id}
                 href={`/services/${service.id}`}
-                className="group overflow-hidden rounded-[8px] border border-ink/10 bg-[#fffaf3] shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
+                className="group overflow-hidden rounded-[8px] border border-line bg-surface shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
               >
                 <div className="relative aspect-[5/3] overflow-hidden">
                   <Image
@@ -66,19 +66,19 @@ export default function ServicesPage() {
                   <div className="mb-5 flex items-center justify-between gap-4">
                     <ServiceIcon
                       id={service.id as ServiceIconId}
-                      className="h-7 w-7 text-gold-deep"
+                      className="h-7 w-7 text-gold"
                     />
-                    <span className="folio text-sm text-ink/42">
+                    <span className="folio text-sm text-paper/42">
                       {service.no}
                     </span>
                   </div>
-                  <p className="text-xs uppercase tracking-[0.22em] text-gold-deep">
+                  <p className="text-xs uppercase tracking-[0.22em] text-gold">
                     {service.tagline}
                   </p>
                   <h3 className="mt-3 font-serif text-2xl leading-snug">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-[1.8] text-ink/64">
+                  <p className="mt-4 text-sm leading-[1.8] text-paper/64">
                     {service.description}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="bg-[#17231f] text-paper">
+      <section className="bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="max-w-2xl">
             <span className="label text-gold">How we work</span>
@@ -96,11 +96,11 @@ export default function ServicesPage() {
               모든 마케팅은 같은 원칙으로.
             </h2>
           </div>
-          <div className="mt-14 grid border-t border-paper/16 md:grid-cols-4">
+          <div className="mt-14 grid border-t border-line md:grid-cols-4">
             {processSteps.map((step) => (
               <article
                 key={step.no}
-                className="border-b border-paper/16 py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
+                className="border-b border-line py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
               >
                 <span className="folio text-4xl text-gold">{step.no}</span>
                 <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>

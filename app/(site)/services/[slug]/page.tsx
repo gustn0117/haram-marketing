@@ -123,7 +123,7 @@ function ServiceBody({ service }: { service: Service }) {
   return (
     <>
       {/* OVERVIEW — 라이트 2열 */}
-      <section className="bg-paper text-ink">
+      <section className="bg-ink-2 text-paper">
         <Container
           size="wide"
           className="grid gap-10 py-20 md:py-28 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-16"
@@ -131,12 +131,12 @@ function ServiceBody({ service }: { service: Service }) {
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 text-sm font-semibold text-ink/55 transition-colors hover:text-gold-deep"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-paper/55 transition-colors hover:text-gold"
             >
               <ArrowUpRight className="h-4 w-4 -rotate-90 transition-transform duration-300 group-hover:-translate-x-0.5" />
               서비스 전체
             </Link>
-            <span className="label mt-6 block text-gold-deep">Overview</span>
+            <span className="label mt-6 block text-gold">Overview</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
               이렇게 접근합니다
             </h2>
@@ -145,7 +145,7 @@ function ServiceBody({ service }: { service: Service }) {
             {service.overview.map((p, i) => (
               <p
                 key={i}
-                className="max-w-3xl text-base leading-[1.9] text-ink/68 md:text-lg"
+                className="max-w-3xl text-base leading-[1.9] text-paper/68 md:text-lg"
               >
                 {p}
               </p>
@@ -155,23 +155,23 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* PROGRAM + SCOPE — 크림 배경, 번호 리스트 + 카드 */}
-      <section className="bg-[#f7f1e8] text-ink">
+      <section className="bg-ink text-paper">
         <Container
           size="wide"
           className="grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-16"
         >
           <div>
-            <span className="label text-gold-deep">Program</span>
+            <span className="label text-gold">Program</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
               주요 진행 항목
             </h2>
-            <ul className="mt-10 border-t border-ink/10">
+            <ul className="mt-10 border-t border-line">
               {service.items.map((item, i) => (
                 <li
                   key={item}
-                  className="group flex items-center gap-6 border-b border-ink/10 py-5"
+                  className="group flex items-center gap-6 border-b border-line py-5"
                 >
-                  <span className="folio text-2xl text-gold-deep">
+                  <span className="folio text-2xl text-gold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-serif text-lg leading-snug transition-transform duration-500 group-hover:translate-x-1">
@@ -183,16 +183,16 @@ function ServiceBody({ service }: { service: Service }) {
           </div>
 
           <div>
-            <span className="label text-gold-deep">Scope</span>
+            <span className="label text-gold">Scope</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.06]">
               진행 범위
             </h2>
-            <div className="mt-10 rounded-[8px] border border-ink/10 bg-[#fffaf3] p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] md:p-8">
+            <div className="mt-10 rounded-[8px] border border-line bg-surface p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] md:p-8">
               <ul className="flex flex-col gap-4">
                 {service.scope.map((s) => (
                   <li key={s} className="flex items-start gap-3 text-base">
-                    <Plus className="mt-1 h-4 w-4 shrink-0 text-gold-deep" />
-                    <span className="leading-[1.7] text-ink/70">{s}</span>
+                    <Plus className="mt-1 h-4 w-4 shrink-0 text-gold" />
+                    <span className="leading-[1.7] text-paper/70">{s}</span>
                   </li>
                 ))}
               </ul>
@@ -229,7 +229,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* PROCESS — 딥그린 번호 그리드 */}
-      <section className="bg-[#17231f] text-paper">
+      <section className="bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="max-w-3xl">
             <span className="label text-gold">How we work</span>
@@ -237,11 +237,11 @@ function ServiceBody({ service }: { service: Service }) {
               진행 프로세스
             </h2>
           </div>
-          <div className="mt-14 grid border-t border-paper/16 md:grid-cols-4">
+          <div className="mt-14 grid border-t border-line md:grid-cols-4">
             {processSteps.map((step) => (
               <article
                 key={step.no}
-                className="border-b border-paper/16 py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
+                className="border-b border-line py-8 md:border-b-0 md:border-r md:px-6 md:last:border-r-0"
               >
                 <span className="folio text-4xl text-gold">{step.no}</span>
                 <h3 className="mt-5 font-serif text-2xl">{step.title}</h3>

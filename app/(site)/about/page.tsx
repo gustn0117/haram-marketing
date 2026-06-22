@@ -39,20 +39,20 @@ export default function AboutPage() {
       />
 
       {/* Mission statement — 라이트 크림 선언문 */}
-      <section className="bg-[#f7f1e8] text-ink">
+      <section className="bg-ink text-paper">
         <Container
           size="wide"
           className="grid gap-12 py-20 md:py-28 lg:grid-cols-[0.42fr_1.58fr] lg:items-start"
         >
-          <span className="label text-gold-deep">Our mission</span>
+          <span className="label text-gold">Our mission</span>
           <div>
             <p className="font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.12]">
-              우리는 <span className="text-gold-deep">노출</span>을 팔지 않습니다.
+              우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
               신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
-              <span className="text-gold-deep">예약</span>으로 이어지도록 보이지
+              <span className="text-gold">예약</span>으로 이어지도록 보이지
               않는 모든 동선을 준비합니다.
             </p>
-            <p className="mt-8 text-sm text-ink/55">
+            <p className="mt-8 text-sm text-paper/55">
               — {company.nameKo} 대표 {company.ceo}
             </p>
           </div>
@@ -60,10 +60,10 @@ export default function AboutPage() {
       </section>
 
       {/* Story / 운영 철학 — 라이트 페이퍼 2열 행 */}
-      <section id="philosophy" className="scroll-mt-24 bg-paper text-ink">
+      <section id="philosophy" className="scroll-mt-24 bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 max-w-2xl">
-            <span className="label text-gold-deep">Our philosophy</span>
+            <span className="label text-gold">Our philosophy</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
               우리가 일을 대하는 태도
             </h2>
@@ -72,15 +72,15 @@ export default function AboutPage() {
             {aboutStory.map((s, i) => (
               <article
                 key={s.heading}
-                className="grid gap-6 border-t border-ink/10 py-10 last:border-b md:grid-cols-[0.16fr_0.84fr_1fr] md:items-start md:gap-10"
+                className="grid gap-6 border-t border-line py-10 last:border-b md:grid-cols-[0.16fr_0.84fr_1fr] md:items-start md:gap-10"
               >
-                <span className="folio text-3xl text-gold-deep">
+                <span className="folio text-3xl text-gold">
                   0{i + 1}
                 </span>
                 <h3 className="font-serif text-2xl leading-snug">
                   {s.heading}
                 </h3>
-                <p className="max-w-[60ch] text-base leading-[1.9] text-ink/68">
+                <p className="max-w-[60ch] text-base leading-[1.9] text-paper/68">
                   {s.body}
                 </p>
               </article>
@@ -93,16 +93,16 @@ export default function AboutPage() {
       <Strengths id="strengths" />
 
       {/* Channels / 운영 채널·역량 + 성과 지표 — 라이트 크림 */}
-      <section id="equipment" className="scroll-mt-24 bg-[#fffaf3] text-ink">
+      <section id="equipment" className="scroll-mt-24 bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="label text-gold-deep">Our channels</span>
+              <span className="label text-gold">Our channels</span>
               <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
                 운영 채널·역량
               </h2>
             </div>
-            <p className="max-w-md text-base leading-[1.9] text-ink/68">
+            <p className="max-w-md text-base leading-[1.9] text-paper/68">
               신랑신부가 예식장을 찾는 모든 채널을 직접 운영합니다.
               검색·플레이스부터 블로그·SNS·숏폼까지, 자사 콘텐츠팀이 만든
               콘텐츠로 채웁니다.
@@ -113,7 +113,7 @@ export default function AboutPage() {
             {equipment.map((item) => (
               <article
                 key={item.name}
-                className="group overflow-hidden rounded-[8px] border border-ink/10 bg-[#fffaf3] shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
+                className="group overflow-hidden rounded-[8px] border border-line bg-surface shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
               >
                 <div className="relative aspect-[5/3] overflow-hidden">
                   <img
@@ -125,11 +125,11 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-ink/18" aria-hidden />
                 </div>
                 <div className="p-6">
-                  <span className="label text-gold-deep">{item.tagline}</span>
+                  <span className="label text-gold">{item.tagline}</span>
                   <h3 className="mt-3 font-serif text-2xl leading-snug">
                     {item.name}
                   </h3>
-                  <p className="mt-4 text-sm leading-[1.8] text-ink/64">
+                  <p className="mt-4 text-sm leading-[1.8] text-paper/64">
                     {item.description}
                   </p>
                 </div>
@@ -138,19 +138,19 @@ export default function AboutPage() {
           </div>
 
           {/* 성과 지표 — 홈 메트릭 바 스타일 */}
-          <div className="mt-12 grid border-x border-b border-ink/10 bg-[#fffaf3] sm:grid-cols-4">
+          <div className="mt-12 grid border-x border-b border-line bg-surface sm:grid-cols-4">
             {metrics.map((m) => (
               <div
                 key={m.label}
-                className="border-b border-r border-ink/10 p-5 last:border-r-0 sm:border-b-0 md:p-7"
+                className="border-b border-r border-line p-5 last:border-r-0 sm:border-b-0 md:p-7"
               >
-                <p className="font-display text-4xl text-gold-deep md:text-5xl">
+                <p className="font-display text-4xl text-gold md:text-5xl">
                   {m.value}
                   {m.suffix ? (
-                    <span className="text-lg text-gold-deep/80">{m.suffix}</span>
+                    <span className="text-lg text-gold/80">{m.suffix}</span>
                   ) : null}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-ink/62">
+                <p className="mt-3 text-sm leading-relaxed text-paper/62">
                   {m.label}
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function AboutPage() {
       </section>
 
       {/* Departments / 조직도 — 다크 딥그린 카드 그리드 */}
-      <section id="team" className="scroll-mt-24 bg-[#17231f] text-paper">
+      <section id="team" className="scroll-mt-24 bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
@@ -213,10 +213,10 @@ export default function AboutPage() {
       </section>
 
       {/* Values — 라이트 페이퍼 번호 카드 */}
-      <section id="values" className="scroll-mt-24 bg-paper text-ink">
+      <section id="values" className="scroll-mt-24 bg-ink-2 text-paper">
         <Container size="wide" className="py-20 md:py-28">
           <div className="mb-12 max-w-2xl">
-            <span className="label text-gold-deep">Our values</span>
+            <span className="label text-gold">Our values</span>
             <h2 className="mt-5 font-serif-display text-[clamp(2.1rem,4.5vw,4.2rem)] leading-[1.05]">
               우리가 일하는 방식
             </h2>
@@ -225,15 +225,15 @@ export default function AboutPage() {
             {values.map((value, i) => (
               <article
                 key={value.title}
-                className="rounded-[8px] border border-ink/10 bg-[#fffaf3] p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
+                className="rounded-[8px] border border-line bg-surface p-6 shadow-[0_24px_70px_-52px_rgba(16,13,11,0.55)] transition-colors hover:border-gold/55"
               >
-                <span className="folio text-3xl text-gold-deep">
+                <span className="folio text-3xl text-gold">
                   0{i + 1}
                 </span>
                 <h3 className="mt-5 font-serif text-2xl leading-snug">
                   {value.title}
                 </h3>
-                <p className="mt-4 text-sm leading-[1.85] text-ink/66">
+                <p className="mt-4 text-sm leading-[1.85] text-paper/66">
                   {value.description}
                 </p>
               </article>
