@@ -5,6 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
+import { DonutChart } from "@/components/charts";
 
 export const metadata: Metadata = {
   title: "문의",
@@ -76,6 +77,32 @@ export default function ContactPage() {
           <div className="mx-auto max-w-xl">
             <ContactForm />
           </div>
+        </Container>
+      </section>
+
+      {/* ── 응답 — 회신율 단일 시각자료 (절제, 중앙 1개) ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Response
+            </p>
+            <h2 className="mx-auto mt-8 max-w-xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+              남겨주신 문의, 빠르게 회신드립니다.
+            </h2>
+          </Reveal>
+
+          <Reveal className="mt-16 flex justify-center">
+            <DonutChart
+              value={98}
+              label="1영업일 내 회신"
+              caption="문의 후 평균 회신율"
+            />
+          </Reveal>
+
+          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 응대는 문의 시점에 따라 상이합니다
+          </p>
         </Container>
       </section>
 

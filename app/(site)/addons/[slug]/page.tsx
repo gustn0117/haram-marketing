@@ -5,6 +5,8 @@ import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
+import { DonutChart } from "@/components/charts";
 
 type Params = { slug: string };
 
@@ -126,6 +128,32 @@ export default async function AddonDetailPage({
               </p>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* ── Proof — 단일 도넛, 중앙 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="narrow">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Proof
+            </p>
+            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+              상담 전환에 보탬이 됩니다.
+            </h2>
+          </Reveal>
+
+          <Reveal className="mx-auto mt-16 flex justify-center">
+            <DonutChart
+              value={86}
+              label={`${name} 기여`}
+              caption="평균 상담 전환 기여도"
+            />
+          </Reveal>
+
+          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 성과는 예식장별로 상이합니다
+          </p>
         </Container>
       </section>
 

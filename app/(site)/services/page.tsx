@@ -4,6 +4,7 @@ import { services, processSteps } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { CompareBars, ChannelBars } from "@/components/charts";
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -79,6 +80,47 @@ export default function ServicesPage() {
           </div>
         </Container>
         </Reveal>
+      </section>
+
+      {/* ── 성과(데이터 시각화) — 서비스 전후 비교 ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Proof
+            </p>
+            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+              마케팅 전후, 숫자가 달라집니다.
+            </h2>
+          </Reveal>
+
+          <div className="mt-20 grid gap-14 md:grid-cols-2 md:gap-20">
+            <Reveal>
+              <CompareBars
+                title="마케팅 전후 월 상담 문의"
+                before={{ label: "이전", w: 26, value: "31" }}
+                after={{ label: "이후", w: 100, value: "118" }}
+                unit="건"
+              />
+            </Reveal>
+            <Reveal>
+              <ChannelBars
+                title="채널별 상담 기여도"
+                items={[
+                  { label: "네이버 검색·플레이스", pct: 41 },
+                  { label: "블로그·체험단", pct: 24 },
+                  { label: "인스타그램·SNS", pct: 17 },
+                  { label: "퍼포먼스 광고", pct: 12 },
+                  { label: "영상·사진 콘텐츠", pct: 6 },
+                ]}
+              />
+            </Reveal>
+          </div>
+
+          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 성과는 예식장별로 상이합니다
+          </p>
+        </Container>
       </section>
 
       <CTASection

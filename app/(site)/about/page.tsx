@@ -14,6 +14,7 @@ import { Strengths } from "@/components/Strengths";
 import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
+import { GrowthChart, ChannelBars } from "@/components/charts";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -124,6 +125,31 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+
+            <Reveal className="mx-auto mt-24 max-w-3xl">
+              <GrowthChart
+                title="누적 관리 예식장"
+                data={[4, 9, 15, 21, 27, 33]}
+                labels={["2024", "", "", "", "", "2026"]}
+                caption="3년"
+              />
+            </Reveal>
+
+            <Reveal className="mx-auto mt-20 max-w-xl">
+              <ChannelBars
+                title="운영 채널 비중"
+                items={[
+                  { label: "촬영·영상 콘텐츠", pct: 32 },
+                  { label: "네이버 검색·플레이스", pct: 28 },
+                  { label: "퍼포먼스 광고", pct: 24 },
+                  { label: "SNS·체험단", pct: 16 },
+                ]}
+              />
+            </Reveal>
+
+            <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+              예시 데이터 · 실제 성과는 예식장별로 상이합니다
+            </p>
           </Container>
         </Reveal>
       </section>

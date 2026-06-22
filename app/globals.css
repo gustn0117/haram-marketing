@@ -421,6 +421,14 @@ body::after {
 .reveal.is-visible .data-fill {
   transform: scaleX(1);
 }
+.chart-ring {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1.5s var(--ease-out-soft);
+}
+.reveal.is-visible .chart-ring {
+  stroke-dashoffset: var(--ring-offset, 0);
+}
 @media (prefers-reduced-motion: reduce) {
   .chart-line {
     stroke-dashoffset: 0;
@@ -433,6 +441,10 @@ body::after {
   }
   .data-fill {
     transform: none;
+    transition: none;
+  }
+  .chart-ring {
+    stroke-dashoffset: var(--ring-offset, 0);
     transition: none;
   }
 }

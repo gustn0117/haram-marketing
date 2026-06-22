@@ -13,6 +13,8 @@ import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
+import { CompareBars } from "@/components/charts";
 
 type Params = { slug: string };
 
@@ -96,6 +98,7 @@ export default async function OfferingDetailPage({
 }
 
 function ServiceBody({ service }: { service: Service }) {
+  const { title } = service;
   return (
     <>
       {/* ── OVERVIEW — 중앙 2문단 ── */}
@@ -197,6 +200,33 @@ function ServiceBody({ service }: { service: Service }) {
               </div>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* ── PROOF — 도입 전후 비교 (서비스별 작은 차트) ── */}
+      <section className="px-6 py-28 md:py-44">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Proof
+            </p>
+            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+              {title} 도입 전후, 상담 문의의 차이.
+            </h2>
+          </Reveal>
+
+          <Reveal className="mx-auto mt-16 max-w-xl">
+            <CompareBars
+              title={`${title} 도입 전후 월 상담 문의`}
+              before={{ label: "이전", w: 30, value: "12" }}
+              after={{ label: "이후", w: 100, value: "41" }}
+              unit="건"
+            />
+          </Reveal>
+
+          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 성과는 예식장별로 상이합니다
+          </p>
         </Container>
       </section>
 
