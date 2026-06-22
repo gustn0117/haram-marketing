@@ -23,16 +23,16 @@ export default function HomePage() {
           Wedding Hall Marketing
         </span>
         <h1
-          className="rise relative z-2 mt-12 text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.98] tracking-[-0.035em] text-paper"
+          className="rise relative z-2 mt-10 whitespace-nowrap text-[clamp(1.9rem,7vw,4.7rem)] font-light leading-none tracking-[0.07em] text-paper"
           style={{ animationDelay: "200ms" }}
         >
-          하람마케팅
+          HARAM MARKETING
         </h1>
         <span
-          className="rise relative z-2 mt-5 text-[0.7rem] uppercase tracking-[0.5em] text-gold/75"
+          className="rise relative z-2 mt-6 text-sm font-light tracking-[0.12em] text-paper/65"
           style={{ animationDelay: "300ms" }}
         >
-          HARAM MARKETING
+          하람마케팅
         </span>
         <p
           className="rise relative z-2 mt-9 max-w-md text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
