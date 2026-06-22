@@ -57,11 +57,13 @@ export default function HomePage() {
       <section className="px-6 py-20 md:py-32">
         <Reveal>
           <Container size="narrow" className="text-center">
-            <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
+            <p className="text-balance text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
               하람마케팅에는 <span className="text-gold">정해진 상품이 없습니다.</span>{" "}
-              예식장마다 위치도, 강점도, 채워야 할 자리도 다르기 때문입니다.
-              우리는 그 예식장에 맞게 설계합니다. 다만 우리가 쓰는 방법 —
-              검색·블로그·SNS·광고·콘텐츠·브랜딩 — 은 분명합니다.
+              예식장마다 위치도, 강점도, 채워야 할 자리도 다르기 때문입니다. 우리는
+              그 예식장에 맞게 설계합니다. 다만, 우리가 쓰는 방법은 분명합니다.
+            </p>
+            <p className="mt-8 text-sm font-light tracking-[0.14em] text-muted sm:text-base">
+              검색 · 블로그 · SNS · 광고 · 콘텐츠 · 브랜딩
             </p>
           </Container>
         </Reveal>
