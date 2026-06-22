@@ -16,6 +16,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
         <span className="hero-photo-bg" aria-hidden />
         <span className="hero-glow" aria-hidden />
+        <span className="hero-blur" aria-hidden />
         <span
           className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.42em] text-gold"
           style={{ animationDelay: "80ms" }}
