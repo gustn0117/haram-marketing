@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { addons, aboutImage } from "@/lib/content";
-import { Container, SectionHeading, CTASection } from "@/components/ui";
-import { Reveal } from "@/components/Reveal";
+import { addons, addonImages, aboutImage } from "@/lib/content";
+import { CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
-import {
-  IconWeb,
-  IconDoc,
-  IconSearch,
-  IconChart,
-  IconPhotoBooth,
-  ArrowUpRight,
-} from "@/components/icons";
-
-const addonIcons = {
-  web: IconWeb,
-  venue: IconSearch,
-  marketing: IconChart,
-  media: IconPhotoBooth,
-  print: IconDoc,
-} as const;
+import { Chapter, Plate } from "@/components/carnet";
 
 export const metadata: Metadata = {
   title: "지원서비스",
@@ -32,6 +16,7 @@ export default function AddonsPage() {
   return (
     <>
       <PageHero
+        folio="No. 030"
         eyebrow="ADD-ON SERVICES"
         title={
           <>
@@ -44,46 +29,39 @@ export default function AddonsPage() {
         backgroundImage={aboutImage}
       />
 
-      {/* 지원서비스 — 줄 구분 2열 리스트 */}
-      <section className="border-b border-line py-24 md:py-32">
-        <Container>
-          <SectionHeading eyebrow="WHAT WE OFFER" title="지원서비스 영역" />
-          <div className="mt-12 grid border-t border-line-strong sm:grid-cols-2 md:mt-16">
-            {addons.map((a, i) => {
-              const Icon = addonIcons[a.icon];
-              return (
-                <Reveal
-                  key={a.id}
-                  delay={i * 60}
-                  className="border-b border-line-strong sm:odd:border-r sm:last:border-r-0"
-                >
-                  <Link
-                    href={`/addons/${a.id}`}
-                    className="group flex h-full flex-col gap-6 px-5 py-9 transition-colors duration-500 hover:bg-surface/40 sm:p-9 md:p-10"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line-strong text-gold transition-colors duration-500 group-hover:border-gold">
-                        <Icon className="h-6 w-6" />
-                      </span>
-                      <span className="label text-gold">{a.tagline}</span>
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <h3 className="font-serif text-xl md:text-2xl">{a.name}</h3>
-                      <p className="max-w-[46ch] text-sm leading-relaxed text-muted">
-                        {a.description}
-                      </p>
-                    </div>
-                    <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm text-gold">
-                      자세히 보기
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </span>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+      <Chapter folio="01 / 01" label="WHAT WE OFFER" title="지원서비스 영역.">
+        <div className="border-t border-line-strong">
+          {addons.map((a, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <Link
+                key={a.id}
+                href={`/addons/${a.id}`}
+                className="group grid items-center gap-10 border-b border-line-strong py-12 lg:grid-cols-2 lg:gap-14"
+              >
+                <div className={flip ? "lg:order-2" : ""}>
+                  <span className="folio text-sm text-faint">
+                    A{String(i + 1).padStart(2, "0")} / 05
+                  </span>
+                  <span className="label mt-4 block text-gold">{a.tagline}</span>
+                  <h3 className="mt-2 font-serif-display text-[clamp(1.9rem,3vw,2.8rem)] leading-[1.02] tracking-[-0.02em] transition-colors duration-500 group-hover:text-gold">
+                    {a.name}
+                  </h3>
+                  <p className="mt-4 max-w-[46ch] text-[0.95rem] leading-[1.85] text-muted">
+                    {a.description}
+                  </p>
+                </div>
+                <Plate
+                  src={addonImages[a.id]}
+                  bleed={flip ? "left" : "right"}
+                  ratio="aspect-[5/4]"
+                  caption={`Plate A${String(i + 1).padStart(2, "0")}`}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </Chapter>
 
       <CTASection
         title="필요한 구성을 함께 정리해 드립니다"

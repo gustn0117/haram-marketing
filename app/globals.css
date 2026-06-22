@@ -253,29 +253,127 @@ body::after {
   animation: rise 0.8s var(--ease-out-soft) forwards;
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(3%, -4%) scale(1.06);
-  }
-}
-.drift {
-  animation: drift 18s ease-in-out infinite;
+/* ──────────────────────────────────────────────────────────
+   LE CARNET — 도록(都錄) 레이아웃 시스템
+   책등 레일 · 폴리오 · 코너 크롭마크 · 인덱스표 · 듀오톤 플레이트
+   (모션 절제: drift/marquee 제거, color/width/opacity/scaleX 전환만)
+   ────────────────────────────────────────────────────────── */
+
+/* 레일/마진의 세로 라틴 라벨 */
+.rail-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  color: var(--color-faint);
+  font-family: var(--font-display);
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* 폴리오 숫자 — 라이닝/고정폭 */
+.folio {
+  font-family: var(--font-display);
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
-.marquee-track {
-  animation: marquee 32s linear infinite;
+
+/* tnum 우정렬 수치 */
+.num {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ㄱ자 코너 크롭마크 — 인셋 더블프레임 대체. 부모 .plate(position:relative) */
+.plate {
+  position: relative;
+}
+.crop {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-color: var(--color-gold);
+  pointer-events: none;
+}
+.crop-tl {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.crop-tr {
+  top: -1px;
+  right: -1px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+.crop-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+.crop-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* 듀오톤 플레이트 필터 (인라인 중복 제거) */
+.duotone {
+  filter: grayscale(0.55) sepia(0.18) contrast(1.02) brightness(0.92);
+}
+
+/* 챕터 셸 패딩 / 풀하이트 변형 */
+.chapter {
+  padding-block: clamp(5rem, 12vh, 9rem);
+}
+.chapter-tall {
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 인덱스표/서비스 행 — hover 시 좌→우 골드 헤어라인(유일한 hover 모션) */
+.index-row {
+  position: relative;
+}
+.index-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out-soft);
+}
+.index-row:hover::after {
+  transform: scaleX(1);
+}
+
+/* 레일 활성 점 */
+.rail-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-line-strong);
+  transition:
+    background-color 0.4s var(--ease-out-soft),
+    border-color 0.4s var(--ease-out-soft);
+}
+.rail-dot[data-active="true"] {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* 그리드브레이크 overflow 안전장치 */
+.bleed-clip {
+  overflow-x: clip;
 }
 
 /* Form fields */

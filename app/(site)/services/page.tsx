@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { services, processSteps, offeringImages, heroImage } from "@/lib/content";
-import { Container, SectionHeading, CTASection } from "@/components/ui";
-import { Reveal } from "@/components/Reveal";
+import { CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
-import { ArrowUpRight } from "@/components/icons";
+import { Chapter, Plate } from "@/components/carnet";
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -18,6 +16,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
+        folio="No. 020"
         eyebrow="OUR SERVICES"
         title={
           <>
@@ -30,104 +29,56 @@ export default function ServicesPage() {
         backgroundImage={heroImage}
       />
 
-      {/* 서비스 영역 — 좌우 교차 에디토리얼 행 */}
-      <section className="border-b border-line py-24 md:py-32">
-        <Container>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="WHAT WE DO" title="서비스 영역" />
-            <Reveal delay={150} className="max-w-md">
-              <p className="max-w-[44ch] text-sm leading-relaxed text-muted">
-                흩어지기 쉬운 마케팅 채널을 하나의 팀이 같은 기준으로 다룹니다.
-                각 영역은 독립적으로 진행할 수도, 하나의 캠페인 안에서 함께
-                구성할 수도 있습니다. 필요한 영역을 눌러 진행 범위와 방식을
-                확인해 보세요.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="mt-12 border-t border-line-strong md:mt-16">
-            {services.map((s, i) => {
-              const flip = i % 2 === 1;
-              return (
-                <Reveal key={s.id} delay={i * 60}>
-                  <Link
-                    href={`/services/${s.id}`}
-                    className="group grid items-center gap-8 border-b border-line-strong py-9 md:grid-cols-2 md:gap-14 md:py-12"
-                  >
-                    <div
-                      className={`relative aspect-[16/10] overflow-hidden rounded-xl border border-line-strong ring-1 ring-inset ring-paper/5 transition-colors duration-700 group-hover:border-gold/30 ${
-                        flip ? "md:order-2" : ""
-                      }`}
-                    >
-                      <Image
-                        src={offeringImages[s.id]}
-                        alt=""
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover [filter:grayscale(0.5)_sepia(0.16)_brightness(0.95)] transition-[filter] duration-700 group-hover:[filter:grayscale(0.2)_sepia(0.08)]"
-                      />
-                      <div className="absolute inset-0 bg-gold/8 mix-blend-overlay" aria-hidden />
-                      <div
-                        className="absolute inset-0 bg-linear-to-t from-ink/45 via-transparent to-transparent"
-                        aria-hidden
-                      />
-                    </div>
-                    <div
-                      className={`flex flex-col gap-4 ${flip ? "md:order-1" : ""}`}
-                    >
-                      <div className="flex items-baseline gap-4">
-                        <span className="font-display text-3xl text-gold/70">
-                          {s.no}
-                        </span>
-                        <span className="label text-gold">{s.tagline}</span>
-                      </div>
-                      <h3 className="font-serif text-2xl md:text-[2rem]">
-                        {s.title}
-                      </h3>
-                      <p className="max-w-[48ch] text-sm leading-relaxed text-muted md:text-base">
-                        {s.description}
-                      </p>
-                      <span className="inline-flex items-center gap-2 pt-2 text-sm text-gold">
-                        자세히 보기
-                        <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* Process — 상단 룰 + 대형 넘버 (박스 그리드 제거) */}
-      <section className="border-b border-line bg-ink-2 py-24 md:py-32">
-        <Container>
-          <SectionHeading
-            eyebrow="HOW WE WORK"
-            title="모든 마케팅은 같은 원칙으로 움직입니다"
-            align="center"
-            className="mx-auto max-w-2xl"
-          />
-          <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step, i) => (
-              <Reveal
-                key={step.no}
-                delay={i * 70}
-                className="flex flex-col gap-4 border-t border-gold/30 pt-6"
+      {/* 서비스 영역 — 좌우교차 플레이트 스프레드 */}
+      <Chapter folio="01 / 02" label="WHAT WE DO" title="서비스 영역.">
+        <div className="border-t border-line-strong">
+          {services.map((s, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <Link
+                key={s.id}
+                href={`/services/${s.id}`}
+                className="group grid items-center gap-10 border-b border-line-strong py-12 lg:grid-cols-2 lg:gap-14"
               >
-                <span className="font-display text-4xl text-gold">
-                  {step.no}
-                </span>
-                <h3 className="font-serif text-lg">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">
-                  {step.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
+                <div className={flip ? "lg:order-2" : ""}>
+                  <span className="folio text-sm text-faint">{s.no} / 06</span>
+                  <span className="label mt-4 block text-gold">{s.tagline}</span>
+                  <h3 className="mt-2 font-serif-display text-[clamp(1.9rem,3vw,2.8rem)] leading-[1.02] tracking-[-0.02em] transition-colors duration-500 group-hover:text-gold">
+                    {s.title}
+                  </h3>
+                  <p className="mt-4 max-w-[46ch] text-[0.95rem] leading-[1.85] text-muted">
+                    {s.description}
+                  </p>
+                </div>
+                <Plate
+                  src={offeringImages[s.id]}
+                  bleed={flip ? "left" : "right"}
+                  ratio="aspect-[5/4]"
+                  caption={`Plate ${String(i + 1).padStart(2, "0")}`}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </Chapter>
+
+      {/* 프로세스 — 악보형 인덱스 */}
+      <Chapter folio="02 / 02" label="HOW WE WORK" title="모든 마케팅은 같은 원칙으로.">
+        <div className="grid divide-y divide-line-strong border-t border-line-strong md:grid-cols-4 md:divide-x md:divide-y-0">
+          {processSteps.map((p) => (
+            <div key={p.no} className="px-1 py-8 md:px-6 md:first:pl-0">
+              <span className="folio text-[clamp(2rem,3vw,3rem)] text-gold">
+                {p.no}
+              </span>
+              <span className="my-4 block h-5 w-px bg-gold/40" />
+              <h3 className="font-serif text-xl">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {p.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Chapter>
 
       <CTASection
         title="어떤 예식장을 운영하고 계신가요?"

@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   services,
   processSteps,
   faqs,
   metrics,
+  strengths,
   heroImage,
+  offeringImages,
+  regions,
 } from "@/lib/content";
-import { Container, Eyebrow, SectionHeading, TextLink } from "@/components/ui";
-import { Reveal } from "@/components/Reveal";
-import { Strengths } from "@/components/Strengths";
+import { Container } from "@/components/ui";
+import { Chapter, IndexTable, Plate } from "@/components/carnet";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
-import { ArrowUpRight, ArrowRight } from "@/components/icons";
+import { ArrowRight } from "@/components/icons";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/home" },
@@ -33,243 +34,184 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqJsonLd} />
-      {/* ───────────────── Hero — 좌측 에디토리얼 (정적) ───────────────── */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-ink pt-24 pb-20">
-        <Image
-          src={heroImage}
-          alt="하람마케팅 웨딩홀 마케팅 — 예식장 전경"
-          fill
-          priority
-          sizes="100vw"
-          className="absolute inset-0 object-cover [filter:grayscale(0.55)_sepia(0.18)_contrast(1.02)_brightness(0.92)]"
-        />
-        {/* 웜 듀오톤 블렌드 — 사진을 브랜드 톤에 융화 */}
-        <div className="absolute inset-0 bg-gold/12 mix-blend-overlay" aria-hidden />
-        <div
-          className="absolute inset-0 bg-linear-to-r from-ink via-ink/80 to-ink/35"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/55"
-          aria-hidden
-        />
 
-        {/* 샴페인 인셋 프레임 시그니처 (더블 헤어라인) */}
-        <div
-          className="pointer-events-none absolute inset-4 z-2 rounded-2xl border sm:inset-6 md:inset-8"
-          style={{ borderColor: "var(--color-gold-frame)" }}
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-6 z-2 rounded-xl border border-paper/5 sm:inset-8 md:inset-10"
-          aria-hidden
-        />
-
-        <Container className="relative z-3">
-          <div className="flex w-full min-w-0 max-w-3xl flex-col gap-8">
-            <span
-              className="rise inline-flex items-center gap-3 label"
-              style={{ animationDelay: "100ms" }}
-            >
-              <span className="inline-block h-px w-10 bg-linear-to-r from-gold to-transparent" />
-              Wedding Hall Marketing
-            </span>
-
-            <h1
-              className="rise font-serif-display min-w-0 break-normal text-[2.9rem] leading-[1.04] text-paper sm:text-6xl md:text-[5rem] md:leading-[0.96]"
-              style={{ animationDelay: "200ms" }}
-            >
-              비어 있는 홀을
-              <br />
-              <span className="text-gold">예약</span>으로 채웁니다.
-            </h1>
-
-            <p
-              className="rise min-w-0 max-w-xl break-normal text-base leading-[1.8] text-paper/75 sm:text-lg"
-              style={{ animationDelay: "440ms" }}
-            >
-              검색 노출부터 상담 예약까지 — 예식장만 전문으로,
-              <br className="hidden sm:block" /> 웨딩홀 마케팅의 모든 단계를 하나의 흐름으로 완성합니다.
-            </p>
-
-            <div
-              className="rise flex w-full max-w-md flex-col gap-4 pt-2 sm:max-w-none sm:flex-row sm:items-center"
-              style={{ animationDelay: "560ms" }}
-            >
-              <Link
-                href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-3 rounded-sm bg-gold px-8 py-4 text-sm font-medium tracking-tight text-ink transition-colors duration-500 hover:bg-gold-bright sm:w-auto"
+      {/* ── 표제 스프레드 (No.000) ── */}
+      <section className="chapter-tall bleed-clip pt-24 lg:pt-16">
+        <Container size="wide">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+            <div className="flex flex-col gap-7">
+              <span className="folio rise text-sm tracking-[0.34em] text-faint" style={{ animationDelay: "60ms" }}>
+                001 — INDEX
+              </span>
+              <h1
+                className="rise border-l border-gold/30 pl-6 font-serif-display text-[clamp(3.2rem,8vw,7rem)] leading-[0.92] tracking-[-0.025em] text-paper"
+                style={{ animationDelay: "160ms" }}
               >
-                무료 마케팅 진단
-                <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/services"
-                className="group inline-flex w-full items-center justify-center gap-3 rounded-sm border border-gold/40 px-8 py-4 text-sm font-medium tracking-tight text-paper transition-colors duration-500 hover:border-gold hover:text-gold sm:w-auto"
+                비어 있는 홀을
+                <br />
+                <span className="italic text-gold">예약</span>으로 채웁니다.
+              </h1>
+              <p
+                className="rise max-w-md text-base leading-[1.8] text-paper/70"
+                style={{ animationDelay: "320ms" }}
               >
-                서비스 살펴보기
-                <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ───────────────── Intro — 중앙 선언문 + 지표 밴드 ───────────────── */}
-      <section className="border-t border-line py-28 md:py-40">
-        <Container>
-          <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
-            <Eyebrow>WHO WE ARE</Eyebrow>
-            <p className="font-serif text-[1.7rem] leading-[1.45] sm:text-3xl md:text-[2.5rem] md:leading-[1.4] text-balance">
-              하람마케팅은 단순한 마케팅 대행이 아니라,{" "}
-              <span className="text-gold">예식장의 강점을 신랑신부의 선택으로 번역</span>
-              합니다.
-            </p>
-            <p className="max-w-[58ch] text-[0.95rem] leading-[1.95] text-paper/65">
-              네이버 검색·플레이스, 블로그·체험단, SNS, 퍼포먼스 광고와 상담 DB,
-              영상·사진 콘텐츠, 브랜딩과 예약 홈페이지까지 — 흩어지기 쉬운 채널을
-              한 팀이 같은 기준으로 다룹니다. 보기 좋은 조회수가 아니라, 실제로
-              식장을 채우는 예약을 만듭니다.
-            </p>
-          </Reveal>
-
-          {/* 성과 지표 밴드 */}
-          <div className="mt-16 grid grid-cols-2 gap-y-10 border-t border-line-strong pt-12 md:mt-24 md:grid-cols-4">
-            {metrics.map((m, i) => (
-              <Reveal
-                key={m.label}
-                delay={i * 80}
-                className="flex flex-col items-center gap-2 border-line-strong text-center md:border-l md:first:border-l-0"
+                검색 노출부터 상담 예약까지 — 예식장만 전문으로, 웨딩홀
+                마케팅의 모든 단계를 하나의 흐름으로 완성합니다.
+              </p>
+              <div
+                className="rise flex flex-col gap-5 pt-1"
+                style={{ animationDelay: "440ms" }}
               >
-                <span className="font-display text-4xl text-gold sm:text-5xl">
-                  {m.value}
-                  {m.suffix ? <span className="text-2xl">{m.suffix}</span> : null}
-                </span>
-                <span className="text-xs leading-relaxed text-muted">{m.label}</span>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ───────────────── Strengths ───────────────── */}
-      <Strengths background="alt" />
-
-      {/* ───────────────── Services — 에디토리얼 인덱스 리스트 ───────────────── */}
-      <section className="border-t border-line py-24 md:py-32">
-        <Container>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="WHAT WE DO"
-              title={
-                <>
-                  검색부터 예약까지,
-                  <br />
-                  하나의 흐름.
-                </>
-              }
-            />
-            <Reveal delay={150}>
-              <TextLink href="/services">전체 서비스 보기</TextLink>
-            </Reveal>
-          </div>
-
-          <div className="mt-12 border-t border-line-strong md:mt-16">
-            {services.map((service, i) => (
-              <Reveal key={service.id} delay={i * 60}>
                 <Link
-                  href={`/services/${service.id}`}
-                  className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-5 border-b border-line-strong px-3 py-8 transition-colors duration-500 hover:bg-surface/40 md:grid-cols-[5rem_1fr_1.5fr_auto] md:gap-10 md:px-5 md:py-9"
+                  href="/contact"
+                  className="link-underline group inline-flex w-fit items-center gap-2 text-sm tracking-[0.05em] text-gold"
                 >
-                  <span className="font-display text-2xl text-faint transition-colors duration-500 group-hover:text-gold md:text-4xl">
-                    {service.no}
-                  </span>
-                  <div className="flex min-w-0 flex-col gap-1.5">
-                    <span className="label text-gold">{service.tagline}</span>
-                    <h3 className="font-serif text-xl md:text-[1.65rem]">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="hidden max-w-[42ch] text-sm leading-relaxed text-muted md:block">
-                    {service.description}
-                  </p>
-                  <ArrowUpRight className="h-5 w-5 text-faint transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
+                  무료 마케팅 진단
+                  <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                 </Link>
-              </Reveal>
-            ))}
+                <p className="max-w-lg text-[0.7rem] uppercase leading-relaxed tracking-[0.16em] text-faint">
+                  {regions.join("  ·  ")}
+                </p>
+              </div>
+            </div>
+
+            <Plate
+              src={heroImage}
+              caption="Plate 01 — Wedding Hall"
+              bleed="right"
+              priority
+            />
           </div>
         </Container>
       </section>
 
-      {/* ───────────────── Process — 세로 타임라인 ───────────────── */}
-      <section className="border-t border-line bg-ink-2 py-24 md:py-32">
-        <Container>
-          <div className="grid gap-14 md:grid-cols-[0.85fr_1.15fr] md:gap-20">
-            <div className="md:sticky md:top-28 md:self-start">
-              <SectionHeading
-                eyebrow="HOW WE WORK"
-                title={
-                  <>
-                    검증된 4단계
-                    <br />
-                    마케팅 프로세스
-                  </>
-                }
-              />
-              <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">
-                진단에서 시작해 성과 리포트로 매듭짓습니다. 각 단계의 결과를
-                숫자로 확인하며 다음 운영을 개선합니다.
+      {/* ── Ch.01 — 선언 + 지표 인덱스표 ── */}
+      <Chapter folio="01 / 06" label="WHO WE ARE">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <p className="font-serif text-[clamp(1.6rem,2.6vw,2.4rem)] leading-[1.5] tracking-[-0.01em]">
+            하람마케팅은 단순한 마케팅 대행이 아니라,{" "}
+            <span className="text-gold">
+              예식장의 강점을 신랑신부의 선택으로 번역
+            </span>
+            합니다. 보기 좋은 조회수가 아니라, 실제로 식장을 채우는 예약을
+            만듭니다.
+          </p>
+          <IndexTable rows={metrics} />
+        </div>
+      </Chapter>
+
+      {/* ── Ch.02 — 강점 지그재그 펼침면 ── */}
+      <Chapter folio="02 / 06" label="WHY HARAM" title="노출이 아니라, 예약으로.">
+        <div className="border-t border-line-strong">
+          {strengths.map((s, i) => (
+            <div
+              key={s.id}
+              className="index-row grid gap-6 border-b border-line-strong py-10 lg:grid-cols-[0.42fr_0.58fr] lg:gap-12"
+            >
+              <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+                <span className="folio text-[clamp(2.4rem,4vw,3.8rem)] text-gold/70">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 font-serif text-2xl leading-snug">
+                  {s.title}
+                </h3>
+              </div>
+              <p
+                className={`max-w-[52ch] text-[0.95rem] leading-[1.95] text-muted ${
+                  i % 2 === 1 ? "lg:order-1" : ""
+                }`}
+              >
+                {s.description}
               </p>
             </div>
+          ))}
+        </div>
+      </Chapter>
 
-            <div className="flex flex-col">
-              {processSteps.map((step, i) => (
-                <Reveal
-                  key={step.no}
-                  delay={i * 80}
-                  className="grid grid-cols-[3rem_1fr] gap-6 md:grid-cols-[3.5rem_1fr] md:gap-8"
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line-strong font-display text-lg text-gold md:h-14 md:w-14 md:text-xl">
-                      {step.no}
-                    </span>
-                    {i < processSteps.length - 1 ? (
-                      <span className="my-2 w-px flex-1 bg-line" />
-                    ) : null}
-                  </div>
-                  <div className="pt-2 pb-12 last:pb-0">
-                    <h3 className="font-serif text-xl md:text-2xl">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
-                      {step.description}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+      {/* ── Ch.03 — 서비스 좌우교차 플레이트 스프레드 ── */}
+      <Chapter folio="03 / 06" label="WHAT WE DO" title="검색부터 예약까지.">
+        <div className="border-t border-line-strong">
+          {services.map((s, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <Link
+                key={s.id}
+                href={`/services/${s.id}`}
+                className="group grid items-center gap-10 border-b border-line-strong py-12 lg:grid-cols-2 lg:gap-14"
+              >
+                <div className={flip ? "lg:order-2" : ""}>
+                  <span className="folio text-sm text-faint">{s.no} / 06</span>
+                  <span className="label mt-4 block text-gold">{s.tagline}</span>
+                  <h3 className="mt-2 font-serif-display text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.02] tracking-[-0.02em] transition-colors duration-500 group-hover:text-gold">
+                    {s.title}
+                  </h3>
+                  <p className="mt-4 max-w-[46ch] text-[0.95rem] leading-[1.85] text-muted">
+                    {s.description}
+                  </p>
+                </div>
+                <Plate
+                  src={offeringImages[s.id]}
+                  bleed={flip ? "left" : "right"}
+                  ratio="aspect-[5/4]"
+                  caption={`Plate ${String(i + 2).padStart(2, "0")}`}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </Chapter>
+
+      {/* ── Ch.04 — 프로세스 악보형 인덱스 ── */}
+      <Chapter folio="04 / 06" label="HOW WE WORK" title="검증된 4단계.">
+        <div className="grid divide-y divide-line-strong border-t border-line-strong md:grid-cols-4 md:divide-x md:divide-y-0">
+          {processSteps.map((p) => (
+            <div key={p.no} className="px-1 py-8 md:px-6 md:first:pl-0">
+              <span className="folio text-[clamp(2rem,3vw,3rem)] text-gold">
+                {p.no}
+              </span>
+              <span className="my-4 block h-5 w-px bg-gold/40" />
+              <h3 className="font-serif text-xl">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {p.description}
+              </p>
             </div>
-          </div>
-        </Container>
-      </section>
+          ))}
+        </div>
+      </Chapter>
 
-      {/* ───────────────── FAQ ───────────────── */}
-      <section className="border-t border-line py-24 md:py-32">
-        <Container>
-          <div className="mx-auto max-w-3xl">
-            <SectionHeading
-              eyebrow="FAQ"
-              title="자주 묻는 질문"
-              align="center"
-              className="mx-auto"
-            />
-            <p className="mx-auto mt-5 max-w-md text-center text-sm leading-relaxed text-muted">
-              더 궁금한 점이 있으시면 언제든 편하게 문의해 주세요. 담당 마케터가
-              직접 답변드립니다.
-            </p>
-            <Reveal className="mt-12">
-              <FaqList items={faqs} />
-            </Reveal>
-          </div>
-        </Container>
-      </section>
+      {/* ── Ch.05 — FAQ ── */}
+      <Chapter folio="05 / 06" label="Q&A">
+        <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:gap-14">
+          <h2 className="font-serif-display text-[clamp(2rem,4vw,3.4rem)] leading-[1.02] tracking-[-0.02em]">
+            자주 묻는
+            <br />
+            질문.
+          </h2>
+          <FaqList items={faqs} />
+        </div>
+      </Chapter>
+
+      {/* ── Ch.06 — 마무리 ── */}
+      <Chapter folio="06 / 06" label="CONTACT">
+        <div className="flex flex-col items-start gap-7">
+          <h2 className="font-serif-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.0] tracking-[-0.025em]">
+            예식장을 예약으로
+            <br />
+            채울 시간입니다.
+          </h2>
+          <p className="max-w-md text-base leading-relaxed text-muted">
+            무료 진단으로 지금 우리 예식장의 노출·문의 상태부터 확인해 보세요.
+            담당 마케터가 1영업일 이내에 회신드립니다.
+          </p>
+          <Link
+            href="/contact"
+            className="group mt-2 inline-flex items-center gap-3 rounded-sm bg-gold px-8 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright"
+          >
+            무료 마케팅 진단
+            <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </Chapter>
     </>
   );
 }

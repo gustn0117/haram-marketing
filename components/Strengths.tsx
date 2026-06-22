@@ -1,64 +1,45 @@
 import { strengths } from "@/lib/content";
-import { Container, SectionHeading } from "@/components/ui";
-import { Reveal } from "@/components/Reveal";
+import { Chapter } from "@/components/carnet";
 
+// 강점 — 지그재그 인덱스 펼침면 (home/about 공용)
 export function Strengths({
-  background = "alt",
+  folio = "02 / 06",
   id,
 }: {
-  background?: "alt" | "plain";
+  folio?: string;
   id?: string;
 }) {
   return (
-    <section
+    <Chapter
+      folio={folio}
+      label="WHY HARAM"
+      title="노출이 아니라, 예약으로."
       id={id}
-      className={`scroll-mt-20 border-t border-line py-24 md:py-32 ${
-        background === "alt" ? "bg-ink-2" : ""
-      }`}
     >
-      <Container>
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            eyebrow="WHY HARAM MARKETING"
-            title={
-              <>
-                노출이 아니라,
-                <br />
-                예약으로 증명합니다.
-              </>
-            }
-          />
-          <Reveal delay={150} className="max-w-sm">
-            <p className="text-sm leading-relaxed text-muted">
-              웨딩홀 한 분야에만 집중합니다. 촬영·콘텐츠·광고를 자사 팀이 직접
-              운영하고, 상담 문의와 예약 계약까지 숫자로 책임집니다.
-            </p>
-          </Reveal>
-        </div>
-
-        {/* 줄 구분 2×2 에디토리얼 그리드 */}
-        <div className="mt-12 grid border-t border-line-strong sm:grid-cols-2 md:mt-16">
-          {strengths.map((item, i) => (
-            <Reveal
-              key={item.id}
-              delay={i * 80}
-              className="flex gap-6 border-b border-line-strong px-4 py-10 sm:px-8 sm:py-11 sm:odd:border-r"
-            >
-              <span className="font-display text-3xl leading-none text-gold/70 sm:text-4xl">
+      <div className="border-t border-line-strong">
+        {strengths.map((s, i) => (
+          <div
+            key={s.id}
+            className="index-row grid gap-6 border-b border-line-strong py-10 lg:grid-cols-[0.42fr_0.58fr] lg:gap-12"
+          >
+            <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+              <span className="folio text-[clamp(2.4rem,4vw,3.8rem)] text-gold/70">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="flex flex-col gap-3">
-                <h3 className="font-serif text-xl leading-snug sm:text-2xl">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted">
-                  {item.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </section>
+              <h3 className="mt-3 font-serif text-2xl leading-snug">
+                {s.title}
+              </h3>
+            </div>
+            <p
+              className={`max-w-[52ch] text-[0.95rem] leading-[1.95] text-muted ${
+                i % 2 === 1 ? "lg:order-1" : ""
+              }`}
+            >
+              {s.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Chapter>
   );
 }

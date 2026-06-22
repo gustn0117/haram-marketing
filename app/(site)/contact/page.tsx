@@ -29,6 +29,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
+        folio="No. 040"
         eyebrow="GET IN TOUCH"
         title={
           <>

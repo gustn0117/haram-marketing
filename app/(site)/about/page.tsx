@@ -28,6 +28,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        folio="No. 010"
         eyebrow="ABOUT HARAM MARKETING"
         title={
           <>
@@ -93,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* Strengths */}
-      <Strengths background="plain" id="strengths" />
+      <Strengths id="strengths" />
 
       {/* Channels / 운영 채널·역량 + 성과 지표 */}
       <section
