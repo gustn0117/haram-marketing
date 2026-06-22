@@ -105,7 +105,7 @@ export default function AdminPage() {
           <button
             type="submit"
             disabled={loading}
-            className="rounded-sm bg-gold px-6 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-gold-deep disabled:opacity-60"
+            className="rounded-sm bg-gold px-6 py-3.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-gold-bright disabled:opacity-60"
           >
             {loading ? "확인 중…" : "로그인"}
           </button>
