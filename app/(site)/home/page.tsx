@@ -40,12 +40,10 @@ export default function HomePage() {
           하람마케팅
         </span>
         <p
-          className="rise relative z-2 mt-9 max-w-md text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
+          className="rise relative z-2 mt-9 max-w-xl text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
           style={{ animationDelay: "440ms" }}
         >
-          오직 예식장을 위한 마케팅.
-          <br />
-          노출이 아니라, 예약으로 증명합니다.
+          오직 예식장을 위한 마케팅. 노출이 아니라, 예약으로 증명합니다.
         </p>
 
         <span
