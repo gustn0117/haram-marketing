@@ -72,12 +72,12 @@ export default async function AddonDetailPage({
       />
 
       {/* ── Overview — 중앙 본문 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow" className="text-center">
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Overview
           </p>
-          <div className="mx-auto mt-14 flex max-w-xl flex-col gap-7">
+          <div className="mx-auto mt-10 flex max-w-xl flex-col gap-7">
             {addon.overview.map((p, i) => (
               <p
                 key={i}
@@ -91,7 +91,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Scope — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
@@ -99,7 +99,7 @@ export default async function AddonDetailPage({
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
             포함 내용
           </h2>
-          <ul className="mx-auto mt-16 max-w-2xl">
+          <ul className="mx-auto mt-12 max-w-2xl">
             {addon.scope.map((s) => (
               <li
                 key={s}
@@ -115,7 +115,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Recommended For — 중앙, 여백 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
@@ -123,7 +123,7 @@ export default async function AddonDetailPage({
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
             이런 경우 추천합니다.
           </h2>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-10 text-center">
+          <div className="mx-auto mt-12 flex max-w-xl flex-col gap-10 text-center">
             {addon.recommendedFor.map((r) => (
               <p
                 key={r}
@@ -137,7 +137,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Proof — 단일 도넛, 중앙 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -148,7 +148,7 @@ export default async function AddonDetailPage({
             </h2>
           </Reveal>
 
-          <Reveal className="mx-auto mt-16 flex justify-center">
+          <Reveal className="mx-auto mt-12 flex justify-center">
             <DonutChart
               value={86}
               label={`${name} 기여`}
@@ -156,14 +156,14 @@ export default async function AddonDetailPage({
             />
           </Reveal>
 
-          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>
       </section>
 
       {/* ── FAQ — 중앙 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             FAQ
@@ -171,7 +171,7 @@ export default async function AddonDetailPage({
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
             자주 묻는 질문
           </h2>
-          <div className="mx-auto mt-16 max-w-2xl">
+          <div className="mx-auto mt-12 max-w-2xl">
             <FaqList items={faqs} />
           </div>
         </Container>

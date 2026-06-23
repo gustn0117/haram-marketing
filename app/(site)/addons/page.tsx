@@ -29,7 +29,7 @@ export default function AddonsPage() {
         backgroundImage={pageHeroImages.addons}
       />
 
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How We Support
@@ -37,7 +37,7 @@ export default function AddonsPage() {
           <h2 className="mx-auto mt-8 max-w-2xl text-center text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
             마케팅을 떠받치는, 필요한 만큼의 지원.
           </h2>
-          <ul className="mx-auto mt-16 max-w-2xl">
+          <ul className="mx-auto mt-12 max-w-2xl">
             {addons.map((a) => (
               <li key={a.id} className="border-t border-line last:border-b">
                 <Link
@@ -58,7 +58,7 @@ export default function AddonsPage() {
       </section>
 
       {/* ── 지원서비스 효과(데이터 시각화) ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -69,7 +69,7 @@ export default function AddonsPage() {
             </h2>
           </Reveal>
 
-          <div className="mx-auto mt-14 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
+          <div className="mx-auto mt-10 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
             <Reveal>
               <DonutChart
                 value={92}
@@ -93,7 +93,7 @@ export default function AddonsPage() {
             </Reveal>
           </div>
 
-          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>

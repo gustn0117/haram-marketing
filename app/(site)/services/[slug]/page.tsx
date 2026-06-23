@@ -108,12 +108,12 @@ function ServiceBody({ service }: { service: Service }) {
   return (
     <>
       {/* ── OVERVIEW — 중앙 2문단 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow" className="text-center">
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Overview
           </p>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-7">
+          <div className="mx-auto mt-12 flex max-w-xl flex-col gap-7">
             {service.overview.map((p, i) => (
               <p
                 key={i}
@@ -127,12 +127,12 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROGRAM — 중앙 리스트 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Program
           </p>
-          <ul className="mx-auto mt-16 max-w-2xl">
+          <ul className="mx-auto mt-12 max-w-2xl">
             {service.items.map((item) => (
               <li
                 key={item}
@@ -148,12 +148,12 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── SCOPE — 중앙 리스트 (아이콘 없이) ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
           </p>
-          <ul className="mx-auto mt-16 flex max-w-xl flex-col gap-6 text-center">
+          <ul className="mx-auto mt-12 flex max-w-xl flex-col gap-6 text-center">
             {service.scope.map((s) => (
               <li
                 key={s}
@@ -167,12 +167,12 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── WHO IT'S FOR — 중앙 텍스트 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
           </p>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12 text-center">
+          <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12 text-center">
             {service.recommendedFor.map((r) => (
               <p
                 key={r}
@@ -186,12 +186,12 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROCESS — 중앙 미니멀 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How we work
           </p>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
+          <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
             {processSteps.map((step) => (
               <div key={step.no} className="text-center">
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
@@ -210,7 +210,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROOF — 도입 전후 비교 (서비스별 작은 차트) ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -221,7 +221,7 @@ function ServiceBody({ service }: { service: Service }) {
             </h2>
           </Reveal>
 
-          <Reveal className="mx-auto mt-16 max-w-xl">
+          <Reveal className="mx-auto mt-12 max-w-xl">
             <CompareBars
               title={`${title} 도입 전후 월 상담 문의`}
               before={{ label: "이전", w: 30, value: "12" }}
@@ -230,14 +230,14 @@ function ServiceBody({ service }: { service: Service }) {
             />
           </Reveal>
 
-          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>
       </section>
 
       {/* ── FAQ — 중앙 미니멀 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Q&amp;A
@@ -245,7 +245,7 @@ function ServiceBody({ service }: { service: Service }) {
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
             결정 전에 많이 묻는 질문
           </h2>
-          <div className="mx-auto mt-14 max-w-2xl">
+          <div className="mx-auto mt-10 max-w-2xl">
             <FaqList items={faqs} />
           </div>
         </Container>

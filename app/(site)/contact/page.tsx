@@ -41,13 +41,13 @@ export default function ContactPage() {
       />
 
       {/* ── 연락처 — 중앙 정렬 텍스트 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Contact
             </p>
-            <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12 text-center">
+            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12 text-center">
               {channels.map((ch) => (
                 <div key={ch.label}>
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
@@ -73,7 +73,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 문의 폼 — 중앙 (즉시 표시, 모션 없음) ── */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-10 md:pb-14">
         <Container size="narrow">
           <div className="mx-auto max-w-xl">
             <ContactForm />
@@ -82,7 +82,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 응답 — 회신율 단일 시각자료 (절제, 중앙 1개) ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -93,7 +93,7 @@ export default function ContactPage() {
             </h2>
           </Reveal>
 
-          <Reveal className="mt-16 flex justify-center">
+          <Reveal className="mt-12 flex justify-center">
             <DonutChart
               value={98}
               label="1영업일 내 회신"
@@ -101,20 +101,20 @@ export default function ContactPage() {
             />
           </Reveal>
 
-          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 응대는 문의 시점에 따라 상이합니다
           </p>
         </Container>
       </section>
 
       {/* ── 진행 절차 — 6단계, 중앙 미니멀 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               How it works
             </p>
-            <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
+            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
               {contactFlow.map((step) => (
                 <div key={step.no} className="text-center">
                   <span className="folio text-xs tracking-[0.24em] text-gold">
@@ -134,13 +134,13 @@ export default function ContactPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               FAQ
             </p>
-            <div className="mx-auto mt-16 max-w-2xl">
+            <div className="mx-auto mt-12 max-w-2xl">
               <FaqList items={faqs} />
             </div>
           </Container>

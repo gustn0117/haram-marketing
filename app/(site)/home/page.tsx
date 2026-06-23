@@ -54,7 +54,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 선언문 ── */}
-      <section className="px-6 py-20 md:py-32">
+      <section className="px-6 py-14 md:py-20">
         <Reveal>
           <Container size="default" className="text-center">
             <p className="mx-auto max-w-[1000px] text-[clamp(1.35rem,3vw,1.9rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90 break-keep">
@@ -74,13 +74,13 @@ export default function HomePage() {
       </section>
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Methods
             </p>
-            <ul className="mx-auto mt-16 max-w-2xl">
+            <ul className="mx-auto mt-12 max-w-2xl">
               {services.map((s) => (
                 <li key={s.id} className="border-t border-line last:border-b">
                   <Link
@@ -102,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 지표 — 절제된 중앙 숫자 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="wide">
             <div className="grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
@@ -127,7 +127,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 성과(데이터 시각화) ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -138,11 +138,11 @@ export default function HomePage() {
             </h2>
           </Reveal>
 
-          <Reveal className="mx-auto mt-16 max-w-3xl">
+          <Reveal className="mx-auto mt-12 max-w-3xl">
             <GrowthChart />
           </Reveal>
 
-          <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-20">
+          <div className="mt-10 grid gap-14 md:grid-cols-2 md:gap-20">
             <Reveal>
               <Funnel />
             </Reveal>
@@ -151,20 +151,20 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Approach
             </p>
-            <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
+            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
               {processSteps.map((step) => (
                 <div key={step.no} className="text-center">
                   <span className="folio text-xs tracking-[0.24em] text-gold">
@@ -184,7 +184,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 마무리 ── */}
-      <section className="relative overflow-hidden px-6 py-20 md:py-32">
+      <section className="relative overflow-hidden px-6 py-14 md:py-20">
         <span className="closing-photo-bg" aria-hidden />
         <Reveal>
           <Container size="narrow" className="relative z-2 text-center">
@@ -199,7 +199,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="link-underline group mt-14 inline-flex items-center gap-2 text-sm tracking-[0.18em] text-gold"
+              className="link-underline group mt-10 inline-flex items-center gap-2 text-sm tracking-[0.18em] text-gold"
             >
               무료 진단 신청
               <span

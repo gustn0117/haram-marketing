@@ -132,7 +132,7 @@ export function CTASection({
   image?: string;
 }) {
   return (
-    <section className="px-6 py-20 md:py-32">
+    <section className="px-6 py-14 md:py-20">
       <Reveal>
         <Container size="narrow" className="text-center">
           <span className="hair-line mx-auto mb-14 block w-16" aria-hidden />

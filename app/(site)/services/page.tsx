@@ -30,7 +30,7 @@ export default function ServicesPage() {
       />
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
             강점인지 다르기에, 우리는 이 방법들 중 그 예식장에 필요한 것만 골라
             다르게 설계합니다. 방법은 분명하고, 조합은 예식장마다 달라집니다.
           </p>
-          <ul className="mx-auto mt-16 max-w-2xl">
+          <ul className="mx-auto mt-12 max-w-2xl">
             {services.map((s) => (
               <li key={s.id} className="border-t border-line last:border-b">
                 <Link
@@ -66,13 +66,13 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
         <Container size="narrow">
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Approach
           </p>
-          <div className="mx-auto mt-16 flex max-w-xl flex-col gap-12">
+          <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
             {processSteps.map((step) => (
               <div key={step.no} className="text-center">
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
@@ -92,7 +92,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 성과(데이터 시각화) — 서비스 전후 비교 ── */}
-      <section className="px-6 py-16 md:py-24">
+      <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -103,7 +103,7 @@ export default function ServicesPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-20">
+          <div className="mt-10 grid gap-14 md:grid-cols-2 md:gap-20">
             <Reveal>
               <CompareBars
                 title="마케팅 전후 월 상담 문의"
@@ -126,7 +126,7 @@ export default function ServicesPage() {
             </Reveal>
           </div>
 
-          <p className="mt-16 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>

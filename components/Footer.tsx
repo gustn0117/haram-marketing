@@ -41,7 +41,7 @@ export function Footer() {
           {company.phone}
         </a>
 
-        <span className="hair-line mx-auto mt-14 block w-16" aria-hidden />
+        <span className="hair-line mx-auto mt-10 block w-16" aria-hidden />
         <p className="mt-8 text-[0.66rem] uppercase tracking-[0.24em] text-faint">
           © 2026 {company.nameKo} · CEO {company.ceo}
         </p>

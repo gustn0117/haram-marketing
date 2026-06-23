@@ -5,13 +5,13 @@ import { Reveal } from "@/components/Reveal";
 // 강점 — 중앙 정렬 미니멀 (갤러리 톤)
 export function Strengths({ id }: { id?: string }) {
   return (
-    <section id={id} className="scroll-mt-16 px-6 py-16 md:py-24">
+    <section id={id} className="scroll-mt-12 px-6 py-10 md:py-14">
       <Reveal>
       <Container size="narrow">
         <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
           Why Haram
         </p>
-        <div className="mx-auto mt-16 flex max-w-xl flex-col gap-14 text-center">
+        <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
           {strengths.map((s) => (
             <div key={s.id}>
               <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
