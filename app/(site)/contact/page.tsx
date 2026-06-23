@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { company, contactFlow, faqs } from "@/lib/content";
+import { company, contactFlow, faqs, pageHeroImages } from "@/lib/content";
 import { Container } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
@@ -37,6 +37,7 @@ export default function ContactPage() {
           </>
         }
         description="진단 단계부터 함께합니다. 예식장에 대한 간단한 정보만 남겨주시면 담당 마케터가 무료 진단과 맞춤 제안을 드립니다."
+        backgroundImage={pageHeroImages.contact}
       />
 
       {/* ── 연락처 — 중앙 정렬 텍스트 ── */}

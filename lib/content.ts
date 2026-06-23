@@ -655,3 +655,26 @@ export const addonImages: Record<string, string> = {
   marketing: U("1583939003579-730e3918a45a", 1100),
   media: U("1513278974582-3e1b4a4fa21e", 1100),
 };
+
+export const pageHeroImages = {
+  about: "/images/page-hero-about.jpg",
+  services: "/images/page-hero-services.jpg",
+  addons: "/images/page-hero-addons.jpg",
+  contact: "/images/page-hero-contact.jpg",
+};
+
+export const serviceHeroImages: Record<string, string> = {
+  search: "/images/service-hero-search.jpg",
+  blog: "/images/service-hero-blog.jpg",
+  sns: "/images/service-hero-sns.jpg",
+  ad: "/images/service-hero-ad.jpg",
+  content: "/images/service-hero-content.jpg",
+  brand: "/images/service-hero-brand.jpg",
+};
+
+export const addonHeroImages: Record<string, string> = {
+  web: "/images/addon-hero-web.jpg",
+  venue: "/images/addon-hero-venue.jpg",
+  marketing: "/images/addon-hero-marketing.jpg",
+  media: "/images/addon-hero-media.jpg",
+};

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { addons, faqs, siteUrl } from "@/lib/content";
+import { addonHeroImages, addons, faqs, siteUrl } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { FaqList } from "@/components/FaqList";
@@ -64,7 +64,12 @@ export default async function AddonDetailPage({
     <>
       <JsonLd data={breadcrumbJsonLd} />
 
-      <PageHero eyebrow={tagline} title={name} description={description} />
+      <PageHero
+        eyebrow={tagline}
+        title={name}
+        description={description}
+        backgroundImage={addonHeroImages[addon.id]}
+      />
 
       {/* ── Overview — 중앙 본문 ── */}
       <section className="px-6 py-16 md:py-24">

@@ -7,6 +7,7 @@ import {
   faqs,
   siteUrl,
   company,
+  serviceHeroImages,
   type Service,
 } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
@@ -84,7 +85,12 @@ export default async function OfferingDetailPage({
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={serviceJsonLd} />
 
-      <PageHero eyebrow={tagline} title={title} description={description} />
+      <PageHero
+        eyebrow={tagline}
+        title={title}
+        description={description}
+        backgroundImage={serviceHeroImages[service.id]}
+      />
 
       <ServiceBody service={service} />
 

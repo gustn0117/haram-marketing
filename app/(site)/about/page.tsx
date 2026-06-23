@@ -7,6 +7,7 @@ import {
   equipment,
   metrics,
   faqs,
+  pageHeroImages,
 } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
@@ -36,6 +37,7 @@ export default function AboutPage() {
           </>
         }
         description={company.intro}
+        backgroundImage={pageHeroImages.about}
       />
 
       {/* ── 미션 — 중앙 선언문 ── */}

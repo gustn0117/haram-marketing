@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services, processSteps } from "@/lib/content";
+import { services, processSteps, pageHeroImages } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -26,6 +26,7 @@ export default function ServicesPage() {
           </>
         }
         description="검색·콘텐츠·광고·제작 — 우리가 쓰는 방법은 분명합니다. 다만 무엇을 어떻게 엮을지는 예식장마다 다르게 설계합니다. 각 영역을 눌러 자세한 내용을 확인하세요."
+        backgroundImage={pageHeroImages.services}
       />
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
