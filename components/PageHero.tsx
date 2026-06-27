@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { MonogramSeal } from "@/components/Motifs";
 
 // 하위페이지 진입 — 중앙 정렬 미니멀 히어로 (갤러리 톤)
 export function PageHero({
@@ -32,6 +33,10 @@ export function PageHero({
         </>
       ) : null}
       <span className="page-hero-glow" aria-hidden />
+      <MonogramSeal
+        variant="load"
+        className="rise relative z-10 mb-7 w-12 text-paper/45"
+      />
       <span
         className="rise relative z-10 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
         style={{ animationDelay: "60ms" }}

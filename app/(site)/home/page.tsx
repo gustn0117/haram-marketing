@@ -5,6 +5,7 @@ import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { GrowthChart, Funnel, ChannelBars } from "@/components/charts";
+import { ArchMotif, RingsMotif, ArcDivider } from "@/components/Motifs";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/home" },
@@ -17,7 +18,11 @@ export default function HomePage() {
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
         <span className="hero-photo-bg" aria-hidden />
         <span className="hero-glow" aria-hidden />
-        <span className="hero-blur" aria-hidden />
+        {/* 예식 아치 라인아트 — 로드 시 그려짐, 워드마크가 아치 안에 섬 */}
+        <ArchMotif
+          variant="load"
+          className="pointer-events-none absolute left-1/2 top-1/2 z-1 w-[min(92vw,560px)] -translate-x-1/2 -translate-y-[52%] text-paper/30"
+        />
         <span
           className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
           style={{ animationDelay: "80ms" }}
@@ -57,6 +62,7 @@ export default function HomePage() {
       <section className="px-6 py-14 md:py-20">
         <Reveal>
           <Container size="default" className="text-center">
+            <RingsMotif className="mx-auto mb-10 w-[72px] text-gold/70" />
             <p className="mx-auto max-w-[1000px] text-[clamp(1.35rem,3vw,1.9rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90 break-keep">
               하람마케팅에는 <span className="text-gold">정해진 상품이 없습니다.</span>
               <br />
@@ -182,6 +188,11 @@ export default function HomePage() {
           </Container>
         </Reveal>
       </section>
+
+      {/* ── 아치 디바이더 ── */}
+      <Reveal className="px-6">
+        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
+      </Reveal>
 
       {/* ── 마무리 ── */}
       <section className="relative overflow-hidden px-6 py-14 md:py-20">
