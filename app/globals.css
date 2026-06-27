@@ -3,29 +3,29 @@
 
 @theme {
   /* ── MOOD — 따뜻한 토프-브라운 올다크 + 샌드골드 (산세리프) ── */
-  --color-ink: #1c1816; /* 메인 배경 — 따뜻한 다크 브라운 */
-  --color-ink-2: #26211b; /* 교차 섹션 — 살짝 들린 면 (명도 단차 ↑, 실제 적용) */
-  --color-surface: #2e2820; /* 카드 배경 */
-  --color-surface-2: #3d3428; /* 한 단계 밝은 표면 */
-  --color-line: rgba(242, 236, 228, 0.1); /* 다크 위 헤어라인 */
-  --color-line-strong: rgba(242, 236, 228, 0.18);
+  --color-ink: #16161a; /* 쿨 차콜 — 톤다운(채도 제거), 따뜻한 갈색 폐기 */
+  --color-ink-2: #1d1d22; /* 교차 섹션 — 살짝 들린 면 */
+  --color-surface: #232228; /* 카드 */
+  --color-surface-2: #2c2b32; /* 한 단계 밝은 표면 */
+  --color-line: rgba(236, 236, 234, 0.085); /* 쿨 화이트 헤어라인 */
+  --color-line-strong: rgba(236, 236, 234, 0.16);
 
-  /* 포인트색: 샌드골드 (이름은 호환을 위해 gold 유지) */
-  --color-gold: #d4b485; /* 메인 — 샌드골드 */
-  --color-gold-bright: #ecd4a8; /* 스펙큘러 하이라이트 (그라데이션 상단·라인 중앙·호버) */
-  --color-gold-deep: #a88a5e; /* 음각/폴리오/그림자 스톱 (그라데이션 하단) */
-  --color-gold-frame: rgba(212, 180, 133, 0.22);
-  --color-rose: #b98a7a; /* 보조 — 로즈(분위기 보조광) */
+  /* 악센트: 골드 제거 → 본/그레이지 위스퍼 (이름은 호환 위해 gold 유지) */
+  --color-gold: #c7c0b2; /* 본 — 거의 무채에 가까운 회백, 광택 없음 */
+  --color-gold-bright: #ddd8cd; /* 밝은 본 (강조·호버) */
+  --color-gold-deep: #9c958a; /* 가라앉은 그레이지 */
+  --color-gold-frame: rgba(199, 192, 178, 0.2);
+  --color-rose: #a99e93; /* 보조 — 뉴트럴 그레이지 */
 
-  /* 포일(금박) — .foil 전용 그라데이션 스톱 (청첩장 포일 모티프) */
-  --foil-champagne: #efdcb8;
-  --foil-light: #fff3da;
-  --foil-core: #d4b485;
-  --foil-brass: #9c7b46;
+  /* 포일 토큰 — 매트로 대체(비활성), 호환 위해 유지 */
+  --foil-champagne: #ddd8cd;
+  --foil-light: #f0eee8;
+  --foil-core: #c7c0b2;
+  --foil-brass: #9c958a;
 
-  --color-paper: #f2ece4; /* 본문 — 따뜻한 오프화이트 */
-  --color-muted: #c8b9a8; /* 보조 텍스트 — 토프 */
-  --color-faint: #8e7f6f; /* 약한 텍스트 — 머디 브라운 */
+  --color-paper: #ecebe8; /* 본문 — 쿨 오프화이트 */
+  --color-muted: #b5b1a8; /* 보조 텍스트 — 탈채도 토프그레이 */
+  --color-faint: #7d7d77; /* 약한 텍스트 — 뉴트럴 그레이 */
 
   --font-sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui,
     sans-serif;
@@ -79,13 +79,13 @@ body {
   border-radius: var(--radius-sm);
   box-shadow:
     0 0 0 2px var(--color-ink),
-    0 0 0 4px rgba(212, 180, 133, 0.55);
+    0 0 0 4px rgba(199, 192, 178, 0.55);
 }
 
 /* ---------- 정적 깊이 패널 (따뜻한 그림자 + 상단 베젤) ---------- */
 .panel-elevated {
   box-shadow:
-    inset 0 1px 0 0 rgba(242, 236, 228, 0.05),
+    inset 0 1px 0 0 rgba(236, 236, 234, 0.05),
     0 24px 48px -28px rgba(0, 0, 0, 0.6);
 }
 
@@ -108,8 +108,8 @@ body::after {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(242, 236, 228, 0.055), transparent 18rem),
-    linear-gradient(90deg, rgba(212, 180, 133, 0.045), transparent 28%, transparent 72%, rgba(185, 138, 122, 0.045));
+    linear-gradient(180deg, rgba(236, 236, 234, 0.055), transparent 18rem),
+    linear-gradient(90deg, rgba(199, 192, 178, 0.045), transparent 28%, transparent 72%, rgba(169, 158, 147, 0.045));
 }
 
 /* ---------- 한글 워드랩(어절 단위 줄바꿈) ----------
@@ -181,28 +181,28 @@ body::after {
 
 .luxury-hero-shade {
   background:
-    linear-gradient(90deg, rgba(28, 24, 22, 0.96), rgba(28, 24, 22, 0.72) 38%, rgba(28, 24, 22, 0.18)),
-    linear-gradient(180deg, rgba(28, 24, 22, 0.12), rgba(28, 24, 22, 0.78)),
-    linear-gradient(135deg, rgba(212, 180, 133, 0.16), transparent 34%, rgba(58, 20, 23, 0.18));
+    linear-gradient(90deg, rgba(22, 22, 26, 0.96), rgba(22, 22, 26, 0.72) 38%, rgba(22, 22, 26, 0.18)),
+    linear-gradient(180deg, rgba(22, 22, 26, 0.12), rgba(22, 22, 26, 0.78)),
+    linear-gradient(135deg, rgba(199, 192, 178, 0.16), transparent 34%, rgba(30, 30, 34, 0.18));
 }
 
 .premium-hero-shade {
   background:
-    linear-gradient(90deg, rgba(28, 24, 22, 0.92), rgba(28, 24, 22, 0.68) 42%, rgba(28, 24, 22, 0.2)),
-    linear-gradient(180deg, rgba(28, 24, 22, 0.08), rgba(28, 24, 22, 0.62));
+    linear-gradient(90deg, rgba(22, 22, 26, 0.92), rgba(22, 22, 26, 0.68) 42%, rgba(22, 22, 26, 0.2)),
+    linear-gradient(180deg, rgba(22, 22, 26, 0.08), rgba(22, 22, 26, 0.62));
 }
 
 .premium-cta-shade {
   background:
-    linear-gradient(90deg, rgba(28, 24, 22, 0.9), rgba(28, 24, 22, 0.62) 44%, rgba(28, 24, 22, 0.28)),
-    linear-gradient(180deg, rgba(28, 24, 22, 0.18), rgba(28, 24, 22, 0.78));
+    linear-gradient(90deg, rgba(22, 22, 26, 0.9), rgba(22, 22, 26, 0.62) 44%, rgba(22, 22, 26, 0.28)),
+    linear-gradient(180deg, rgba(22, 22, 26, 0.18), rgba(22, 22, 26, 0.78));
 }
 
 .page-hero {
   background:
     radial-gradient(
       70% 52% at 50% 48%,
-      rgba(212, 180, 133, 0.08),
+      rgba(199, 192, 178, 0.08),
       transparent 66%
     ),
     var(--color-ink);
@@ -218,7 +218,7 @@ body::after {
   pointer-events: none;
   opacity: 0.78;
   transform: scale(1.018);
-  filter: saturate(0.92) contrast(1.06) brightness(0.76) sepia(0.05);
+  filter: saturate(0.8) contrast(1.06) brightness(0.74);
 }
 
 .page-hero-bg {
@@ -229,21 +229,21 @@ body::after {
   background:
     radial-gradient(
       72% 58% at 50% 49%,
-      rgba(28, 24, 22, 0.54),
-      rgba(28, 24, 22, 0.74) 54%,
-      rgba(28, 24, 22, 0.96)
+      rgba(22, 22, 26, 0.54),
+      rgba(22, 22, 26, 0.74) 54%,
+      rgba(22, 22, 26, 0.96)
     ),
     linear-gradient(
       180deg,
-      rgba(28, 24, 22, 0.72),
-      rgba(28, 24, 22, 0.38) 42%,
-      rgba(28, 24, 22, 0.94)
+      rgba(22, 22, 26, 0.72),
+      rgba(22, 22, 26, 0.38) 42%,
+      rgba(22, 22, 26, 0.94)
     ),
     linear-gradient(
       90deg,
-      rgba(28, 24, 22, 0.9),
-      rgba(28, 24, 22, 0.42) 40%,
-      rgba(28, 24, 22, 0.86)
+      rgba(22, 22, 26, 0.9),
+      rgba(22, 22, 26, 0.42) 40%,
+      rgba(22, 22, 26, 0.86)
     );
 }
 
@@ -265,8 +265,8 @@ body::after {
   pointer-events: none;
   background: radial-gradient(
     ellipse,
-    rgba(212, 180, 133, 0.08),
-    rgba(212, 180, 133, 0.03) 44%,
+    rgba(199, 192, 178, 0.08),
+    rgba(199, 192, 178, 0.03) 44%,
     transparent 72%
   );
 }
@@ -276,8 +276,8 @@ body::after {
   .premium-hero-shade,
   .premium-cta-shade {
     background:
-      linear-gradient(180deg, rgba(28, 24, 22, 0.34), rgba(28, 24, 22, 0.94)),
-      linear-gradient(90deg, rgba(28, 24, 22, 0.9), rgba(28, 24, 22, 0.36));
+      linear-gradient(180deg, rgba(22, 22, 26, 0.34), rgba(22, 22, 26, 0.94)),
+      linear-gradient(90deg, rgba(22, 22, 26, 0.9), rgba(22, 22, 26, 0.36));
   }
 }
 
@@ -289,24 +289,9 @@ body::after {
 /* ── 금박(FOIL) — 청첩장 포일 스탬프. 페이지당 '결정 단어' 1개에만 희소하게. ──
    background-clip:text 6스톱 그라데이션 + 진입 시 1회 sheen-sweep. 레이아웃·폰트 불변. */
 .foil {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-gold-deep) 0%,
-    var(--foil-core) 20%,
-    var(--foil-champagne) 38%,
-    var(--foil-light) 50%,
-    var(--foil-champagne) 62%,
-    var(--foil-core) 80%,
-    var(--color-gold-deep) 100%
-  );
-  background-size: 230% 100%;
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: foil-sweep 1.4s var(--ease-out-soft) 0.35s both;
+  /* 금속 광택 폐기 — 가장 밝은 웜화이트로 '밝기'만으로 절제 강조 */
+  color: #f5f4f0;
+  -webkit-text-fill-color: #f5f4f0;
 }
 @keyframes foil-sweep {
   from {
@@ -455,18 +440,18 @@ body::after {
   background:
     radial-gradient(
       125% 95% at 50% 40%,
-      rgba(28, 24, 22, 0.34),
-      rgba(28, 24, 22, 0.66) 60%,
-      rgba(28, 24, 22, 0.92)
+      rgba(22, 22, 26, 0.34),
+      rgba(22, 22, 26, 0.66) 60%,
+      rgba(22, 22, 26, 0.92)
     ),
     linear-gradient(
       180deg,
-      rgba(28, 24, 22, 0.32),
-      rgba(28, 24, 22, 0.18) 38%,
-      rgba(28, 24, 22, 0.9)
+      rgba(22, 22, 26, 0.32),
+      rgba(22, 22, 26, 0.18) 38%,
+      rgba(22, 22, 26, 0.9)
     ),
     url("/images/luxury-wedding-hall-ambient.png") center / cover no-repeat;
-  filter: saturate(1.05) contrast(1.05) brightness(0.92) sepia(0.06);
+  filter: saturate(0.78) contrast(1.05) brightness(0.86);
 }
 
 .closing-photo-bg {
@@ -477,13 +462,13 @@ body::after {
   background:
     radial-gradient(
       120% 95% at 50% 46%,
-      rgba(28, 24, 22, 0.5),
-      rgba(28, 24, 22, 0.8) 64%,
-      rgba(28, 24, 22, 0.95)
+      rgba(22, 22, 26, 0.5),
+      rgba(22, 22, 26, 0.8) 64%,
+      rgba(22, 22, 26, 0.95)
     ),
-    linear-gradient(180deg, rgba(28, 24, 22, 0.62), rgba(28, 24, 22, 0.92)),
+    linear-gradient(180deg, rgba(22, 22, 26, 0.62), rgba(22, 22, 26, 0.92)),
     url("/images/luxury-wedding-hall-ambient.png") center 54% / cover no-repeat;
-  filter: saturate(0.98) contrast(1.04) brightness(0.82) sepia(0.05);
+  filter: saturate(0.8) contrast(1.04) brightness(0.8);
 }
 
 /* 히어로 텍스트 뒤 프로스티드 글래스 — 사진은 보이되 글자만 또렷하게.
@@ -497,7 +482,7 @@ body::after {
   height: min(64vh, 520px);
   transform: translate(-50%, -50%);
   pointer-events: none;
-  background: rgba(28, 24, 22, 0.14);
+  background: rgba(22, 22, 26, 0.14);
   backdrop-filter: blur(9px) saturate(1.05);
   -webkit-backdrop-filter: blur(9px) saturate(1.05);
   -webkit-mask-image: radial-gradient(
@@ -593,8 +578,8 @@ body::after {
   pointer-events: none;
   background: radial-gradient(
     circle,
-    rgba(212, 180, 133, 0.09),
-    rgba(212, 180, 133, 0.03) 40%,
+    rgba(199, 192, 178, 0.09),
+    rgba(199, 192, 178, 0.03) 40%,
     transparent 68%
   );
   opacity: 0.7; /* 안개 호흡 제거 — 또렷한 엣지가 글로우에 묻히지 않게 */
@@ -679,7 +664,7 @@ body::after {
 
 /* 듀오톤 플레이트 필터 (인라인 중복 제거) */
 .duotone {
-  filter: grayscale(0.55) sepia(0.18) contrast(1.02) brightness(0.92);
+  filter: grayscale(0.72) contrast(1.02) brightness(0.92);
 }
 
 /* 챕터 셸 패딩 / 풀하이트 변형 */
@@ -816,7 +801,7 @@ body::after {
 .form-input {
   width: 100%;
   border: 1px solid var(--color-line);
-  background: rgba(242, 236, 228, 0.04);
+  background: rgba(236, 236, 234, 0.04);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
@@ -831,8 +816,8 @@ body::after {
 .form-input:focus {
   outline: none;
   border-color: var(--color-gold);
-  background: rgba(242, 236, 228, 0.07);
-  box-shadow: 0 0 0 3px rgba(212, 180, 133, 0.16);
+  background: rgba(236, 236, 234, 0.07);
+  box-shadow: 0 0 0 3px rgba(199, 192, 178, 0.16);
 }
 
 /* Card hover — 정적: 보더 색만 변화 (움직임 없음) */
@@ -840,7 +825,7 @@ body::after {
   transition: border-color 0.5s var(--ease-out-soft);
 }
 .card-hover:hover {
-  border-color: rgba(212, 180, 133, 0.45);
+  border-color: rgba(199, 192, 178, 0.45);
 }
 
 /* FAQ 아코디언 — grid-rows 0fr→1fr 절제된 펼침 */
