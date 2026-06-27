@@ -20,9 +20,7 @@ export default function ServicesPage() {
         eyebrow="Our services"
         title={
           <>
-            검색 노출부터 예약까지,
-            <br />
-            <span className="text-gold">하나의 팀이.</span>
+            검색 노출부터 예약까지, <span className="foil">하나의 팀이.</span>
           </>
         }
         description="검색·콘텐츠·광고·제작 — 우리가 쓰는 방법은 분명합니다. 다만 무엇을 어떻게 엮을지는 예식장마다 다르게 설계합니다. 각 영역을 눌러 자세한 내용을 확인하세요."
@@ -78,7 +76,7 @@ export default function ServicesPage() {
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
                   {step.no}
                 </span>
-                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                   {step.title}
                 </h3>
                 <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">

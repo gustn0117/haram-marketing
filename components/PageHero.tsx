@@ -33,7 +33,7 @@ export function PageHero({
       ) : null}
       <span className="page-hero-glow" aria-hidden />
       <span
-        className="rise relative z-10 text-[0.72rem] uppercase tracking-[0.4em] text-gold"
+        className="rise relative z-10 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
         style={{ animationDelay: "60ms" }}
       >
         {eyebrow}

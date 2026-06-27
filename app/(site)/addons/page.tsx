@@ -20,9 +20,7 @@ export default function AddonsPage() {
         eyebrow="How We Support"
         title={
           <>
-            마케팅을 둘러싼
-            <br />
-            <span className="text-gold">모든 것까지.</span>
+            마케팅을 둘러싼 <span className="foil">모든 것까지.</span>
           </>
         }
         description="홈페이지·CRM·촬영 — 마케팅이 제대로 돌아가려면 함께 갖춰야 할 것들입니다. 모든 예식장에 똑같이 권하지 않습니다. 지금 그 예식장에 필요한 만큼만, 마케팅 설계 안에서 함께 준비합니다."

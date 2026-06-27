@@ -4,7 +4,7 @@
 @theme {
   /* ── MOOD — 따뜻한 토프-브라운 올다크 + 샌드골드 (산세리프) ── */
   --color-ink: #1c1816; /* 메인 배경 — 따뜻한 다크 브라운 */
-  --color-ink-2: #242019; /* 교차 섹션 배경 (살짝 들림) */
+  --color-ink-2: #26211b; /* 교차 섹션 — 살짝 들린 면 (명도 단차 ↑, 실제 적용) */
   --color-surface: #2e2820; /* 카드 배경 */
   --color-surface-2: #3d3428; /* 한 단계 밝은 표면 */
   --color-line: rgba(242, 236, 228, 0.1); /* 다크 위 헤어라인 */
@@ -12,10 +12,16 @@
 
   /* 포인트색: 샌드골드 (이름은 호환을 위해 gold 유지) */
   --color-gold: #d4b485; /* 메인 — 샌드골드 */
-  --color-gold-bright: #e2c79e; /* 밝은 샌드 (강조·호버) */
-  --color-gold-deep: #b89a6e; /* 가라앉는 샌드 */
+  --color-gold-bright: #ecd4a8; /* 스펙큘러 하이라이트 (그라데이션 상단·라인 중앙·호버) */
+  --color-gold-deep: #a88a5e; /* 음각/폴리오/그림자 스톱 (그라데이션 하단) */
   --color-gold-frame: rgba(212, 180, 133, 0.22);
   --color-rose: #b98a7a; /* 보조 — 로즈(분위기 보조광) */
+
+  /* 포일(금박) — .foil 전용 그라데이션 스톱 (청첩장 포일 모티프) */
+  --foil-champagne: #efdcb8;
+  --foil-light: #fff3da;
+  --foil-core: #d4b485;
+  --foil-brass: #9c7b46;
 
   --color-paper: #f2ece4; /* 본문 — 따뜻한 오프화이트 */
   --color-muted: #c8b9a8; /* 보조 텍스트 — 토프 */
@@ -259,9 +265,9 @@ body::after {
   pointer-events: none;
   background: radial-gradient(
     ellipse,
-    rgba(212, 180, 133, 0.14),
-    rgba(212, 180, 133, 0.04) 42%,
-    transparent 70%
+    rgba(212, 180, 133, 0.08),
+    rgba(212, 180, 133, 0.03) 44%,
+    transparent 72%
   );
 }
 
@@ -280,6 +286,43 @@ body::after {
   color: var(--color-gold);
 }
 
+/* ── 금박(FOIL) — 청첩장 포일 스탬프. 페이지당 '결정 단어' 1개에만 희소하게. ──
+   background-clip:text 6스톱 그라데이션 + 진입 시 1회 sheen-sweep. 레이아웃·폰트 불변. */
+.foil {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-gold-deep) 0%,
+    var(--foil-core) 20%,
+    var(--foil-champagne) 38%,
+    var(--foil-light) 50%,
+    var(--foil-champagne) 62%,
+    var(--foil-core) 80%,
+    var(--color-gold-deep) 100%
+  );
+  background-size: 230% 100%;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: foil-sweep 1.4s var(--ease-out-soft) 0.35s both;
+}
+@keyframes foil-sweep {
+  from {
+    background-position: 135% 0;
+  }
+  to {
+    background-position: 50% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .foil {
+    animation: none;
+    background-position: 50% 0;
+  }
+}
+
 /* ---------- Decorative rules & links ---------- */
 .hair-line {
   height: 1px;
@@ -290,12 +333,18 @@ body::after {
     var(--color-line-strong) 82%,
     transparent
   );
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35); /* 살짝 눌러 새긴 레터프레스 음각 */
 }
 
 .gold-rule {
   width: 56px;
   height: 1px;
-  background: linear-gradient(90deg, var(--color-gold), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-bright) 50%,
+    transparent
+  ); /* 중앙이 가장 밝은 능선 — 금속 룰 */
 }
 
 /* Animated underline for nav / inline links */
@@ -324,7 +373,7 @@ body::after {
 .reveal {
   opacity: 0;
   transform: translateY(16px);
-  filter: blur(7px);
+  filter: blur(4px);
   transition:
     opacity 0.85s var(--ease-out-soft),
     transform 0.85s var(--ease-out-soft),
@@ -448,9 +497,9 @@ body::after {
   height: min(64vh, 520px);
   transform: translate(-50%, -50%);
   pointer-events: none;
-  background: rgba(28, 24, 22, 0.16);
-  backdrop-filter: blur(16px) saturate(1.05);
-  -webkit-backdrop-filter: blur(16px) saturate(1.05);
+  background: rgba(28, 24, 22, 0.14);
+  backdrop-filter: blur(9px) saturate(1.05);
+  -webkit-backdrop-filter: blur(9px) saturate(1.05);
   -webkit-mask-image: radial-gradient(
     ellipse 62% 58% at center,
     #000 38%,
@@ -544,11 +593,11 @@ body::after {
   pointer-events: none;
   background: radial-gradient(
     circle,
-    rgba(212, 180, 133, 0.16),
-    rgba(212, 180, 133, 0.05) 38%,
-    transparent 66%
+    rgba(212, 180, 133, 0.09),
+    rgba(212, 180, 133, 0.03) 40%,
+    transparent 68%
   );
-  animation: ambient 9s ease-in-out infinite;
+  opacity: 0.7; /* 안개 호흡 제거 — 또렷한 엣지가 글로우에 묻히지 않게 */
 }
 
 @media (prefers-reduced-motion: reduce) {

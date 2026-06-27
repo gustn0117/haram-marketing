@@ -25,7 +25,7 @@ export function SpineRail() {
             {company.nameKo}
           </span>
           <span className="h-3.5 w-px bg-gold/40" aria-hidden />
-          <span className="text-[0.62rem] uppercase tracking-[0.38em] text-gold/80">
+          <span className="text-[0.62rem] uppercase tracking-[0.36em] text-gold/80">
             {company.nameEn}
           </span>
         </Link>

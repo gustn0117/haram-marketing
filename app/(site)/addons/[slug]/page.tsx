@@ -105,7 +105,7 @@ export default async function AddonDetailPage({
                 key={s}
                 className="border-t border-line py-7 text-center last:border-b"
               >
-                <span className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                <span className="text-xl font-normal tracking-tight text-paper md:text-2xl">
                   {s}
                 </span>
               </li>

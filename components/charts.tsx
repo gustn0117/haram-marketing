@@ -40,7 +40,7 @@ export function GrowthChart({
       <svg viewBox={`0 0 ${W} ${H}`} className="mt-6 w-full" role="img" aria-label={title}>
         <defs>
           <linearGradient id="growthArea" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--color-gold)" stopOpacity="0.22" />
+            <stop offset="0%" stopColor="var(--color-gold)" stopOpacity="0.16" />
             <stop offset="100%" stopColor="var(--color-gold)" stopOpacity="0" />
           </linearGradient>
         </defs>
@@ -49,7 +49,7 @@ export function GrowthChart({
         <path
           d={line}
           fill="none"
-          stroke="var(--color-gold)"
+          stroke="var(--color-gold-bright)"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -148,8 +148,16 @@ export function ChannelBars({
               <span className="text-sm font-light text-muted">{c.label}</span>
               <span className="num text-sm font-light text-gold">{c.pct}%</span>
             </div>
-            <div className="mt-2 h-px w-full bg-line-strong">
-              <div className="data-fill h-px bg-gold" style={{ width: `${c.pct}%`, transitionDelay: `${i * 90}ms` }} />
+            <div className="mt-2 h-[3px] w-full rounded-full bg-line-strong">
+              <div
+                className="data-fill h-[3px] rounded-full"
+                style={{
+                  width: `${c.pct}%`,
+                  transitionDelay: `${i * 90}ms`,
+                  background:
+                    "linear-gradient(90deg, var(--color-gold-deep), var(--color-gold-bright))",
+                }}
+              />
             </div>
           </div>
         ))}

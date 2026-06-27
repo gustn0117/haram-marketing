@@ -31,9 +31,7 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title={
           <>
-            예식장 마케팅의 시작은
-            <br />
-            <span className="text-gold">한 통의 문의</span>입니다.
+            예식장 마케팅의 시작은 <span className="foil">한 통의 문의</span>입니다.
           </>
         }
         description="진단 단계부터 함께합니다. 예식장에 대한 간단한 정보만 남겨주시면 담당 마케터가 무료 진단과 맞춤 제안을 드립니다."
@@ -120,7 +118,7 @@ export default function ContactPage() {
                   <span className="folio text-xs tracking-[0.24em] text-gold">
                     {step.no}
                   </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
                   <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">

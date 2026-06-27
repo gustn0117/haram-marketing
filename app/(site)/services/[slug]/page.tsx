@@ -138,7 +138,7 @@ function ServiceBody({ service }: { service: Service }) {
                 key={item}
                 className="border-t border-line py-7 text-center last:border-b"
               >
-                <span className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                <span className="text-xl font-normal tracking-tight text-paper md:text-2xl">
                   {item}
                 </span>
               </li>
@@ -197,7 +197,7 @@ function ServiceBody({ service }: { service: Service }) {
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
                   {step.no}
                 </span>
-                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                   {step.title}
                 </h3>
                 <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">

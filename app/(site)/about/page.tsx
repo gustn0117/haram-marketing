@@ -31,9 +31,7 @@ export default function AboutPage() {
         eyebrow="About Haram Marketing"
         title={
           <>
-            마케팅의 끝은
-            <br />
-            <span className="text-gold">예약</span>이라 믿습니다.
+            마케팅의 끝은 <span className="foil">예약</span>이라 믿습니다.
           </>
         }
         description={company.intro}
@@ -67,7 +65,7 @@ export default function AboutPage() {
             <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
               {aboutStory.map((s) => (
                 <div key={s.heading}>
-                  <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                  <h3 className="text-xl font-normal tracking-tight text-paper md:text-2xl">
                     {s.heading}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -96,7 +94,7 @@ export default function AboutPage() {
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                     {item.tagline}
                   </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                     {item.name}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -113,7 +111,7 @@ export default function AboutPage() {
             <div className="mt-12 grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
+                  <p className="num text-5xl font-normal tracking-[-0.02em] text-paper md:text-6xl">
                     <CountUp value={m.value} />
                     {m.suffix ? (
                       <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
@@ -168,7 +166,7 @@ export default function AboutPage() {
                 <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                   CEO
                 </span>
-                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                   {company.ceo}
                 </h3>
                 <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -180,7 +178,7 @@ export default function AboutPage() {
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                     {dept.tagline}
                   </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                     {dept.name}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -203,7 +201,7 @@ export default function AboutPage() {
             <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
               {values.map((value) => (
                 <div key={value.title}>
-                  <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                  <h3 className="text-xl font-normal tracking-tight text-paper md:text-2xl">
                     {value.title}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">

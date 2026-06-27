@@ -11,7 +11,7 @@ export function Footer() {
           <span className="text-lg font-light tracking-tight text-paper">
             {company.nameKo}
           </span>
-          <span className="text-[0.62rem] uppercase tracking-[0.4em] text-gold/80">
+          <span className="text-[0.62rem] uppercase tracking-[0.36em] text-gold/80">
             {company.nameEn}
           </span>
         </Link>

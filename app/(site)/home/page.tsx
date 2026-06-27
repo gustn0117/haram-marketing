@@ -19,16 +19,16 @@ export default function HomePage() {
         <span className="hero-glow" aria-hidden />
         <span className="hero-blur" aria-hidden />
         <span
-          className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.42em] text-gold"
+          className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
           style={{ animationDelay: "80ms" }}
         >
           Wedding Hall Marketing
         </span>
         <h1
-          className="rise relative z-2 mt-10 whitespace-nowrap text-[clamp(2rem,7.2vw,4.8rem)] font-medium leading-none tracking-[0.12em] text-paper"
+          className="rise foil relative z-2 mt-10 whitespace-nowrap text-[clamp(1.65rem,7vw,4.8rem)] font-medium leading-none tracking-[0.1em]"
           style={{
             animationDelay: "200ms",
-            textShadow: "0 2px 40px rgba(0,0,0,0.45)",
+            filter: "drop-shadow(0 2px 30px rgba(0,0,0,0.5))",
           }}
         >
           HARAM MARKETING
@@ -101,14 +101,14 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 지표 — 절제된 중앙 숫자 ── */}
-      <section className="px-6 py-10 md:py-14">
+      {/* ── 지표 — 절제된 중앙 숫자 (들린 면) ── */}
+      <section className="bg-ink-2 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="wide">
             <div className="grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
+                  <p className="num text-5xl font-normal tracking-[-0.02em] text-paper md:text-6xl">
                     <CountUp value={m.value} />
                     {m.suffix ? (
                       <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
@@ -170,7 +170,7 @@ export default function HomePage() {
                   <span className="folio text-xs tracking-[0.24em] text-gold">
                     {step.no}
                   </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
                   <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
