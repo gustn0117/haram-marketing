@@ -34,7 +34,7 @@ export default function ServicesPage() {
       />
 
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="band px-6 py-14 md:py-20">
         <Reveal>
         <Container size="default">
           <RingsMotif className="mb-8 w-[68px] text-gold/55" />
@@ -62,7 +62,7 @@ export default function ServicesPage() {
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Approach
           </p>
-          <div className="mt-12 flex max-w-xl flex-col gap-12">
+          <div className="stagger mt-12 flex max-w-xl flex-col gap-12">
             {processSteps.map((step) => (
               <div key={step.no} className="text-left">
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       </Reveal>
 
       {/* ── 성과(데이터 시각화) — 서비스 전후 비교 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="band px-6 py-14 md:py-20">
         <Container size="wide">
           <Reveal>
             <AisleMotif className="mb-8 w-[120px] text-gold/55" />
@@ -98,16 +98,14 @@ export default function ServicesPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-14 md:grid-cols-2 md:gap-20">
-            <Reveal>
+          <Reveal>
+            <div className="stagger mt-10 grid gap-14 md:grid-cols-2 md:gap-20">
               <CompareBars
                 title="마케팅 전후 월 상담 문의"
                 before={{ label: "이전", w: 26, value: "31" }}
                 after={{ label: "이후", w: 100, value: "118" }}
                 unit="건"
               />
-            </Reveal>
-            <Reveal>
               <ChannelBars
                 title="채널별 상담 기여도"
                 items={[
@@ -118,8 +116,8 @@ export default function ServicesPage() {
                   { label: "영상·사진 콘텐츠", pct: 6 },
                 ]}
               />
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
 
           <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다

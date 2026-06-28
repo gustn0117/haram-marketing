@@ -52,7 +52,7 @@ export default function ContactPage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Contact
             </p>
-            <div className="mt-12 flex max-w-xl flex-col gap-12">
+            <div className="stagger mt-12 flex max-w-xl flex-col gap-12">
               {channels.map((ch) => (
                 <div key={ch.label}>
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
@@ -87,7 +87,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 응답 — 회신율 단일 시각자료 (절제, 중앙 1개) ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="band px-6 py-14 md:py-20">
         <Container size="wide">
           <Reveal>
             <AisleMotif className="mb-8 w-[120px] text-gold/55" />
@@ -121,7 +121,7 @@ export default function ContactPage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               How it works
             </p>
-            <div className="mt-12 flex max-w-xl flex-col gap-12">
+            <div className="stagger mt-12 flex max-w-xl flex-col gap-12">
               {contactFlow.map((step) => (
                 <div key={step.no}>
                   <span className="folio text-xs tracking-[0.24em] text-gold">
@@ -145,7 +145,7 @@ export default function ContactPage() {
       </Reveal>
 
       {/* ── FAQ ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="band px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">

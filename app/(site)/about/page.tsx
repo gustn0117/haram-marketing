@@ -70,7 +70,7 @@ export default function AboutPage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Philosophy
             </p>
-            <div className="mt-12 flex max-w-xl flex-col gap-14">
+            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
               {aboutStory.map((s) => (
                 <div key={s.heading}>
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
@@ -90,14 +90,14 @@ export default function AboutPage() {
       <Strengths id="strengths" />
 
       {/* ── 운영 채널 + 성과 지표 ── */}
-      <section id="equipment" className="scroll-mt-12 px-6 py-10 md:py-14">
+      <section id="equipment" className="band scroll-mt-12 px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Channels
             </p>
-            <div className="mt-12 flex max-w-xl flex-col gap-14">
+            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
               {equipment.map((item) => (
                 <div key={item.name}>
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
@@ -117,7 +117,7 @@ export default function AboutPage() {
 
         <Reveal>
           <Container size="wide">
-            <div className="mt-12 grid gap-16 text-left sm:grid-cols-2 lg:grid-cols-4">
+            <div className="stagger mt-12 grid gap-16 text-left sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light leading-none tracking-[-0.02em] text-paper md:text-6xl">
@@ -171,7 +171,7 @@ export default function AboutPage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Team
             </p>
-            <div className="mt-12 flex max-w-xl flex-col gap-14">
+            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
               <div>
                 <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                   CEO
@@ -202,14 +202,14 @@ export default function AboutPage() {
       </section>
 
       {/* ── 우리가 일하는 방식 ── */}
-      <section id="values" className="scroll-mt-12 px-6 py-10 md:py-14">
+      <section id="values" className="band scroll-mt-12 px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <SprigMotif className="mb-8 w-[44px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Values
             </p>
-            <div className="mt-12 flex max-w-xl flex-col gap-14">
+            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
               {values.map((value) => (
                 <div key={value.title}>
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
