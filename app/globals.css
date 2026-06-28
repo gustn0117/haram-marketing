@@ -357,18 +357,15 @@ body::after {
 /* ---------- Reveal on scroll (절제된 페이드) ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  filter: blur(4px);
+  transform: translateY(18px);
   transition:
-    opacity 0.85s var(--ease-out-soft),
-    transform 0.85s var(--ease-out-soft),
-    filter 0.85s var(--ease-out-soft);
-  will-change: opacity, transform, filter;
+    opacity 0.9s var(--ease-out-soft),
+    transform 0.9s var(--ease-out-soft);
+  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {

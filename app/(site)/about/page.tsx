@@ -67,16 +67,16 @@ export default function AboutPage() {
       <section id="philosophy" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Philosophy
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
+            <div className="mt-12 flex max-w-xl flex-col gap-14">
               {aboutStory.map((s) => (
                 <div key={s.heading}>
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {s.heading}
                   </h3>
-                  <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                     {s.body}
                   </p>
                 </div>
@@ -93,11 +93,11 @@ export default function AboutPage() {
       <section id="equipment" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Channels
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
+            <div className="mt-12 flex max-w-xl flex-col gap-14">
               {equipment.map((item) => (
                 <div key={item.name}>
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {item.name}
                   </h3>
-                  <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                     {item.description}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function AboutPage() {
 
         <Reveal>
           <Container size="wide">
-            <div className="mt-12 grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-16 text-left sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
@@ -156,7 +156,7 @@ export default function AboutPage() {
               />
             </Reveal>
 
-            <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
               예시 데이터 · 실제 성과는 예식장별로 상이합니다
             </p>
           </Container>
@@ -167,11 +167,11 @@ export default function AboutPage() {
       <section id="team" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <MonogramSeal className="mx-auto mb-8 w-12 text-gold/55" />
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <MonogramSeal className="mb-8 w-12 text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Team
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
+            <div className="mt-12 flex max-w-xl flex-col gap-14">
               <div>
                 <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                   CEO
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {company.ceo}
                 </h3>
-                <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                   대표이사
                 </p>
               </div>
@@ -191,7 +191,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {dept.name}
                   </h3>
-                  <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                     {dept.duties.join(", ")}
                   </p>
                 </div>
@@ -205,17 +205,17 @@ export default function AboutPage() {
       <section id="values" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <SprigMotif className="mx-auto mb-8 w-[44px] text-gold/55" />
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <SprigMotif className="mb-8 w-[44px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Values
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
+            <div className="mt-12 flex max-w-xl flex-col gap-14">
               {values.map((value) => (
                 <div key={value.title}>
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {value.title}
                   </h3>
-                  <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
                     {value.description}
                   </p>
                 </div>
@@ -233,10 +233,10 @@ export default function AboutPage() {
       <section id="faq" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               FAQ
             </p>
-            <div className="mx-auto mt-12 max-w-2xl">
+            <div className="mt-12 max-w-2xl">
               <FaqList items={faqs} />
             </div>
           </Container>

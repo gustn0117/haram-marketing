@@ -48,11 +48,11 @@ export default function ContactPage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <RingsMotif className="mx-auto mb-8 w-[68px] text-gold/55" />
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <RingsMotif className="mb-8 w-[68px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Contact
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12 text-center">
+            <div className="mt-12 flex max-w-xl flex-col gap-12">
               {channels.map((ch) => (
                 <div key={ch.label}>
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
@@ -89,12 +89,12 @@ export default function ContactPage() {
       {/* ── 응답 — 회신율 단일 시각자료 (절제, 중앙 1개) ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
-          <Reveal className="text-center">
-            <AisleMotif className="mx-auto mb-8 w-[120px] text-gold/55" />
+          <Reveal>
+            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Response
             </p>
-            <h2 className="mx-auto mt-8 max-w-xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
               남겨주신 문의, 빠르게 회신드립니다.
             </h2>
           </Reveal>
@@ -117,20 +117,20 @@ export default function ContactPage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               How it works
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
+            <div className="mt-12 flex max-w-xl flex-col gap-12">
               {contactFlow.map((step) => (
-                <div key={step.no} className="text-center">
+                <div key={step.no}>
                   <span className="folio text-xs tracking-[0.24em] text-gold">
                     {step.no}
                   </span>
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
                     {step.description}
                   </p>
                 </div>

@@ -76,7 +76,7 @@ export function SpineRail() {
           })}
           <Link
             href="/contact"
-            className="link-underline text-sm text-gold"
+            className="rounded-full border border-line-strong px-5 py-2 text-[0.82rem] tracking-tight text-paper transition-colors duration-500 hover:border-gold hover:text-gold"
           >
             무료 진단
           </Link>

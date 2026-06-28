@@ -37,14 +37,14 @@ export default function ServicesPage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
         <Container size="default">
-          <RingsMotif className="mx-auto mb-8 w-[68px] text-gold/55" />
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <RingsMotif className="mb-8 w-[68px] text-gold/55" />
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Our Methods
           </p>
-          <h2 className="mx-auto mt-8 max-w-2xl text-center text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+          <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
             상품 목록이 아니라, 우리가 쓰는 방법입니다.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-center text-sm font-light leading-[1.9] text-muted">
+          <p className="mt-6 max-w-xl text-sm font-light leading-[1.9] text-muted">
             아래는 정해진 패키지가 아닙니다. 예식장마다 무엇이 부족하고 무엇이
             강점인지 다르기에, 우리는 이 방법들 중 그 예식장에 필요한 것만 골라
             다르게 설계합니다. 방법은 분명하고, 조합은 예식장마다 달라집니다.
@@ -58,20 +58,20 @@ export default function ServicesPage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
         <Container size="narrow">
-          <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Approach
           </p>
-          <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
+          <div className="mt-12 flex max-w-xl flex-col gap-12">
             {processSteps.map((step) => (
-              <div key={step.no} className="text-center">
+              <div key={step.no} className="text-left">
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
                   {step.no}
                 </span>
                 <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {step.title}
                 </h3>
-                <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                <p className="mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
                   {step.description}
                 </p>
               </div>
@@ -88,12 +88,12 @@ export default function ServicesPage() {
       {/* ── 성과(데이터 시각화) — 서비스 전후 비교 ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
-          <Reveal className="text-center">
-            <AisleMotif className="mx-auto mb-8 w-[120px] text-gold/55" />
+          <Reveal>
+            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
               마케팅 전후, 숫자가 달라집니다.
             </h2>
           </Reveal>
@@ -121,7 +121,7 @@ export default function ServicesPage() {
             </Reveal>
           </div>
 
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>

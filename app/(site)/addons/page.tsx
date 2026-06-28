@@ -32,20 +32,20 @@ export default function AddonsPage() {
         <Container size="narrow">
           <SprigMotif
             variant="load"
-            className="mx-auto mb-8 w-[44px] text-gold/55"
+            className="mb-8 w-[44px] text-gold/55"
           />
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How We Support
           </p>
-          <h2 className="mx-auto mt-8 max-w-2xl text-center text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+          <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
             마케팅을 떠받치는, 필요한 만큼의 지원.
           </h2>
-          <ul className="mx-auto mt-12 max-w-2xl">
+          <ul className="mt-12 max-w-2xl">
             {addons.map((a) => (
               <li key={a.id} className="border-t border-line last:border-b">
                 <Link
                   href={`/addons/${a.id}`}
-                  className="group block py-9 text-center transition-colors"
+                  className="group block py-9 transition-colors"
                 >
                   <span className="text-2xl font-light tracking-tight text-paper transition-colors duration-500 group-hover:text-gold md:text-[1.9rem]">
                     {a.name}
@@ -67,12 +67,12 @@ export default function AddonsPage() {
       {/* ── 지원서비스 효과(데이터 시각화) ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
-          <Reveal className="text-center">
-            <RingsMotif className="mx-auto mb-8 w-[68px] text-gold/55" />
+          <Reveal>
+            <RingsMotif className="mb-8 w-[68px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
               지원서비스는 운영을 가볍게, 전환을 무겁게.
             </h2>
           </Reveal>

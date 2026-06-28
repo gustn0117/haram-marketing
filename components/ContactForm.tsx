@@ -149,7 +149,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="group mt-1 inline-flex items-center justify-center gap-3 rounded-sm bg-gold px-8 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright disabled:opacity-60"
+        className="group mt-1 inline-flex w-full items-center justify-center gap-3 rounded-full bg-gold px-9 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright disabled:opacity-60"
       >
         {submitting ? "보내는 중…" : "문의 보내기"}
         <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />

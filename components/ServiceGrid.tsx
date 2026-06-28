@@ -6,12 +6,12 @@ import { ServiceIcon } from "@/components/ServiceIcons";
 // 셀 사이 1px 헤어라인(gap-px + bg-line-strong), 외곽 프레임. 호버 시 골드(=본) 강조.
 export function ServiceGrid() {
   return (
-    <div className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-14 sm:gap-x-12 lg:max-w-4xl lg:grid-cols-3">
+    <div className="mt-14 grid max-w-4xl grid-cols-2 gap-x-8 gap-y-14 sm:gap-x-12 lg:grid-cols-3">
       {services.map((s) => (
         <Link
           key={s.id}
           href={`/services/${s.id}`}
-          className="svc-cell group flex flex-col items-center gap-4 py-2 text-center transition-colors duration-500"
+          className="svc-cell group flex flex-col items-start gap-4 py-2 text-left transition-colors duration-500"
         >
           <ServiceIcon
             id={s.id}

@@ -91,7 +91,7 @@ export default function HomePage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="default">
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Methods
             </p>
             <ServiceGrid />
@@ -103,7 +103,7 @@ export default function HomePage() {
       <section className="bg-ink-2 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="wide">
-            <div className="grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-x-8 gap-y-12 text-left sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
@@ -127,17 +127,17 @@ export default function HomePage() {
       {/* ── 성과(데이터 시각화) ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
-          <Reveal className="text-center">
-            <AisleMotif className="mx-auto mb-8 w-[120px] text-gold/55" />
+          <Reveal>
+            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.35] tracking-[-0.015em] text-paper">
               노출이 아니라, 숫자로 증명합니다.
             </h2>
           </Reveal>
 
-          <Reveal className="mx-auto mt-12 max-w-3xl">
+          <Reveal className="mt-12 max-w-3xl">
             <GrowthChart />
           </Reveal>
 
@@ -150,35 +150,40 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>
       </section>
 
-      {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
+      {/* ── 접근 방식 — 4단계, 좌측 정렬 ── */}
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
-            <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Approach
             </p>
-            <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
+            <ol className="mt-12 flex flex-col">
               {processSteps.map((step) => (
-                <div key={step.no} className="text-center">
-                  <span className="folio text-xs tracking-[0.24em] text-gold">
+                <li
+                  key={step.no}
+                  className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-line py-8 last:border-b"
+                >
+                  <span className="folio pt-1 text-sm tracking-[0.1em] text-gold">
                     {step.no}
                   </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                    {step.title}
-                  </h3>
-                  <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
-                    {step.description}
-                  </p>
-                </div>
+                  <div>
+                    <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </Container>
         </Reveal>
       </section>

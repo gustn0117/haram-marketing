@@ -47,7 +47,7 @@ export function CTAButton({
 }) {
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
   const base =
-    "group inline-flex items-center gap-3 rounded-sm px-8 py-4 text-sm font-medium tracking-tight transition-all duration-500";
+    "group inline-flex items-center gap-3 rounded-full px-9 py-4 text-sm font-medium tracking-tight transition-all duration-500";
   const styles =
     variant === "solid"
       ? "bg-gold text-ink hover:bg-gold-bright"
@@ -132,18 +132,18 @@ export function CTASection({
   image?: string;
 }) {
   return (
-    <section className="px-6 py-14 md:py-20">
+    <section className="px-6 py-16 md:py-24">
       <Reveal>
-        <Container size="narrow" className="text-center">
-          <span className="hair-line mx-auto mb-14 block w-16" aria-hidden />
+        <Container size="default">
+          <span className="hair-line mb-12 block w-14" aria-hidden />
           <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             {eyebrow}
           </span>
-          <h2 className="mx-auto mt-10 max-w-2xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+          <h2 className="mt-8 max-w-3xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.22] tracking-[-0.025em] text-paper">
             {title}
           </h2>
           {description ? (
-            <p className="mx-auto mt-7 max-w-md text-sm font-light leading-[1.9] text-muted">
+            <p className="mt-7 max-w-xl text-sm font-light leading-[1.9] text-muted">
               {description}
             </p>
           ) : null}
