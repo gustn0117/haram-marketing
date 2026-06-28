@@ -87,14 +87,26 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 서비스 그리드 (band) ── */}
+      {/* ── 서비스 그리드 (band, 2단 라벨레일) ── */}
       <section className="band px-6 py-14 md:py-20">
         <Reveal>
           <Container size="default">
-            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Our Methods
-            </p>
-            <ServiceGrid />
+            <div className="lg:grid lg:grid-cols-[320px_1fr] lg:gap-16">
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <RingsMotif className="mb-8 w-[64px] text-gold/55" />
+                <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+                  Our Methods
+                </p>
+                <h2 className="mt-7 text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+                  상품이 아니라,
+                  <br />
+                  우리가 쓰는 방법.
+                </h2>
+              </div>
+              <div className="mt-10 lg:mt-0">
+                <ServiceGrid />
+              </div>
+            </div>
           </Container>
         </Reveal>
       </section>
@@ -124,64 +136,77 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 성과(데이터 시각화) (band) ── */}
+      {/* ── 성과(데이터 시각화) (band, 2단 라벨레일) ── */}
       <section className="band px-6 py-14 md:py-20">
         <Container size="wide">
-          <Reveal>
-            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
-            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Proof
-            </p>
-            <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-              노출이 아니라, 숫자로 증명합니다.
-            </h2>
-          </Reveal>
+          <div className="lg:grid lg:grid-cols-[320px_1fr] lg:gap-16">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+              <AisleMotif className="mb-8 w-[120px] text-gold/55" />
+              <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+                Proof
+              </p>
+              <h2 className="mt-8 text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+                노출이 아니라,
+                <br />
+                숫자로 증명합니다.
+              </h2>
+            </Reveal>
 
-          <Reveal className="mt-12 max-w-3xl">
-            <GrowthChart />
-          </Reveal>
-
-          <Reveal className="mt-10">
-            <div className="stagger grid gap-14 md:grid-cols-2 md:gap-20">
-              <Funnel />
-              <ChannelBars />
+            <div className="mt-12 lg:mt-0">
+              <Reveal>
+                <GrowthChart />
+              </Reveal>
+              <Reveal className="mt-12">
+                <div className="stagger grid gap-12 md:grid-cols-2 md:gap-10">
+                  <Funnel />
+                  <ChannelBars />
+                </div>
+              </Reveal>
+              <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+                예시 데이터 · 실제 성과는 예식장별로 상이합니다
+              </p>
             </div>
-          </Reveal>
-
-          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
-            예시 데이터 · 실제 성과는 예식장별로 상이합니다
-          </p>
+          </div>
         </Container>
       </section>
 
-      {/* ── 접근 방식 — 4단계, 좌측 정렬 ── */}
+      {/* ── 접근 방식 — 4단계, 2단 라벨레일 ── */}
       <section className="px-6 py-10 md:py-14">
         <Reveal>
-          <Container size="narrow">
-            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
-            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Approach
-            </p>
-            <ol className="mt-12 flex flex-col">
-              {processSteps.map((step) => (
-                <li
-                  key={step.no}
-                  className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-line py-8 last:border-b"
-                >
-                  <span className="folio pt-1 text-sm tracking-[0.1em] text-gold">
-                    {step.no}
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                      {step.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          <Container size="default">
+            <div className="lg:grid lg:grid-cols-[320px_1fr] lg:gap-16">
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+                <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+                  Approach
+                </p>
+                <h2 className="mt-7 text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+                  검색부터 예약까지,
+                  <br />
+                  한 흐름으로.
+                </h2>
+              </div>
+              <ol className="mt-10 flex flex-col lg:mt-0">
+                {processSteps.map((step) => (
+                  <li
+                    key={step.no}
+                    className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-line py-8 first:pt-0 first:lg:pt-0 last:border-b"
+                  >
+                    <span className="folio pt-1 text-sm tracking-[0.1em] text-gold">
+                      {step.no}
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                        {step.title}
+                      </h3>
+                      <p className="mt-3 text-[1rem] font-light leading-[1.75] text-muted">
+                        {step.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </Container>
         </Reveal>
       </section>
