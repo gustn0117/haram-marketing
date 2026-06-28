@@ -16,6 +16,7 @@ import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { CompareBars } from "@/components/charts";
+import { AisleMotif, ArcDivider } from "@/components/Motifs";
 
 type Params = { slug: string };
 
@@ -110,6 +111,9 @@ function ServiceBody({ service }: { service: Service }) {
       {/* ── OVERVIEW — 중앙 2문단 ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="narrow" className="text-center">
+          <Reveal>
+            <AisleMotif className="mx-auto mb-8 block w-[110px] text-gold/55" />
+          </Reveal>
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Overview
           </p>
@@ -138,7 +142,7 @@ function ServiceBody({ service }: { service: Service }) {
                 key={item}
                 className="border-t border-line py-7 text-center last:border-b"
               >
-                <span className="text-xl font-normal tracking-tight text-paper md:text-2xl">
+                <span className="text-xl font-light tracking-tight text-paper md:text-2xl">
                   {item}
                 </span>
               </li>
@@ -197,7 +201,7 @@ function ServiceBody({ service }: { service: Service }) {
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
                   {step.no}
                 </span>
-                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
+                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {step.title}
                 </h3>
                 <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -235,6 +239,10 @@ function ServiceBody({ service }: { service: Service }) {
           </p>
         </Container>
       </section>
+
+      <Reveal className="px-6">
+        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
+      </Reveal>
 
       {/* ── FAQ — 중앙 미니멀 ── */}
       <section className="px-6 py-10 md:py-14">

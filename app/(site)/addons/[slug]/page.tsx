@@ -7,6 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { DonutChart } from "@/components/charts";
+import { RingsMotif, ArcDivider } from "@/components/Motifs";
 
 type Params = { slug: string };
 
@@ -93,6 +94,9 @@ export default async function AddonDetailPage({
       {/* ── Scope — 중앙 정렬 리스트 ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
+          <Reveal>
+            <RingsMotif className="mx-auto mb-8 block w-[68px] text-gold/55" />
+          </Reveal>
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
           </p>
@@ -105,7 +109,7 @@ export default async function AddonDetailPage({
                 key={s}
                 className="border-t border-line py-7 text-center last:border-b"
               >
-                <span className="text-xl font-normal tracking-tight text-paper md:text-2xl">
+                <span className="text-xl font-light tracking-tight text-paper md:text-2xl">
                   {s}
                 </span>
               </li>
@@ -161,6 +165,10 @@ export default async function AddonDetailPage({
           </p>
         </Container>
       </section>
+
+      <Reveal className="px-6">
+        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
+      </Reveal>
 
       {/* ── FAQ — 중앙 ── */}
       <section className="px-6 py-10 md:py-14">

@@ -5,7 +5,14 @@ import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { GrowthChart, Funnel, ChannelBars } from "@/components/charts";
-import { ArchMotif, RingsMotif, ArcDivider } from "@/components/Motifs";
+import {
+  ArchMotif,
+  RingsMotif,
+  AisleMotif,
+  ChandelierMotif,
+  SprigMotif,
+  ArcDivider,
+} from "@/components/Motifs";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/home" },
@@ -30,7 +37,7 @@ export default function HomePage() {
           Wedding Hall Marketing
         </span>
         <h1
-          className="rise foil relative z-2 mt-10 whitespace-nowrap text-[clamp(1.65rem,7vw,4.8rem)] font-medium leading-none tracking-[0.1em]"
+          className="rise foil relative z-2 mt-10 whitespace-nowrap text-[clamp(1.7rem,7vw,4.8rem)] font-light leading-none tracking-[0.2em]"
           style={{
             animationDelay: "200ms",
             filter: "drop-shadow(0 2px 30px rgba(0,0,0,0.5))",
@@ -114,7 +121,7 @@ export default function HomePage() {
             <div className="grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="num text-5xl font-normal tracking-[-0.02em] text-paper md:text-6xl">
+                  <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
                     <CountUp value={m.value} />
                     {m.suffix ? (
                       <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
@@ -136,6 +143,7 @@ export default function HomePage() {
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
+            <AisleMotif className="mx-auto mb-8 w-[120px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
@@ -167,6 +175,7 @@ export default function HomePage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
+            <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Approach
             </p>
@@ -176,7 +185,7 @@ export default function HomePage() {
                   <span className="folio text-xs tracking-[0.24em] text-gold">
                     {step.no}
                   </span>
-                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
                   <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -199,7 +208,7 @@ export default function HomePage() {
         <span className="closing-photo-bg" aria-hidden />
         <Reveal>
           <Container size="narrow" className="relative z-2 text-center">
-            <span className="hair-line mx-auto mb-14 block w-16" aria-hidden />
+            <SprigMotif className="mx-auto mb-10 w-[44px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Start with diagnosis
             </p>

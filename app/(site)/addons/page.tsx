@@ -5,6 +5,7 @@ import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { DonutChart } from "@/components/charts";
+import { SprigMotif, RingsMotif, ArcDivider } from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "지원서비스",
@@ -29,6 +30,10 @@ export default function AddonsPage() {
 
       <section className="px-6 py-10 md:py-14">
         <Container size="narrow">
+          <SprigMotif
+            variant="load"
+            className="mx-auto mb-8 w-[44px] text-gold/55"
+          />
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How We Support
           </p>
@@ -55,10 +60,15 @@ export default function AddonsPage() {
         </Container>
       </section>
 
+      <Reveal className="px-6">
+        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
+      </Reveal>
+
       {/* ── 지원서비스 효과(데이터 시각화) ── */}
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
+            <RingsMotif className="mx-auto mb-8 w-[68px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>

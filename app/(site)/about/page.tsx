@@ -16,6 +16,13 @@ import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { GrowthChart, ChannelBars } from "@/components/charts";
+import {
+  RingsMotif,
+  ChandelierMotif,
+  SprigMotif,
+  MonogramSeal,
+  ArcDivider,
+} from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -42,6 +49,7 @@ export default function AboutPage() {
       <section className="px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow" className="text-center">
+            <RingsMotif className="mx-auto mb-10 w-[72px] text-gold/60" />
             <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
               우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
               신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
@@ -65,7 +73,7 @@ export default function AboutPage() {
             <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
               {aboutStory.map((s) => (
                 <div key={s.heading}>
-                  <h3 className="text-xl font-normal tracking-tight text-paper md:text-2xl">
+                  <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {s.heading}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -85,6 +93,7 @@ export default function AboutPage() {
       <section id="equipment" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
+            <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Channels
             </p>
@@ -94,7 +103,7 @@ export default function AboutPage() {
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                     {item.tagline}
                   </span>
-                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {item.name}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -111,7 +120,7 @@ export default function AboutPage() {
             <div className="mt-12 grid gap-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="num text-5xl font-normal tracking-[-0.02em] text-paper md:text-6xl">
+                  <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
                     <CountUp value={m.value} />
                     {m.suffix ? (
                       <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
@@ -158,6 +167,7 @@ export default function AboutPage() {
       <section id="team" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
+            <MonogramSeal className="mx-auto mb-8 w-12 text-gold/55" />
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Team
             </p>
@@ -166,7 +176,7 @@ export default function AboutPage() {
                 <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                   CEO
                 </span>
-                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
+                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {company.ceo}
                 </h3>
                 <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -178,7 +188,7 @@ export default function AboutPage() {
                   <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
                     {dept.tagline}
                   </span>
-                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {dept.name}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -195,13 +205,14 @@ export default function AboutPage() {
       <section id="values" className="scroll-mt-12 px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
+            <SprigMotif className="mx-auto mb-8 w-[44px] text-gold/55" />
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Values
             </p>
             <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
               {values.map((value) => (
                 <div key={value.title}>
-                  <h3 className="text-xl font-normal tracking-tight text-paper md:text-2xl">
+                  <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {value.title}
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -213,6 +224,10 @@ export default function AboutPage() {
           </Container>
         </Reveal>
       </section>
+
+      <Reveal className="px-6">
+        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
+      </Reveal>
 
       {/* ── FAQ ── */}
       <section id="faq" className="scroll-mt-12 px-6 py-10 md:py-14">

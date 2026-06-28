@@ -14,7 +14,7 @@ export function Strengths({ id }: { id?: string }) {
         <div className="mx-auto mt-12 flex max-w-xl flex-col gap-14 text-center">
           {strengths.map((s) => (
             <div key={s.id}>
-              <h3 className="text-xl font-normal tracking-tight text-paper md:text-2xl">
+              <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                 {s.title}
               </h3>
               <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">

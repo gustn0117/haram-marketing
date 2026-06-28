@@ -6,6 +6,12 @@ import { ContactForm } from "@/components/ContactForm";
 import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { DonutChart } from "@/components/charts";
+import {
+  RingsMotif,
+  AisleMotif,
+  ChandelierMotif,
+  ArcDivider,
+} from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "문의",
@@ -42,6 +48,7 @@ export default function ContactPage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
+            <RingsMotif className="mx-auto mb-8 w-[68px] text-gold/55" />
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Contact
             </p>
@@ -83,6 +90,7 @@ export default function ContactPage() {
       <section className="px-6 py-10 md:py-14">
         <Container size="wide">
           <Reveal className="text-center">
+            <AisleMotif className="mx-auto mb-8 w-[120px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Response
             </p>
@@ -109,6 +117,7 @@ export default function ContactPage() {
       <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="narrow">
+            <ChandelierMotif className="mx-auto mb-8 w-[60px] text-gold/55" />
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               How it works
             </p>
@@ -118,7 +127,7 @@ export default function ContactPage() {
                   <span className="folio text-xs tracking-[0.24em] text-gold">
                     {step.no}
                   </span>
-                  <h3 className="mt-4 text-xl font-normal tracking-tight text-paper md:text-2xl">
+                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
                   <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
@@ -130,6 +139,10 @@ export default function ContactPage() {
           </Container>
         </Reveal>
       </section>
+
+      <Reveal className="px-6">
+        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
+      </Reveal>
 
       {/* ── FAQ ── */}
       <section className="px-6 py-10 md:py-14">
