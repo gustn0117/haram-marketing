@@ -16,7 +16,7 @@ export function PageHero({
 }) {
   return (
     <section
-      className="page-hero relative isolate flex min-h-[60svh] flex-col justify-center overflow-hidden px-6 pb-16 pt-28 md:min-h-[66svh]"
+      className="page-hero relative isolate flex min-h-[60svh] flex-col items-center justify-center overflow-hidden px-6 pb-16 pt-28 text-center md:min-h-[66svh]"
     >
       {backgroundImage ? (
         <>
@@ -33,32 +33,30 @@ export function PageHero({
         </>
       ) : null}
       <span className="page-hero-glow" aria-hidden />
-      <div className="relative z-10 mx-auto w-full max-w-[1200px]">
-        <MonogramSeal
-          variant="load"
-          className="rise mb-7 w-12 text-paper/45"
-        />
-        <span
-          className="rise block text-[0.72rem] uppercase tracking-[0.36em] text-gold"
-          style={{ animationDelay: "60ms" }}
+      <MonogramSeal
+        variant="load"
+        className="rise relative z-10 mb-7 w-12 text-paper/45"
+      />
+      <span
+        className="rise relative z-10 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
+        style={{ animationDelay: "60ms" }}
+      >
+        {eyebrow}
+      </span>
+      <h1
+        className="rise relative z-10 mt-7 max-w-3xl text-[clamp(2.2rem,5.6vw,4.6rem)] font-light leading-[1.05] tracking-[-0.03em] text-paper"
+        style={{ animationDelay: "160ms" }}
+      >
+        {title}
+      </h1>
+      {description ? (
+        <p
+          className="rise relative z-10 mt-7 max-w-xl text-base font-light leading-[1.85] text-muted"
+          style={{ animationDelay: "260ms" }}
         >
-          {eyebrow}
-        </span>
-        <h1
-          className="rise mt-7 max-w-3xl text-[clamp(2.2rem,5.6vw,4.6rem)] font-light leading-[1.05] tracking-[-0.03em] text-paper"
-          style={{ animationDelay: "160ms" }}
-        >
-          {title}
-        </h1>
-        {description ? (
-          <p
-            className="rise mt-7 max-w-xl text-base font-light leading-[1.85] text-muted"
-            style={{ animationDelay: "260ms" }}
-          >
-            {description}
-          </p>
-        ) : null}
-      </div>
+          {description}
+        </p>
+      ) : null}
     </section>
   );
 }
