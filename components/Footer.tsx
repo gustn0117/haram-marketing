@@ -20,7 +20,7 @@ export function Footer() {
         <p className="mt-2 text-[0.66rem] uppercase tracking-[0.28em] text-faint">
           Wedding Hall Marketing
         </p>
-        <p className="mt-6 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+        <p className="mt-6 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
           {company.tagline}
         </p>
 

@@ -82,7 +82,7 @@ export default async function AddonDetailPage({
             {addon.overview.map((p, i) => (
               <p
                 key={i}
-                className="text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted md:text-base"
+                className="text-[1rem] font-light leading-[1.75] text-muted md:text-base"
               >
                 {p}
               </p>

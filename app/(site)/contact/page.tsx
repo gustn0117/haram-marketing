@@ -130,7 +130,7 @@ export default function ContactPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="mt-3 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                  <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                     {step.description}
                   </p>
                 </div>

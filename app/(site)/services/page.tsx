@@ -44,7 +44,7 @@ export default function ServicesPage() {
           <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
             상품 목록이 아니라, 우리가 쓰는 방법입니다.
           </h2>
-          <p className="mt-6 max-w-xl text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+          <p className="mt-6 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
             아래는 정해진 패키지가 아닙니다. 예식장마다 무엇이 부족하고 무엇이
             강점인지 다르기에, 우리는 이 방법들 중 그 예식장에 필요한 것만 골라
             다르게 설계합니다. 방법은 분명하고, 조합은 예식장마다 달라집니다.
@@ -71,7 +71,7 @@ export default function ServicesPage() {
                 <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {step.title}
                 </h3>
-                <p className="mt-3 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                   {step.description}
                 </p>
               </div>

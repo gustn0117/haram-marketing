@@ -61,7 +61,7 @@ export function GrowthChart({
             key={i}
             cx={p[0]}
             cy={p[1]}
-            r="3.5"
+            r="4.5"
             fill="var(--color-ink)"
             stroke="var(--color-gold)"
             strokeWidth="1.5"
@@ -70,7 +70,7 @@ export function GrowthChart({
           />
         ))}
         {labels.map((l, i) => (
-          <text key={l + i} x={x(i)} y={baseY + 22} textAnchor="middle" className="fill-faint" style={{ fontSize: 11, letterSpacing: "0.1em" }}>
+          <text key={l + i} x={x(i)} y={baseY + 26} textAnchor="middle" className="fill-faint" style={{ fontSize: 14, letterSpacing: "0.08em" }}>
             {l}
           </text>
         ))}

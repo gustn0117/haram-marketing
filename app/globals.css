@@ -4,7 +4,7 @@
 @theme {
   /* ── MOOD — 따뜻한 토프-브라운 올다크 + 샌드골드 (산세리프) ── */
   --color-ink: #16161a; /* 쿨 차콜 — 톤다운(채도 제거), 따뜻한 갈색 폐기 */
-  --color-ink-2: #1d1d22; /* 교차 섹션 — 살짝 들린 면 */
+  --color-ink-2: #121217; /* 교차 섹션 — 가라앉은 '읽는 면'(명도 단차 확대) */
   --color-surface: #232228; /* 카드 */
   --color-surface-2: #2c2b32; /* 한 단계 밝은 표면 */
   --color-line: rgba(236, 236, 234, 0.085); /* 쿨 화이트 헤어라인 */
@@ -847,6 +847,69 @@ body::after {
 }
 @media (prefers-reduced-motion: reduce) {
   .svc-cell::after {
+    transition: none;
+  }
+}
+
+/* ── 면 위계(band) — 교차 섹션을 두께 있는 도판처럼: 상단 광 + 하단 그림자 ── */
+.band {
+  background-color: var(--color-ink-2);
+  position: relative;
+  isolation: isolate;
+}
+.band::before,
+.band::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 88px;
+  pointer-events: none;
+  z-index: -1;
+}
+.band::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(236, 236, 234, 0.03), transparent);
+}
+.band::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent);
+}
+
+/* ── 자식 순차 등장(stagger) — 부모 .reveal 진입 시 직계 자식이 차례로 ── */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.8s var(--ease-out-soft),
+    transform 0.8s var(--ease-out-soft);
+}
+.reveal.is-visible .stagger > * {
+  opacity: 1;
+  transform: none;
+}
+.reveal.is-visible .stagger > *:nth-child(1) {
+  transition-delay: 40ms;
+}
+.reveal.is-visible .stagger > *:nth-child(2) {
+  transition-delay: 120ms;
+}
+.reveal.is-visible .stagger > *:nth-child(3) {
+  transition-delay: 200ms;
+}
+.reveal.is-visible .stagger > *:nth-child(4) {
+  transition-delay: 280ms;
+}
+.reveal.is-visible .stagger > *:nth-child(5) {
+  transition-delay: 360ms;
+}
+.reveal.is-visible .stagger > *:nth-child(6) {
+  transition-delay: 440ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .stagger > * {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }

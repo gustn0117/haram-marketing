@@ -19,7 +19,7 @@ export function Container({
         ? "max-w-[1320px]"
         : "max-w-[1200px]";
   return (
-    <div className={`mx-auto w-full ${max} px-6 sm:px-8 ${className}`}>
+    <div className={`mx-auto w-full ${max} px-5 sm:px-8 ${className}`}>
       {children}
     </div>
   );
@@ -143,7 +143,7 @@ export function CTASection({
             {title}
           </h2>
           {description ? (
-            <p className="mx-auto mt-7 max-w-xl text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+            <p className="mx-auto mt-7 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
               {description}
             </p>
           ) : null}

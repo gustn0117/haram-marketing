@@ -76,7 +76,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {s.heading}
                   </h3>
-                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                     {s.body}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {item.name}
                   </h3>
-                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                     {item.description}
                   </p>
                 </div>
@@ -120,10 +120,10 @@ export default function AboutPage() {
             <div className="mt-12 grid gap-16 text-left sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
+                  <p className="num text-5xl font-light leading-none tracking-[-0.02em] text-paper md:text-6xl">
                     <CountUp value={m.value} />
                     {m.suffix ? (
-                      <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
+                      <span className="ml-0.5 align-baseline text-xl tracking-normal text-gold">
                         {m.suffix}
                       </span>
                     ) : null}
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {company.ceo}
                 </h3>
-                <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                   대표이사
                 </p>
               </div>
@@ -191,7 +191,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {dept.name}
                   </h3>
-                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                     {dept.duties.join(", ")}
                   </p>
                 </div>
@@ -215,7 +215,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {value.title}
                   </h3>
-                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                     {value.description}
                   </p>
                 </div>

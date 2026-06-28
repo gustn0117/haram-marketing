@@ -73,11 +73,11 @@ export default function HomePage() {
             <RingsMotif className="mx-auto mb-10 w-[72px] text-gold/70" />
             <p className="mx-auto max-w-[1000px] text-[clamp(1.35rem,3vw,1.9rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90 break-keep">
               하람마케팅에는 <span className="text-gold">정해진 상품이 없습니다.</span>
-              <br />
+              <br className="hidden md:block" />
               예식장마다 위치도, 강점도, 채워야 할 자리도 다르기 때문입니다.
-              <br />
+              <br className="hidden md:block" />
               우리는 그 예식장에 맞게 설계합니다.
-              <br />
+              <br className="hidden md:block" />
               다만, 우리가 쓰는 방법은 분명합니다.
             </p>
             <p className="mt-8 text-sm font-light tracking-[0.14em] text-muted sm:text-base">
@@ -87,8 +87,8 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-10 md:py-14">
+      {/* ── 서비스 그리드 (band) ── */}
+      <section className="band px-6 py-14 md:py-20">
         <Reveal>
           <Container size="default">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -99,17 +99,17 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 지표 — 절제된 중앙 숫자 (들린 면) ── */}
-      <section className="bg-ink-2 px-6 py-10 md:py-14">
+      {/* ── 지표 — 절제된 중앙 숫자 ── */}
+      <section className="px-6 py-10 md:py-14">
         <Reveal>
           <Container size="wide">
-            <div className="grid gap-x-8 gap-y-12 text-left sm:grid-cols-2 lg:grid-cols-4">
+            <div className="stagger grid gap-x-8 gap-y-12 text-left sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="num text-5xl font-light tracking-[-0.02em] text-paper md:text-6xl">
+                  <p className="num text-5xl font-light leading-none tracking-[-0.02em] text-paper md:text-6xl">
                     <CountUp value={m.value} />
                     {m.suffix ? (
-                      <span className="ml-0.5 align-baseline text-2xl tracking-normal text-gold">
+                      <span className="ml-0.5 align-baseline text-xl tracking-normal text-gold">
                         {m.suffix}
                       </span>
                     ) : null}
@@ -124,8 +124,8 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 성과(데이터 시각화) ── */}
-      <section className="px-6 py-10 md:py-14">
+      {/* ── 성과(데이터 시각화) (band) ── */}
+      <section className="band px-6 py-14 md:py-20">
         <Container size="wide">
           <Reveal>
             <AisleMotif className="mb-8 w-[120px] text-gold/55" />
@@ -141,14 +141,12 @@ export default function HomePage() {
             <GrowthChart />
           </Reveal>
 
-          <div className="mt-10 grid gap-14 md:grid-cols-2 md:gap-20">
-            <Reveal>
+          <Reveal className="mt-10">
+            <div className="stagger grid gap-14 md:grid-cols-2 md:gap-20">
               <Funnel />
-            </Reveal>
-            <Reveal>
               <ChannelBars />
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
 
           <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
@@ -177,7 +175,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                       {step.title}
                     </h3>
-                    <p className="mt-3 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
+                    <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
                       {step.description}
                     </p>
                   </div>
