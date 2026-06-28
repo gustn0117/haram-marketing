@@ -5,7 +5,6 @@ import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { DonutChart } from "@/components/charts";
-import { SprigMotif, RingsMotif, ArcDivider } from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "지원서비스",
@@ -28,57 +27,61 @@ export default function AddonsPage() {
         backgroundImage={pageHeroImages.addons}
       />
 
-      <section className="px-6 py-14 md:py-20">
-        <Container size="narrow">
-          <SprigMotif
-            variant="load"
-            className="mb-8 w-[44px] text-gold/55"
-          />
-          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            How We Support
-          </p>
-          <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-            마케팅을 떠받치는, 필요한 만큼의 지원.
-          </h2>
-          <ul className="mt-12 max-w-2xl">
+      {/* ── 지원 서비스 목록 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              How We Support
+            </p>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              마케팅을 떠받치는, 필요한 만큼의 지원.
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+              모든 예식장에 똑같이 권하지 않습니다. 지금 그 예식장에 필요한
+              만큼만, 마케팅 설계 안에서 함께 준비합니다.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
             {addons.map((a) => (
-              <li key={a.id} className="border-t border-line last:border-b">
-                <Link
-                  href={`/addons/${a.id}`}
-                  className="group block py-9 transition-colors"
-                >
-                  <span className="text-2xl font-light tracking-tight text-paper transition-colors duration-500 group-hover:text-gold md:text-[1.9rem]">
-                    {a.name}
-                  </span>
-                  <span className="mt-2 block text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                    {a.tagline}
-                  </span>
-                </Link>
-              </li>
+              <Link
+                key={a.id}
+                href={`/addons/${a.id}`}
+                className="card group flex flex-col p-8"
+              >
+                <h3 className="text-xl font-normal tracking-tight text-paper">
+                  {a.name}
+                </h3>
+                <p className="mt-1.5 text-[0.64rem] uppercase tracking-[0.2em] text-faint">
+                  {a.tagline}
+                </p>
+                <p className="mt-4 flex-1 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {a.description}
+                </p>
+                <span className="mt-7 inline-flex items-center gap-1.5 text-sm text-gold transition-all duration-300 group-hover:gap-2.5">
+                  자세히 보기 <span aria-hidden>→</span>
+                </span>
+              </Link>
             ))}
-          </ul>
+          </div>
         </Container>
       </section>
 
-      <Reveal className="px-6">
-        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
-      </Reveal>
-
       {/* ── 지원서비스 효과(데이터 시각화) ── */}
-      <section className="band px-6 py-14 md:py-20">
+      <section className="px-6 py-20 md:py-28">
         <Container size="wide">
-          <Reveal>
-            <RingsMotif className="mb-8 w-[68px] text-gold/55" />
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
               지원서비스는 운영을 가볍게, 전환을 무겁게.
             </h2>
           </Reveal>
 
           <Reveal>
-            <div className="stagger mt-10 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
+            <div className="mx-auto mt-14 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
               <DonutChart
                 value={92}
                 label="홈페이지 상담 전환"
@@ -97,7 +100,7 @@ export default function AddonsPage() {
             </div>
           </Reveal>
 
-          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>

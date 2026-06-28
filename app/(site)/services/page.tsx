@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { processSteps, pageHeroImages } from "@/lib/content";
-import { ServiceGrid } from "@/components/ServiceGrid";
+import Link from "next/link";
+import { services, processSteps, pageHeroImages } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { ServiceIcon } from "@/components/ServiceIcons";
 import { CompareBars, ChannelBars } from "@/components/charts";
-import {
-  RingsMotif,
-  ChandelierMotif,
-  AisleMotif,
-  ArcDivider,
-} from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "서비스",
@@ -33,73 +28,104 @@ export default function ServicesPage() {
         backgroundImage={pageHeroImages.services}
       />
 
-      {/* ── 서비스 — 중앙 정렬 리스트 ── */}
-      <section className="band px-6 py-14 md:py-20">
-        <Reveal>
-        <Container size="default">
-          <RingsMotif className="mb-8 w-[68px] text-gold/55" />
-          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            Our Methods
-          </p>
-          <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-            상품 목록이 아니라, 우리가 쓰는 방법입니다.
-          </h2>
-          <p className="mt-6 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
-            아래는 정해진 패키지가 아닙니다. 예식장마다 무엇이 부족하고 무엇이
-            강점인지 다르기에, 우리는 이 방법들 중 그 예식장에 필요한 것만 골라
-            다르게 설계합니다. 방법은 분명하고, 조합은 예식장마다 달라집니다.
-          </p>
-          <ServiceGrid />
-        </Container>
-        </Reveal>
-      </section>
+      {/* ── 서비스 — 카드 3열 그리드 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Our Services
+            </p>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              검색부터 예약까지, 한 팀이 책임집니다
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+              정해진 상품이 아니라, 예식장에 필요한 방법만 골라 설계합니다.
+            </p>
+          </Reveal>
 
-      {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
-      <section className="px-6 py-14 md:py-20">
-        <Reveal>
-        <Container size="narrow">
-          <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
-          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-            Approach
-          </p>
-          <div className="stagger mt-12 flex max-w-xl flex-col gap-12">
-            {processSteps.map((step) => (
-              <div key={step.no} className="text-left">
-                <span className="text-sm font-light tracking-[0.2em] text-gold">
-                  {step.no}
-                </span>
-                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                  {step.title}
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <Link
+                key={s.id}
+                href={`/services/${s.id}`}
+                className="card group flex flex-col p-8"
+              >
+                <div className="flex items-center justify-between">
+                  <ServiceIcon
+                    id={s.id}
+                    variant="static"
+                    className="h-8 w-8 text-gold"
+                  />
+                  <span className="num text-sm text-faint">{s.no}</span>
+                </div>
+                <h3 className="mt-6 text-xl font-normal tracking-tight text-paper">
+                  {s.title}
                 </h3>
-                <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                  {step.description}
+                <p className="mt-1.5 text-[0.64rem] uppercase tracking-[0.2em] text-faint">
+                  {s.tagline}
                 </p>
-              </div>
+                <p className="mt-4 flex-1 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {s.description}
+                </p>
+                <span className="mt-7 inline-flex items-center gap-1.5 text-sm text-gold transition-all duration-300 group-hover:gap-2.5">
+                  자세히 보기 <span aria-hidden>→</span>
+                </span>
+              </Link>
             ))}
           </div>
         </Container>
-        </Reveal>
       </section>
 
-      <Reveal className="px-6">
-        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
-      </Reveal>
+      {/* ── 접근 방식 — 4단계 그리드 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Approach
+            </p>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              진단에서 리포트까지, 네 단계로 운영합니다
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+              한 번의 집행이 아니라, 매달 돌아가는 운영 사이클로 성과를 쌓습니다.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step) => (
+              <Reveal key={step.no}>
+                <span className="num text-sm font-light tracking-[0.2em] text-gold">
+                  {step.no}
+                </span>
+                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {step.description}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       {/* ── 성과(데이터 시각화) — 서비스 전후 비교 ── */}
-      <section className="band px-6 py-14 md:py-20">
+      <section className="px-6 py-20 md:py-28">
         <Container size="wide">
-          <Reveal>
-            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-              마케팅 전후, 숫자가 달라집니다.
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              마케팅 전후, 숫자가 달라집니다
             </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+              노출이 아니라 상담 문의와 채널별 기여도로 성과를 확인합니다.
+            </p>
           </Reveal>
 
           <Reveal>
-            <div className="stagger mt-10 grid gap-14 md:grid-cols-2 md:gap-20">
+            <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-20">
               <CompareBars
                 title="마케팅 전후 월 상담 문의"
                 before={{ label: "이전", w: 26, value: "31" }}
@@ -119,7 +145,7 @@ export default function ServicesPage() {
             </div>
           </Reveal>
 
-          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>

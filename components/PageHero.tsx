@@ -1,8 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { MonogramSeal } from "@/components/Motifs";
 
-// 하위페이지 진입 — 중앙 정렬 미니멀 히어로 (갤러리 톤)
+// 하위페이지 진입 — 중앙 정렬 코퍼레이트 히어로
 export function PageHero({
   eyebrow,
   title,
@@ -33,10 +32,6 @@ export function PageHero({
         </>
       ) : null}
       <span className="page-hero-glow" aria-hidden />
-      <MonogramSeal
-        variant="load"
-        className="rise relative z-10 mb-7 w-12 text-paper/45"
-      />
       <span
         className="rise relative z-10 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
         style={{ animationDelay: "60ms" }}
@@ -44,7 +39,7 @@ export function PageHero({
         {eyebrow}
       </span>
       <h1
-        className="rise relative z-10 mt-7 max-w-3xl text-[clamp(2.2rem,5.6vw,4.6rem)] font-light leading-[1.05] tracking-[-0.03em] text-paper"
+        className="rise relative z-10 mt-7 max-w-3xl text-[clamp(2rem,5vw,4rem)] font-light leading-[1.18] tracking-[-0.02em] text-paper"
         style={{ animationDelay: "160ms" }}
       >
         {title}

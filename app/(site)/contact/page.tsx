@@ -6,12 +6,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { DonutChart } from "@/components/charts";
-import {
-  RingsMotif,
-  AisleMotif,
-  ChandelierMotif,
-  ArcDivider,
-} from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "문의",
@@ -44,62 +38,73 @@ export default function ContactPage() {
         backgroundImage={pageHeroImages.contact}
       />
 
-      {/* ── 연락처 — 중앙 정렬 텍스트 ── */}
-      <section className="px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
-            <RingsMotif className="mb-8 w-[68px] text-gold/55" />
+      {/* ── 연락처 — 3열 카드 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Contact
             </p>
-            <div className="stagger mt-12 flex max-w-xl flex-col gap-12">
-              {channels.map((ch) => (
-                <div key={ch.label}>
-                  <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                    {ch.label}
-                  </span>
-                  {ch.href ? (
-                    <a
-                      href={ch.href}
-                      className="mt-4 block text-2xl font-light tracking-tight text-paper transition-colors duration-500 hover:text-gold md:text-[1.9rem]"
-                    >
-                      {ch.value}
-                    </a>
-                  ) : (
-                    <p className="mt-4 text-2xl font-light tracking-tight text-paper md:text-[1.9rem]">
-                      {ch.value}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              언제든 편하게 연락주세요.
+            </h2>
+          </Reveal>
+
+          <Reveal className="mt-16 grid gap-6 sm:grid-cols-3">
+            {channels.map((ch) => (
+              <div key={ch.label} className="card p-8 text-center">
+                <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                  {ch.label}
+                </span>
+                {ch.href ? (
+                  <a
+                    href={ch.href}
+                    className="mt-4 block text-xl font-light tracking-tight text-paper transition-colors duration-500 hover:text-gold md:text-2xl"
+                  >
+                    {ch.value}
+                  </a>
+                ) : (
+                  <p className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
+                    {ch.value}
+                  </p>
+                )}
+              </div>
+            ))}
+          </Reveal>
+        </Container>
       </section>
 
-      {/* ── 문의 폼 — 중앙 (즉시 표시, 모션 없음) ── */}
-      <section className="px-6 pb-14 md:pb-20">
+      {/* ── 문의 폼 — 중앙 ── */}
+      <section className="px-6 py-20 md:py-28">
         <Container size="narrow">
-          <div className="mx-auto max-w-xl">
+          <Reveal className="text-center">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Inquiry
+            </p>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              간단한 정보만 남겨주세요.
+            </h2>
+          </Reveal>
+
+          <div className="mx-auto mt-16 max-w-xl">
             <ContactForm />
           </div>
         </Container>
       </section>
 
-      {/* ── 응답 — 회신율 단일 시각자료 (절제, 중앙 1개) ── */}
-      <section className="band px-6 py-14 md:py-20">
+      {/* ── 응답 — 회신율 도넛 ── */}
+      <section className="px-6 py-20 md:py-28">
         <Container size="wide">
-          <Reveal>
-            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Response
             </p>
-            <h2 className="mt-8 max-w-xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
               남겨주신 문의, 빠르게 회신드립니다.
             </h2>
           </Reveal>
 
-          <Reveal className="mt-12 flex justify-center">
+          <Reveal className="mt-16 flex justify-center">
             <DonutChart
               value={98}
               label="1영업일 내 회신"
@@ -107,55 +112,58 @@ export default function ContactPage() {
             />
           </Reveal>
 
-          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 응대는 문의 시점에 따라 상이합니다
           </p>
         </Container>
       </section>
 
-      {/* ── 진행 절차 — 6단계, 중앙 미니멀 ── */}
-      <section className="px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
-            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+      {/* ── 진행 절차 — 중앙 헤더 + 4열 그리드 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               How it works
             </p>
-            <div className="stagger mt-12 flex max-w-xl flex-col gap-12">
-              {contactFlow.map((step) => (
-                <div key={step.no}>
-                  <span className="folio text-xs tracking-[0.24em] text-gold">
-                    {step.no}
-                  </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              문의부터 성과 리포트까지.
+            </h2>
+          </Reveal>
+
+          <Reveal className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            {contactFlow.map((step) => (
+              <div key={step.no}>
+                <span className="num text-3xl font-light leading-none tracking-[-0.02em] text-gold md:text-4xl">
+                  {step.no}
+                </span>
+                <h3 className="mt-5 text-xl font-light tracking-tight text-paper md:text-2xl">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-[1rem] font-light leading-[1.75] text-muted">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </Reveal>
+        </Container>
       </section>
 
-      <Reveal className="px-6">
-        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
-      </Reveal>
-
-      {/* ── FAQ ── */}
-      <section className="band px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
+      {/* ── FAQ — 중앙 헤더 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Container size="narrow">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               FAQ
             </p>
-            <div className="mt-12 max-w-2xl">
-              <FaqList items={faqs} />
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              자주 묻는 질문.
+            </h2>
+          </Reveal>
+
+          <div className="mx-auto mt-16 max-w-2xl">
+            <FaqList items={faqs} />
+          </div>
+        </Container>
       </section>
     </>
   );

@@ -16,13 +16,6 @@ import { FaqList } from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { GrowthChart, ChannelBars } from "@/components/charts";
-import {
-  RingsMotif,
-  ChandelierMotif,
-  SprigMotif,
-  MonogramSeal,
-  ArcDivider,
-} from "@/components/Motifs";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -45,12 +38,14 @@ export default function AboutPage() {
         backgroundImage={pageHeroImages.about}
       />
 
-      {/* ── 미션 선언문 — 좌측 ── */}
-      <section className="px-6 py-14 md:py-20">
-        <Reveal>
+      {/* ── 미션 선언문 ── */}
+      <section className="px-6 py-20 md:py-28">
+        <Reveal className="text-center">
           <Container size="narrow">
-            <RingsMotif className="mb-8 w-[64px] text-gold/60" />
-            <p className="max-w-3xl text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.5] tracking-[-0.015em] text-paper/90">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Our Mission
+            </p>
+            <p className="mx-auto mt-8 max-w-3xl text-[clamp(1.6rem,3.6vw,2.6rem)] font-light leading-[1.45] tracking-[-0.015em] text-paper/90">
               우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
               신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
               <span className="text-gold">예약</span>으로 이어지도록 보이지 않는
@@ -64,60 +59,68 @@ export default function AboutPage() {
       </section>
 
       {/* ── 운영 철학 ── */}
-      <section id="philosophy" className="scroll-mt-12 px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
+      <section id="philosophy" className="scroll-mt-12 px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Philosophy
             </p>
-            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
-              {aboutStory.map((s) => (
-                <div key={s.heading}>
-                  <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
-                    {s.heading}
-                  </h3>
-                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                    {s.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              마케팅을 대하는 우리의 기준
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {aboutStory.map((s) => (
+              <div key={s.heading} className="card flex flex-col p-8">
+                <h3 className="text-xl font-normal tracking-tight text-paper">
+                  {s.heading}
+                </h3>
+                <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
       </section>
 
       {/* ── 강점 ── */}
       <Strengths id="strengths" />
 
-      {/* ── 운영 채널 + 성과 지표 ── */}
-      <section id="equipment" className="band scroll-mt-12 px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
-            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+      {/* ── 운영 채널 ── */}
+      <section id="equipment" className="scroll-mt-12 px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Channels
             </p>
-            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
-              {equipment.map((item) => (
-                <div key={item.name}>
-                  <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                    {item.tagline}
-                  </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                    {item.name}
-                  </h3>
-                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              직접 운영하는 마케팅 채널
+            </h2>
+          </Reveal>
+          <div className="mx-auto mt-14 grid max-w-4xl gap-5 sm:grid-cols-2">
+            {equipment.map((item) => (
+              <div key={item.name} className="card flex flex-col p-8">
+                <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                  {item.tagline}
+                </span>
+                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper">
+                  {item.name}
+                </h3>
+                <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-        <Reveal>
-          <Container size="wide">
-            <div className="stagger mt-12 grid gap-16 text-left sm:grid-cols-2 lg:grid-cols-4">
+      {/* ── 성과 지표 — 신뢰 밴드 ── */}
+      <section className="border-y border-line bg-ink-2 px-6 py-16 md:py-20">
+        <Container size="wide">
+          <Reveal>
+            <div className="grid gap-12 text-center sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
                   <p className="num text-5xl font-light leading-none tracking-[-0.02em] text-paper md:text-6xl">
@@ -134,113 +137,116 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </Reveal>
 
-            <Reveal className="mx-auto mt-12 max-w-3xl">
-              <GrowthChart
-                title="누적 관리 예식장"
-                data={[4, 9, 15, 21, 27, 33]}
-                labels={["2024", "", "", "", "", "2026"]}
-                caption="3년"
-              />
-            </Reveal>
+          <Reveal className="mx-auto mt-16 max-w-3xl">
+            <GrowthChart
+              title="누적 관리 예식장"
+              data={[4, 9, 15, 21, 27, 33]}
+              labels={["2024", "", "", "", "", "2026"]}
+              caption="3년"
+            />
+          </Reveal>
 
-            <Reveal className="mx-auto mt-10 max-w-xl">
-              <ChannelBars
-                title="운영 채널 비중"
-                items={[
-                  { label: "촬영·영상 콘텐츠", pct: 32 },
-                  { label: "네이버 검색·플레이스", pct: 28 },
-                  { label: "퍼포먼스 광고", pct: 24 },
-                  { label: "SNS·체험단", pct: 16 },
-                ]}
-              />
-            </Reveal>
+          <Reveal className="mx-auto mt-10 max-w-xl">
+            <ChannelBars
+              title="운영 채널 비중"
+              items={[
+                { label: "촬영·영상 콘텐츠", pct: 32 },
+                { label: "네이버 검색·플레이스", pct: 28 },
+                { label: "퍼포먼스 광고", pct: 24 },
+                { label: "SNS·체험단", pct: 16 },
+              ]}
+            />
+          </Reveal>
 
-            <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
-              예시 데이터 · 실제 성과는 예식장별로 상이합니다
-            </p>
-          </Container>
-        </Reveal>
+          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 성과는 예식장별로 상이합니다
+          </p>
+        </Container>
       </section>
 
       {/* ── 조직 ── */}
-      <section id="team" className="scroll-mt-12 px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
-            <MonogramSeal className="mb-8 w-12 text-gold/55" />
+      <section id="team" className="scroll-mt-12 px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Team
             </p>
-            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
-              <div>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              한 팀이 같은 기준으로 움직입니다
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="card flex flex-col p-8">
+              <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+                CEO
+              </span>
+              <h3 className="mt-4 text-xl font-normal tracking-tight text-paper">
+                {company.ceo}
+              </h3>
+              <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-muted">
+                대표이사
+              </p>
+            </div>
+            {departments.map((dept) => (
+              <div key={dept.name} className="card flex flex-col p-8">
                 <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                  CEO
+                  {dept.tagline}
                 </span>
-                <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                  {company.ceo}
+                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper">
+                  {dept.name}
                 </h3>
-                <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                  대표이사
+                <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {dept.duties.join(", ")}
                 </p>
               </div>
-              {departments.map((dept) => (
-                <div key={dept.name}>
-                  <span className="text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                    {dept.tagline}
-                  </span>
-                  <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
-                    {dept.name}
-                  </h3>
-                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                    {dept.duties.join(", ")}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
+            ))}
+          </div>
+        </Container>
       </section>
 
       {/* ── 우리가 일하는 방식 ── */}
-      <section id="values" className="band scroll-mt-12 px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
-            <SprigMotif className="mb-8 w-[44px] text-gold/55" />
+      <section id="values" className="scroll-mt-12 px-6 py-20 md:py-28">
+        <Container size="wide">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Values
             </p>
-            <div className="stagger mt-12 flex max-w-xl flex-col gap-14">
-              {values.map((value) => (
-                <div key={value.title}>
-                  <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
-                    {value.title}
-                  </h3>
-                  <p className="mt-4 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              우리가 일하는 방식
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((value) => (
+              <div key={value.title} className="card flex flex-col p-8">
+                <h3 className="text-xl font-normal tracking-tight text-paper">
+                  {value.title}
+                </h3>
+                <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-muted">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
       </section>
 
-      <Reveal className="px-6">
-        <ArcDivider className="mx-auto block w-[min(82vw,640px)] text-gold/35" />
-      </Reveal>
-
       {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-12 px-6 py-14 md:py-20">
-        <Reveal>
-          <Container size="narrow">
+      <section id="faq" className="scroll-mt-12 px-6 py-20 md:py-28">
+        <Container size="narrow">
+          <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               FAQ
             </p>
-            <div className="mt-12 max-w-2xl">
-              <FaqList items={faqs} />
-            </div>
-          </Container>
-        </Reveal>
+            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+              자주 묻는 질문
+            </h2>
+          </Reveal>
+          <div className="mx-auto mt-14 max-w-2xl">
+            <FaqList items={faqs} />
+          </div>
+        </Container>
       </section>
 
       <CTASection

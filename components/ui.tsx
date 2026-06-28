@@ -132,33 +132,23 @@ export function CTASection({
   image?: string;
 }) {
   return (
-    <section className="px-6 py-14 md:py-20">
+    <section className="border-t border-line px-6 py-24 text-center md:py-32">
       <Reveal>
         <Container size="narrow">
-          <span className="hair-line mb-12 block w-14" aria-hidden />
           <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             {eyebrow}
           </span>
-          <h2 className="mt-8 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
+          <h2 className="mx-auto mt-6 max-w-2xl text-[clamp(1.9rem,4.2vw,3rem)] font-light leading-[1.25] tracking-[-0.02em] text-paper">
             {title}
           </h2>
           {description ? (
-            <p className="mt-7 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+            <p className="mx-auto mt-6 max-w-lg text-[1rem] font-light leading-[1.75] text-muted">
               {description}
             </p>
           ) : null}
-          <Link
-            href={href}
-            className="link-underline group mt-12 inline-flex items-center gap-2 text-sm tracking-[0.18em] text-gold"
-          >
-            {label}
-            <span
-              aria-hidden
-              className="transition-transform duration-500 group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link>
+          <div className="mt-10 flex justify-center">
+            <CTAButton href={href}>{label}</CTAButton>
+          </div>
         </Container>
       </Reveal>
     </section>
