@@ -69,16 +69,12 @@ export default function HomePage() {
       {/* ── 선언문 ── */}
       <section className="px-6 py-14 md:py-20">
         <Reveal>
-          <Container size="default" className="text-center">
-            <RingsMotif className="mx-auto mb-10 w-[72px] text-gold/70" />
-            <p className="mx-auto max-w-[1000px] text-[clamp(1.35rem,3vw,1.9rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90 break-keep">
-              하람마케팅에는 <span className="text-gold">정해진 상품이 없습니다.</span>
-              <br className="hidden md:block" />
-              예식장마다 위치도, 강점도, 채워야 할 자리도 다르기 때문입니다.
-              <br className="hidden md:block" />
-              우리는 그 예식장에 맞게 설계합니다.
-              <br className="hidden md:block" />
-              다만, 우리가 쓰는 방법은 분명합니다.
+          <Container size="default">
+            <RingsMotif className="mb-8 w-[64px] text-gold/60" />
+            <p className="max-w-3xl text-[clamp(1.35rem,3vw,1.9rem)] font-light leading-[1.5] tracking-[-0.015em] text-paper/90 break-keep">
+              하람마케팅에는 <span className="text-gold">정해진 상품이 없습니다.</span>{" "}
+              예식장마다 위치도, 강점도, 채워야 할 자리도 다르기 때문입니다. 우리는
+              그 예식장에 맞게 설계합니다. 다만, 우리가 쓰는 방법은 분명합니다.
             </p>
             <p className="mt-8 text-sm font-light tracking-[0.14em] text-muted sm:text-base">
               검색 · 블로그 · SNS · 광고 · 콘텐츠 · 브랜딩
@@ -87,32 +83,24 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 서비스 그리드 (band, 2단 라벨레일) ── */}
+      {/* ── 서비스 그리드 (band) ── */}
       <section className="band px-6 py-14 md:py-20">
         <Reveal>
           <Container size="default">
-            <div className="lg:grid lg:grid-cols-[320px_1fr] lg:gap-16">
-              <div className="lg:sticky lg:top-28 lg:self-start">
-                <RingsMotif className="mb-8 w-[64px] text-gold/55" />
-                <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-                  Our Methods
-                </p>
-                <h2 className="mt-7 text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-                  상품이 아니라,
-                  <br />
-                  우리가 쓰는 방법.
-                </h2>
-              </div>
-              <div className="mt-10 lg:mt-0">
-                <ServiceGrid />
-              </div>
-            </div>
+            <RingsMotif className="mb-8 w-[64px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Our Methods
+            </p>
+            <h2 className="mt-7 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+              상품이 아니라, 우리가 쓰는 방법.
+            </h2>
+            <ServiceGrid />
           </Container>
         </Reveal>
       </section>
 
       {/* ── 지표 — 절제된 중앙 숫자 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Reveal>
           <Container size="wide">
             <div className="stagger grid gap-x-8 gap-y-12 text-left sm:grid-cols-2 lg:grid-cols-4">
@@ -136,77 +124,65 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── 성과(데이터 시각화) (band, 2단 라벨레일) ── */}
+      {/* ── 성과(데이터 시각화) (band) ── */}
       <section className="band px-6 py-14 md:py-20">
         <Container size="wide">
-          <div className="lg:grid lg:grid-cols-[320px_1fr] lg:gap-16">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <AisleMotif className="mb-8 w-[120px] text-gold/55" />
-              <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-                Proof
-              </p>
-              <h2 className="mt-8 text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-                노출이 아니라,
-                <br />
-                숫자로 증명합니다.
-              </h2>
-            </Reveal>
+          <Reveal>
+            <AisleMotif className="mb-8 w-[120px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Proof
+            </p>
+            <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+              노출이 아니라, 숫자로 증명합니다.
+            </h2>
+          </Reveal>
 
-            <div className="mt-12 lg:mt-0">
-              <Reveal>
-                <GrowthChart />
-              </Reveal>
-              <Reveal className="mt-12">
-                <div className="stagger grid gap-12 md:grid-cols-2 md:gap-10">
-                  <Funnel />
-                  <ChannelBars />
-                </div>
-              </Reveal>
-              <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
-                예시 데이터 · 실제 성과는 예식장별로 상이합니다
-              </p>
+          <Reveal className="mt-12 max-w-3xl">
+            <GrowthChart />
+          </Reveal>
+          <Reveal className="mt-12">
+            <div className="stagger grid gap-12 md:grid-cols-2 md:gap-16">
+              <Funnel />
+              <ChannelBars />
             </div>
-          </div>
+          </Reveal>
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+            예시 데이터 · 실제 성과는 예식장별로 상이합니다
+          </p>
         </Container>
       </section>
 
-      {/* ── 접근 방식 — 4단계, 2단 라벨레일 ── */}
-      <section className="px-6 py-10 md:py-14">
+      {/* ── 접근 방식 — 4단계, 좌측 ── */}
+      <section className="px-6 py-14 md:py-20">
         <Reveal>
-          <Container size="default">
-            <div className="lg:grid lg:grid-cols-[320px_1fr] lg:gap-16">
-              <div className="lg:sticky lg:top-28 lg:self-start">
-                <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
-                <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-                  Approach
-                </p>
-                <h2 className="mt-7 text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-                  검색부터 예약까지,
-                  <br />
-                  한 흐름으로.
-                </h2>
-              </div>
-              <ol className="mt-10 flex flex-col lg:mt-0">
-                {processSteps.map((step) => (
-                  <li
-                    key={step.no}
-                    className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-line py-8 first:pt-0 first:lg:pt-0 last:border-b"
-                  >
-                    <span className="folio pt-1 text-sm tracking-[0.1em] text-gold">
-                      {step.no}
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
-                        {step.title}
-                      </h3>
-                      <p className="mt-3 text-[1rem] font-light leading-[1.75] text-muted">
-                        {step.description}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
+          <Container size="narrow">
+            <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+              Approach
+            </p>
+            <h2 className="mt-7 max-w-xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+              검색부터 예약까지, 한 흐름으로.
+            </h2>
+            <ol className="mt-12 flex flex-col">
+              {processSteps.map((step) => (
+                <li
+                  key={step.no}
+                  className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-line py-8 last:border-b"
+                >
+                  <span className="folio pt-1 text-sm tracking-[0.1em] text-gold">
+                    {step.no}
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </Container>
         </Reveal>
       </section>
@@ -220,15 +196,13 @@ export default function HomePage() {
       <section className="relative overflow-hidden px-6 py-14 md:py-20">
         <span className="closing-photo-bg" aria-hidden />
         <Reveal>
-          <Container size="narrow" className="relative z-2 text-center">
-            <SprigMotif className="mx-auto mb-10 w-[44px] text-gold/55" />
+          <Container size="narrow" className="relative z-2">
+            <SprigMotif className="mb-8 w-[44px] text-gold/55" />
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Start with diagnosis
             </p>
-            <p className="mx-auto mt-10 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
-              예식장의 빈 자리를
-              <br />
-              예약으로 바꿀 시간입니다.
+            <p className="mt-8 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
+              예식장의 빈 자리를 예약으로 바꿀 시간입니다.
             </p>
             <Link
               href="/contact"

@@ -132,18 +132,18 @@ export function CTASection({
   image?: string;
 }) {
   return (
-    <section className="px-6 py-16 md:py-24">
+    <section className="px-6 py-14 md:py-20">
       <Reveal>
-        <Container size="narrow" className="text-center">
-          <span className="hair-line mx-auto mb-12 block w-14" aria-hidden />
+        <Container size="narrow">
+          <span className="hair-line mb-12 block w-14" aria-hidden />
           <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             {eyebrow}
           </span>
-          <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
+          <h2 className="mt-8 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             {title}
           </h2>
           {description ? (
-            <p className="mx-auto mt-7 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+            <p className="mt-7 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
               {description}
             </p>
           ) : null}

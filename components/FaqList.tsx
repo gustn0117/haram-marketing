@@ -2,7 +2,7 @@ import { Plus } from "@/components/icons";
 
 export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <div className="mx-auto flex max-w-2xl flex-col">
+    <div className="flex max-w-2xl flex-col">
       {items.map((f) => (
         <details
           key={f.q}

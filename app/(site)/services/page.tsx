@@ -55,7 +55,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 접근 방식 — 4단계, 중앙, 여백 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Reveal>
         <Container size="narrow">
           <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />

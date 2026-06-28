@@ -4,7 +4,7 @@
 @theme {
   /* ── MOOD — 따뜻한 토프-브라운 올다크 + 샌드골드 (산세리프) ── */
   --color-ink: #16161a; /* 쿨 차콜 — 톤다운(채도 제거), 따뜻한 갈색 폐기 */
-  --color-ink-2: #1f1f28; /* 교차 섹션 — 들린 패널(기준 #16161a보다 명확히 밝게, 눈에 띄게) */
+  --color-ink-2: #1a1a21; /* 교차 섹션 — 은은히 들린 패널(보이되 슬랩처럼 끊기지 않게) */
   --color-surface: #232228; /* 카드 */
   --color-surface-2: #2c2b32; /* 한 단계 밝은 표면 */
   --color-line: rgba(236, 236, 234, 0.085); /* 쿨 화이트 헤어라인 */
@@ -856,9 +856,6 @@ body::after {
   background-color: var(--color-ink-2);
   position: relative;
   isolation: isolate;
-  box-shadow:
-    inset 0 1px 0 0 rgba(236, 236, 234, 0.07),
-    inset 0 -1px 0 0 rgba(0, 0, 0, 0.4);
 }
 .band::before,
 .band::after {
@@ -866,17 +863,17 @@ body::after {
   position: absolute;
   left: 0;
   right: 0;
-  height: 130px;
+  height: 180px;
   pointer-events: none;
   z-index: -1;
 }
 .band::before {
   top: 0;
-  background: linear-gradient(180deg, rgba(236, 236, 234, 0.055), transparent);
+  background: linear-gradient(180deg, rgba(236, 236, 234, 0.022), transparent);
 }
 .band::after {
   bottom: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), transparent);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.18), transparent);
 }
 
 /* ── 자식 순차 등장(stagger) — 부모 .reveal 진입 시 직계 자식이 차례로 ── */

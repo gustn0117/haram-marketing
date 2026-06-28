@@ -109,7 +109,7 @@ function ServiceBody({ service }: { service: Service }) {
   return (
     <>
       {/* ── OVERVIEW — 중앙 2문단 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow" className="text-center">
           <Reveal>
             <AisleMotif className="mx-auto mb-8 block w-[110px] text-gold/55" />
@@ -131,12 +131,12 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROGRAM — 중앙 리스트 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Program
           </p>
-          <ul className="mx-auto mt-12 max-w-2xl">
+          <ul className="mt-12 max-w-2xl">
             {service.items.map((item) => (
               <li
                 key={item}
@@ -152,9 +152,9 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── SCOPE — 중앙 리스트 (아이콘 없이) ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
           </p>
           <ul className="mx-auto mt-12 flex max-w-xl flex-col gap-6 text-center">
@@ -171,9 +171,9 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── WHO IT'S FOR — 중앙 텍스트 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
           </p>
           <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12 text-center">
@@ -190,9 +190,9 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROCESS — 중앙 미니멀 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How we work
           </p>
           <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
@@ -214,7 +214,7 @@ function ServiceBody({ service }: { service: Service }) {
       </section>
 
       {/* ── PROOF — 도입 전후 비교 (서비스별 작은 차트) ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="wide">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -234,7 +234,7 @@ function ServiceBody({ service }: { service: Service }) {
             />
           </Reveal>
 
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>
@@ -245,9 +245,9 @@ function ServiceBody({ service }: { service: Service }) {
       </Reveal>
 
       {/* ── FAQ — 중앙 미니멀 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Q&amp;A
           </p>
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">

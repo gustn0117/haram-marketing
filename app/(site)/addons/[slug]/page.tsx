@@ -73,7 +73,7 @@ export default async function AddonDetailPage({
       />
 
       {/* ── Overview — 중앙 본문 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow" className="text-center">
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Overview
@@ -92,18 +92,18 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Scope — 중앙 정렬 리스트 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
           <Reveal>
             <RingsMotif className="mx-auto mb-8 block w-[68px] text-gold/55" />
           </Reveal>
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
           </p>
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             포함 내용
           </h2>
-          <ul className="mx-auto mt-12 max-w-2xl">
+          <ul className="mt-12 max-w-2xl">
             {addon.scope.map((s) => (
               <li
                 key={s}
@@ -119,9 +119,9 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Recommended For — 중앙, 여백 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
           </p>
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
@@ -141,7 +141,7 @@ export default async function AddonDetailPage({
       </section>
 
       {/* ── Proof — 단일 도넛, 중앙 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
           <Reveal className="text-center">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -160,7 +160,7 @@ export default async function AddonDetailPage({
             />
           </Reveal>
 
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>
@@ -171,15 +171,15 @@ export default async function AddonDetailPage({
       </Reveal>
 
       {/* ── FAQ — 중앙 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
-          <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+          <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             FAQ
           </p>
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             자주 묻는 질문
           </h2>
-          <div className="mx-auto mt-12 max-w-2xl">
+          <div className="mt-12 max-w-2xl">
             <FaqList items={faqs} />
           </div>
         </Container>

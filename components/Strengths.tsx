@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 // 강점 — 중앙 정렬 미니멀 (갤러리 톤)
 export function Strengths({ id }: { id?: string }) {
   return (
-    <section id={id} className="scroll-mt-12 px-6 py-10 md:py-14">
+    <section id={id} className="scroll-mt-12 px-6 py-14 md:py-20">
       <Reveal>
       <Container size="narrow">
         <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">

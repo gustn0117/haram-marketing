@@ -45,18 +45,18 @@ export default function AboutPage() {
         backgroundImage={pageHeroImages.about}
       />
 
-      {/* ── 미션 — 중앙 선언문 ── */}
+      {/* ── 미션 선언문 — 좌측 ── */}
       <section className="px-6 py-14 md:py-20">
         <Reveal>
-          <Container size="narrow" className="text-center">
-            <RingsMotif className="mx-auto mb-10 w-[72px] text-gold/60" />
-            <p className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.55] tracking-[-0.015em] text-paper/90">
+          <Container size="narrow">
+            <RingsMotif className="mb-8 w-[64px] text-gold/60" />
+            <p className="max-w-3xl text-[clamp(1.5rem,3.4vw,2.5rem)] font-light leading-[1.5] tracking-[-0.015em] text-paper/90">
               우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
               신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
               <span className="text-gold">예약</span>으로 이어지도록 보이지 않는
               모든 동선을 준비합니다.
             </p>
-            <p className="mt-12 text-[0.66rem] uppercase tracking-[0.24em] text-faint">
+            <p className="mt-10 text-[0.66rem] uppercase tracking-[0.24em] text-faint">
               — 대표 {company.ceo}
             </p>
           </Container>
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 운영 철학 ── */}
-      <section id="philosophy" className="scroll-mt-12 px-6 py-10 md:py-14">
+      <section id="philosophy" className="scroll-mt-12 px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
@@ -164,7 +164,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 조직 ── */}
-      <section id="team" className="scroll-mt-12 px-6 py-10 md:py-14">
+      <section id="team" className="scroll-mt-12 px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <MonogramSeal className="mb-8 w-12 text-gold/55" />
@@ -230,7 +230,7 @@ export default function AboutPage() {
       </Reveal>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-12 px-6 py-10 md:py-14">
+      <section id="faq" className="scroll-mt-12 px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">

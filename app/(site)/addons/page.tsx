@@ -28,7 +28,7 @@ export default function AddonsPage() {
         backgroundImage={pageHeroImages.addons}
       />
 
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Container size="narrow">
           <SprigMotif
             variant="load"
@@ -78,7 +78,7 @@ export default function AddonsPage() {
           </Reveal>
 
           <Reveal>
-            <div className="stagger mx-auto mt-10 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
+            <div className="stagger mt-10 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
               <DonutChart
                 value={92}
                 label="홈페이지 상담 전환"
@@ -97,7 +97,7 @@ export default function AddonsPage() {
             </div>
           </Reveal>
 
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 성과는 예식장별로 상이합니다
           </p>
         </Container>

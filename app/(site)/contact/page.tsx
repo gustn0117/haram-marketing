@@ -45,7 +45,7 @@ export default function ContactPage() {
       />
 
       {/* ── 연락처 — 중앙 정렬 텍스트 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <RingsMotif className="mb-8 w-[68px] text-gold/55" />
@@ -78,7 +78,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 문의 폼 — 중앙 (즉시 표시, 모션 없음) ── */}
-      <section className="px-6 pb-10 md:pb-14">
+      <section className="px-6 pb-14 md:pb-20">
         <Container size="narrow">
           <div className="mx-auto max-w-xl">
             <ContactForm />
@@ -107,14 +107,14 @@ export default function ContactPage() {
             />
           </Reveal>
 
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
+          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
             예시 데이터 · 실제 응대는 문의 시점에 따라 상이합니다
           </p>
         </Container>
       </section>
 
       {/* ── 진행 절차 — 6단계, 중앙 미니멀 ── */}
-      <section className="px-6 py-10 md:py-14">
+      <section className="px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
             <ChandelierMotif className="mb-8 w-[60px] text-gold/55" />
@@ -148,10 +148,10 @@ export default function ContactPage() {
       <section className="band px-6 py-14 md:py-20">
         <Reveal>
           <Container size="narrow">
-            <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               FAQ
             </p>
-            <div className="mx-auto mt-12 max-w-2xl">
+            <div className="mt-12 max-w-2xl">
               <FaqList items={faqs} />
             </div>
           </Container>
