@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services, metrics, processSteps, company } from "@/lib/content";
+import { services, processSteps, company } from "@/lib/content";
 import { Container, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
-import { CountUp } from "@/components/CountUp";
 import { ServiceIcon } from "@/components/ServiceIcons";
 
 export const metadata: Metadata = {
@@ -84,25 +83,6 @@ export default function HomePage() {
                   <span aria-hidden>→</span>
                 </span>
               </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 지표 — 신뢰 밴드 ── */}
-      <section className="border-y border-line bg-ink-2 px-6 py-16 md:py-20">
-        <Container size="wide">
-          <div className="grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((m) => (
-              <Reveal key={m.label}>
-                <p className="num text-4xl font-light leading-none tracking-[-0.02em] text-paper md:text-[3.4rem]">
-                  <CountUp value={m.value} />
-                  {m.suffix ? (
-                    <span className="text-2xl text-gold">{m.suffix}</span>
-                  ) : null}
-                </p>
-                <p className="mt-4 text-sm font-light text-muted">{m.label}</p>
-              </Reveal>
             ))}
           </div>
         </Container>

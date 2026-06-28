@@ -15,7 +15,6 @@ import { PageHero } from "@/components/PageHero";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
-import { CompareBars } from "@/components/charts";
 import { AisleMotif, ArcDivider } from "@/components/Motifs";
 
 type Params = { slug: string };
@@ -210,33 +209,6 @@ function ServiceBody({ service }: { service: Service }) {
               </div>
             ))}
           </div>
-        </Container>
-      </section>
-
-      {/* ── PROOF — 도입 전후 비교 (서비스별 작은 차트) ── */}
-      <section className="px-6 py-14 md:py-20">
-        <Container size="wide">
-          <Reveal className="text-center">
-            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Proof
-            </p>
-            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
-              {title} 도입 전후, 상담 문의의 차이.
-            </h2>
-          </Reveal>
-
-          <Reveal className="mx-auto mt-12 max-w-xl">
-            <CompareBars
-              title={`${title} 도입 전후 월 상담 문의`}
-              before={{ label: "이전", w: 30, value: "12" }}
-              after={{ label: "이후", w: 100, value: "41" }}
-              unit="건"
-            />
-          </Reveal>
-
-          <p className="mt-12 text-[0.62rem] uppercase tracking-[0.2em] text-faint">
-            예시 데이터 · 실제 성과는 예식장별로 상이합니다
-          </p>
         </Container>
       </section>
 

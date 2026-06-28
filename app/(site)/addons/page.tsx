@@ -4,7 +4,6 @@ import { addons, pageHeroImages } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { DonutChart } from "@/components/charts";
 
 export const metadata: Metadata = {
   title: "지원서비스",
@@ -65,44 +64,6 @@ export default function AddonsPage() {
               </Link>
             ))}
           </div>
-        </Container>
-      </section>
-
-      {/* ── 지원서비스 효과(데이터 시각화) ── */}
-      <section className="px-6 py-20 md:py-28">
-        <Container size="wide">
-          <Reveal className="text-center">
-            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Proof
-            </p>
-            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              지원서비스는 운영을 가볍게, 전환을 무겁게.
-            </h2>
-          </Reveal>
-
-          <Reveal>
-            <div className="mx-auto mt-14 grid max-w-4xl gap-14 md:grid-cols-3 md:gap-16">
-              <DonutChart
-                value={92}
-                label="홈페이지 상담 전환"
-                caption="제작·최적화한 홈페이지의 유입 대비 상담 신청 비율"
-              />
-              <DonutChart
-                value={64}
-                label="상담 응대 단축"
-                caption="CRM 도입 후 문의 응대까지 걸리는 시간 절감"
-              />
-              <DonutChart
-                value={78}
-                label="릴스 노출 기여"
-                caption="웨딩 촬영·릴스가 신규 노출에서 차지하는 비중"
-              />
-            </div>
-          </Reveal>
-
-          <p className="mt-12 text-center text-[0.62rem] uppercase tracking-[0.2em] text-faint">
-            예시 데이터 · 실제 성과는 예식장별로 상이합니다
-          </p>
         </Container>
       </section>
 
