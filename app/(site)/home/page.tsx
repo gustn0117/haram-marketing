@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services, metrics, processSteps } from "@/lib/content";
+import { metrics, processSteps } from "@/lib/content";
+import { ServiceGrid } from "@/components/ServiceGrid";
 import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
@@ -89,27 +90,11 @@ export default function HomePage() {
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
       <section className="px-6 py-10 md:py-14">
         <Reveal>
-          <Container size="narrow">
+          <Container size="default">
             <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Our Methods
             </p>
-            <ul className="mx-auto mt-12 max-w-2xl">
-              {services.map((s) => (
-                <li key={s.id} className="border-t border-line last:border-b">
-                  <Link
-                    href={`/services/${s.id}`}
-                    className="svc-row block py-9 text-center"
-                  >
-                    <span className="svc-title text-2xl font-light text-paper md:text-[1.9rem]">
-                      {s.title}
-                    </span>
-                    <span className="mt-2 block text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                      {s.tagline}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <ServiceGrid />
           </Container>
         </Reveal>
       </section>

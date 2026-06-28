@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { services, processSteps, pageHeroImages } from "@/lib/content";
+import { processSteps, pageHeroImages } from "@/lib/content";
+import { ServiceGrid } from "@/components/ServiceGrid";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -36,7 +36,7 @@ export default function ServicesPage() {
       {/* ── 서비스 — 중앙 정렬 리스트 ── */}
       <section className="px-6 py-10 md:py-14">
         <Reveal>
-        <Container size="narrow">
+        <Container size="default">
           <RingsMotif className="mx-auto mb-8 w-[68px] text-gold/55" />
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Our Methods
@@ -49,23 +49,7 @@ export default function ServicesPage() {
             강점인지 다르기에, 우리는 이 방법들 중 그 예식장에 필요한 것만 골라
             다르게 설계합니다. 방법은 분명하고, 조합은 예식장마다 달라집니다.
           </p>
-          <ul className="mx-auto mt-12 max-w-2xl">
-            {services.map((s) => (
-              <li key={s.id} className="border-t border-line last:border-b">
-                <Link
-                  href={`/services/${s.id}`}
-                  className="svc-row block py-9 text-center"
-                >
-                  <span className="svc-title text-2xl font-light text-paper md:text-[1.9rem]">
-                    {s.title}
-                  </span>
-                  <span className="mt-2 block text-[0.66rem] uppercase tracking-[0.24em] text-faint">
-                    {s.tagline}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ServiceGrid />
         </Container>
         </Reveal>
       </section>
