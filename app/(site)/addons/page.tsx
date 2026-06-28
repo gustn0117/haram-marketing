@@ -37,7 +37,7 @@ export default function AddonsPage() {
           <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             How We Support
           </p>
-          <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+          <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
             마케팅을 떠받치는, 필요한 만큼의 지원.
           </h2>
           <ul className="mt-12 max-w-2xl">
@@ -72,7 +72,7 @@ export default function AddonsPage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
               지원서비스는 운영을 가볍게, 전환을 무겁게.
             </h2>
           </Reveal>

@@ -16,7 +16,7 @@ export function FaqList({ items }: { items: { q: string; a: string }[] }) {
           </summary>
           <div className="faq-body">
             <div className="overflow-hidden">
-              <p className="pb-6 text-sm font-light leading-[1.9] text-muted">
+              <p className="pb-6 text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                 {f.a}
               </p>
             </div>

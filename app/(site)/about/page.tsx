@@ -76,7 +76,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {s.heading}
                   </h3>
-                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                     {s.body}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {item.name}
                   </h3>
-                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                     {item.description}
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {company.ceo}
                 </h3>
-                <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                   대표이사
                 </p>
               </div>
@@ -191,7 +191,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {dept.name}
                   </h3>
-                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                     {dept.duties.join(", ")}
                   </p>
                 </div>
@@ -215,7 +215,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                     {value.title}
                   </h3>
-                  <p className="mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                     {value.description}
                   </p>
                 </div>

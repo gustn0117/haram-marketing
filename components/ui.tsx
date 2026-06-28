@@ -139,11 +139,11 @@ export function CTASection({
           <span className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             {eyebrow}
           </span>
-          <h2 className="mt-8 max-w-3xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.22] tracking-[-0.025em] text-paper">
+          <h2 className="mt-8 max-w-3xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             {title}
           </h2>
           {description ? (
-            <p className="mt-7 max-w-xl text-sm font-light leading-[1.9] text-muted">
+            <p className="mt-7 max-w-xl text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
               {description}
             </p>
           ) : null}

@@ -94,7 +94,7 @@ export default function ContactPage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Response
             </p>
-            <h2 className="mt-8 max-w-xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
               남겨주신 문의, 빠르게 회신드립니다.
             </h2>
           </Reveal>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                  <p className="mt-3 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                     {step.description}
                   </p>
                 </div>

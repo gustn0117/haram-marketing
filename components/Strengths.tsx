@@ -17,7 +17,7 @@ export function Strengths({ id }: { id?: string }) {
               <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                 {s.title}
               </h3>
-              <p className="mx-auto mt-4 max-w-md text-sm font-light leading-[1.9] text-muted">
+              <p className="mx-auto mt-4 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                 {s.description}
               </p>
             </div>

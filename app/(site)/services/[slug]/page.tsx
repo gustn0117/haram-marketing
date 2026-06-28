@@ -161,7 +161,7 @@ function ServiceBody({ service }: { service: Service }) {
             {service.scope.map((s) => (
               <li
                 key={s}
-                className="text-sm font-light leading-[1.9] text-muted"
+                className="text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted"
               >
                 {s}
               </li>
@@ -204,7 +204,7 @@ function ServiceBody({ service }: { service: Service }) {
                 <h3 className="mt-4 text-xl font-light tracking-tight text-paper md:text-2xl">
                   {step.title}
                 </h3>
-                <p className="mx-auto mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                <p className="mx-auto mt-3 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                   {step.description}
                 </p>
               </div>
@@ -220,7 +220,7 @@ function ServiceBody({ service }: { service: Service }) {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
               {title} 도입 전후, 상담 문의의 차이.
             </h2>
           </Reveal>
@@ -250,7 +250,7 @@ function ServiceBody({ service }: { service: Service }) {
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Q&amp;A
           </p>
-          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             결정 전에 많이 묻는 질문
           </h2>
           <div className="mx-auto mt-10 max-w-2xl">

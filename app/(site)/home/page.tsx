@@ -132,7 +132,7 @@ export default function HomePage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.35] tracking-[-0.015em] text-paper">
+            <h2 className="mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
               노출이 아니라, 숫자로 증명합니다.
             </h2>
           </Reveal>
@@ -177,7 +177,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-light tracking-tight text-paper md:text-2xl">
                       {step.title}
                     </h3>
-                    <p className="mt-3 max-w-md text-sm font-light leading-[1.9] text-muted">
+                    <p className="mt-3 max-w-md text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted">
                       {step.description}
                     </p>
                   </div>
@@ -202,7 +202,7 @@ export default function HomePage() {
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Start with diagnosis
             </p>
-            <p className="mx-auto mt-10 max-w-2xl text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
+            <p className="mx-auto mt-10 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
               예식장의 빈 자리를
               <br />
               예약으로 바꿀 시간입니다.

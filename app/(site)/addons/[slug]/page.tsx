@@ -82,7 +82,7 @@ export default async function AddonDetailPage({
             {addon.overview.map((p, i) => (
               <p
                 key={i}
-                className="text-sm font-light leading-[1.9] text-muted md:text-base"
+                className="text-[0.95rem] font-light leading-[1.85] tracking-[-0.01em] text-muted md:text-base"
               >
                 {p}
               </p>
@@ -100,7 +100,7 @@ export default async function AddonDetailPage({
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Scope
           </p>
-          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             포함 내용
           </h2>
           <ul className="mx-auto mt-12 max-w-2xl">
@@ -124,7 +124,7 @@ export default async function AddonDetailPage({
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             Who it&apos;s for
           </p>
-          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             이런 경우 추천합니다.
           </h2>
           <div className="mx-auto mt-12 flex max-w-xl flex-col gap-10 text-center">
@@ -147,7 +147,7 @@ export default async function AddonDetailPage({
             <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
               Proof
             </p>
-            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.4] tracking-[-0.015em] text-paper">
+            <h2 className="mx-auto mt-8 max-w-2xl text-[clamp(1.7rem,3.6vw,2.75rem)] font-light leading-[1.3] tracking-[-0.025em] text-paper">
               상담 전환에 보탬이 됩니다.
             </h2>
           </Reveal>
@@ -176,7 +176,7 @@ export default async function AddonDetailPage({
           <p className="text-center text-[0.72rem] uppercase tracking-[0.36em] text-gold">
             FAQ
           </p>
-          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+          <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
             자주 묻는 질문
           </h2>
           <div className="mx-auto mt-12 max-w-2xl">
