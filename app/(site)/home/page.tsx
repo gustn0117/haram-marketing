@@ -22,42 +22,44 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* ── HERO — 풀스크린, 중앙, 극대 여백 ── */}
-      <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+      {/* ── HERO — 풀스크린, 좌측 정렬 에디토리얼 + 우측 아치 데코 ── */}
+      <section className="relative flex min-h-[100svh] items-center overflow-hidden px-6">
         <span className="hero-photo-bg" aria-hidden />
         <span className="hero-glow" aria-hidden />
-        {/* 예식 아치 라인아트 — 로드 시 그려짐, 워드마크가 아치 안에 섬 */}
+        {/* 예식 아치 라인아트 — 우측 데코, 로드 시 그려짐 (데스크톱) */}
         <ArchMotif
           variant="load"
-          className="pointer-events-none absolute left-1/2 top-1/2 z-1 w-[min(92vw,560px)] -translate-x-1/2 -translate-y-[52%] text-paper/30"
+          className="pointer-events-none absolute right-[-4%] top-1/2 z-1 hidden w-[min(46vw,500px)] -translate-y-1/2 text-paper/20 lg:block"
         />
-        <span
-          className="rise relative z-2 text-[0.72rem] uppercase tracking-[0.36em] text-gold"
-          style={{ animationDelay: "80ms" }}
-        >
-          Wedding Hall Marketing
-        </span>
-        <h1
-          className="rise foil relative z-2 mt-10 whitespace-nowrap text-[clamp(1.7rem,7vw,4.8rem)] font-light leading-none tracking-[0.2em]"
-          style={{
-            animationDelay: "200ms",
-            filter: "drop-shadow(0 2px 30px rgba(0,0,0,0.5))",
-          }}
-        >
-          HARAM MARKETING
-        </h1>
-        <span
-          className="rise relative z-2 mt-6 text-sm font-light tracking-[0.12em] text-paper/65"
-          style={{ animationDelay: "300ms" }}
-        >
-          하람마케팅
-        </span>
-        <p
-          className="rise relative z-2 mt-9 max-w-xl text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
-          style={{ animationDelay: "440ms" }}
-        >
-          오직 예식장을 위한 마케팅. 노출이 아니라, 예약으로 증명합니다.
-        </p>
+        <div className="relative z-2 mx-auto w-full max-w-[1200px]">
+          <span
+            className="rise block text-[0.72rem] uppercase tracking-[0.36em] text-gold"
+            style={{ animationDelay: "80ms" }}
+          >
+            Wedding Hall Marketing
+          </span>
+          <h1
+            className="rise foil mt-7 max-w-[13ch] text-[clamp(2.4rem,8.5vw,5.6rem)] font-light leading-[1.0] tracking-[0.04em]"
+            style={{
+              animationDelay: "200ms",
+              filter: "drop-shadow(0 2px 30px rgba(0,0,0,0.5))",
+            }}
+          >
+            HARAM MARKETING
+          </h1>
+          <span
+            className="rise mt-6 block text-sm font-light tracking-[0.12em] text-paper/65"
+            style={{ animationDelay: "300ms" }}
+          >
+            하람마케팅
+          </span>
+          <p
+            className="rise mt-8 max-w-lg text-base font-light leading-[1.7] tracking-tight text-paper/80 sm:text-lg"
+            style={{ animationDelay: "440ms" }}
+          >
+            오직 예식장을 위한 마케팅. 노출이 아니라, 예약으로 증명합니다.
+          </p>
+        </div>
 
         <span
           className="scroll-cue rise absolute bottom-12 left-1/2 -translate-x-1/2"

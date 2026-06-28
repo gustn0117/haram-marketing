@@ -30,7 +30,7 @@ export function GrowthChart({
   return (
     <figure>
       <figcaption className="flex items-baseline justify-between">
-        <span className="text-sm font-light tracking-tight text-paper">
+        <span className="text-[0.95rem] font-light tracking-tight text-paper">
           {title}
         </span>
         <span className="text-[0.66rem] uppercase tracking-[0.2em] text-faint">
@@ -95,7 +95,7 @@ export function Funnel({
 }) {
   return (
     <figure>
-      <figcaption className="text-sm font-light tracking-tight text-paper">
+      <figcaption className="text-[0.95rem] font-light tracking-tight text-paper">
         {title}
       </figcaption>
       <div className="mt-7 flex flex-col gap-3">
@@ -138,7 +138,7 @@ export function ChannelBars({
 }) {
   return (
     <figure>
-      <figcaption className="text-sm font-light tracking-tight text-paper">
+      <figcaption className="text-[0.95rem] font-light tracking-tight text-paper">
         {title}
       </figcaption>
       <div className="mt-7 flex flex-col gap-5">
@@ -196,11 +196,19 @@ export function DonutChart({
           className="chart-ring"
           style={{ ["--ring-offset" as string]: `${100 - value}` }}
         />
-        <text x={cx} y={cy + 2} textAnchor="middle" className="fill-paper" style={{ fontSize: 30, fontWeight: 300 }}>
-          {value}
-        </text>
-        <text x={cx} y={cy + 22} textAnchor="middle" className="fill-gold" style={{ fontSize: 12 }}>
-          %
+        <text
+          x={cx}
+          y={cy + 11}
+          textAnchor="middle"
+          className="num"
+          style={{ fontWeight: 300 }}
+        >
+          <tspan className="fill-paper" style={{ fontSize: 32 }}>
+            {value}
+          </tspan>
+          <tspan className="fill-gold" dx="2" style={{ fontSize: 14 }}>
+            %
+          </tspan>
         </text>
       </svg>
       <span className="mt-5 text-sm font-light text-paper">{label}</span>
@@ -231,7 +239,7 @@ export function CompareBars({
   ];
   return (
     <figure>
-      <figcaption className="text-sm font-light tracking-tight text-paper">
+      <figcaption className="text-[0.95rem] font-light tracking-tight text-paper">
         {title}
       </figcaption>
       <div className="mt-7 flex flex-col gap-5">
