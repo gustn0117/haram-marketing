@@ -27,12 +27,6 @@ export default function HomePage() {
             <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] font-light leading-[1.8] text-muted">
               {company.intro}
             </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3.5">
-              <CTAButton href="/contact">무료 진단 신청</CTAButton>
-              <CTAButton href="/services" variant="ghost">
-                서비스 살펴보기
-              </CTAButton>
-            </div>
           </Reveal>
         </Container>
       </section>
