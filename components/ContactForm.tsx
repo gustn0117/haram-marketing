@@ -41,8 +41,8 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="flex h-full min-h-80 flex-col items-center justify-center gap-5 rounded-2xl border border-line bg-surface/50 p-10 text-center">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/70 text-gold">
+      <div className="flex h-full min-h-80 flex-col items-center justify-center gap-5 rounded-none border border-line bg-surface/50 p-10 text-center">
+        <span className="flex h-16 w-16 items-center justify-center rounded-none border border-gold/70 text-gold">
           <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7">
             <path
               d="m5 12.5 4.5 4.5L19 7"
@@ -72,7 +72,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-7 rounded-2xl border border-line bg-surface/50 p-8 md:p-10"
+      className="flex flex-col gap-7 rounded-none border border-line bg-surface/50 p-8 md:p-10"
     >
       <div className="grid gap-7 sm:grid-cols-2">
         <Field label="담당자명" htmlFor="name">
@@ -110,7 +110,7 @@ export function ContactForm() {
               type="button"
               key={s.id}
               onClick={() => setType(s.title)}
-              className={`rounded-sm border px-4 py-2 text-sm transition-all duration-300 ${
+              className={`rounded-none border px-4 py-2 text-sm transition-all duration-300 ${
                 type === s.title
                   ? "border-gold bg-gold text-ink"
                   : "border-line-strong text-muted hover:border-gold hover:text-paper"
@@ -149,7 +149,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="group mt-1 inline-flex w-full items-center justify-center gap-3 rounded-full bg-gold px-9 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright disabled:opacity-60"
+        className="group mt-1 inline-flex w-full items-center justify-center gap-3 rounded-none bg-gold px-9 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-gold-bright disabled:opacity-60"
       >
         {submitting ? "보내는 중…" : "문의 보내기"}
         <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />

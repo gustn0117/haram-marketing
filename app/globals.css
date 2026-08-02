@@ -799,7 +799,7 @@ body::after {
   width: 100%;
   border: 1px solid var(--color-line);
   background: rgba(236, 236, 234, 0.04);
-  border-radius: var(--radius-md);
+  border-radius: 2px;
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
   color: var(--color-paper);
@@ -829,7 +829,7 @@ body::after {
 .card {
   background: rgba(35, 34, 40, 0.4);
   border: 1px solid var(--color-line);
-  border-radius: 14px;
+  border-radius: 2px;
   transition:
     border-color 0.45s var(--ease-out-soft),
     background-color 0.45s var(--ease-out-soft),

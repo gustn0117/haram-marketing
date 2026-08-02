@@ -47,7 +47,7 @@ export function CTAButton({
 }) {
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
   const base =
-    "group inline-flex items-center gap-3 rounded-full px-9 py-4 text-sm font-medium tracking-tight transition-all duration-500";
+    "group inline-flex items-center gap-3 rounded-none px-10 py-4 text-sm font-medium tracking-tight transition-all duration-500";
   const styles =
     variant === "solid"
       ? "bg-gold text-ink hover:bg-gold-bright"
