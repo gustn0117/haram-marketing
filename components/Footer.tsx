@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           {/* 브랜드 */}
           <div className="max-w-sm">
-            <Link href="/home" className="flex items-baseline gap-3">
+            <Link href="/" className="flex items-baseline gap-3">
               <span className="text-lg font-light tracking-tight text-paper">
                 {company.nameKo}
               </span>

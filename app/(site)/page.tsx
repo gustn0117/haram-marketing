@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { services, processSteps, company } from "@/lib/content";
 import { Container, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcons";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/home" },
-};
-
+// 메타데이터(canonical "/"·OG·RSS)는 루트 레이아웃 기본값을 그대로 쓴다.
 export default function HomePage() {
   return (
     <>

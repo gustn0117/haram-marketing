@@ -16,6 +16,7 @@ import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { AisleMotif, ArcDivider } from "@/components/Motifs";
+import { pageMetadata } from "@/lib/metadata";
 
 type Params = { slug: string };
 
@@ -31,11 +32,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = services.find((s) => s.id === slug);
   if (!service) return { title: "서비스" };
-  return {
+  return pageMetadata({
     title: service.title,
     description: service.description,
-    alternates: { canonical: `/services/${service.id}` },
-  };
+    path: `/services/${service.id}`,
+    image: serviceHeroImages[service.id],
+  });
 }
 
 export default async function OfferingDetailPage({
@@ -53,7 +55,7 @@ export default async function OfferingDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "홈", item: `${siteUrl}/home` },
+      { "@type": "ListItem", position: 1, name: "홈", item: `${siteUrl}/` },
       {
         "@type": "ListItem",
         position: 2,

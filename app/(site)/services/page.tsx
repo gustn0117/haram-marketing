@@ -5,13 +5,15 @@ import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcons";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "서비스",
   description:
     "네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 브랜딩·예약 홈페이지까지. 하람마케팅의 웨딩홀 마케팅 서비스 영역을 한눈에 확인하세요.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+  image: pageHeroImages.services,
+});
 
 export default function ServicesPage() {
   return (

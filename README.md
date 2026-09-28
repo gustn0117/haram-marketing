@@ -11,6 +11,15 @@ npm run build    # 프로덕션 빌드
 npm run start    # 빌드 결과 실행
 ```
 
+## 네이버 색인 요청 (IndexNow)
+
+배포 후 실행합니다. 키 파일은 `public/<키>.txt`입니다.
+
+```bash
+npm run indexnow                       # 사이트맵의 모든 페이지
+npm run indexnow -- /about /services   # 바뀐 페이지만
+```
+
 ## 콘텐츠 수정
 
 사이트의 거의 모든 텍스트·서비스·이미지 정보는 [`lib/content.ts`](lib/content.ts) 한 파일에서 관리됩니다. 정보가 확정되면 이 파일만 교체하면 전체 사이트에 반영됩니다.

@@ -1,7 +1,7 @@
 import { SpineRail, MobileNav } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-// 본문 레이아웃 — 상단 내비게이션 + 모바일 미니바. 표지(/)에는 미적용.
+// 본문 레이아웃 — 상단 내비게이션 + 모바일 미니바.
 export default function SiteLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

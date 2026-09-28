@@ -17,7 +17,7 @@ export function SpineRail() {
     <header className="fixed inset-x-0 top-0 z-50 hidden h-20 border-b border-line bg-ink/85 backdrop-blur-xl lg:block">
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-8">
         <Link
-          href="/home"
+          href="/"
           className="flex items-center gap-3.5"
           aria-label={`${company.nameKo} 홈`}
         >
@@ -112,7 +112,7 @@ export function MobileNav() {
   return (
     <div className="lg:hidden">
       <div className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-line bg-ink/85 px-5 backdrop-blur-xl">
-        <Link href="/home" className="flex flex-col leading-none">
+        <Link href="/" className="flex flex-col leading-none">
           <span className="text-sm font-light tracking-tight text-paper">
             {company.nameKo}
           </span>

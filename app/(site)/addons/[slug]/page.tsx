@@ -7,6 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { RingsMotif, ArcDivider } from "@/components/Motifs";
+import { pageMetadata } from "@/lib/metadata";
 
 type Params = { slug: string };
 
@@ -22,11 +23,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const addon = addons.find((a) => a.id === slug);
   if (!addon) return { title: "지원서비스" };
-  return {
+  return pageMetadata({
     title: addon.name,
     description: addon.description,
-    alternates: { canonical: `/addons/${addon.id}` },
-  };
+    path: `/addons/${addon.id}`,
+    image: addonHeroImages[addon.id],
+  });
 }
 
 export default async function AddonDetailPage({
@@ -44,7 +46,7 @@ export default async function AddonDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "홈", item: `${siteUrl}/home` },
+      { "@type": "ListItem", position: 1, name: "홈", item: `${siteUrl}/` },
       {
         "@type": "ListItem",
         position: 2,

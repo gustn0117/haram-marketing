@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { company, siteUrl, regions } from "@/lib/content";
+import { ogImage, rssFeed } from "@/lib/metadata";
 
 const orgId = `${siteUrl}/#organization`;
 const description =
@@ -92,10 +93,7 @@ export const metadata: Metadata = {
     "웨딩 마케팅 대행",
   ],
   applicationName: company.nameKo,
-  alternates: {
-    canonical: "/",
-    types: { "application/rss+xml": `${siteUrl}/rss.xml` },
-  },
+  alternates: { canonical: "/", types: rssFeed },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
@@ -107,7 +105,7 @@ export const metadata: Metadata = {
       "웨딩홀 마케팅 전문 하람마케팅 — 예식장을 예약으로 채웁니다. 검색 노출부터 상담 예약까지.",
     images: [
       {
-        url: "/og.png",
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: "하람마케팅 웨딩홀 마케팅",
@@ -118,7 +116,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "하람마케팅 | 웨딩홀 마케팅 전문",
     description: "웨딩홀 마케팅 전문 하람마케팅 — 예식장을 예약으로 채웁니다.",
-    images: ["/og.png"],
+    images: [ogImage],
   },
 };
 

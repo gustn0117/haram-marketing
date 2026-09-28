@@ -3,7 +3,7 @@
 //  실제 정보 확정 시 이 파일만 교체하면 전체 사이트에 반영됩니다.
 // ─────────────────────────────────────────────────────────────
 
-export const siteUrl = "https://harammarketing.co.kr";
+export const siteUrl = "https://haram-marketing.co.kr";
 
 // 진행 지역 — 실제 서비스 지역만 남기세요 (숨김 텍스트 아님, 화면에 노출)
 export const regions = [

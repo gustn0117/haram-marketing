@@ -4,13 +4,15 @@ import { addons, pageHeroImages } from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "지원서비스",
   description:
     "홈페이지 제작·유지보수, 마케팅 진단·컨설팅, 상담 CRM 구축·관리, 웨딩 촬영·릴스까지. 온라인 웨딩홀 마케팅에 필요한 지원 서비스를 함께 제공합니다. (현수막 등 오프라인 제작물은 제외)",
-  alternates: { canonical: "/addons" },
-};
+  path: "/addons",
+  image: pageHeroImages.addons,
+});
 
 export default function AddonsPage() {
   return (
