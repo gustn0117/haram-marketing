@@ -95,6 +95,11 @@ export const metadata: Metadata = {
   applicationName: company.nameKo,
   alternates: { canonical: "/", types: rssFeed },
   robots: { index: true, follow: true },
+  verification: {
+    other: {
+      "naver-site-verification": "ea184f0859bab367dce0a99791a5fdedba53006f",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
