@@ -48,12 +48,12 @@ export function SpineRail() {
                     {l.label}
                   </Link>
                   <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                    <div className="w-56 border border-line bg-ink/96 p-2 backdrop-blur-xl">
+                    <div className="w-max min-w-56 border border-line bg-ink/96 p-2 backdrop-blur-xl">
                       {menu.map((it) => (
                         <Link
                           key={it.href}
                           href={it.href}
-                          className="block px-4 py-2.5 text-sm text-muted transition-colors hover:text-gold"
+                          className="block whitespace-nowrap px-4 py-2.5 text-sm text-muted transition-colors hover:text-gold"
                         >
                           {it.label}
                         </Link>

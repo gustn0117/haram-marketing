@@ -33,6 +33,16 @@ const nextConfig: NextConfig = {
       },
       // 옛 홈 주소 — 홈은 이제 / 에서 바로 렌더한다.
       { source: "/home", destination: "/", statusCode: 301 },
+      // 서비스 9종으로 한정(2026-11) — 네이버에 제출됐던 옛 서비스·지원서비스 주소를
+      // 가장 가까운 새 페이지로, 없어진 서비스는 서비스 목록으로 보낸다. (위에서부터 먼저 맞는 규칙 적용)
+      { source: "/services/search", destination: "/services/place", statusCode: 301 },
+      { source: "/services/sns", destination: "/services/instagram", statusCode: 301 },
+      { source: "/services/brand", destination: "/services/homepage", statusCode: 301 },
+      { source: "/services/ad", destination: "/services", statusCode: 301 },
+      { source: "/services/content", destination: "/services", statusCode: 301 },
+      { source: "/addons/web", destination: "/services/homepage", statusCode: 301 },
+      { source: "/addons/marketing", destination: "/services/crm", statusCode: 301 },
+      { source: "/addons/:path*", destination: "/services", statusCode: 301 },
     ];
   },
   async headers() {

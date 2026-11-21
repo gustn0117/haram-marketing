@@ -18,7 +18,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "회사소개",
   description:
-    "웨딩홀 마케팅 전문 하람마케팅의 운영 철학과 조직, 운영 채널 이야기. 촬영·콘텐츠·광고를 모두 자사 팀이 직접 운영하며, 노출에서 끝나지 않고 예약까지 책임집니다.",
+    "웨딩홀 마케팅 전문 하람마케팅의 운영 철학과 조직, 운영 채널 이야기. 채널 운영과 콘텐츠 제작부터 홈페이지·프로그램 개발까지 자사 팀이 직접 진행하며, 노출에서 끝나지 않고 예약까지 책임집니다.",
   path: "/about",
   image: pageHeroImages.about,
 });

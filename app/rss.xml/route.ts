@@ -1,4 +1,4 @@
-import { siteUrl, company, services, addons } from "@/lib/content";
+import { siteUrl, company, services } from "@/lib/content";
 
 export const dynamic = "force-static";
 
@@ -20,17 +20,12 @@ export async function GET() {
     {
       title: "웨딩홀 마케팅 서비스",
       link: `${siteUrl}/services`,
-      desc: "네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 예약 홈페이지까지 직접 진행합니다.",
+      desc: "인스타그램·웨딩홀 블로그 관리 대행, 네이버 블로그·카페 포스팅, 네이버 플레이스 마케팅부터 홈페이지·랜딩페이지, 웨딩홀 CRM·ERP, 웨딩박람회 플랫폼, 멤버십 프로그램 제작까지 직접 진행합니다.",
     },
     ...services.map((s) => ({
       title: s.title,
       link: `${siteUrl}/services/${s.id}`,
       desc: s.description,
-    })),
-    ...addons.map((a) => ({
-      title: a.name,
-      link: `${siteUrl}/addons/${a.id}`,
-      desc: a.description,
     })),
   ];
 

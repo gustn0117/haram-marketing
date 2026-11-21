@@ -106,7 +106,6 @@ export default async function OfferingDetailPage({
 }
 
 function ServiceBody({ service }: { service: Service }) {
-  const { title } = service;
   return (
     <>
       {/* ── OVERVIEW — 중앙 2문단 ── */}
@@ -149,6 +148,11 @@ function ServiceBody({ service }: { service: Service }) {
               </li>
             ))}
           </ul>
+          {service.priceNote ? (
+            <p className="mx-auto mt-10 max-w-2xl text-center text-sm font-light leading-[1.75] text-faint">
+              비용 · {service.priceNote} — 문의 주시면 맞춤 견적을 안내드립니다.
+            </p>
+          ) : null}
         </Container>
       </section>
 
@@ -197,7 +201,7 @@ function ServiceBody({ service }: { service: Service }) {
             How we work
           </p>
           <div className="mx-auto mt-12 flex max-w-xl flex-col gap-12">
-            {processSteps.map((step) => (
+            {processSteps[service.group].map((step) => (
               <div key={step.no} className="text-center">
                 <span className="text-sm font-light tracking-[0.2em] text-gold">
                   {step.no}

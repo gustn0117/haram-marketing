@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { services, processSteps, company } from "@/lib/content";
 import { Container, CTAButton } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
-import { ServiceIcon } from "@/components/ServiceIcons";
+import { ServiceCard } from "@/components/ServiceCard";
 
 // 메타데이터(canonical "/"·OG·RSS)는 루트 레이아웃 기본값을 그대로 쓴다.
 export default function HomePage() {
@@ -27,7 +26,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── 서비스 — 카드 3열 ── */}
+      {/* ── 서비스 9종 — 카드 3열 ── */}
       <section className="px-6 py-20 md:py-28">
         <Container size="wide">
           <Reveal className="text-center">
@@ -44,41 +43,13 @@ export default function HomePage() {
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <Link
-                key={s.id}
-                href={`/services/${s.id}`}
-                className="card group flex flex-col p-8"
-              >
-                <div className="flex items-center justify-between">
-                  <ServiceIcon
-                    id={s.id}
-                    variant="static"
-                    className="h-8 w-8 text-gold"
-                  />
-                  <span className="folio text-sm tracking-[0.1em] text-faint">
-                    {s.no}
-                  </span>
-                </div>
-                <h3 className="mt-6 text-xl font-normal tracking-tight text-paper">
-                  {s.title}
-                </h3>
-                <p className="mt-1.5 text-[0.64rem] uppercase tracking-[0.2em] text-faint">
-                  {s.tagline}
-                </p>
-                <p className="mt-4 flex-1 text-[0.95rem] font-light leading-[1.7] text-muted">
-                  {s.description}
-                </p>
-                <span className="mt-7 inline-flex items-center gap-1.5 text-sm text-gold transition-all duration-300 group-hover:gap-2.5">
-                  자세히 보기
-                  <span aria-hidden>→</span>
-                </span>
-              </Link>
+              <ServiceCard key={s.id} service={s} />
             ))}
           </div>
         </Container>
       </section>
 
-      {/* ── 진행 방식 — 4단계 ── */}
+      {/* ── 진행 방식 — 마케팅 운영 4단계 ── */}
       <section className="px-6 py-20 md:py-28">
         <Container size="wide">
           <Reveal className="text-center">
@@ -91,7 +62,7 @@ export default function HomePage() {
           </Reveal>
 
           <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
+            {processSteps.marketing.map((step) => (
               <Reveal key={step.no}>
                 <span className="num text-3xl font-light text-gold/70">
                   {step.no}

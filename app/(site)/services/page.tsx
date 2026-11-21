@@ -1,19 +1,34 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { services, processSteps, pageHeroImages } from "@/lib/content";
+import {
+  services,
+  serviceGroups,
+  processSteps,
+  pageHeroImages,
+  type ServiceGroup,
+} from "@/lib/content";
 import { Container, CTASection } from "@/components/ui";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { ServiceIcon } from "@/components/ServiceIcons";
+import { ServiceCard } from "@/components/ServiceCard";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
   title: "서비스",
   description:
-    "네이버 검색·플레이스, 블로그·체험단, 인스타그램·SNS, 퍼포먼스 광고와 상담 DB, 영상·사진 콘텐츠, 브랜딩·예약 홈페이지까지. 하람마케팅의 웨딩홀 마케팅 서비스 영역을 한눈에 확인하세요.",
+    "인스타그램·웨딩홀 블로그 관리 대행, 네이버 블로그·카페 포스팅, 네이버 플레이스 마케팅과 홈페이지·랜딩페이지 제작, 웨딩홀 CRM·ERP, 웨딩박람회 플랫폼, 멤버십 프로그램까지. 하람마케팅의 서비스 9가지를 한눈에 확인하세요.",
   path: "/services",
   image: pageHeroImages.services,
 });
+
+// 데스크톱 카드 배치 — 마케팅 4개는 한 줄, 제작·개발 5개는 3+2(아랫줄 2개를 넓게)로 빈칸 없이.
+const lgGrid: Record<ServiceGroup, string> = {
+  marketing: "lg:grid-cols-4",
+  build: "lg:grid-cols-6",
+};
+function lgSpan(group: ServiceGroup, index: number) {
+  if (group !== "build") return "";
+  return index < 3 ? "lg:col-span-2" : "lg:col-span-3";
+}
 
 export default function ServicesPage() {
   return (
@@ -25,59 +40,48 @@ export default function ServicesPage() {
             검색 노출부터 예약까지, <span className="foil">하나의 팀이.</span>
           </>
         }
-        description="검색·콘텐츠·광고·제작 — 우리가 쓰는 방법은 분명합니다. 다만 무엇을 어떻게 엮을지는 예식장마다 다르게 설계합니다. 각 영역을 눌러 자세한 내용을 확인하세요."
+        description="마케팅 대행 4가지, 제작·개발 5가지 — 우리가 하는 일은 분명합니다. 다만 무엇을 어떻게 엮을지는 예식장마다 다르게 설계합니다. 각 서비스를 눌러 자세한 내용을 확인하세요."
         backgroundImage={pageHeroImages.services}
       />
 
-      {/* ── 서비스 — 카드 3열 그리드 ── */}
-      <section className="px-6 py-20 md:py-28">
-        <Container size="wide">
-          <Reveal className="text-center">
-            <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
-              Our Services
-            </p>
-            <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              검색부터 예약까지, 한 팀이 책임집니다
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
-              정해진 상품이 아니라, 예식장에 필요한 방법만 골라 설계합니다.
-            </p>
-          </Reveal>
+      {/* ── 서비스 — 마케팅 대행 / 제작·개발 묶음별 카드 그리드 ── */}
+      {serviceGroups.map((group) => (
+        <section
+          key={group.id}
+          id={group.id}
+          className="scroll-mt-24 px-6 py-20 md:py-28"
+        >
+          <Container size="wide">
+            <Reveal className="text-center">
+              <p className="text-[0.72rem] uppercase tracking-[0.36em] text-gold">
+                {group.tagline}
+              </p>
+              <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
+                {group.label}
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
+                {group.description}
+              </p>
+            </Reveal>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <Link
-                key={s.id}
-                href={`/services/${s.id}`}
-                className="card group flex flex-col p-8"
-              >
-                <div className="flex items-center justify-between">
-                  <ServiceIcon
-                    id={s.id}
-                    variant="static"
-                    className="h-8 w-8 text-gold"
+            <div
+              className={`mt-14 grid gap-5 sm:grid-cols-2 ${lgGrid[group.id]}`}
+            >
+              {services
+                .filter((s) => s.group === group.id)
+                .map((s, i) => (
+                  <ServiceCard
+                    key={s.id}
+                    service={s}
+                    className={lgSpan(group.id, i)}
                   />
-                  <span className="num text-sm text-faint">{s.no}</span>
-                </div>
-                <h3 className="mt-6 text-xl font-normal tracking-tight text-paper">
-                  {s.title}
-                </h3>
-                <p className="mt-1.5 text-[0.64rem] uppercase tracking-[0.2em] text-faint">
-                  {s.tagline}
-                </p>
-                <p className="mt-4 flex-1 text-[0.95rem] font-light leading-[1.7] text-muted">
-                  {s.description}
-                </p>
-                <span className="mt-7 inline-flex items-center gap-1.5 text-sm text-gold transition-all duration-300 group-hover:gap-2.5">
-                  자세히 보기 <span aria-hidden>→</span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
+                ))}
+            </div>
+          </Container>
+        </section>
+      ))}
 
-      {/* ── 접근 방식 — 4단계 그리드 ── */}
+      {/* ── 접근 방식 — 묶음별 4단계 ── */}
       <section className="px-6 py-20 md:py-28">
         <Container size="wide">
           <Reveal className="text-center">
@@ -85,26 +89,41 @@ export default function ServicesPage() {
               Approach
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              진단에서 리포트까지, 네 단계로 운영합니다
+              마케팅도 제작도, 네 단계로 진행합니다
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
-              한 번의 집행이 아니라, 매달 돌아가는 운영 사이클로 성과를 쌓습니다.
+              마케팅은 매달 돌아가는 운영 사이클로, 제작은 기획부터 오픈·유지보수까지
+              단계별로 진행합니다.
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <Reveal key={step.no}>
-                <span className="num text-sm font-light tracking-[0.2em] text-gold">
-                  {step.no}
-                </span>
-                <h3 className="mt-4 text-xl font-normal tracking-tight text-paper">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-[0.95rem] font-light leading-[1.7] text-muted">
-                  {step.description}
-                </p>
-              </Reveal>
+          <div className="mt-14 flex flex-col gap-16">
+            {serviceGroups.map((group) => (
+              <div key={group.id}>
+                <div className="flex items-baseline gap-3 border-b border-line pb-4">
+                  <h3 className="text-lg font-normal tracking-tight text-paper">
+                    {group.label}
+                  </h3>
+                  <span className="text-[0.64rem] uppercase tracking-[0.2em] text-faint">
+                    {group.tagline}
+                  </span>
+                </div>
+                <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+                  {processSteps[group.id].map((step) => (
+                    <Reveal key={step.no}>
+                      <span className="num text-sm font-light tracking-[0.2em] text-gold">
+                        {step.no}
+                      </span>
+                      <h4 className="mt-4 text-xl font-normal tracking-tight text-paper">
+                        {step.title}
+                      </h4>
+                      <p className="mt-3 text-[0.95rem] font-light leading-[1.7] text-muted">
+                        {step.description}
+                      </p>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </Container>
