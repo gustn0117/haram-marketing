@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { company, navLinks, dropdownMenus } from "@/lib/content";
 import { Menu, Close } from "@/components/icons";
+import { ClientGate } from "@/components/client/ClientGate";
 
 function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -74,6 +75,7 @@ export function SpineRail() {
               </Link>
             );
           })}
+          <ClientGate />
           <Link
             href="/contact"
             className="rounded-none border border-line-strong px-5 py-2 text-[0.82rem] tracking-tight text-paper transition-colors duration-500 hover:border-gold hover:text-gold"
@@ -120,16 +122,19 @@ export function MobileNav() {
             {company.nameEn}
           </span>
         </Link>
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          className="flex h-10 w-10 items-center justify-center text-paper"
-        >
-          {open ? <Close className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-1">
+          <ClientGate variant="icon" />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            className="flex h-10 w-10 items-center justify-center text-paper"
+          >
+            {open ? <Close className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       <div

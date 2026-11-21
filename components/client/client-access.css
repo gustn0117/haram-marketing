@@ -1,0 +1,36 @@
+/* 고객 전용 — 헤더 버튼 · 비밀번호 창 · 잠금 화면 (사이트 다크 톤: 쿨 차콜 + 본 그레이지) */
+
+.ca-trigger { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: var(--color-muted); font: inherit; font-size: 0.875rem; cursor: pointer; transition: color .4s; }
+.ca-trigger:hover { color: var(--color-paper); }
+.ca-trigger svg { flex-shrink: 0; }
+.ca-trigger.is-icon { justify-content: center; width: 40px; height: 40px; color: var(--color-paper); }
+
+.ca-veil { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; background: rgba(10, 10, 13, .72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); animation: ca-fade .22s ease-out; }
+.ca-panel { width: min(440px, 100%); padding: 40px 36px 30px; border: 1px solid var(--color-line-strong); background: var(--color-surface); color: var(--color-paper); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .75); }
+.ca-brand { display: block; font-size: 11px; letter-spacing: .32em; color: var(--color-gold); }
+.ca-panel h2 { margin-top: 22px; font-size: 23px; font-weight: 400; line-height: 1.4; letter-spacing: -.02em; }
+.ca-panel > p:not(.ca-error) { margin-top: 10px; font-size: 14px; line-height: 1.75; color: var(--color-muted); }
+.ca-field { display: block; margin-top: 30px; }
+.ca-field input { width: 100%; height: 60px; padding: 0; border: 0; border-bottom: 1px solid rgba(236, 236, 234, .4); border-radius: 0; background: transparent; color: var(--color-paper); font: inherit; font-size: 28px; letter-spacing: .5em; text-indent: .5em; text-align: center; outline: none; }
+.ca-field input:focus-visible { border-bottom: 2px solid var(--color-gold); }
+.ca-error { min-height: 20px; margin-top: 10px; font-size: 12.5px; line-height: 1.6; color: #dba9a2; }
+.ca-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+.ca-btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border: 1px solid var(--color-line-strong); background: transparent; color: var(--color-paper); font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color .4s, color .4s, background .4s; }
+.ca-btn:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.ca-btn.is-solid { border-color: var(--color-gold); background: var(--color-gold); color: var(--color-ink); }
+.ca-btn.is-solid:hover { border-color: var(--color-gold-bright); background: var(--color-gold-bright); color: var(--color-ink); }
+.ca-btn:disabled { opacity: .45; cursor: default; }
+.ca-panel.is-wrong .ca-field { animation: ca-shake .32s; }
+
+.ca-locked { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 120px 16px 140px; }
+.ca-locked-note { max-width: 440px; font-size: 13px; line-height: 1.75; color: var(--color-faint); text-align: center; }
+
+@keyframes ca-fade { from { opacity: 0; } }
+@keyframes ca-shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@media (max-width: 480px) {
+  .ca-panel { padding: 32px 22px 24px; }
+  .ca-locked { padding: 72px 16px 96px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ca-veil, .ca-panel.is-wrong .ca-field { animation: none; }
+}
