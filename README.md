@@ -30,6 +30,6 @@ npm run indexnow -- /about /services   # 바뀐 페이지만
 
 - 비밀번호: `lib/client-access.ts` 의 `CLIENT_PASSWORD` (서버 환경변수 `CLIENT_PASSWORD` 로도 변경 가능, 바꾸면 이미 열어 둔 브라우저도 다시 잠김)
 - 잠금은 서버에서: `proxy.ts` 가 열람 쿠키 없는 `/client` 요청을 같은 주소의 잠금 화면(`/locked`)으로 바꾸고, 각 페이지도 한 번 더 확인합니다. 응답은 no-store, 검색 노출 차단(noindex), 사이트맵 제외.
-- 화면: 사이트 머리말 대신 포털 틀(`components/client/PortalShell.tsx` — 왼쪽 서비스 메뉴 · 위쪽 바로가기, 모바일은 서랍 메뉴). 대시보드 `app/(portal)/client/page.tsx`, 서비스 상세 `app/(portal)/client/[slug]/page.tsx`, 로그인 화면 `components/client/LockedPanel.tsx`
+- 화면: 사이트 머리말 대신 포털 틀(`components/client/PortalShell.tsx` — 위쪽 바 하나: 하람마케팅(홈페이지로) · 위치 표시 · 견적서 보기 · 잠그기 · 전화 상담). 대시보드 `app/(portal)/client/page.tsx`, 서비스 상세 `app/(portal)/client/[slug]/page.tsx`, 로그인 화면 `components/client/LockedPanel.tsx`
 - 상세 문구: `lib/client-details.ts` · 예시 화면(목업): `components/client/Specimen.tsx` · 스타일: `app/(portal)/client/client.css`
 - 비용: `lib/client-details.ts` 의 `CLIENT_PRICES` — 견적서(haram-service-quote) `data.ts` 와 같은 금액입니다. 금액이 바뀌면 두 곳을 함께 고칩니다. 금액은 서버 컴포넌트에서만 그려서 브라우저 JS 파일에는 들어가지 않습니다.
