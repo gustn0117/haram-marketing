@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactElement, ReactNode } from "react";
+import "./specimen.css";
 
 /* 고객 전용 페이지의 서비스별 예시 화면 (견적서 프로젝트와 같은 목업) — 실제 화면이 아니라 '어떤 결과물이 나오는지'를 보여 주는 흑백 목업.
    모든 크기를 em 으로 잡아, 감싸는 요소의 font-size 하나로 통째로 줄이고 키웁니다. */

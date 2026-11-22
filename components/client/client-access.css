@@ -1,4 +1,4 @@
-/* 고객 전용 — 헤더 버튼 · 비밀번호 창 · 잠금 화면 (사이트 다크 톤: 쿨 차콜 + 본 그레이지) */
+/* 고객 전용 — 헤더 버튼 · 비밀번호 창 · 로그인 화면 (사이트 다크 톤: 쿨 차콜 + 본 그레이지) */
 
 .ca-trigger { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: var(--color-muted); font: inherit; font-size: 0.875rem; cursor: pointer; transition: color .4s; }
 .ca-trigger:hover { color: var(--color-paper); }
@@ -7,29 +7,57 @@
 
 .ca-veil { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; background: rgba(10, 10, 13, .72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); animation: ca-fade .22s ease-out; }
 .ca-panel { width: min(440px, 100%); padding: 40px 36px 30px; border: 1px solid var(--color-line-strong); background: var(--color-surface); color: var(--color-paper); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .75); }
+.ca-panel.is-plain { width: min(400px, 100%); padding: 0; border: 0; background: transparent; box-shadow: none; }
 .ca-brand { display: block; font-size: 11px; letter-spacing: .32em; color: var(--color-gold); }
 .ca-panel h2 { margin-top: 22px; font-size: 23px; font-weight: 400; line-height: 1.4; letter-spacing: -.02em; }
+.ca-panel.is-plain h2 { font-size: 28px; font-weight: 300; letter-spacing: -.035em; }
 .ca-panel > p:not(.ca-error) { margin-top: 10px; font-size: 14px; line-height: 1.75; color: var(--color-muted); }
 .ca-field { display: block; margin-top: 30px; }
 .ca-field input { width: 100%; height: 60px; padding: 0; border: 0; border-bottom: 1px solid rgba(236, 236, 234, .4); border-radius: 0; background: transparent; color: var(--color-paper); font: inherit; font-size: 28px; letter-spacing: .5em; text-indent: .5em; text-align: center; outline: none; }
 .ca-field input:focus-visible { border-bottom: 2px solid var(--color-gold); }
 .ca-error { min-height: 20px; margin-top: 10px; font-size: 12.5px; line-height: 1.6; color: #dba9a2; }
 .ca-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+.ca-panel.is-plain .ca-actions .ca-btn { flex: 1; }
 .ca-btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border: 1px solid var(--color-line-strong); background: transparent; color: var(--color-paper); font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color .4s, color .4s, background .4s; }
 .ca-btn:hover { border-color: var(--color-gold); color: var(--color-gold); }
 .ca-btn.is-solid { border-color: var(--color-gold); background: var(--color-gold); color: var(--color-ink); }
 .ca-btn.is-solid:hover { border-color: var(--color-gold-bright); background: var(--color-gold-bright); color: var(--color-ink); }
 .ca-btn:disabled { opacity: .45; cursor: default; }
 .ca-panel.is-wrong .ca-field { animation: ca-shake .32s; }
+.ca-locked-note { max-width: 400px; font-size: 13px; line-height: 1.75; color: var(--color-faint); }
 
-.ca-locked { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 120px 16px 140px; }
-.ca-locked-note { max-width: 440px; font-size: 13px; line-height: 1.75; color: var(--color-faint); text-align: center; }
+/* 로그인 화면 — 왼쪽 본(bone) 소개 판 · 오른쪽 비밀번호. 어디서 렌더되든 화면 전체를 덮음 */
+.ca-login { position: fixed; inset: 0; z-index: 80; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); overflow-y: auto; background: var(--color-ink); color: var(--color-paper); }
+.ca-login-art { position: relative; display: flex; flex-direction: column; min-height: 100%; padding: 40px 52px 0; overflow: hidden; background: #e8e5df; color: #16161a; }
+.ca-login-brand { display: inline-flex; align-items: baseline; gap: 12px; }
+.ca-login-brand span:first-child { font-size: 17px; font-weight: 500; letter-spacing: -.02em; }
+.ca-login-brand span:last-child { font-size: 9px; letter-spacing: .32em; color: #6b6862; }
+.ca-login-copy { margin-top: clamp(48px, 10vh, 120px); }
+.ca-login-kicker { font-size: 13px; color: #6b6862; }
+.ca-login-art h1 { margin-top: 14px; font-size: clamp(30px, 3.1vw, 46px); font-weight: 300; line-height: 1.24; letter-spacing: -.05em; }
+.ca-login-art ul { max-width: 360px; margin-top: 28px; }
+.ca-login-art li { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-top: 1px solid rgba(22, 22, 26, .12); font-size: 14px; color: #3a3a3f; }
+.ca-login-art li::before { content: ""; width: 12px; height: 1px; background: #16161a; }
+.ca-login-shots { position: relative; flex: 1; min-height: 260px; margin-top: 28px; }
+.ca-login-shot .mk { position: absolute; }
+.ca-login-shot.is-browser .mk { right: -64px; bottom: -40px; transform: scale(.66); transform-origin: bottom right; }
+.ca-login-shot.is-phone .mk { left: 0; bottom: -170px; transform: scale(.6); transform-origin: bottom left; }
+.ca-login-form { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 56px clamp(24px, 6vw, 96px); }
 
 @keyframes ca-fade { from { opacity: 0; } }
 @keyframes ca-shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@media (max-width: 900px) {
+  .ca-login { grid-template-columns: minmax(0, 1fr); align-content: start; }
+  .ca-login-art { min-height: 0; padding: 28px 20px 28px; }
+  .ca-login-copy { margin-top: 36px; }
+  .ca-login-art h1 { font-size: 28px; }
+  .ca-login-art ul { margin-top: 18px; }
+  .ca-login-shots { display: none; }
+  .ca-login-form { padding: 40px 20px 56px; }
+}
 @media (max-width: 480px) {
   .ca-panel { padding: 32px 22px 24px; }
-  .ca-locked { padding: 72px 16px 96px; }
+  .ca-panel.is-plain { padding: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ca-veil, .ca-panel.is-wrong .ca-field { animation: none; }

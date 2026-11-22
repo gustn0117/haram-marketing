@@ -11,11 +11,15 @@ export default function ClientAccessForm({
   onClose,
   closeLabel = "닫기",
   asDialog = false,
+  variant = "panel",
 }: {
+  /** 이동할 주소 — "current" 면 지금 보던 고객 전용 주소 */
   next: string;
   onClose?: () => void;
   closeLabel?: string;
   asDialog?: boolean;
+  /** panel = 카드(헤더의 비밀번호 창) · plain = 바탕 없이(로그인 화면) */
+  variant?: "panel" | "plain";
 }) {
   const [value, setValue] = useState("");
   const [status, setStatus] = useState<"idle" | "checking" | "wrong">("idle");
@@ -46,7 +50,7 @@ export default function ClientAccessForm({
 
   return (
     <form
-      className={`ca-panel${status === "wrong" ? " is-wrong" : ""}`}
+      className={`ca-panel${variant === "plain" ? " is-plain" : ""}${status === "wrong" ? " is-wrong" : ""}`}
       onSubmit={submit}
       {...(asDialog ? { role: "dialog", "aria-modal": true } : {})}
       aria-labelledby="ca-title"
