@@ -4,7 +4,8 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { company, serviceGroups, services } from "@/lib/content";
-import { DETAILS, GROUP_BASIS, QUOTE_URL, VAT_LABEL, priceText } from "@/lib/client-details";
+import { DETAILS, QUOTE_URL, VAT_LABEL, billingBasis, priceOf } from "@/lib/client-details";
+import PriceLines from "@/components/client/PriceLines";
 import { hasClientAccess } from "@/lib/client-access";
 import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
 import SectionTabs from "@/components/client/SectionTabs";
@@ -67,11 +68,10 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
   if (!service || !detail) notFound();
 
   const group = serviceGroups.find((g) => g.id === service.group)!;
-  const price = priceText(service);
+  const price = priceOf(service);
   const index = services.indexOf(service);
   const prev = services[(index - 1 + services.length) % services.length];
   const next = services[(index + 1) % services.length];
-  const priceGuide = service.priceNote ? "키워드를 정한 뒤 키워드별 견적" : "범위 확인 후 맞춤 견적";
 
   return (
     <div className="pt-page">
@@ -80,7 +80,7 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
           <div className="pt-head-meta">
             <span className="pt-no">{service.no}</span>
             <span className="pt-chip">{group.label}</span>
-            <span className="pt-chip is-quiet">{GROUP_BASIS[service.group]}</span>
+            <span className="pt-chip is-quiet">{billingBasis(service)}</span>
           </div>
           <h1>{service.title}</h1>
           <p className="pt-head-en">{service.tagline}</p>
@@ -93,10 +93,11 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
           <div className="pt-summary">
             <div className="pt-summary-info">
               <p className="pt-summary-label">비용</p>
-              <p className="pt-summary-price">{price}</p>
-              <p className="pt-summary-vat">
-                {VAT_LABEL} · {priceGuide}
+              <p className="pt-summary-price">
+                <PriceLines service={service} />
               </p>
+              <p className="pt-summary-vat">{[VAT_LABEL, price.note].filter(Boolean).join(" · ")}</p>
+              {price.notice && <p className="pt-summary-notice">{price.notice}</p>}
               <dl>
                 {detail.specs.map((spec) => (
                   <div key={spec.label}>

@@ -106,11 +106,18 @@
 .pt-card-thumb[data-device="browser"] .mk { top: 50%; transform: translate(-50%, -50%) scale(.4); }
 .pt-card.is-wide .pt-card-thumb[data-device="browser"] .mk { transform: translate(-50%, -50%) scale(.46); }
 .pt-card-body { display: flex; flex: 1; flex-direction: column; padding: 18px 20px 20px; }
-.pt-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--pt-faint); font-variant-numeric: tabular-nums; }
+.pt-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 26px; font-size: 12px; color: var(--pt-faint); font-variant-numeric: tabular-nums; }
 .pt-card strong { margin-top: 12px; font-size: 17px; font-weight: 500; line-height: 1.45; letter-spacing: -.03em; }
 .pt-card em { margin-top: 2px; font-size: 12px; font-style: normal; letter-spacing: .05em; color: var(--pt-faint); }
 .pt-card-summary { margin-top: 10px; font-size: 13.5px; line-height: 1.65; color: var(--pt-muted); }
-.pt-card-go { margin-top: auto; padding-top: 16px; font-size: 12.5px; color: var(--pt-muted); transition: color .3s; }
+/* 카드 아래 — 비용(왼쪽) · 자세히 보기(오른쪽) */
+.pt-card-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 18px; }
+.pt-card-price { display: flex; flex-direction: column; gap: 2px; font-size: 19px; font-weight: 300; line-height: 1.3; letter-spacing: -.03em; color: var(--color-paper); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pt-card-price .pt-price-basis { margin-right: 6px; font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--pt-faint); }
+.pt-card-price .pt-price-won { margin-left: 2px; font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--pt-muted); }
+.pt-card-price .pt-price-from { margin-left: 1px; font-size: 15px; }
+.pt-card-price .pt-price-tbd { font-size: 15px; font-weight: 400; letter-spacing: -.02em; }
+.pt-card-go { flex-shrink: 0; font-size: 12.5px; color: var(--pt-muted); transition: color .3s; }
 .pt-card:hover .pt-card-go { color: var(--pt-accent); }
 
 .pt-track-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -138,8 +145,14 @@
 .pt-head-lead { max-width: 40em; margin-top: 20px; font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--pt-muted); }
 .pt-summary { padding: 26px 24px 22px; border: 1px solid var(--pt-line-strong); background: var(--pt-card); box-shadow: inset 0 1px 0 rgba(236, 236, 234, .05), 0 30px 60px -40px rgba(0, 0, 0, .8); }
 .pt-summary-label { font-size: 12.5px; color: var(--pt-faint); }
-.pt-summary-price { margin-top: 8px; font-size: 28px; font-weight: 300; line-height: 1.2; letter-spacing: -.035em; }
+.pt-summary-price { margin-top: 8px; font-size: 28px; font-weight: 300; line-height: 1.2; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.pt-summary-price .pt-price { display: flex; flex-direction: column; gap: 4px; }
+.pt-summary-price .pt-price-basis { margin-right: 8px; font-size: 13px; font-weight: 400; letter-spacing: 0; color: var(--pt-faint); }
+.pt-summary-price .pt-price-won { margin-left: 3px; font-size: 14px; font-weight: 400; letter-spacing: 0; color: var(--pt-muted); }
+.pt-summary-price .pt-price-from { margin-left: 2px; font-size: 22px; }
+.pt-summary-price .pt-price-tbd { font-size: 22px; letter-spacing: -.03em; }
 .pt-summary-vat { margin-top: 8px; font-size: 12.5px; line-height: 1.5; color: var(--pt-faint); }
+.pt-summary-notice { margin-top: 10px; font-size: 12.5px; line-height: 1.65; color: var(--pt-muted); }
 .pt-summary dl { margin-top: 20px; border-top: 1px solid var(--pt-line); }
 .pt-summary dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--pt-line); font-size: 13px; }
 .pt-summary dt { color: var(--pt-faint); }

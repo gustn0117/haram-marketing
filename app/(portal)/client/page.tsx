@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { company, processSteps, serviceGroups, services } from "@/lib/content";
-import { CLIENT_SUMMARY, GROUP_BASIS, QUOTE_URL, VAT_LABEL, priceText } from "@/lib/client-details";
+import { CLIENT_SUMMARY, GROUP_BASIS, QUOTE_URL, VAT_LABEL, priceOf } from "@/lib/client-details";
+import PriceLines from "@/components/client/PriceLines";
 import { hasClientAccess } from "@/lib/client-access";
 import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
 import LockedPanel from "@/components/client/LockedPanel";
@@ -95,12 +96,15 @@ export default async function ClientDashboard() {
                   <span className="pt-card-body">
                     <span className="pt-card-meta">
                       <span>{service.no}</span>
-                      <span className="pt-chip is-quiet">{priceText(service)}</span>
+                      {priceOf(service).note && <span className="pt-chip is-quiet">{priceOf(service).note}</span>}
                     </span>
                     <strong>{service.title}</strong>
                     <em>{service.tagline}</em>
                     <span className="pt-card-summary">{CLIENT_SUMMARY[service.id]}</span>
-                    <span className="pt-card-go">자세히 보기</span>
+                    <span className="pt-card-foot">
+                      <PriceLines service={service} className="pt-card-price" />
+                      <span className="pt-card-go">자세히 보기</span>
+                    </span>
                   </span>
                 </Link>
               ))}
