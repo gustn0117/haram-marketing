@@ -292,7 +292,7 @@ function PlaceMock() {
   );
 }
 
-/* ── 05 CRM · ERP — 예약 현황 대시보드 ── */
+/* ── 05 CRM · ERP — 예식 캘린더 (홀 × 시간, 예식별 준비 상태) ── */
 function CrmMock() {
   const halls = ["A홀", "B홀", "C홀"];
   const times = ["11:00", "13:00", "15:00", "17:00"];
@@ -300,26 +300,26 @@ function CrmMock() {
     "0-0": "done", "0-1": "done", "0-2": "hold", "1-0": "hold", "1-2": "done", "1-3": "done", "2-1": "done", "2-3": "hold",
   };
   return (
-    <Browser url="관리 프로그램 · 예약 현황">
+    <Browser url="관리 프로그램 · 예식 캘린더">
       <div className="crm">
         <nav className="crm-side">
           <span className="crm-logo" />
-          {["상담", "예약", "계약", "정산", "직원"].map((label) => (
-            <span key={label} className={label === "예약" ? "is-active" : ""}>
+          {["대시보드", "캘린더", "예식", "계약", "대화방"].map((label) => (
+            <span key={label} className={label === "캘린더" ? "is-active" : ""}>
               {label}
             </span>
           ))}
         </nav>
         <div className="crm-main">
           <div className="mk-row mk-between">
-            <span className="crm-title">예약 현황</span>
-            <span className="mk-btn is-ink crm-add">상담 등록</span>
+            <span className="crm-title">예식 캘린더</span>
+            <span className="mk-btn is-ink crm-add">예식 등록</span>
           </div>
           <div className="crm-kpis">
             {[
-              { label: "상담 접수", value: "12" },
-              { label: "홀투어", value: "8" },
-              { label: "계약", value: "5" },
+              { label: "이번 주 예식", value: "12" },
+              { label: "정보 제출", value: "8" },
+              { label: "확인 필요", value: "5" },
             ].map((kpi) => (
               <span key={kpi.label}>
                 <small>{kpi.label}</small>
@@ -339,7 +339,7 @@ function CrmMock() {
                   const state = cells[`${row}-${col}`] ?? "";
                   return (
                     <span key={time} className={`crm-cell${state ? ` is-${state}` : ""}`}>
-                      {state === "done" ? "확정" : state === "hold" ? "가예약" : ""}
+                      {state === "done" ? "준비 완료" : state === "hold" ? "정보 대기" : ""}
                     </span>
                   );
                 })}
