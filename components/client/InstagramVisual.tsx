@@ -8,10 +8,10 @@ export default function InstagramVisual() {
       <div className="mk-instagram-visual">
         <div className="mk-instagram-art">
           <Image
-            src="/images/service-art/instagram-wedding-3d.webp"
+            src="/images/service-art/instagram-wedding-3d-lossless.webp"
             alt=""
             fill
-            sizes="(max-width: 600px) 280px, 360px"
+            unoptimized
           />
         </div>
       </div>
