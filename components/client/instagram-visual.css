@@ -1,27 +1,18 @@
 /* 외부 이미지 영역의 치수는 유지하고, 기기 대신 3D 로고를 배치합니다. */
 .mk-instagram-visual { position: relative; width: 25em; height: 52em; }
-.mk-instagram-art { position: absolute; top: 6em; left: 50%; width: 32em; height: 32em; transform: translateX(-50%); }
+.mk-instagram-art { position: absolute; top: 10em; left: 50%; width: 32em; height: 32em; transform: translateX(-50%); }
 .mk-instagram-art > img { object-fit: contain; filter: drop-shadow(0 1.2em 1.6em #3d12381c); }
-.mk-instagram-caption { --ig-word-face: linear-gradient(180deg, #fff 0%, #faf8fc 55%, #e9e1ee 100%); --ig-word-side: #bcb0c4; --ig-word-shadow: #60476930; position: absolute; top: 35em; left: 50%; width: 34em; transform: translateX(-50%); color: #65586a; text-align: center; }
-.mk-instagram-caption > span { display: block; font-size: .8em; font-weight: 500; line-height: 1.4; letter-spacing: .18em; opacity: .8; }
-/* 로고의 흰 카메라 모양과 같은 부드러운 질감과 얕은 깊이. */
-.mk-instagram-caption > b { position: relative; display: block; isolation: isolate; margin-top: .16em; font-family: var(--font-sans); font-size: 4em; font-weight: 750; line-height: 1.08; letter-spacing: -.045em; }
-.mk-instagram-caption > b::before { content: attr(data-text); position: absolute; inset: 0; z-index: 0; color: var(--ig-word-side); transform: translate(.012em, .025em); text-shadow: .012em .015em 0 var(--ig-word-side), .025em .035em 0 var(--ig-word-side), .04em .055em 0 var(--ig-word-side), 0 .12em .16em var(--ig-word-shadow), 0 .18em .35em var(--ig-word-shadow); }
-.mk-instagram-caption > b > span { position: relative; z-index: 1; display: block; background: var(--ig-word-face); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-text-stroke: .007em #fff9; }
-.wq-card-visual .mk-instagram-caption, .wq-visual-mock .mk-instagram-caption { --ig-word-side: #d2b8df; --ig-word-shadow: #64277940; color: #fff; }
-:is(.wq-card-visual, .pt-card-thumb) .mk-instagram-art { top: -2em; }
-:is(.wq-card-visual, .pt-card-thumb) .mk-instagram-caption { top: 27em; }
-:is(.wq-card-visual, .pt-card-thumb) .mk-instagram-caption > b { font-size: 3.6em; }
+:is(.wq-card-visual, .pt-card-thumb) .mk-instagram-art { top: .7em; }
 
-/* 사진을 뺀 대표 영역 안에서 로고와 문구를 한 덩어리로 중앙 정렬합니다. */
+/* 사진과 문구 없이 기존 대표 이미지 영역 안에 로고를 중앙 정렬합니다. */
 .wq-visual[data-service="instagram"] { display: grid; place-items: center; }
 .wq-visual[data-service="instagram"] .wq-visual-mock { position: relative; inset: auto; margin: 0; }
 .wq-visual[data-service="instagram"] .mk { font-size: 12px; }
-.wq-visual[data-service="instagram"] .mk-instagram-caption { top: 37em; }
 @media (max-width: 960px) {
   .wq-visual[data-service="instagram"] { margin-top: 0; }
   .wq-visual[data-service="instagram"] .mk { font-size: 9.6px; }
 }
 @media (max-width: 480px) {
   .wq-visual[data-service="instagram"] .mk { font-size: 9.1px; }
+  .wq-card-visual .mk-instagram-art { top: -2em; }
 }

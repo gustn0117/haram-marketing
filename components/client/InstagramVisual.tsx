@@ -14,10 +14,6 @@ export default function InstagramVisual() {
             sizes="(max-width: 600px) 280px, 360px"
           />
         </div>
-        <div className="mk-instagram-caption">
-          <span>INSTAGRAM MARKETING</span>
-          <b data-text="Wedding"><span>Wedding</span></b>
-        </div>
       </div>
     </div>
   );
