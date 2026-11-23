@@ -1,0 +1,74 @@
+{
+  "generator": "built-in ImageGen",
+  "styleAndBrandReference": "/images/service-art/homepage-haram-logo-3d-lossless.webp",
+  "usage": "Five separate service illustrations. CRM uses an A4 clipboard/checklist; homepage retains its devices and strengthens screen content; landing page, fair platform and membership use distinct conceptual objects. Existing image slots and card/page grids are preserved. No background photos.",
+  "delivery": {
+    "encoding": "lossless WebP",
+    "resize": false,
+    "additionalOptimization": false,
+    "alphaPreserved": true,
+    "visiblePixelsAndAlphaMatchSource": true
+  },
+  "assets": [
+    {
+      "id": "crm",
+      "name": "crm-checklist-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-edad79bf-1721-443a-97a1-553834233388.png",
+      "concept": "A4 checklist on navy clipboard with completion check",
+      "path": "/images/service-art/crm-checklist-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Create ONE separate premium 3D conceptual icon for wedding-hall CRM / company-wide operations management.\nINPUT IMAGE 1 is a MATERIAL AND BRAND REFERENCE ONLY: softly rounded satin-enamel 3D objects, refined beveled highlights, ivory, midnight navy, muted periwinkle, silver and champagne gold; its H/R monogram is the official brand logo. DO NOT reproduce its monitor, smartphone, stands, or loose wedding rings.\nSUBJECT: a simple portrait A4 sheet of warm ivory paper clipped to a thick softly rounded midnight-navy clipboard backing board. The navy board is clearly visible behind the sheet around all edges. A smooth small silver clip holds the top. The A4 paper has just three sparse checklist rows: small pale-periwinkle rounded-square checkboxes with subtle short gray horizontal bars, not readable writing. Two boxes have clear checks. One single larger 3D periwinkle checkmark overlaps the lower-right corner, making task completion immediately recognizable. A tiny tasteful gold H/R monogram copied from the reference is centered near the paper top, with lots of blank space. This is one clean clipboard-and-checkmark object group, not a UI, computer, tablet or phone.\nCOMPOSITION: mostly frontal with a gentle 12-degree perspective, entire object group fully visible centered in a square canvas, no crop, generous transparent margins. Compact balanced silhouette. Crisp high-resolution product-quality render with soft upper-left studio lighting, polished but restrained satin materials, fine ambient occlusion only between objects.\nBACKGROUND: genuine transparent alpha; no scene, floor, backdrop rectangle or shadows painted onto a background.\nAVOID: screens, monitors, keyboards, pencils, extra floating app tiles, big gold rings, text, Korean lettering, headings, numbers, photoreal paperwork, dense data, excessive decorative objects. Only the small provided monogram may be letter-like.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 645500,
+      "transparentPixels": 754973
+    },
+    {
+      "id": "homepage",
+      "name": "homepage-designed-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-397c10da-995b-42fe-bdee-67652cd3bc01.png",
+      "concept": "Existing monitor and phone preserved; wedding website layout added inside screens",
+      "path": "/images/service-art/homepage-designed-3d-lossless.webp",
+      "prompt": "Use case: precise-object-edit. INPUT IMAGE 1 is the existing homepage-creation 3D asset to EDIT.\nCHANGE ONLY THE INTERIOR CONTENT OF THE TWO SCREENS to communicate an elegant, designed wedding venue website rather than a blank logo splash screen.\nKeep the official gold H/R monogram recognizable, using the same delicate interwoven H and looping calligraphic R mark already present in the reference. Show it as a tasteful small brand mark near the top-left of the desktop webpage and centered at the top on mobile. Build an airy simplified website layout inside the existing ivory screens: a slim header with the small monogram and three tiny understated navigation dashes; below it, one carefully composed ivory-and-lilac editorial hero section. On the desktop hero, the left side contains just two short charcoal headline placeholder bars, one thin supporting bar, and one small midnight-navy rounded consultation CTA button WITHOUT lettering. The right side has a beautiful simple stylized wedding arch illustration with a few delicate ivory floral forms and subtle gold detailing, not a photo. Beneath the hero show a row of three small evenly spaced feature tiles in pale ivory/lilac, very restrained. On the phone use the same monogram, arch illustration, a pair of short placeholder bars and a navy blank CTA button in a single-column responsive layout. The website should look intentionally designed and refined, with plentiful blank space, not a detailed real dashboard.\nPRESERVE EXACTLY everything outside the visible inner screen areas: pearl-white monitor and smartphone silhouettes, their position and perspective, bezels, lavender reflected edge highlights, silver stand, top three browser dots, the original two gold rings at lower left, square framing, object scale, light direction and transparent background. Do not add external objects. Do not redesign or resize the devices.\nNO readable words, digits, slogans, WEDDING captions or invented tiny text; only the official small H/R monogram. Truly transparent alpha outside the existing object group. Very crisp full-resolution final.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 803712,
+      "transparentPixels": 583079
+    },
+    {
+      "id": "landing",
+      "name": "landing-conversion-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-fa953966-ba32-4459-989f-8e42746e2e43.png",
+      "concept": "Standalone landing webpage with consultation CTA and 3D cursor",
+      "path": "/images/service-art/landing-conversion-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Create ONE separate premium 3D conceptual icon for a wedding-event LANDING PAGE: a one-page promotional website leading to consultation signup.\nINPUT IMAGE 1 is a MATERIAL AND BRAND REFERENCE ONLY. Match its soft rounded satin-enamel 3D forms, beveled edge highlights, fine studio lighting, ivory, muted periwinkle, midnight navy and restrained champagne-gold accents. The gold interwoven H/R is the official brand monogram. DO NOT reproduce its desktop, smartphone, stand or loose rings.\nSUBJECT: a single floating tall ivory webpage sheet with a thick rounded lavender edge, shown in gentle three-quarter perspective, with no physical screen device or stand. The page itself is the object: a very thin browser-style top strip with three tiny dots and a small gold H/R monogram, followed by one large soft lilac hero panel with a simple abstract wedding arch silhouette, then two short charcoal placeholder bars, then one prominent midnight-navy rounded CTA button with no words, and two small blank pale-lilac form fields directly below. A large smooth periwinkle 3D mouse cursor arrow overlaps the lower-right edge, pointing precisely at the CTA button. This single-page-plus-cursor motif should instantly communicate an event landing page and applying/clicking. Keep it abstract and sparse; the CTA and pointer are the second focus after the tall page.\nCOMPOSITION: centered compact object group in a square canvas, entire sheet and cursor visible with generous transparent margins; softly frontal 12-degree tilt, refined crisp beveled materials, gentle upper-left studio light, subtle inter-object ambient occlusion.\nBACKGROUND: true transparent alpha, no floor plane, scene, photographic content, background square or halo rectangle.\nAVOID: computer monitor, phone, tablet hardware, keyboard, clipboard clips, extra panels, full detailed UI, paragraphs, words, numbers, WEDDING typography, big loose wedding rings, extraneous icons. Only the small brand monogram may be letter-like.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 701332,
+      "transparentPixels": 678249
+    },
+    {
+      "id": "fair",
+      "name": "fair-platform-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-cb5b2e34-108e-48ef-b27c-4dc432a65326.png",
+      "concept": "Central event pass connected to calendar, visitor and check-in modules",
+      "path": "/images/service-art/fair-platform-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Create ONE separate premium 3D conceptual icon for a WEDDING FAIR PLATFORM that connects event information, reservation, visitors and check-in.\nINPUT IMAGE 1 is a MATERIAL/STYLE REFERENCE ONLY. Match the softly rounded satin-enamel 3D construction, fine beveled edge highlights, pearl ivory, muted periwinkle, midnight navy, silver and restrained champagne-gold. Do not copy its monitor, smartphone, stand or loose gold rings.\nSUBJECT: a compact connected modular service hub, clearly a platform rather than a screen. In the center stands one large softly rounded ivory event admission ticket/pass with the familiar shallow semicircular ticket notches at its two sides, a periwinkle edge and a simple embossed pair-of-interlocking-wedding-rings pictogram in muted champagne gold on its face. Below the rings a single small periwinkle check indicates confirmed entry. It stands above a low thick rounded square pearl-white platform base. Three much smaller periwinkle/navy rounded icon tiles surround the central ticket on short visible rounded connecting paths: a calendar symbol upper-left, a two-person visitor symbol upper-right, and a location pin/check-in symbol lower-front. The clear visual connection of these modules to the central pass suggests one integrated event booking platform. Use only pictograms, no letters, dates, numerals, QR code or detailed interface. Keep the central admission pass dominant and all secondary modules small, with enough space between them.\nCOMPOSITION: one cohesive balanced object group, gentle isometric depth but mostly front-facing, centered in a square canvas with generous transparent margins. The entire base, all nodes and ticket must fit without clipping. Premium crisp studio 3D, refined satin materials, upper-left soft light and subtle contact shading.\nBACKGROUND: truly transparent alpha, no room, floor, photo, backdrop, rectangle or visible shadow plane.\nAVOID: any monitor, computer, phone or tablet, huge scene, realistic exhibition buildings, excessive tiny parts, written labels, readable text, loose wedding rings outside the pictogram, arrows flying around, visual clutter.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 719478,
+      "transparentPixels": 496814
+    },
+    {
+      "id": "membership",
+      "name": "membership-benefits-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-9cde4db2-ff8d-4d0b-890c-71396e1f1687.png",
+      "concept": "Branded membership cards, tier medallion and benefit gift",
+      "path": "/images/service-art/membership-benefits-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Create ONE separate premium 3D conceptual icon for a wedding venue MEMBERSHIP PROGRAM, recognizable as membership, status and member benefits.\nINPUT IMAGE 1 is a MATERIAL AND BRAND REFERENCE ONLY. Match its softly rounded satin-enamel 3D forms, refined beveled highlights, warm ivory, midnight navy, muted periwinkle and champagne gold. The interwoven gold serif H and long looping calligraphic R is the official HARAM brand monogram; use the same mark, not two separate typed letters. Do not reproduce the monitor, phone, stand or loose gold rings.\nSUBJECT: one elegant thick softly rounded midnight-navy membership card floating at a subtle three-quarter angle, with a very fine champagne-gold perimeter line and the exact official gold H/R monogram large and centered on its face. A second simple pearl-ivory card peeks slightly behind it, implying a member wallet. A small thick gold circular medallion with a single raised star leans against the front lower-right edge, indicating membership tier and points. One small muted-periwinkle gift box with a soft ivory ribbon sits beside the card at lower-left, communicating member benefits. Main navy card dominant; medallion and gift box clearly secondary. Keep premium and calm, no excessive ornaments.\nCOMPOSITION: one compact balanced object group centered in a square canvas, all cards, box and medallion fully visible with generous transparent margin. Gentle frontal 12-degree perspective, soft upper-left studio lighting, fine satin-enamel surfaces, restrained metallic gold, crisp high-resolution edges.\nBACKGROUND: genuine transparent alpha, no floor, scene, backdrop square or haze panel.\nAVOID: credit card chips, payment networks, bank numbers, barcode, QR, any written membership title or other text, computer/phone/tablet, big loose wedding rings, extra apps, glitter. Only the supplied small interwoven H/R monogram is letter-like.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 759014,
+      "transparentPixels": 779661
+    }
+  ]
+}

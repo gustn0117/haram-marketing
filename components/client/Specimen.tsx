@@ -1,4 +1,3 @@
-import { FairPage, LandingPage, MembershipApp } from "./previews/screens";
 import InstagramVisual from "./InstagramVisual";
 import NaverVisual from "./NaverVisual";
 import DevelopmentVisual from "./DevelopmentVisual";
@@ -14,43 +13,12 @@ export const SPECIMEN_DEVICE: Record<string, Device> = {
   homepage: "browser", landing: "phone", fair: "browser", membership: "phone",
 };
 
-const SCREENS = {
-  landing: LandingPage,
-  fair: FairPage, membership: MembershipApp,
-};
-
-const TITLES: Record<string, string> = {
-  fair: "웨딩박람회 플랫폼",
-};
-
 /** 페이지와 프레임의 배치는 그대로 두고, 그 안의 예시 화면만 교체합니다. */
 export default function Specimen({ id }: { id: string }) {
   if (id === "instagram") return <InstagramVisual />;
   if (id === "blog" || id === "posting" || id === "place") return <NaverVisual id={id} />;
-  if (id === "crm" || id === "homepage") return <DevelopmentVisual id={id} />;
-  const Screen = SCREENS[id as keyof typeof SCREENS];
-  const device = SPECIMEN_DEVICE[id];
-  if (!Screen || !device) return null;
-  return (
-    <div className={`mk mk-${device}-wrap mk-native`} data-service={id} aria-hidden="true">
-      {device === "phone" ? (
-        <div className="mk-phone">
-          <div className="mk-screen">
-            <span className="mk-notch" />
-            <span className="mk-status" />
-            <div className="pv-inline"><Screen /></div>
-          </div>
-        </div>
-      ) : (
-        <div className="mk-browser">
-          <div className="mk-browser-bar">
-            <span className="mk-dot" /><span className="mk-dot" /><span className="mk-dot" />
-            <span className="mk-url">{TITLES[id]}</span>
-          </div>
-          <div className="mk-screen"><div className="pv-inline"><Screen /></div></div>
-          <span className="mk-monitor-stand" />
-        </div>
-      )}
-    </div>
-  );
+  if (id === "crm" || id === "homepage" || id === "landing" || id === "fair" || id === "membership") {
+    return <DevelopmentVisual id={id} />;
+  }
+  return null;
 }

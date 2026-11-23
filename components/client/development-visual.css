@@ -1,10 +1,21 @@
-/* 기존 브라우저 목업의 바깥 치수 안에 개별 3D 이미지를 배치합니다. */
-.mk-development-visual { position: relative; width: 56em; height: 37.9em; }
-.mk-development-art { position: absolute; top: 50%; left: 50%; width: 42em; height: 42em; transform: translate(-50%, -50%); }
+/* 기존 이미지 자리의 바깥 치수 안에 서비스별 3D 오브젝트를 배치합니다. */
+.mk-development-visual { position: relative; width: 25em; height: 52em; }
+.mk-development-art { position: absolute; top: 10em; left: 50%; width: 32em; height: 32em; transform: translateX(-50%); }
 .mk-development-art > img { object-fit: contain; filter: drop-shadow(0 1em 1.5em #22233b1a); }
-.wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) { display: grid; place-items: center; }
-.wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) .wq-visual-mock { position: relative; inset: auto; margin: 0; }
+.mk-development-visual.is-wide { width: 56em; height: 37.9em; }
+.mk-development-visual.is-wide .mk-development-art { top: 50%; width: 42em; height: 42em; transform: translate(-50%, -50%); }
+:is(.wq-card-visual, .pt-card-thumb) .mk-development-visual:not(.is-wide) .mk-development-art { top: .7em; }
+:is(.wq-card-visual, .pt-card-thumb) .mk-development-wrap[data-service="crm"] .mk-development-art { width: 36em; height: 36em; }
+
+.wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"], [data-service="landing"], [data-service="fair"], [data-service="membership"]) { display: grid; place-items: center; }
+.wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"], [data-service="landing"], [data-service="fair"], [data-service="membership"]) .wq-visual-mock { position: relative; inset: auto; margin: 0; }
+.wq-visual[data-service]:is([data-service="landing"], [data-service="membership"]) .mk { font-size: 12px; }
 @media (max-width: 960px) {
-  .wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) { margin-top: 0; }
-  .wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) .mk { font-size: min(10px, calc((100vw - 44px) / 56)); }
+  .wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"], [data-service="landing"], [data-service="fair"], [data-service="membership"]) { margin-top: 0; }
+  .wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"], [data-service="fair"]) .mk { font-size: min(10px, calc((100vw - 44px) / 56)); }
+  .wq-visual[data-service]:is([data-service="landing"], [data-service="membership"]) .mk { font-size: 9.6px; }
+}
+@media (max-width: 480px) {
+  .wq-visual[data-service]:is([data-service="landing"], [data-service="membership"]) .mk { font-size: 9.1px; }
+  .wq-card-visual .mk-development-visual:not(.is-wide) .mk-development-art { top: -2em; }
 }
