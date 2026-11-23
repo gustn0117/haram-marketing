@@ -59,7 +59,7 @@ export default function ClientAccessForm({
       <span className="ca-brand">HARAM MARKETING</span>
       <h2 id="ca-title">고객 전용 페이지</h2>
       <p id="ca-desc">
-        견적서에 담긴 서비스를 한 페이지씩 자세히 보실 수 있습니다. 견적서와 함께 전달받은 비밀번호를 입력해 주세요.
+        견적서와 서비스별 안내를 보실 수 있습니다. 견적서와 함께 전달받은 비밀번호를 입력해 주세요.
       </p>
       <label className="ca-field">
         <span className="sr-only">비밀번호</span>

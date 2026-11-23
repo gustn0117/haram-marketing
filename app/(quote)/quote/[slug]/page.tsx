@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import { hasClientAccess } from "@/lib/client-access";
+import LockedPanel from "@/components/client/LockedPanel";
 import "../quote.css";
 import { PDF_FILENAME, PDF_URL, PROCESS, SERVICES, groupOf, pad2, serviceNo, shortName, type Service } from "@/lib/quote-data";
 import PriceLines from "@/components/quote/PriceLines";
@@ -27,9 +30,8 @@ import {
 
 type Params = { slug: string };
 
-export function generateStaticParams(): Params[] {
-  return SERVICES.map((service) => ({ slug: service.id }));
-}
+/* 고객 전용(비밀번호 · proxy.ts) — 요청마다 렌더링. 정적 HTML 로 만들면 CDN 에 캐시될 수 있어 잠금이 무의미해짐 */
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
@@ -49,6 +51,8 @@ const PROCESS_NOTE: Record<string, string> = {
 };
 
 export default async function ServiceLanding({ params }: { params: Promise<Params> }) {
+  if (!(await hasClientAccess(await cookies()))) return <LockedPanel />;
+
   const { slug } = await params;
   const service = SERVICES.find((item) => item.id === slug);
   if (!service) notFound();

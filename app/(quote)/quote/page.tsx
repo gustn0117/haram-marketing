@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { hasClientAccess } from "@/lib/client-access";
+import LockedPanel from "@/components/client/LockedPanel";
 import "./quote.css";
 import {
   ABOUT,
@@ -26,11 +29,14 @@ import QuoteHeader from "@/components/quote/QuoteHeader";
 import { Hatch, QuoteFooter, RichText, THEME, keepDots, quoteNav, tel } from "@/components/quote/shared";
 
 /* ─────────────────────────────────────────────────────────────
-   견적서 메뉴 (haram-marketing.co.kr/quote) — 흰 바탕.
+   견적서 메뉴 (haram-marketing.co.kr/quote) — 흰 바탕. 고객 전용(비밀번호 · proxy.ts)이라 요청마다 렌더합니다.
    첫 화면 · 서비스 9가지 카드(누르면 서비스별 안내 페이지 /quote/[서비스]) · 견적 정리 · 진행 방식 · 하람 소개.
    글과 금액은 lib/quote-data.ts(견적서 저장소 data.ts 사본)에서 가져옵니다.
    [PDF 받기]는 public/documents 의 A4 견적서 PDF (견적서 저장소에서 npm run pdf 로 만든 파일의 사본).
    ───────────────────────────────────────────────────────────── */
+
+/* 요청마다 렌더링 — 정적 HTML 로 만들면 CDN 에 캐시될 수 있어 잠금이 무의미해짐 */
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "서비스 견적서",
@@ -39,7 +45,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function QuoteMenu() {
+export default async function QuoteMenu() {
+  if (!(await hasClientAccess(await cookies()))) return <LockedPanel />;
+
   return (
     <div className="wq is-light">
       <a href="#wq-main" className="wq-skip">

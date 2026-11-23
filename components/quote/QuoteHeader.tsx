@@ -2,16 +2,27 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ClientGate } from "@/components/client/ClientGate";
+import ClientLockButton from "@/components/client/LockButton";
 
 /* 견적서 머리말 (/quote · /quote/[서비스]) — 사이트 머리말(components/Header.tsx)과 같은 모양.
-   넓은 화면: 높이 80 · 짙은 차콜 반투명 + 블러 · 하람마케팅 | HARAM MARKETING · 회색 메뉴(밑줄) · 고객 전용(자물쇠) · 테두리 버튼.
+   넓은 화면: 높이 80 · 짙은 차콜 반투명 + 블러 · 하람마케팅 | HARAM MARKETING · 회색 메뉴(밑줄) · 잠그기(자물쇠) · 테두리 버튼.
+   견적서는 고객 전용 안에 있어서, 사이트의 '고객 전용' 자리에 열람을 끝내는 '잠그기'를 둡니다.
    좁은 화면(1023px 이하): 높이 56 · 두 줄 로고 · 자물쇠 아이콘 · 메뉴 버튼 → 화면 전체 메뉴(흰 바탕).
    메뉴는 견적서 목차입니다 — 묶음(마케팅 대행 · 제작 · 개발)에 마우스를 올리면 서비스 목록(흰 바탕)이 펼쳐지고,
    서비스를 누르면 그 서비스의 안내 페이지(/quote/[서비스])로 갑니다. */
 
 export type NavGroup = { id: string; label: string; items: { id: string; no: string; label: string; theme: string }[] };
 export type NavLink = { href: string; label: string };
+
+function LockIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <rect x="5" y="10.5" width="14" height="10" />
+      <path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3" />
+      <path d="M12 14.5v2.5" />
+    </svg>
+  );
+}
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -100,14 +111,19 @@ export default function QuoteHeader({
                 {link.label}
               </Link>
             ))}
-            <ClientGate />
+            <ClientLockButton className="wq-nav-lock" title="이 브라우저의 열람을 끝내고 다시 잠급니다">
+              <LockIcon />
+              잠그기
+            </ClientLockButton>
             <a className="wq-nav-cta" href={pdfUrl} download={pdfFilename}>
               PDF 받기
             </a>
           </nav>
 
           <div className="wq-mactions">
-            <ClientGate variant="icon" />
+            <ClientLockButton className="wq-icon-btn" title="이 브라우저의 열람을 끝내고 다시 잠급니다">
+              <LockIcon />
+            </ClientLockButton>
             <button
               type="button"
               className="wq-icon-btn"

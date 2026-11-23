@@ -53,7 +53,7 @@ export function ClientGate({ variant = "text" }: { variant?: "text" | "icon" }) 
         ref={triggerRef}
         type="button"
         className={`ca-trigger${variant === "icon" ? " is-icon" : ""}`}
-        onClick={() => (hasHint() ? window.location.assign("/client") : setOpen(true))}
+        onClick={() => (hasHint() ? window.location.assign("/quote") : setOpen(true))}
         aria-haspopup="dialog"
         aria-label={variant === "icon" ? "고객 전용 페이지" : undefined}
       >
@@ -69,7 +69,7 @@ export function ClientGate({ variant = "text" }: { variant?: "text" | "icon" }) 
               if (event.target === event.currentTarget) close();
             }}
           >
-            <ClientAccessForm next="/client" onClose={close} asDialog />
+            <ClientAccessForm next="/quote" onClose={close} asDialog />
           </div>,
           document.body,
         )}

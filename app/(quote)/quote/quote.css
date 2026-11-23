@@ -152,6 +152,9 @@ body:has(.wq) { background: #16161a; }
 .wq-nav-menu a:hover, .wq-nav-menu a:focus-visible, .wq-nav-menu a[aria-current="page"] { background: #f4f3f0; color: var(--wq-ink); }
 .wq-nav-menu i { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--t-dot); box-shadow: inset 0 0 0 1px var(--t-ring); }
 .wq-nav-menu small { font-size: 12px; color: #8a8b90; font-variant-numeric: tabular-nums; }
+.wq-nav-lock { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none; color: var(--wq-muted); font: inherit; font-size: 14px; white-space: nowrap; cursor: pointer; transition: color .3s; }
+.wq-nav-lock:hover { color: var(--wq-paper); }
+.wq-nav-lock:disabled { opacity: .6; cursor: wait; }
 .wq-nav-cta { padding: 8px 20px; border: 1px solid var(--wq-line-strong); color: var(--wq-paper); font-size: 13.1px; letter-spacing: -.025em; white-space: nowrap; transition: color .5s, border-color .5s; }
 .wq-nav-cta:hover { border-color: var(--wq-bone); color: var(--wq-bone); }
 .wq-mactions { display: none; }

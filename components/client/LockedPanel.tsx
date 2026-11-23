@@ -18,13 +18,13 @@ export default function LockedPanel() {
         <div className="ca-login-copy">
           <p className="ca-login-kicker">고객 전용</p>
           <h1>
-            견적서에 담긴 서비스
-            <br />9종의 상세 안내입니다
+            하람마케팅 견적서와
+            <br />서비스 9종 안내입니다
           </h1>
           <ul>
-            <li>서비스 9종 상세 안내</li>
+            <li>서비스별 견적과 안내 페이지</li>
             <li>진행 방식과 받아보시는 결과물</li>
-            <li>비용 기준과 바로 상담 연결</li>
+            <li>비용과 바로 상담 연결</li>
           </ul>
         </div>
         <div className="ca-login-shots" aria-hidden="true">
