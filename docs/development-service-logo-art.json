@@ -1,0 +1,35 @@
+{
+  "generator": "built-in ImageGen",
+  "operation": "compositing",
+  "logoReference": "User-supplied official champagne-gold H/R monogram attached in the request.",
+  "usage": "Replace only Korean 하람 lettering inside the two existing 3D device illustrations with the supplied HARAM monogram. Preserve existing device shapes, image slot positions and page layouts.",
+  "delivery": {
+    "encoding": "lossless WebP",
+    "resize": false,
+    "additionalOptimization": false,
+    "alphaPreserved": true,
+    "visiblePixelsAndAlphaMatchSource": true
+  },
+  "assets": [
+    {
+      "id": "crm",
+      "editTarget": "/images/service-art/crm-haram-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-4cec511a-e064-485a-9026-fb429942fe02.png",
+      "path": "/images/service-art/crm-haram-logo-3d-lossless.webp",
+      "prompt": "Use case: compositing. Edit the existing CRM/ERP 3D illustration, changing ONLY the content on the monitor screen.\nINPUTS: Image 1 is the user's official HARAM logo: a delicate champagne-gold monogram consisting of a tall serif H interwoven with an elegant looping calligraphic R on plain white. Use this supplied logo itself, accurately preserving its proportions, linework, crossing strokes and gold color; do not invent a replacement, add text or typeset H/R separately. Image 2 is the CRM illustration to EDIT. Image 3 is a separate website illustration and must NOT be combined with this output.\nReplace the black Korean word 하람 on Image 2's desktop screen with the official gold H/R monogram from Image 1. Remove the Korean lettering entirely. Center the monogram within the ivory screen, with a comfortable generous blank margin, about half the screen height. Composite the logo as naturally flat screen content aligned to the monitor perspective, with clean antialiased edges. Remove the logo reference's white background; the screen must retain its existing warm ivory color uniformly behind and around the monogram, with no white square or sticker edge.\nPRESERVE everything else exactly as Image 2: navy monitor silhouette and bezel, periwinkle trim, silver stand, calendar and people pictograms, two wedding rings, all positions, camera perspective, materials, lighting, colors, object scale, square framing and existing transparent background. No device redesign, no added decoration or text. Crisp full-resolution image with genuinely transparent alpha outside the object group. One output containing only the edited CRM illustration.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 735560
+    },
+    {
+      "id": "homepage",
+      "editTarget": "/images/service-art/homepage-haram-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-dff9f516-dde2-4479-b59a-65edba34ce2d.png",
+      "path": "/images/service-art/homepage-haram-logo-3d-lossless.webp",
+      "prompt": "Use case: compositing. Edit the existing website-creation 3D illustration, changing ONLY the content on the two device screens.\nINPUTS: Image 1 is the user's official HARAM logo: a delicate champagne-gold monogram consisting of a tall serif H interwoven with an elegant looping calligraphic R on plain white. Use this supplied logo itself, accurately preserving its proportions, linework, crossing strokes and gold color; do not invent a replacement, add text or typeset H/R separately. Image 2 is the CRM illustration and must NOT be combined with this output. Image 3 is the pearl-white desktop monitor and smartphone illustration to EDIT.\nReplace BOTH occurrences of the black Korean word 하람 on Image 3's desktop screen and phone screen with the SAME official gold H/R monogram from Image 1. Remove the Korean lettering entirely. Center the monogram in each pale ivory screen with generous blank margins: approximately half the monitor screen height, and one-third of the phone screen height. Match each screen's slight perspective. Composite the logo as flat screen content, not a raised ornament. Remove the logo reference's white background; retain each existing ivory screen uniformly behind and around the monogram, without a white square, sticker edge or new backdrop.\nPRESERVE everything else exactly as Image 3: pearl-white monitor and phone silhouettes, silver and lavender trim, silver stand, three tiny browser dots, phone details, two wedding rings, all positions, camera perspective, materials, lighting, colors, object scale, square framing and existing transparent background. No device redesign, no added decoration or text. Crisp full-resolution image with genuinely transparent alpha outside the object group. One output containing only the edited homepage illustration.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 720452
+    }
+  ]
+}
