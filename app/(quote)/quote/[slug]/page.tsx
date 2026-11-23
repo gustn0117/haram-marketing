@@ -9,7 +9,7 @@ import { PDF_FILENAME, PDF_URL, PROCESS, SERVICES, groupOf, pad2, serviceNo, sho
 import PriceLines from "@/components/quote/PriceLines";
 import QuoteHeader from "@/components/quote/QuoteHeader";
 import {
-  FeatureVisual,
+  Hatch,
   LockIcon,
   PhoneIcon,
   QuoteFooter,
@@ -115,7 +115,7 @@ export default async function ServiceLanding({ params }: { params: Promise<Param
             <ul className="wq-features">
               {service.includes.map((item, index) => (
                 <li key={item} className="wq-feature">
-                  <FeatureVisual serviceId={service.id} index={index} />
+                  <Hatch label="이미지" serviceId={service.id} index={index} />
                   <i aria-hidden="true" />
                   <strong>{keepDots(item)}</strong>
                 </li>

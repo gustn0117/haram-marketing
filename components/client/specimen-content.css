@@ -1,0 +1,11 @@
+/* Only the contents of the original, fixed-size device frames. */
+.mk-native .pv-inline { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; color: #24282c; font-weight: 400; font-style: normal; font-size: 1em; line-height: 1.45; letter-spacing: -.025em; text-align: left; }
+.mk-native .mk-phone .pv-inline { flex: 1; font-size: 1.1em; }
+.mk-native .mk-browser .pv-inline { font-size: .9em; }
+.pv-inline :where(h3, h4, p, aside, footer) { margin: 0; padding: 0; }
+.pv-inline :where(b, strong) { font-weight: 600; }
+.pt-card .mk-native .pv-inline em { margin: 0; font-size: inherit; letter-spacing: inherit; color: inherit; font-style: italic; }
+.mk-native .pv-inline .pv-crm { height: 37.6em; }
+
+/* The original 4:3 image slots keep their dimensions and positions. */
+.wq-hatch > .pv-feature { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; padding: 16px; }

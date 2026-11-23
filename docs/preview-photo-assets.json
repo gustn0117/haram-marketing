@@ -1,0 +1,36 @@
+{
+  "generator": "built-in ImageGen",
+  "usage": "Individual editorial photographs only. All service interfaces, typography, cards, forms, tables and maps are native React/HTML/CSS/SVG.",
+  "assets": [
+    {
+      "id": "hero",
+      "path": "/images/preview-photos/hero.webp",
+      "prompt": "Premium editorial architectural photograph of a contemporary Seoul wedding hall, centered ivory aisle, white flowers and olive foliage, warm walnut and limestone, atmospheric daylight, no text or logos."
+    },
+    {
+      "id": "flowers",
+      "path": "/images/preview-photos/flowers.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: finished photo for Korean wedding marketing website. A close editorial photograph of a lush sculptural wedding floral arrangement with ivory roses, white sweet peas and fresh olive-green branches, slender ivory candles, linen and warm stone table, softly blurred sophisticated Korean wedding hall behind it, delicate afternoon sunlight. Horizontal 3:2, artful asymmetrical composition. Coherent photographic art direction: warm ivory, soft olive green, dark walnut, natural fine-grained documentary/editorial photography, authentic real materials. No text, no logos, no watermark, no collage, no mockup device frames, no striped patterns. Single full-bleed photograph."
+    },
+    {
+      "id": "couple",
+      "path": "/images/preview-photos/couple.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: finished photo for Korean wedding marketing website. A candid editorial wedding photograph of a young Korean bride in elegant ivory silk wedding gown holding a loose white bouquet and a Korean groom in charcoal suit, walking away from camera hand in hand through a warm limestone wedding venue corridor into a sunlit garden. Frame from behind, people naturally proportioned, quiet intimacy, cinematic soft daylight, horizontal 3:2. Coherent photographic art direction: warm ivory, soft olive green, dark walnut, natural fine-grained documentary/editorial photography, authentic real materials. No text, no logos, no watermark, no collage, no mockup device frames, no striped patterns. Single full-bleed photograph."
+    },
+    {
+      "id": "consultation",
+      "path": "/images/preview-photos/consultation.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: finished photo for Korean wedding marketing website. Editorial documentary photograph of a Korean wedding planner meeting a young Korean engaged couple in a refined bright wedding venue consultation lounge. Natural candid conversation at a round pale oak table, elegant venue brochure with unlettered cream paper and a tablet lying flat, small white flower vase, tasteful professional everyday clothes, warm stone and walnut interior, authentic anatomy and natural hands, horizontal 3:2. Coherent photographic art direction: warm ivory, soft olive green, dark walnut, natural fine-grained documentary/editorial photography, authentic real materials. No text, no logos, no watermark, no collage, no mockup device frames, no striped patterns. Single full-bleed photograph."
+    },
+    {
+      "id": "team",
+      "path": "/images/preview-photos/team.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: finished photo for Korean wedding marketing website. Editorial documentary photograph for a Korean wedding marketing agency, four Korean creative professionals collaborating around an oak desk in a refined sunlit studio. One person arranging wedding photographic prints on the table, another with open laptop turned away, natural candid interaction, warm whites sage and charcoal palette, white floral stem in glass vase, shelves with unlettered portfolios, no prominent screens, horizontal 3:2. Coherent photographic art direction: warm ivory, soft olive green, dark walnut, natural fine-grained documentary/editorial photography, authentic real materials. No text, no logos, no watermark, no collage, no mockup device frames, no striped patterns. Single full-bleed photograph."
+    },
+    {
+      "id": "reception",
+      "path": "/images/preview-photos/reception.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: finished photo for Korean wedding marketing website. Premium editorial detail photograph of a wedding reception table in a refined contemporary Korean wedding venue, cream linen, translucent glassware, ivory dinner plates, brushed gold flatware, a folded ivory napkin with blank warm-white place card, delicate white florals and green branches, walnut and warm stone backdrop, cinematic natural light, horizontal 3:2. Coherent photographic art direction: warm ivory, soft olive green, dark walnut, natural fine-grained documentary/editorial photography, authentic real materials. No text, no logos, no watermark, no collage, no mockup device frames, no striped patterns. Single full-bleed photograph."
+    }
+  ]
+}

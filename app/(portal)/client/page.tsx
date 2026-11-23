@@ -5,7 +5,7 @@ import { company, processSteps, serviceGroups, services } from "@/lib/content";
 import { CLIENT_SUMMARY, GROUP_BASIS, QUOTE_URL, VAT_LABEL, priceOf } from "@/lib/client-details";
 import PriceLines from "@/components/client/PriceLines";
 import { hasClientAccess } from "@/lib/client-access";
-import ServicePreview from "@/components/client/ServicePreview";
+import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
 import LockedPanel from "@/components/client/LockedPanel";
 
 /* 요청마다 렌더링 — 정적 HTML 로 만들면 CDN 에 캐시될 수 있어 잠금이 무의미해짐 */
@@ -90,8 +90,8 @@ export default async function ClientDashboard() {
                   href={`/client/${service.id}`}
                   className={`pt-card${WIDE.has(service.id) ? " is-wide" : ""}`}
                 >
-                  <span className="pt-card-thumb">
-                    <ServicePreview id={service.id} decorative />
+                  <span className="pt-card-thumb" data-device={SPECIMEN_DEVICE[service.id]}>
+                    <Specimen id={service.id} />
                   </span>
                   <span className="pt-card-body">
                     <span className="pt-card-meta">

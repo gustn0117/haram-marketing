@@ -24,9 +24,9 @@ import {
   servicesOf,
 } from "@/lib/quote-data";
 import PriceLines from "@/components/quote/PriceLines";
-import ServicePreview from "@/components/client/ServicePreview";
+import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
 import QuoteHeader from "@/components/quote/QuoteHeader";
-import { QuoteFooter, RichText, THEME, keepDots, quoteNav, tel } from "@/components/quote/shared";
+import { Hatch, QuoteFooter, RichText, THEME, keepDots, quoteNav, tel } from "@/components/quote/shared";
 
 /* ─────────────────────────────────────────────────────────────
    견적서 메뉴 (haram-marketing.co.kr/quote) — 흰 바탕. 고객 전용(비밀번호 · proxy.ts)이라 요청마다 렌더합니다.
@@ -99,7 +99,7 @@ function Hero() {
             </div>
           </dl>
         </div>
-        <ServicePreview className="wq-hero-image" id="homepage" preload />
+        <Hatch className="wq-hero-image" label="이미지 · 웨딩홀 대표 사진" />
       </div>
     </section>
   );
@@ -118,8 +118,8 @@ function ServiceMenu() {
         <div className="wq-cards">
           {SERVICES.map((service) => (
             <Link key={service.id} href={`/quote/${service.id}`} className="wq-card" data-theme={THEME[service.id]}>
-              <span className="wq-card-visual">
-                <ServicePreview id={service.id} decorative />
+              <span className="wq-card-visual" data-device={SPECIMEN_DEVICE[service.id]}>
+                <Specimen id={service.id} />
               </span>
               <span className="wq-card-body">
                 <span className="wq-card-meta">
@@ -249,7 +249,7 @@ function About() {
               </p>
             ))}
           </div>
-          <ServicePreview className="wq-about-image" id="instagram" />
+          <Hatch className="wq-about-image" label="이미지 · 하람마케팅 팀 사진" />
         </div>
         <ul className="wq-strengths">
           {ABOUT.strengths.map((item) => (

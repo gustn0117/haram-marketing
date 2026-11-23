@@ -38,8 +38,10 @@
 .ca-login-art ul { max-width: 360px; margin-top: 28px; }
 .ca-login-art li { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-top: 1px solid rgba(22, 22, 26, .12); font-size: 14px; color: #3a3a3f; }
 .ca-login-art li::before { content: ""; width: 12px; height: 1px; background: #16161a; }
-.ca-login-shots { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 14px; flex: 1; min-height: 260px; margin-top: 28px; }
-.ca-login-shot { min-width: 0; overflow: hidden; border: 1px solid rgba(22, 22, 26, .1); box-shadow: 0 12px 24px rgba(22, 22, 26, .08); }
+.ca-login-shots { position: relative; flex: 1; min-height: 260px; margin-top: 28px; }
+.ca-login-shot .mk { position: absolute; }
+.ca-login-shot.is-browser .mk { right: -64px; bottom: -40px; transform: scale(.66); transform-origin: bottom right; }
+.ca-login-shot.is-phone .mk { left: 0; bottom: -170px; transform: scale(.6); transform-origin: bottom left; }
 .ca-login-form { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 56px clamp(24px, 6vw, 96px); }
 
 @keyframes ca-fade { from { opacity: 0; } }

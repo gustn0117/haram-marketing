@@ -1,5 +1,8 @@
 import { CLIENT, DOC, GROUPS, PDF_FILENAME, PDF_URL, SENDER, VAT_LABEL, servicesOf, serviceNo, type Service } from "@/lib/quote-data";
-import ServicePreview from "@/components/client/ServicePreview";
+import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
+import Image from "next/image";
+import ServiceFeature from "@/components/client/ServiceFeature";
+import type { PhotoId } from "@/components/client/previews/primitives";
 import type { NavGroup, NavLink } from "./QuoteHeader";
 
 /* /quote 견적서 메뉴 페이지와 /quote/[서비스] 안내 페이지가 함께 쓰는 것들 */
@@ -15,6 +18,19 @@ export const THEME: Record<string, string> = {
   landing: "dark",
   fair: "light",
   membership: "dark",
+};
+
+/** 사진 자리(빗금)에 적는 말 — 어떤 사진을 넣을 자리인지 */
+export const IMAGE_LABEL: Record<string, string> = {
+  instagram: "이미지 · 피드 사진",
+  blog: "이미지 · 블로그 대표 사진",
+  posting: "이미지 · 후기 사진",
+  place: "이미지 · 홀 전경 사진",
+  crm: "이미지 · 운영 화면",
+  homepage: "이미지 · 홈페이지 첫 화면",
+  landing: "이미지 · 이벤트 배너",
+  fair: "이미지 · 박람회 현장 사진",
+  membership: "이미지 · 회원 카드",
 };
 
 export const GROUP_EN: Record<string, string> = { marketing: "Marketing", build: "Development" };
@@ -59,9 +75,16 @@ export function RichText({ text }: { text: string }) {
   );
 }
 
-/** 포함 사항에도 해당 서비스의 새 화면 이미지를 사용합니다. */
-export function FeatureVisual({ serviceId, index }: { serviceId: string; index: number }) {
-  return <span className="wq-feature-image" data-detail={index % 4}><ServicePreview id={serviceId} decorative sizes="(max-width: 960px) 45vw, 280px" /></span>;
+/** 미리 정한 이미지 자리의 위치와 크기는 유지하고 내용만 채웁니다. */
+export function Hatch({ label, className = "", image, serviceId, index = 0 }: {
+  label: string; className?: string; image?: PhotoId; serviceId?: string; index?: number;
+}) {
+  const photo = image ?? (label.includes("팀") ? "team" : "hero");
+  return (
+    <div className={`wq-hatch ${className}`} aria-hidden="true">
+      {serviceId ? <ServiceFeature id={serviceId} index={index} /> : <Image src={`/images/preview-photos/${photo}.webp`} alt="" fill sizes="(max-width: 960px) 90vw, 45vw" />}
+    </div>
+  );
 }
 
 export function PhoneIcon() {
@@ -81,12 +104,16 @@ export function LockIcon() {
   );
 }
 
-/** 인스타그램·블로그 등 서비스 화면을 담은 완성 이미지를 보여 줍니다. */
+/** 사진 자리(빗금) 위에 예시 화면을 겹쳐 놓은 그림 */
 export function ServiceVisual({ service }: { service: Service }) {
+  const photos: Record<string, PhotoId> = { instagram: "flowers", blog: "hero", posting: "couple", place: "hero", crm: "consultation", homepage: "hero", landing: "couple", fair: "consultation", membership: "reception" };
   return (
-    <figure className="wq-visual">
-      <ServicePreview id={service.id} preload />
-      <figcaption>서비스 이해를 돕는 예시 이미지입니다. 실제 화면·정보·수치는 예식장에 맞춰 구성합니다.</figcaption>
+    <figure className="wq-visual" data-device={SPECIMEN_DEVICE[service.id]}>
+      <Hatch className="wq-visual-image" label={IMAGE_LABEL[service.id]} image={photos[service.id]} />
+      <div className="wq-visual-mock">
+        <Specimen id={service.id} />
+      </div>
+      <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>
     </figure>
   );
 }

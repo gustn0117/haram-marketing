@@ -2,7 +2,8 @@
    견적서 (haram-marketing.co.kr/quote · /quote/[서비스])
    · 머리말 · 꼬리말은 사이트와 같게 — 쿨 차콜 #16161a · 오프화이트 #ecebe8 · 본 #c7c0b2 · Pretendard 가는 굵기
    · 견적서 메뉴(/quote)는 흰 바탕. 서비스 안내 페이지는 첫 화면만 플랫폼 색, 아래 구역은 흰 바탕에 같은 색을 포인트로
-   · 플랫폼 색은 [data-theme] 에서 정하고, 이미지는 서비스별로 제작한 화면 예시를 씁니다
+   · 색은 [data-theme] 하나로 정합니다 — 구역 · 카드 · 점 · 버튼 · 빗금이 같은 색을 씁니다
+   · 사진 자리는 빗금(.wq-hatch). 예시 화면 속 사진도 빗금으로 바꿉니다
    사이트 스타일(globals.css)과 겹치지 않게 이름은 모두 .wq- / --wq- 로 시작합니다.
    '고객 전용' 자물쇠는 사이트의 ClientGate(.ca-trigger) 를 그대로 씁니다.
    ───────────────────────────────────────────────────────────── */
@@ -28,7 +29,7 @@ body:has(.wq) { background: #16161a; }
   /* 페이지 바탕 (어두운 기본값 — .is-light 에서 흰 바탕으로) */
   --p-bg: var(--wq-ink); --p-fg: var(--wq-paper); --p-mute: var(--wq-muted); --p-faint: var(--wq-faint);
   --p-line: var(--wq-line); --p-line-strong: var(--wq-line-strong); --p-eyebrow: var(--wq-bone);
-  --p-tint: var(--wq-ink-2); --p-card: var(--wq-surface);
+  --p-hatch: rgba(236, 236, 234, .14); --p-hatch-bg: rgba(236, 236, 234, .02); --p-tint: var(--wq-ink-2); --p-card: var(--wq-surface);
   --wq-head-h: 80px;
   --wq-gutter: 48px;
   /* 사이트 본문(main.relative.z-2)과 같은 층 — body 의 질감 · 비네트(fixed, z 0 · 1)가 구역 색을 덮지 않게 */
@@ -43,7 +44,7 @@ body:has(.wq) { background: #16161a; }
 .wq.is-light {
   --p-bg: #fff; --p-fg: #16161a; --p-mute: #5c5d62; --p-faint: #8a8b90;
   --p-line: rgba(22, 22, 26, .09); --p-line-strong: rgba(22, 22, 26, .16); --p-eyebrow: #7a7366;
-  --p-tint: #f4f3f0; --p-card: #fff;
+  --p-hatch: rgba(22, 22, 26, .16); --p-hatch-bg: rgba(22, 22, 26, .015); --p-tint: #f4f3f0; --p-card: #fff;
 }
 .wq-wrap { width: min(1200px, calc(100% - 2 * var(--wq-gutter))); margin-inline: auto; }
 .wq a:focus-visible, .wq button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
@@ -54,12 +55,13 @@ body:has(.wq) { background: #16161a; }
 
 /* ── 색 ──
    --t-bg 바탕 · --t-fg 글자 · --t-mute 보조 글자 · --t-accent 번호 · 금액 · --t-line 선
-   --t-card-* 비용 카드 · --t-btn-* 꽉 찬 버튼 · --t-tile 카드 그림 바탕 · --t-dot / --t-ring 메뉴 · 표의 점
+   --t-card-* 비용 카드 · --t-btn-* 꽉 찬 버튼 · --t-hatch(-bg) 빗금 · --t-tile 카드 그림 바탕 · --t-dot / --t-ring 메뉴 · 표의 점
    --t-ink 흰 바탕 위 글자 포인트 · --t-deco 흰 바탕 위 선 · 막대 포인트 · --t-solid(-fg) 흰 바탕 위 꽉 찬 버튼 */
 .wq [data-theme] {
   --t-bg: var(--wq-ink-2); --t-fg: var(--wq-paper); --t-mute: var(--wq-muted); --t-accent: var(--wq-bone); --t-line: var(--wq-line-strong);
   --t-card-bg: rgba(236, 236, 234, .025); --t-card-line: var(--wq-line-strong);
   --t-btn-bg: var(--wq-paper); --t-btn-fg: var(--wq-ink); --t-btn-line: rgba(236, 236, 234, .3);
+  --t-hatch: rgba(236, 236, 234, .14); --t-hatch-bg: rgba(236, 236, 234, .02);
   --t-tile: var(--t-bg); --t-tile-line: transparent; --t-dot: #3a3a42; --t-ring: rgba(236, 236, 234, .42);
   --t-ink: var(--wq-ink); --t-deco: var(--wq-ink); --t-solid: var(--wq-ink); --t-solid-fg: var(--wq-paper);
 }
@@ -69,6 +71,7 @@ body:has(.wq) { background: #16161a; }
   --t-fg: #fff; --t-mute: rgba(255, 255, 255, .84); --t-accent: #fff; --t-line: rgba(255, 255, 255, .32);
   --t-card-bg: rgba(255, 255, 255, .1); --t-card-line: rgba(255, 255, 255, .38);
   --t-btn-bg: #fff; --t-btn-fg: #3a1f63; --t-btn-line: rgba(255, 255, 255, .62);
+  --t-hatch: rgba(255, 255, 255, .36); --t-hatch-bg: rgba(255, 255, 255, .08);
   --t-tile: linear-gradient(135deg, #4f5bd5 0%, #962fbf 35%, #d62976 70%, #fa7e1e 100%); --t-dot: var(--t-tile); --t-ring: transparent;
   --t-ink: #c13584; --t-deco: linear-gradient(90deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75); --t-solid: #d62976; --t-solid-fg: #fff;
 }
@@ -77,6 +80,7 @@ body:has(.wq) { background: #16161a; }
   --t-bg: var(--naver); --t-fg: var(--naver-ink); --t-mute: rgba(6, 23, 13, .74); --t-accent: var(--naver-ink); --t-line: rgba(6, 23, 13, .2);
   --t-card-bg: rgba(255, 255, 255, .2); --t-card-line: rgba(6, 23, 13, .22);
   --t-btn-bg: var(--naver-ink); --t-btn-fg: #fff; --t-btn-line: rgba(6, 23, 13, .5);
+  --t-hatch: rgba(6, 23, 13, .26); --t-hatch-bg: rgba(255, 255, 255, .14);
   --t-dot: var(--naver); --t-ring: transparent;
   --t-ink: var(--naver-text); --t-deco: var(--naver); --t-solid: var(--naver); --t-solid-fg: var(--naver-ink);
 }
@@ -84,6 +88,7 @@ body:has(.wq) { background: #16161a; }
   --t-bg: #0e2a1b; --t-fg: #fff; --t-mute: rgba(255, 255, 255, .72); --t-accent: var(--naver); --t-line: rgba(255, 255, 255, .14);
   --t-card-bg: rgba(255, 255, 255, .04); --t-card-line: rgba(255, 255, 255, .16);
   --t-btn-bg: var(--naver); --t-btn-fg: var(--naver-ink); --t-btn-line: rgba(255, 255, 255, .42);
+  --t-hatch: rgba(255, 255, 255, .15); --t-hatch-bg: rgba(255, 255, 255, .03);
   --t-tile-line: rgba(3, 199, 90, .35); --t-dot: var(--naver); --t-ring: transparent;
   --t-ink: var(--naver-text); --t-deco: var(--naver); --t-solid: var(--naver); --t-solid-fg: var(--naver-ink);
 }
@@ -91,6 +96,7 @@ body:has(.wq) { background: #16161a; }
   --t-bg: #e8f7ee; --t-fg: #0b1a11; --t-mute: #44554b; --t-accent: var(--naver-text); --t-line: rgba(3, 122, 57, .2);
   --t-card-bg: #fff; --t-card-line: rgba(3, 122, 57, .2);
   --t-btn-bg: var(--naver); --t-btn-fg: var(--naver-ink); --t-btn-line: rgba(3, 122, 57, .5);
+  --t-hatch: rgba(3, 122, 57, .22); --t-hatch-bg: rgba(255, 255, 255, .55);
   --t-dot: var(--naver); --t-ring: transparent;
   --t-ink: var(--naver-text); --t-deco: var(--naver); --t-solid: var(--naver); --t-solid-fg: var(--naver-ink);
 }
@@ -100,6 +106,7 @@ body:has(.wq) { background: #16161a; }
   --t-bg: var(--wq-paper); --t-fg: var(--wq-ink); --t-mute: #55565b; --t-accent: var(--wq-ink); --t-line: rgba(22, 22, 26, .13);
   --t-card-bg: #f6f5f2; --t-card-line: rgba(22, 22, 26, .14);
   --t-btn-bg: var(--wq-ink); --t-btn-fg: var(--wq-paper); --t-btn-line: rgba(22, 22, 26, .35);
+  --t-hatch: rgba(22, 22, 26, .15); --t-hatch-bg: rgba(22, 22, 26, .02);
   --t-tile-line: rgba(22, 22, 26, .08); --t-dot: var(--wq-paper); --t-ring: rgba(22, 22, 26, .32);
 }
 
@@ -108,6 +115,20 @@ body:has(.wq) { background: #16161a; }
 .wq-btn:hover { border-color: currentColor; }
 .wq-btn-solid { border-color: var(--t-btn-bg, var(--p-fg)); background: var(--t-btn-bg, var(--p-fg)); color: var(--t-btn-fg, var(--p-bg)); }
 .wq-btn-solid:hover { border-color: var(--t-btn-bg, var(--p-fg)); opacity: .88; }
+
+/* ── 사진 자리 — 빗금 ── */
+.wq-hatch {
+  position: relative;
+  background-color: var(--t-hatch-bg, var(--p-hatch-bg));
+  box-shadow: inset 0 0 0 1px var(--t-hatch, var(--p-hatch));
+}
+.wq-hatch > span { position: absolute; top: 14px; left: 16px; font-size: 12px; letter-spacing: -.01em; color: var(--t-mute, var(--p-faint)); }
+.wq-hatch > img { object-fit: cover; }
+
+/* 예시 화면 속 사진도 빗금 — 어두운 사진(tone 1 · 2)은 위에 흰 글자 막대가 올라가서 어두운 빗금 */
+.wq .mk .mk-photo, .wq .mk .ig-avatar { background: #ecebe6 repeating-linear-gradient(-45deg, rgba(22, 22, 26, .2) 0 .1em, transparent .1em .8em); }
+.wq .mk .mk-photo.tone-1, .wq .mk .mk-photo.tone-2 { background: #3d3e44 repeating-linear-gradient(-45deg, rgba(255, 255, 255, .2) 0 .1em, transparent .1em .8em); }
+.wq .mk .mk-art { display: none; }
 
 /* ── 머리말 — 사이트 머리말과 같은 모양 (페이지가 흰 바탕이어도 머리말은 어둡게) ── */
 .wq-header { position: sticky; top: 0; z-index: 50; height: var(--wq-head-h); border-bottom: 1px solid var(--wq-line); background: rgba(22, 22, 26, .85); color: var(--wq-paper); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
@@ -165,14 +186,15 @@ body:has(.wq) { background: #16161a; }
 .wq-hero-meta dt { font-size: 12px; color: var(--p-faint); }
 .wq-hero-meta dd { margin-top: 6px; font-size: 14.5px; color: var(--p-fg); }
 .wq-hero-meta a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.wq-hero-image { align-self: center; aspect-ratio: 3 / 2; border: 1px solid var(--p-line); }
+.wq-hero-image { min-height: 480px; }
 
 /* ── 견적서 메뉴: 서비스 카드 — 누르면 서비스 안내 페이지 ── */
 .wq-menu { padding: 128px 0; border-top: 1px solid var(--p-line); scroll-margin-top: var(--wq-head-h); }
 .wq-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 56px; }
 .wq-card { display: flex; flex-direction: column; background: var(--p-card); box-shadow: inset 0 0 0 1px var(--p-line-strong); }
 .wq-card-visual { position: relative; display: block; height: 240px; overflow: hidden; background: var(--t-tile); box-shadow: inset 0 0 0 1px var(--t-tile-line); }
-.wq-card-visual > .service-preview { height: 100%; aspect-ratio: auto; }
+.wq-card-visual .mk { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); font-size: 5.4px; }
+.wq-card-visual[data-device="browser"] .mk { top: 50%; transform: translate(-50%, -50%); font-size: 5.6px; }
 .wq-card-body { display: flex; flex: 1; flex-direction: column; gap: 10px; padding: 24px 24px 22px; color: var(--p-fg); }
 .wq-card-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; letter-spacing: .02em; color: var(--p-faint); font-variant-numeric: tabular-nums; }
 .wq-card strong { font-size: 20px; font-weight: 500; line-height: 1.35; letter-spacing: -.04em; }
@@ -228,7 +250,7 @@ body:has(.wq) { background: #16161a; }
 /* ── 견적서 메뉴: 하람 소개 ── */
 .wq-about { padding: 128px 0; scroll-margin-top: var(--wq-head-h); }
 .wq-about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: stretch; }
-.wq-about-image { align-self: center; aspect-ratio: 3 / 2; border: 1px solid var(--p-line); }
+.wq-about-image { min-height: 420px; }
 .wq-strengths { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 88px; border-top: 1px solid var(--p-line-strong); }
 .wq-strengths li { padding: 28px 28px 0 0; }
 .wq-strengths li + li { padding-left: 28px; border-left: 1px solid var(--p-line); }
@@ -261,25 +283,29 @@ body:has(.wq) { background: #16161a; }
 .wq-price-lines .price-tbd { color: var(--t-accent); font-size: clamp(28px, 2.8vw, 38px); font-weight: 300; line-height: 1.15; letter-spacing: -.045em; }
 .wq-price-caption { margin-top: 10px; font-size: 13.5px; color: var(--t-mute); }
 .wq-price-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-/* 서비스 화면이 담긴 새 이미지 — 원본 비율을 유지합니다. */
-.wq-visual { grid-area: visual; min-width: 0; margin: 0; }
-.wq-visual > .service-preview { border: 1px solid rgba(255, 255, 255, .2); box-shadow: 0 24px 56px rgba(0, 0, 0, .16); }
-.wq-visual figcaption { margin-top: 18px; font-size: 12.5px; line-height: 1.7; color: var(--t-mute); }
+
+/* 사진 자리(빗금) 위에 예시 화면을 겹쳐 놓음 */
+.wq-visual { grid-area: visual; position: relative; height: 640px; margin: 0; }
+.wq-visual[data-device="browser"] { height: 540px; }
+.wq-visual-image { position: absolute; top: 0; right: 0; width: 80%; height: 84%; }
+.wq-visual[data-device="browser"] .wq-visual-image { height: 78%; }
+.wq-visual-mock { position: absolute; bottom: 36px; left: 4%; }
+.wq-visual[data-device="browser"] .wq-visual-mock { left: 0; }
+.wq-visual .mk { font-size: 10.4px; }
+/* 브라우저 목업(가로 56em)이 칸을 넘지 않게 — 칸 = (본문 너비 − 칸 사이 80px) × 1.08 ÷ 2.08 */
+.wq-visual[data-device="browser"] .mk { font-size: min(10px, calc((min(1200px, 100vw - 116px) - 80px) * .00927)); }
+.wq-visual figcaption { position: absolute; bottom: 0; left: 0; font-size: 12.5px; color: var(--t-mute); }
 
 /* ── 서비스 안내 페이지: 아래 구역 — 흰 바탕, 플랫폼 색은 포인트로 ── */
 .wq-lp-section {
   --t-fg: var(--p-fg); --t-mute: var(--p-mute); --t-line: var(--p-line-strong); --t-accent: var(--t-ink);
+  --t-hatch: var(--p-hatch); --t-hatch-bg: var(--p-hatch-bg);
   --t-btn-bg: var(--t-solid); --t-btn-fg: var(--t-solid-fg); --t-btn-line: var(--p-line-strong);
   padding: 128px 0; background: var(--p-bg); color: var(--p-fg);
 }
 .wq-lp-section.is-tint { background: var(--p-tint); }
 .wq-features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 56px; }
-.wq-feature-image { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 2px; background: #f3ede5; }
-.wq-feature-image > .service-preview { height: 100%; aspect-ratio: auto; }
-.wq-feature-image img { object-fit: cover; }
-.wq-feature-image[data-detail="1"] img { transform: scale(1.18); transform-origin: left center; }
-.wq-feature-image[data-detail="2"] img { transform: scale(1.18); transform-origin: right center; }
-.wq-feature-image[data-detail="3"] img { transform: scale(1.12); transform-origin: center bottom; }
+.wq-feature .wq-hatch { aspect-ratio: 4 / 3; }
 .wq-feature > i { display: block; width: 28px; height: 3px; margin-top: 22px; background: var(--t-deco); }
 .wq-feature strong { display: block; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 1.45; letter-spacing: -.035em; }
 .wq-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 56px; border-top: 1px solid var(--p-line-strong); }
@@ -347,18 +373,23 @@ body:has(.wq) { background: #16161a; }
 @media (max-width: 960px) {
   .wq-hero { padding: 72px 0 88px; }
   .wq-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
-  .wq-hero-image { aspect-ratio: 3 / 2; }
+  .wq-hero-image { min-height: 0; aspect-ratio: 16 / 10; }
   .wq-menu, .wq-summary, .wq-process, .wq-about, .wq-lp-section { padding: 96px 0; }
   .wq-svc-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "visual"; min-height: 0; padding: 48px 0 72px; }
-  .wq-visual { margin-top: 40px; }
-  /* 세로로 쌓이면 서비스 이미지가 아래에 놓입니다. */
+  /* 세로로 쌓이면 사진 · 예시 화면이 아래 — 인스타그램의 따뜻한 색도 아래로 */
   .wq-svc[data-theme="instagram"], .wq-lp[data-theme="instagram"] .wq-svc { background: radial-gradient(130% 70% at 85% 100%, #feda75 0%, #fa7e1e 16%, #d62976 38%, #962fbf 64%, #4f5bd5 100%); }
+  .wq-visual, .wq-visual[data-device="browser"] { display: flex; flex-direction: column; align-items: center; height: auto; margin-top: 56px; }
+  .wq-visual-image, .wq-visual[data-device="browser"] .wq-visual-image { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 4 / 3; }
+  .wq-visual-mock, .wq-visual[data-device="browser"] .wq-visual-mock { position: relative; inset: auto; margin-top: -26%; }
+  .wq-visual[data-device="browser"] .wq-visual-mock { margin-top: -12%; }
+  .wq-visual[data-device="browser"] .mk { font-size: 9.6px; }
+  .wq-visual figcaption { position: static; margin-top: 18px; }
   .wq-cost { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .wq-sheet { padding: 48px 36px 40px; }
   .wq-sum-row { grid-template-columns: 12px minmax(0, 1fr) auto; grid-template-areas: "dot name price" ". summary summary"; gap: 6px 14px; }
   .wq-tracks { grid-template-columns: minmax(0, 1fr); gap: 56px; }
   .wq-about-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
-  .wq-about-image { aspect-ratio: 3 / 2; }
+  .wq-about-image { min-height: 0; aspect-ratio: 16 / 10; }
   .wq-strengths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wq-strengths li, .wq-strengths li + li { padding: 26px 20px 26px 0; border-left: 0; border-bottom: 1px solid var(--p-line); }
   .wq-strengths li:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--p-line); }
@@ -375,6 +406,8 @@ body:has(.wq) { background: #16161a; }
   .wq-svc-desc { font-size: 16px; }
   .wq-price { padding: 20px 20px 22px; }
   .wq-price-actions .wq-btn { flex: 1 1 0; padding: 0 12px; }
+  .wq-visual .mk { font-size: 8.6px; }
+  .wq-visual[data-device="browser"] .mk { font-size: calc((100vw - 44px) / 57); }
   .wq-features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
   .wq-feature > i { margin-top: 16px; }
   .wq-feature strong { margin-top: 10px; font-size: 15.5px; }
