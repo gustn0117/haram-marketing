@@ -75,7 +75,7 @@
 .pt-card { display: flex; flex-direction: column; border: 1px solid var(--pt-line); background: var(--pt-card); transition: border-color .3s, background .3s; }
 .pt-card.is-wide { grid-column: span 2; }
 .pt-card:hover { border-color: var(--pt-line-strong); background: var(--pt-card-2); }
-.pt-card-thumb { position: relative; height: 196px; overflow: hidden; background: var(--pt-bone); }
+.pt-card-thumb { position: relative; height: 196px; overflow: hidden; background: var(--service-stage-bg, var(--pt-bone)); }
 .pt-card-thumb .mk { position: absolute; left: 50%; }
 .pt-card-thumb[data-device="phone"] .mk { top: 22px; transform-origin: top center; transform: translateX(-50%) scale(.46); }
 .pt-card-thumb[data-device="browser"] .mk { top: 50%; transform: translate(-50%, -50%) scale(.4); }
@@ -140,7 +140,7 @@
 /* 본 판 — 예시 화면을 크기 그대로 두고 배율(--mk-scale)만 바꿔 맞춤 */
 .pt-specimen { margin: 0; border: 1px solid var(--pt-line); background: var(--pt-bone); --stage-h: 540px; --mk-scale: 1; }
 .pt-specimen[data-device="phone"] { --mk-scale: .92; }
-.pt-specimen-stage { position: relative; height: var(--stage-h); overflow: hidden; }
+.pt-specimen-stage { position: relative; height: var(--stage-h); overflow: hidden; background: var(--service-stage-bg, var(--pt-bone)); }
 .pt-specimen-stage .mk { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(var(--mk-scale)); }
 .pt-specimen figcaption { padding: 12px 20px 14px; border-top: 1px solid rgba(22, 22, 26, .1); font-size: 12px; line-height: 1.6; color: #6b6862; }
 

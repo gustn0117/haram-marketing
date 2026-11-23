@@ -90,7 +90,7 @@ export default async function ClientDashboard() {
                   href={`/client/${service.id}`}
                   className={`pt-card${WIDE.has(service.id) ? " is-wide" : ""}`}
                 >
-                  <span className="pt-card-thumb" data-device={SPECIMEN_DEVICE[service.id]}>
+                  <span className="pt-card-thumb" data-device={SPECIMEN_DEVICE[service.id]} data-service={service.id}>
                     <Specimen id={service.id} />
                   </span>
                   <span className="pt-card-body">

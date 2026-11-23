@@ -4,6 +4,7 @@ import DevelopmentVisual from "./DevelopmentVisual";
 import "./specimen.css";
 import "./specimen-visuals.css";
 import "./specimen-content.css";
+import "./service-backgrounds.css";
 
 export type Device = "phone" | "browser";
 

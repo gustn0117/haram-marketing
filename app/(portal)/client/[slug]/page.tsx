@@ -124,7 +124,7 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
         </aside>
 
         <div className="pt-body">
-          <figure className="pt-specimen" data-device={SPECIMEN_DEVICE[service.id]}>
+          <figure className="pt-specimen" data-device={SPECIMEN_DEVICE[service.id]} data-service={service.id}>
             <div className="pt-specimen-stage">
               <Specimen id={service.id} />
             </div>

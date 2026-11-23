@@ -7,17 +7,17 @@ import type { NavGroup, NavLink } from "./QuoteHeader";
 
 /* /quote 견적서 메뉴 페이지와 /quote/[서비스] 안내 페이지가 함께 쓰는 것들 */
 
-/** 화면 색 — quote.css 의 [data-theme] 와 짝. 인스타그램 = 그라데이션 · 네이버 = 초록 세 가지 · 제작 · 개발 = 차콜 / 오프화이트 */
+/** 화면 색 — quote.css 의 [data-theme] 와 짝. 제작·개발은 서비스별 배경색을 사용합니다. */
 export const THEME: Record<string, string> = {
   instagram: "instagram",
   blog: "naver",
   posting: "naver-deep",
   place: "naver-pale",
-  crm: "dark",
-  homepage: "light",
-  landing: "dark",
-  fair: "light",
-  membership: "dark",
+  crm: "build-crm",
+  homepage: "build-homepage",
+  landing: "build-landing",
+  fair: "build-fair",
+  membership: "build-membership",
 };
 
 /** 사진 자리(빗금)에 적는 말 — 어떤 사진을 넣을 자리인지 */

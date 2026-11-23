@@ -1,0 +1,21 @@
+/* 견적서와 고객 전용 화면에서 함께 사용하는, 3D 이미지 뒤의 서비스별 배경색. */
+:is([data-theme="build-crm"], [data-service="crm"]) {
+  --service-stage-bg: #172b46;
+  --service-point: #29486c;
+}
+:is([data-theme="build-homepage"], [data-service="homepage"]) {
+  --service-stage-bg: #e7edf6;
+  --service-point: #345579;
+}
+:is([data-theme="build-landing"], [data-service="landing"]) {
+  --service-stage-bg: #3f5b73;
+  --service-point: #3f5b73;
+}
+:is([data-theme="build-fair"], [data-service="fair"]) {
+  --service-stage-bg: #dfebe7;
+  --service-point: #3e645e;
+}
+:is([data-theme="build-membership"], [data-service="membership"]) {
+  --service-stage-bg: #e9e1d5;
+  --service-point: #6e5741;
+}

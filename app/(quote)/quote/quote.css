@@ -110,6 +110,26 @@ body:has(.wq) { background: #16161a; }
   --t-tile-line: rgba(22, 22, 26, .08); --t-dot: var(--wq-paper); --t-ring: rgba(22, 22, 26, .32);
 }
 
+/* 제작·개발 5종 — 이미지 뒤 배경을 서비스마다 구분합니다. 색상값은 service-backgrounds.css와 공유합니다. */
+.wq [data-theme^="build-"] {
+  --t-bg: var(--service-stage-bg); --t-tile: var(--service-stage-bg); --t-dot: var(--service-stage-bg);
+  --t-ink: var(--service-point); --t-deco: var(--service-point); --t-solid: var(--service-point); --t-solid-fg: #fff;
+}
+.wq :is([data-theme="build-crm"], [data-theme="build-landing"]) {
+  --t-fg: #f5f7fc; --t-mute: #d6e0ec; --t-accent: #e4ecf7; --t-line: rgba(245, 247, 252, .28);
+  --t-card-bg: rgba(255, 255, 255, .07); --t-card-line: rgba(245, 247, 252, .3);
+  --t-btn-bg: #f5f7fc; --t-btn-fg: var(--service-stage-bg); --t-btn-line: rgba(245, 247, 252, .55);
+  --t-hatch: rgba(245, 247, 252, .22); --t-hatch-bg: rgba(245, 247, 252, .04);
+  --t-tile-line: rgba(245, 247, 252, .15); --t-ring: rgba(245, 247, 252, .4);
+}
+.wq :is([data-theme="build-homepage"], [data-theme="build-fair"], [data-theme="build-membership"]) {
+  --t-fg: #172334; --t-mute: #4d5b6d; --t-accent: var(--service-point); --t-line: rgba(23, 35, 52, .17);
+  --t-card-bg: rgba(255, 255, 255, .45); --t-card-line: rgba(23, 35, 52, .19);
+  --t-btn-bg: var(--service-point); --t-btn-fg: #fff; --t-btn-line: rgba(23, 35, 52, .35);
+  --t-hatch: rgba(23, 35, 52, .2); --t-hatch-bg: rgba(255, 255, 255, .3);
+  --t-tile-line: rgba(23, 35, 52, .1); --t-ring: rgba(23, 35, 52, .22);
+}
+
 /* ── 버튼 ── */
 .wq-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 22px; border: 1px solid var(--t-btn-line, var(--p-line-strong)); color: var(--t-fg, var(--p-fg)); font-size: 14.5px; letter-spacing: -.02em; white-space: nowrap; transition: border-color .5s var(--wq-ease), opacity .3s; }
 .wq-btn:hover { border-color: currentColor; }
