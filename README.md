@@ -32,4 +32,34 @@ npm run indexnow -- /about /services   # 바뀐 페이지만
 - 잠금은 서버에서: `proxy.ts` 가 열람 쿠키 없는 `/client` 요청을 같은 주소의 잠금 화면(`/locked`)으로 바꾸고, 각 페이지도 한 번 더 확인합니다. 응답은 no-store, 검색 노출 차단(noindex), 사이트맵 제외.
 - 화면: 사이트 머리말 대신 포털 틀(`components/client/PortalShell.tsx` — 위쪽 바 하나: 하람마케팅(홈페이지로) · 위치 표시 · 견적서 보기 · 잠그기 · 전화 상담). 대시보드 `app/(portal)/client/page.tsx`, 서비스 상세 `app/(portal)/client/[slug]/page.tsx`, 로그인 화면 `components/client/LockedPanel.tsx`
 - 상세 문구: `lib/client-details.ts` · 예시 화면(목업): `components/client/Specimen.tsx` · 스타일: `app/(portal)/client/client.css`
-- 비용: `lib/client-details.ts` 의 `CLIENT_PRICES` — 견적서(haram-service-quote) `data.ts` 와 같은 금액입니다. 금액이 바뀌면 두 곳을 함께 고칩니다. 금액은 서버 컴포넌트에서만 그려서 브라우저 JS 파일에는 들어가지 않습니다.
+- 비용: `lib/client-details.ts` 의 `CLIENT_PRICES`는 `lib/quote-data.ts`(견적서 data.ts 사본)에서 가져옵니다. 아래 '웹 견적서'의 갱신 방법을 따릅니다.
+  - 금액은 서버 컴포넌트에서만 그려서 브라우저 JS 파일에는 들어가지 않습니다.
+
+## 웹 견적서 (`/quote`)
+
+haram-marketing.co.kr/quote 는 견적서를 받은 분께 보내는 웹 견적서입니다.
+
+- 화면은 두 가지입니다.
+  - **`/quote` 견적서 메뉴(흰 바탕):** 첫 화면, 서비스 9가지 카드, 견적 정리, 진행 방식, 하람 소개가 이어집니다. 카드를 누르면 서비스 안내 페이지가 열립니다.
+  - **`/quote/[서비스]` 서비스 안내 페이지:** 서비스 하나를 랜딩페이지 한 장으로 보여 줍니다(예: `/quote/instagram`).
+    - 구성: 첫 화면, 포함 사항, 진행 방식, 비용, 이전 · 다음 서비스
+    - 첫 화면은 플랫폼 색입니다. 인스타그램은 그라데이션, 네이버 블로그 · 카페 · 플레이스는 네이버 초록, 제작 · 개발은 차콜과 오프화이트입니다.
+    - 아래 구역은 흰 바탕이고, 같은 색을 포인트로 씁니다.
+- 사진 자리는 빗금 상자로 표시합니다. 어떤 사진을 넣을지는 `components/quote/shared.tsx`의 `IMAGE_LABEL`에 적혀 있습니다.
+- 파일:
+  - `app/(quote)/quote/page.tsx`(메뉴)
+  - `app/(quote)/quote/[slug]/page.tsx`(안내 페이지)
+  - `app/(quote)/quote/quote.css`
+  - `components/quote/` — `QuoteHeader` · `shared` · `PriceLines`
+- 머리말은 사이트 머리말(`components/Header.tsx`)과 같은 모양이고, 메뉴만 견적서 목차입니다.
+  - 묶음에 마우스를 올리면 서비스 목록이 흰 바탕으로 펼쳐집니다.
+  - 휴대폰 전체 메뉴도 흰 바탕입니다.
+- 연결:
+  - [자세히 보기]와 '고객 전용'은 고객 전용 페이지(`/client`, 비밀번호)로 갑니다.
+  - [PDF 받기]는 `public/documents/haram-service-quotation.pdf`를 내려받습니다.
+- 모든 페이지가 검색 노출 차단(noindex)이고 사이트맵에 넣지 않습니다. 사이트 메뉴에도 링크가 없으며, 고객 전용 페이지의 [견적서 보기]가 `/quote`로 옵니다.
+- 금액 · 문구를 바꿀 때:
+  1. 견적서 저장소(haram-service-quote)의 `data.ts`를 고칩니다.
+  2. 그 파일을 `lib/quote-data.ts`에 그대로 복사합니다. 맨 위 '사본' 안내 주석은 남깁니다.
+  3. 견적서 저장소에서 `npm run pdf`로 PDF를 다시 만듭니다.
+  4. 만든 PDF를 `public/documents/haram-service-quotation.pdf`에 덮어씁니다.

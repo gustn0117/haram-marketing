@@ -5,6 +5,7 @@
    ───────────────────────────────────────────────────────────── */
 
 import type { Service, ServiceGroup } from "@/lib/content";
+import { SERVICES as QUOTE_SERVICES } from "@/lib/quote-data";
 
 export type Detail = {
   /** 첫 화면 소개 */
@@ -730,7 +731,7 @@ export const DETAILS: Record<string, Detail> = {
 
 
 /* ── 목록 한 줄 요약 · 비용 ──
-   금액은 견적서(haram-service-quote)의 data.ts 와 같습니다. 금액이 바뀌면 두 곳을 함께 고치세요. */
+   금액은 lib/quote-data.ts(견적서 저장소 data.ts 사본)에서 가져옵니다. */
 
 export const CLIENT_SUMMARY: Record<string, string> = {
   instagram: "주 1~2회 포스팅·검색엔진 최적화",
@@ -751,52 +752,17 @@ export const GROUP_BASIS: Record<ServiceGroup, string> = {
 
 export const VAT_LABEL = "VAT 별도";
 
-/** 견적서 주소 — 고객 전용 페이지의 [견적서 보기] */
-export const QUOTE_URL = "https://haram-service-quote.hsweb.pics";
+/** 견적서 주소 — 고객 전용 페이지의 [견적서 보기]. 홈페이지 안의 웹 견적서(/quote) */
+export const QUOTE_URL = "/quote";
 
 /** 금액 한 줄 — cycle 월 = 매달 · 건 = 한 번. label 이 없으면 기준이 "월" · "건당". amount null = 견적 협의, from = 시작 금액(~) */
 export type PriceLine = { cycle: "월" | "건"; label?: string; amount: number | null; from?: boolean };
 
-export const CLIENT_PRICES: Record<string, { lines: PriceLine[]; note?: string; notice?: string }> = {
-  instagram: { lines: [{ cycle: "월", amount: 200_000 }] },
-  blog: { lines: [{ cycle: "월", amount: 200_000 }] },
-  posting: {
-    lines: [{ cycle: "월", amount: 500_000, from: true }],
-    note: "키워드마다 상이",
-    notice: "표기 금액은 시작 금액입니다. 키워드마다 검색량과 경쟁 정도가 달라, 함께 진행할 키워드를 정한 뒤 최종 금액을 안내드립니다.",
-  },
-  place: {
-    lines: [{ cycle: "건", amount: 500_000, from: true }],
-    note: "키워드마다 상이",
-    notice: "표기 금액은 시작 금액입니다. 키워드마다 검색량과 경쟁 정도가 달라, 키워드를 정한 뒤 최종 금액을 안내드립니다.",
-  },
-  crm: {
-    /* 첫 제작 금액은 아직 받지 않음 → '견적 협의' */
-    lines: [
-      { cycle: "건", label: "첫 제작", amount: null },
-      { cycle: "월", amount: 300_000 },
-    ],
-    notice: "첫 제작 금액은 홀 수와 운영 방식을 확인한 뒤 맞춤 견적을 드립니다.",
-  },
-  homepage: {
-    lines: [{ cycle: "건", amount: 800_000 }],
-    note: "도메인·호스팅 별도",
-    notice: "도메인·호스팅 비용은 별도이며 월 1만 원 미만으로 청구됩니다.",
-  },
-  landing: { lines: [{ cycle: "건", amount: 250_000 }] },
-  fair: {
-    lines: [{ cycle: "건", amount: 3_000_000 }],
-    note: "3개월 운영 기준",
-    notice: "3개월 운영 기준 금액입니다. 운영 기간과 회차는 사전 미팅에서 함께 정합니다.",
-  },
-  membership: {
-    lines: [
-      { cycle: "건", label: "첫 제작", amount: 2_000_000 },
-      { cycle: "월", label: "월 유지보수", amount: 100_000 },
-    ],
-    notice: "첫 제작 이후에는 매달 유지보수 비용이 청구됩니다.",
-  },
-};
+/** 금액 — 견적서 사본(lib/quote-data.ts)에서 그대로 가져옵니다. 사이트 표기에 맞춰 " · " 는 "·" 로 붙여 씁니다. */
+const tight = (text?: string) => text?.replace(/ · /g, "·");
+export const CLIENT_PRICES: Record<string, { lines: PriceLine[]; note?: string; notice?: string }> = Object.fromEntries(
+  QUOTE_SERVICES.map((service) => [service.id, { lines: service.price, note: tight(service.note), notice: tight(service.notice) }]),
+);
 
 export type PriceLineView = {
   /** 기준 — 월 · 건당 · 첫 제작 · 월 유지보수 */
