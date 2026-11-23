@@ -1,21 +1,57 @@
-/* 견적서와 고객 전용 화면에서 함께 사용하는, 3D 이미지 뒤의 서비스별 배경색. */
+/* 견적서와 고객 전용 화면에서 함께 사용하는 서비스별 배경색·그라데이션·패턴. */
 :is([data-theme="build-crm"], [data-service="crm"]) {
   --service-stage-bg: #172b46;
   --service-point: #29486c;
+  --service-stage-image:
+    radial-gradient(ellipse at 86% 32%, rgba(112, 151, 197, .24), transparent 58%),
+    radial-gradient(circle, rgba(222, 234, 250, .12) .8px, transparent 1px),
+    linear-gradient(125deg, #111f35 0%, #192f4b 58%, #253f5d 100%);
+  --service-stage-size: auto, 28px 28px, auto;
 }
 :is([data-theme="build-homepage"], [data-service="homepage"]) {
   --service-stage-bg: #e7edf6;
   --service-point: #345579;
+  --service-stage-image:
+    radial-gradient(ellipse at 80% 26%, rgba(255, 255, 255, .8), transparent 60%),
+    linear-gradient(rgba(52, 85, 121, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 85, 121, .075) 1px, transparent 1px),
+    linear-gradient(135deg, #f3f6fb 0%, #e4edf7 54%, #cbdced 100%);
+  --service-stage-size: auto, 44px 44px, 44px 44px, auto;
 }
 :is([data-theme="build-landing"], [data-service="landing"]) {
   --service-stage-bg: #3f5b73;
   --service-point: #3f5b73;
+  --service-stage-image:
+    radial-gradient(ellipse at 88% 35%, rgba(158, 203, 211, .2), transparent 55%),
+    repeating-linear-gradient(135deg, rgba(239, 248, 255, .055) 0 1px, transparent 1px 32px),
+    linear-gradient(125deg, #2e4d67 0%, #3f6179 58%, #4b6b80 100%);
+  --service-stage-size: auto;
 }
 :is([data-theme="build-fair"], [data-service="fair"]) {
   --service-stage-bg: #dfebe7;
   --service-point: #3e645e;
+  --service-stage-image:
+    radial-gradient(ellipse at 80% 28%, rgba(255, 255, 255, .7), transparent 64%),
+    repeating-radial-gradient(circle at 84% 45%, transparent 0 45px, rgba(62, 100, 94, .075) 45px 46px),
+    linear-gradient(140deg, #f0f5f0 0%, #dfebe6 55%, #cbded5 100%);
+  --service-stage-size: auto;
 }
 :is([data-theme="build-membership"], [data-service="membership"]) {
   --service-stage-bg: #e9e1d5;
   --service-point: #6e5741;
+  --service-stage-image:
+    radial-gradient(ellipse at 82% 26%, rgba(255, 255, 255, .65), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(110, 87, 65, .055) 0 1px, transparent 1px 20px),
+    linear-gradient(130deg, #f3eee7 0%, #e8dfd1 56%, #ded0be 100%);
+  --service-stage-size: auto;
+}
+
+/* 같은 배경을 목록 카드와 상세 이미지 영역에 적용하며, 기존 배치와 치수는 유지합니다. */
+.wq-lp[data-theme^="build-"] .wq-lp-hero,
+.wq-card[data-theme^="build-"] .wq-card-visual,
+.pt-card-thumb[data-service],
+.pt-specimen[data-service] .pt-specimen-stage {
+  background-image: var(--service-stage-image, none);
+  background-size: var(--service-stage-size, auto);
+  background-position: center;
 }

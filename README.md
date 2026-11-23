@@ -55,7 +55,7 @@ haram-marketing.co.kr/quote 는 견적서를 받은 분께 보내는 웹 견적�
 - 인스타그램 대표 비주얼: `components/client/InstagramVisual.tsx` · 문구 없이 투명 배경의 3D 로고와 웨딩 링(`public/images/service-art/instagram-wedding-3d-lossless.webp`)만 표시합니다. 원본 1254px 무손실 이미지에 추가 압축을 적용하지 않습니다. 생성 기록은 `docs/instagram-wedding-3d.json`에 있습니다.
 - 블로그 관리 · 블로그/카페 포스팅 · 플레이스 대표 비주얼: `components/client/NaverVisual.tsx` · 서비스별 3D 심벌과 웨딩 링을 각각 사용합니다. `public/images/service-art/`의 원본 해상도 무손실 이미지를 추가 압축 없이 표시하고, 뒤 사진과 장식 문구는 표시하지 않습니다. 생성 프롬프트와 파일 정보는 `docs/naver-service-art.json`에 있습니다.
 - 제작·개발 5종 대표 비주얼: `components/client/DevelopmentVisual.tsx` · 전사 관리 = 흑연색 세로 클립보드·A4 종이·체크, 홈페이지 = 펄 화이트·크롬 기기, 랜딩페이지 = 밝은 가로형 브라우저 창·검은 클릭 커서, 박람회 플랫폼 = 실버·반투명 유리 연결 허브, 멤버십 = 따뜻한 토프 카드·브라스 혜택 배지로 구분합니다. 무채색 계열 안에서 명도·재질·형태를 달리하고, 기존 이미지 자리·그리드·원본 해상도·무손실 화질을 유지합니다. 생성 프롬프트와 파일 정보는 `docs/development-service-materials.json`에 있습니다.
-- 3D 이미지 뒤 배경색: `components/client/service-backgrounds.css`에서 전사 관리 = 짙은 남색, 홈페이지 = 연한 블루그레이, 랜딩페이지 = 슬레이트 블루, 플랫폼 = 옅은 세이지, 멤버십 = 따뜻한 그레이지로 정합니다. `/quote`의 카드·첫 화면과 `/client`의 카드·상세 이미지 영역에 같은 색을 사용합니다.
+- 3D 이미지 뒤 배경: `components/client/service-backgrounds.css`에서 전사 관리 = 남색 그라데이션·점, 홈페이지 = 블루그레이 그라데이션·격자, 랜딩페이지 = 슬레이트 블루 그라데이션·사선, 플랫폼 = 세이지 그라데이션·동심원, 멤버십 = 그레이지 그라데이션·세로 선으로 구분합니다. 부드러운 빛 번짐을 더하고, `/quote`의 카드·첫 화면과 `/client`의 카드·상세 이미지 영역에 동일한 배경을 사용합니다. 이미지와 기존 배치는 유지합니다.
 - 파일:
   - `app/(quote)/quote/page.tsx`(메뉴)
   - `app/(quote)/quote/[slug]/page.tsx`(안내 페이지)
