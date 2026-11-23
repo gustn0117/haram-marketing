@@ -1,11 +1,10 @@
-/* Only the contents of the original, fixed-size device frames. */
-.mk-native .pv-inline { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; color: #24282c; font-weight: 400; font-style: normal; font-size: 1em; line-height: 1.45; letter-spacing: -.025em; text-align: left; }
-.mk-native .mk-phone .pv-inline { flex: 1; font-size: 1.1em; }
-.mk-native .mk-browser .pv-inline { font-size: .9em; }
-.pv-inline :where(h3, h4, p, aside, footer) { margin: 0; padding: 0; }
-.pv-inline :where(b, strong) { font-weight: 600; }
-.pt-card .mk-native .pv-inline em { margin: 0; font-size: inherit; letter-spacing: inherit; color: inherit; font-style: italic; }
-.mk-native .pv-inline .pv-crm { height: 37.6em; }
-
-/* The original 4:3 image slots keep their dimensions and positions. */
+/* 화면과 이미지 영역의 외부 위치·크기는 유지합니다. */
+.mk-native .pv-inline { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; color: #343941; font-weight: 400; font-style: normal; font-size: 1em; line-height: 1.45; letter-spacing: -.025em; text-align: left; }
+.mk-native .mk-phone .pv-inline { flex: 1; }
+.mk-native .mk-browser .pv-inline { font-size: 1em; }
+.mk-native .mk-browser { position: relative; background: linear-gradient(to bottom, #2b2c31 0, #2b2c31 calc(100% - 4em), transparent calc(100% - 4em)); box-shadow: none; }
+.mk-native .mk-browser .mk-screen { padding-bottom: 4em; background: transparent; }
+.mk-native .mk-browser .pv-inline { border-radius: .4em; }
+.mk-monitor-stand { position: absolute; bottom: .65em; left: 50%; width: 8em; height: 3.35em; transform: translateX(-50%); background: linear-gradient(#b7b8bd, #d9dade); clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%); }
+.mk-native .mk-browser::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 19em; height: .8em; transform: translateX(-50%); border-radius: .4em .4em .15em .15em; background: #bfc1c7; }
 .wq-hatch > .pv-feature { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; padding: 16px; }

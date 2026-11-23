@@ -1,5 +1,4 @@
-import { BlogPage, InstagramProfile, PlacePage, SearchResults } from "./previews/marketing";
-import { CrmDashboard, FairPage, LandingPage, MembershipApp, VenueSite } from "./previews/products";
+import { BlogPage, CrmDashboard, FairPage, InstagramProfile, LandingPage, MembershipApp, PlacePage, SearchResults, VenueSite } from "./previews/screens";
 import "./specimen.css";
 import "./specimen-visuals.css";
 import "./specimen-content.css";
@@ -14,7 +13,7 @@ export const SPECIMEN_DEVICE: Record<string, Device> = {
 
 const SCREENS = {
   instagram: InstagramProfile, blog: BlogPage, posting: SearchResults, place: PlacePage,
-  crm: CrmDashboard, homepage: VenueSite, landing: () => <LandingPage mobile />,
+  crm: CrmDashboard, homepage: VenueSite, landing: LandingPage,
   fair: FairPage, membership: MembershipApp,
 };
 
@@ -28,7 +27,7 @@ export default function Specimen({ id }: { id: string }) {
   const device = SPECIMEN_DEVICE[id];
   if (!Screen || !device) return null;
   return (
-    <div className={`mk mk-${device}-wrap mk-native`} aria-hidden="true">
+    <div className={`mk mk-${device}-wrap mk-native`} data-service={id} aria-hidden="true">
       {device === "phone" ? (
         <div className="mk-phone">
           <div className="mk-screen">
@@ -44,6 +43,7 @@ export default function Specimen({ id }: { id: string }) {
             <span className="mk-url">{TITLES[id]}</span>
           </div>
           <div className="mk-screen"><div className="pv-inline"><Screen /></div></div>
+          <span className="mk-monitor-stand" />
         </div>
       )}
     </div>

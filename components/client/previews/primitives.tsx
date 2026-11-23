@@ -1,6 +1,3 @@
-import Image from "next/image";
-import type { ReactNode } from "react";
-
 export type PhotoId = "hero" | "flowers" | "couple" | "consultation" | "team" | "reception";
 export type IconName = "arrow" | "up-right" | "heart" | "message" | "send" | "bookmark" | "search" | "menu" | "grid" | "play" | "pin" | "calendar" | "check" | "bell" | "users" | "file" | "chart" | "settings" | "chevron" | "plus" | "gift" | "ticket" | "phone" | "globe" | "shield" | "clock" | "spark";
 
@@ -27,51 +24,4 @@ const PATHS: Record<IconName, string> = {
 
 export function I({ name, className = "" }: { name: IconName; className?: string }) {
   return <svg className={`pv-icon ${className}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={PATHS[name]} /></svg>;
-}
-
-export function Photo({ id, className = "", preload = false }: { id: PhotoId; className?: string; preload?: boolean }) {
-  return <span className={`pv-photo ${className}`}><Image src={`/images/preview-photos/${id}.webp`} alt="" fill sizes="(max-width: 600px) 180px, 400px" preload={preload} /></span>;
-}
-
-export function Brand({ light = false }: { light?: boolean }) {
-  return <span className={`pv-brand${light ? " is-light" : ""}`}><span className="pv-brand-mark">m.</span><span>MAISON<small>WEDDING & CELEBRATION</small></span></span>;
-}
-
-export function Phone({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`pv-phone ${className}`}><div className="pv-phone-status"><span>9:41</span><i /><span>▮▮▮ ▰</span></div><div className="pv-phone-content">{children}</div><span className="pv-home-line" /></div>;
-}
-
-export function Browser({ children, domain = "maison.wedding", className = "" }: { children: ReactNode; domain?: string; className?: string }) {
-  return <div className={`pv-browser ${className}`}><div className="pv-browser-bar"><span className="pv-browser-dots"><i /><i /><i /></span><span className="pv-browser-address"><I name="shield" />{domain}</span><I name="plus" /></div><div className="pv-browser-content">{children}</div></div>;
-}
-
-export function Chip({ children, tone = "" }: { children: ReactNode; tone?: string }) {
-  return <span className={`pv-chip ${tone ? `is-${tone}` : ""}`}>{children}</span>;
-}
-
-export function Note({ icon, title, children, className = "" }: { icon: IconName; title: string; children: ReactNode; className?: string }) {
-  return <div className={`pv-note ${className}`}><span className="pv-note-icon"><I name={icon} /></span><span><b>{title}</b><small>{children}</small></span><I name="check" /></div>;
-}
-
-export function Field({ label, value, icon }: { label: string; value: string; icon?: IconName }) {
-  return <span className="pv-field"><small>{label}</small><span>{value}{icon && <I name={icon} />}</span></span>;
-}
-
-export function Action({ children, icon = "arrow", pale = false }: { children: ReactNode; icon?: IconName; pale?: boolean }) {
-  return <span className={`pv-action${pale ? " is-pale" : ""}`}>{children}<I name={icon} /></span>;
-}
-
-/** 장식용 입장 코드. 실제 QR 데이터를 담지 않습니다. */
-export function PassCode() {
-  const cells = Array.from({ length: 21 * 21 }, (_, n) => {
-    const x = n % 21, y = Math.floor(n / 21);
-    for (const [ox, oy] of [[0, 0], [14, 0], [0, 14]]) {
-      if (x >= ox && x < ox + 7 && y >= oy && y < oy + 7) {
-        const dx = x - ox, dy = y - oy;
-        return dx === 0 || dx === 6 || dy === 0 || dy === 6 || (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4);
-      }
-    }
-    return ((x * 17 + y * 11 + x * y * 3) % 7) < 3;
-  });
-  return <svg className="pv-pass-code" viewBox="-2 -2 25 25" aria-hidden="true">{cells.map((on, n) => on && <rect key={n} x={n % 21} y={Math.floor(n / 21)} width="1" height="1" fill="currentColor" />)}</svg>;
 }
