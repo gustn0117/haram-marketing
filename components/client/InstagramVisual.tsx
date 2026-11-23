@@ -16,7 +16,7 @@ export default function InstagramVisual() {
         </div>
         <div className="mk-instagram-caption">
           <span>INSTAGRAM MARKETING</span>
-          <b data-text="WEDDING"><span>WEDDING</span></b>
+          <b data-text="Wedding"><span>Wedding</span></b>
         </div>
       </div>
     </div>
