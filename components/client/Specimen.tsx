@@ -1,4 +1,5 @@
-import { BlogPage, CrmDashboard, FairPage, InstagramProfile, LandingPage, MembershipApp, PlacePage, SearchResults, VenueSite } from "./previews/screens";
+import { BlogPage, CrmDashboard, FairPage, LandingPage, MembershipApp, PlacePage, SearchResults, VenueSite } from "./previews/screens";
+import InstagramVisual from "./InstagramVisual";
 import "./specimen.css";
 import "./specimen-visuals.css";
 import "./specimen-content.css";
@@ -12,7 +13,7 @@ export const SPECIMEN_DEVICE: Record<string, Device> = {
 };
 
 const SCREENS = {
-  instagram: InstagramProfile, blog: BlogPage, posting: SearchResults, place: PlacePage,
+  blog: BlogPage, posting: SearchResults, place: PlacePage,
   crm: CrmDashboard, homepage: VenueSite, landing: LandingPage,
   fair: FairPage, membership: MembershipApp,
 };
@@ -23,6 +24,7 @@ const TITLES: Record<string, string> = {
 
 /** 페이지와 프레임의 배치는 그대로 두고, 그 안의 예시 화면만 교체합니다. */
 export default function Specimen({ id }: { id: string }) {
+  if (id === "instagram") return <InstagramVisual />;
   const Screen = SCREENS[id as keyof typeof SCREENS];
   const device = SPECIMEN_DEVICE[id];
   if (!Screen || !device) return null;

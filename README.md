@@ -52,6 +52,7 @@ haram-marketing.co.kr/quote 는 견적서를 받은 분께 보내는 웹 견적�
     - 아래 구역은 흰 바탕이고, 같은 색을 포인트로 씁니다.
 - 기존 카드 그리드·구역·이미지 자리의 위치와 크기를 그대로 유지합니다. `components/quote/shared.tsx`의 `Hatch`가 정해진 사진 자리를 채우고, `components/client/Specimen.tsx`는 기존 기기 프레임 안의 예시 화면만 구성합니다.
 - 사진: `public/images/preview-photos/` · 사진 생성 기록: `docs/preview-photo-assets.json`. 기기 목업 내부는 `components/client/previews/screens.tsx`에서 사진·상세 수치 없이 도형과 짧은 기능명으로 표현합니다. 각 포함 사항의 이미지 내용은 `components/client/ServiceFeature.tsx`에 있습니다.
+- 인스타그램 대표 비주얼: `components/client/InstagramVisual.tsx` · 투명 배경의 3D 로고와 웨딩 링은 `public/images/service-art/instagram-wedding-3d.webp`, `WEDDING` 문구는 HTML로 표시합니다. 생성 기록은 `docs/instagram-wedding-3d.json`에 있습니다.
 - 파일:
   - `app/(quote)/quote/page.tsx`(메뉴)
   - `app/(quote)/quote/[slug]/page.tsx`(안내 페이지)
