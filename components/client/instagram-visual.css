@@ -2,10 +2,13 @@
 .mk-instagram-visual { position: relative; width: 25em; height: 52em; }
 .mk-instagram-art { position: absolute; top: 6em; left: 50%; width: 32em; height: 32em; transform: translateX(-50%); }
 .mk-instagram-art > img { object-fit: contain; filter: drop-shadow(0 1.2em 1.6em #3d12381c); }
-.mk-instagram-caption { position: absolute; top: 35em; left: 50%; width: 34em; transform: translateX(-50%); color: #4d3b4b; text-align: center; }
-.mk-instagram-caption > span { display: block; font-size: .85em; font-weight: 500; line-height: 1.4; letter-spacing: .22em; }
-.mk-instagram-caption > b { display: block; margin-top: .25em; font-family: Georgia, "Times New Roman", serif; font-size: 2.9em; font-weight: 400; line-height: 1.2; letter-spacing: .14em; text-indent: .14em; }
-.wq-card-visual .mk-instagram-caption, .wq-visual-mock .mk-instagram-caption { color: #fff5ee; }
+.mk-instagram-caption { --ig-word-face: linear-gradient(180deg, #f9edcd 5%, #d5b181 28%, #f4e2bb 43%, #a47951 49%, #c29868 72%, #ebd3a5 100%); --ig-word-side: #7c5947; --ig-word-edge: #bc966b; --ig-word-shadow: #603e392e; position: absolute; top: 35em; left: 50%; width: 34em; transform: translateX(-50%); color: #4d3b4b; text-align: center; }
+.mk-instagram-caption > span { display: block; font-size: .85em; font-weight: 600; line-height: 1.4; letter-spacing: .25em; text-shadow: 0 .08em .08em var(--ig-word-shadow), 0 .2em .6em var(--ig-word-shadow); }
+/* 입체 측면과 광택이 있는 표면을 별도 레이어로 겹칩니다. */
+.mk-instagram-caption > b { position: relative; display: block; isolation: isolate; margin-top: .25em; font-family: Georgia, "Times New Roman", serif; font-size: 3.2em; font-weight: 600; line-height: 1.2; letter-spacing: .12em; text-indent: .12em; }
+.mk-instagram-caption > b::before { content: attr(data-text); position: absolute; inset: 0; z-index: 0; color: var(--ig-word-side); transform: translateY(.025em); text-shadow: 0 .025em 0 var(--ig-word-side), 0 .05em 0 var(--ig-word-side), 0 .075em 0 var(--ig-word-side), 0 .12em .08em var(--ig-word-shadow), 0 .2em .25em var(--ig-word-shadow); }
+.mk-instagram-caption > b > span { position: relative; z-index: 1; display: block; background: var(--ig-word-face); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-text-stroke: .01em var(--ig-word-edge); }
+.wq-card-visual .mk-instagram-caption, .wq-visual-mock .mk-instagram-caption { --ig-word-face: linear-gradient(180deg, #fffefa 5%, #ffe7bf 28%, #fffdf3 43%, #e5b281 49%, #ffe2bd 72%, #fff9eb 100%); --ig-word-side: #a45c78; --ig-word-edge: #ffe4c5; --ig-word-shadow: #58145559; color: #fff5ee; }
 :is(.wq-card-visual, .pt-card-thumb) .mk-instagram-art { top: -2em; }
 :is(.wq-card-visual, .pt-card-thumb) .mk-instagram-caption { top: 27em; }
 
