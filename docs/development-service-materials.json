@@ -1,0 +1,79 @@
+{
+  "generator": "built-in ImageGen",
+  "request": "Keep a neutral palette but differentiate each service's shape, value range, material and surface finish, especially CRM versus landing page.",
+  "usage": "Five individual edited service assets. CRM retains portrait paper stationery; landing changes to a horizontal browser window and oversized clicking cursor. Existing image slots, page grids, card dimensions and rendering configuration are unchanged.",
+  "delivery": {
+    "encoding": "lossless WebP",
+    "resize": false,
+    "additionalOptimization": false,
+    "alphaPreserved": true,
+    "visiblePixelsAndAlphaMatchSource": true
+  },
+  "assets": [
+    {
+      "id": "crm",
+      "name": "crm-graphite-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-47473577-9cfe-4f40-805e-a5eb402f2f67.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 835632,
+      "transparentPixels": 774611,
+      "path": "/images/service-art/crm-graphite-3d-lossless.webp",
+      "editTarget": "/images/service-art/crm-checklist-3d-lossless.webp",
+      "material": "Matte graphite clipboard, natural off-white A4 paper, steel clip and dark check",
+      "prompt": "Use case: precise-object-edit / material restyling. INPUT IMAGE 1 is the existing CRM clipboard illustration to revise.\nGoal: distinguish this service strongly from the landing-page illustration while retaining a quiet neutral palette. Create a professional ANALOG DOCUMENT / CLIPBOARD look, not a soft plastic app tile.\nKeep the existing recognizable portrait A4 paper clipped to a backing board, three simple checklist rows and one large completion check at lower right. Refine its construction: a slim matte GRAPHITE BLACK backing board with small realistic rounded corners (not a thick puffy navy bezel); a satin brushed stainless-steel top clip; natural off-white uncoated A4 paper with a very subtle paper grain and a slight lifted bottom paper corner. Dark graphite checkboxes and understated gray straight rule lines, two boxes checked. The large separate check at lower right should be dark graphite satin with a fine steel edge highlight, not purple. Make it a simple weighted check with crisp bevels. Preserve the supplied interwoven H/R brand monogram in gold but reduce it to a discreet small mark near the paper top, not a big hero logo.\nLighting: refined soft neutral studio illumination, subtle matte reflections, beautiful crisp contact shading. Strong black-and-paper contrast, low saturation. No navy, purple, lilac or blue casts anywhere. Only the small original gold monogram is a restrained metallic accent.\nComposition: one compact isolated object group, mostly front-facing with gentle perspective, portrait clipboard silhouette, fully visible and centered in a square high-resolution canvas with safe transparent margins on every side.\nBackground: genuine transparent alpha, absolutely no background, floor plane, colored glow, rectangle or checkerboard.\nKeep it elegant and simple. Do not add a computer, phone, browser strip, cursor arrow, wedding flowers, rings, text, numbers or extra icons."
+    },
+    {
+      "id": "homepage",
+      "name": "homepage-pearl-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-d2c0e93c-69a3-4673-9729-37ac243507a4.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 834610,
+      "transparentPixels": 591510,
+      "path": "/images/service-art/homepage-pearl-3d-lossless.webp",
+      "editTarget": "/images/service-art/homepage-designed-3d-lossless.webp",
+      "material": "Warm pearl-white devices, neutral chrome, ivory wedding website",
+      "prompt": "Use case: precise-object-edit / material restyling. INPUT IMAGE 1 is the existing homepage 3D monitor and phone illustration.\nChange the palette and surface treatment ONLY, giving this service its own WARM PEARL WHITE AND POLISHED CHROME identity. Keep the exact device silhouettes, positions, scale, stand, wedding rings, camera angle, internal designed wedding website layout, arch and floral illustration, tiny interwoven gold H/R monograms, and every content block in the same position.\nRemove every lavender, purple, periwinkle and blue tint. Monitor and phone frames become warm pearl-white ceramic with slim polished neutral-chrome edges and clean silver reflections. The stand is neutral brushed silver. Screens retain a warm white/soft pale-greige website layout. Replace purple wave/panels with barely tinted warm stone/ivory. Navy buttons become deep charcoal. Keep the little gold H/R logos, gold wedding arch detail and original gold ring pair as restrained warm accents. Browser dots become three shades of neutral gray. Preserve delicate soft studio illumination, refined wedding character and airy page content.\nThis should feel white, luminous and warm, clearly different from graphite paper stationery, cold glass networking icons or taupe membership cards.\nPreserve all composition, screen detail, perspective, size and external objects. No extra words, labels or decorations.\nVery crisp high-resolution square image. Preserve the original genuine transparent alpha background; no floor, scene, backdrop, rectangular haze or glow."
+    },
+    {
+      "id": "landing",
+      "name": "landing-monochrome-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-ab0bbf11-316b-4cbf-8677-2dd191a164d6.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 575226,
+      "transparentPixels": 695059,
+      "path": "/images/service-art/landing-monochrome-3d-lossless.webp",
+      "editTarget": "/images/service-art/landing-conversion-3d-lossless.webp",
+      "material": "Horizontal bright-white browser panel with oversized graphite cursor and click rays",
+      "prompt": "Use case: precise-object-edit / conceptual redesign. INPUT IMAGE 1 is the old landing-page illustration. Retain its intended service (one-page promotion leading to a signup) and small official gold interwoven H/R mark, but REPLACE its tall portrait plaque shape and purple materials completely.\nGoal: this must look very different from an A4 clipboard. The central object is a LANDSCAPE floating browser window, around 3:2 proportions, thin lightweight white panel with a slim silver edge and modest corner radius, tilted in a gentle three-quarter perspective. No tablet/computer/phone hardware, no backing board, no stand, no clip.\nMinimal abstract landing page INSIDE this horizontal window: a thin light-gray header with three neutral gray dots and a very small original gold H/R monogram at top left; a spacious main area with two dark short headline bars and one subtle supporting bar on the left, a clean simple abstract circular target / conversion pictogram in embossed light gray at upper-right, then one bold solid BLACK rounded call-to-action button near the lower right and just two tiny light-gray signup fields at lower-left. No wedding arch, flowers, pictures, paper checklist or dense UI.\nAn oversized polished GRAPHITE-BLACK 3D mouse cursor overlaps the lower-right edge and points at the black CTA button. Add two or three short clean silver click rays at the cursor tip so the interaction reads immediately. Cursor should remain visually separate from the page; a tiny crisp silver bevel gives it depth. Strong bright-white vs black contrast with cool silver edge accents. This composition should feel dynamic, horizontal and digital, not vertical paper stationery.\nOnly quiet whites, silvers, cool grays and black; no navy, lavender, purple or other saturated color. The tiny supplied gold brand mark is the only muted warm accent. No readable words, numbers or decorative typography.\nOne compact balanced isolated object group fully visible in a square high-resolution canvas with generous transparent margins. Refined soft studio lighting, crisp edges and premium lightweight materials, not an inflated toy slab.\nGenuine transparent alpha background, no floor plane, backdrop, scene, shadow rectangle, checkerboard or color haze. No other objects."
+    },
+    {
+      "id": "fair",
+      "name": "fair-silver-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-ee7a6188-dd30-4b61-a2ff-fcdb24d075fd.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 711176,
+      "transparentPixels": 772931,
+      "path": "/images/service-art/fair-silver-3d-lossless.webp",
+      "editTarget": "/images/service-art/fair-platform-3d-lossless.webp",
+      "material": "Cold silver connectors, frosted glass ticket, smoked glass modules",
+      "prompt": "Use case: precise-object-edit / material restyling. INPUT IMAGE 1 is the existing wedding fair platform 3D icon: central admission ticket connected to calendar, visitor and location tiles on a low base.\nKeep this recognizable connected-hub structure, ticket silhouette and all 3 secondary pictograms. Give it a distinctly COOL SILVER AND FROSTED GLASS material identity instead of navy/lilac plastic.\nTransform the 3 smaller rounded icon tiles into smoked neutral-gray translucent glass with slim polished-chrome edges, thick enough to show refraction; their calendar, people and location symbols are soft opaque white / pale silver so they remain easily readable. The central ticket is pale frosted glass or satin pale-silver, with a soft white internal face, a clean neutral steel edge, and its embossed wedding rings symbol in polished SILVER rather than gold. The little checkmark is dark neutral charcoal. The connecting paths are brushed stainless steel, and the low base is smooth cool gray-white frosted glass with restrained polished edges. Make material layering apparent without busy reflections.\nPalette: neutral cool grays, translucent smoke, white and silver only. No blue, lavender, purple, navy, gold, rainbow iridescence or colored light. Do not make it dark and heavy; the whole hub should feel airy and technical, with clear dark/light separation between nodes and pictograms.\nPreserve exact object layout, scale, camera perspective, pictograms, broad compact silhouette and square framing. Premium crisp 3D studio render, subtle soft neutral lighting, clean edges and controlled reflections. No text, numbers, QR, extra objects or screen devices.\nPreserve genuine transparent alpha outside the object group; no scene, floor, background, checkerboard or rectangular glow."
+    },
+    {
+      "id": "membership",
+      "name": "membership-taupe-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-33eb2d38-3baa-4c14-8a18-36f84fadca66.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 933090,
+      "transparentPixels": 771054,
+      "path": "/images/service-art/membership-taupe-3d-lossless.webp",
+      "editTarget": "/images/service-art/membership-benefits-3d-lossless.webp",
+      "material": "Matte warm-taupe membership card, linen gift and brushed champagne-brass medallion",
+      "prompt": "Use case: precise-object-edit / material restyling. INPUT IMAGE 1 is the membership-card 3D illustration to revise.\nPreserve the existing layout and recognizable membership concept: main card with official interwoven gold H/R monogram, a second card peeking behind, small gift box lower-left and a star tier medallion lower-right.\nGive this service a WARM TAUPE, STONE AND BRUSHED BRASS identity, distinctly different from black graphite stationery, bright white web panels or cold silver glass modules. Replace the blue/navy main card with a soft matte warm medium-dark TAUPE / warm-gray stone finish, subtly tactile like refined suede-coated membership stock. Keep its fine champagne-brass perimeter line and original supplied H/R monogram in restrained brushed pale gold; ensure clear contrast on the taupe face. The rear card becomes pale warm stone/greige. The gift box becomes pale linen-beige with a darker taupe soft satin ribbon, no lavender. The star medallion becomes understated brushed champagne BRASS with a slightly deeper warm bronze side edge, not a bright yellow shiny coin. Reduce mirror-like shine to emphasize premium matte card against soft brushed metal.\nPalette remains desaturated and calm, mostly warm grays/greige/taupe; tiny controlled brand gold/brass accents. No navy, purple, lilac, blue, pink or saturated brown/orange. Keep every object position, card shape, scale, camera angle, monogram proportions and overall square framing. No credit-card chip, numbers, readable words or extra objects.\nHigh-resolution premium 3D, refined soft studio lighting, crisp silhouettes. Preserve the genuine transparent alpha background; no floor plane, backdrop, environment, checkerboard or haze rectangle."
+    }
+  ]
+}
