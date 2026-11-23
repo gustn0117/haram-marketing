@@ -1,0 +1,40 @@
+{
+  "generator": "built-in ImageGen",
+  "reference": "/images/service-art/instagram-wedding-3d-lossless.webp",
+  "usage": "Three separate illustrations for blog management, Blog/Cafe posting, and Naver Place marketing. No decorative lettering, background photos, phone or monitor frames. Existing page sections, grids, and image slots are preserved.",
+  "delivery": {
+    "encoding": "lossless WebP",
+    "resize": false,
+    "additionalOptimization": false,
+    "alphaPreserved": true
+  },
+  "assets": [
+    {
+      "id": "blog",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-ebaefc8d-49c8-41b1-a2ca-a8b906665485.png",
+      "path": "/images/service-art/blog-wedding-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Asset type: one standalone premium 3D brand illustration for a Korean wedding-marketing service website, not a UI mockup. Input image 1 is a STYLE REFERENCE ONLY: match its thick softly rounded enamel objects, softly raised white symbols, subtle translucent bevels, champagne-gold wedding bands, gently turned frontal perspective, and soft studio lighting. Do not reproduce its Instagram logo. This is a new independent illustration. High resolution, ideally 2048 x 2048, extremely crisp edges and fine ring reflections. Keep a clean square transparent alpha canvas with generous 12 percent margins, all objects fully visible, group occupying about 76 percent of canvas. The group floats without a floor, backdrop, scenery, panel, phone or monitor. Truly transparent alpha, no solid background, no fake transparency checkerboard, no visible rectangular shadow or edge halos. Gentle contact shadows around objects only. Refined polished 3D advertising art, not line art. No captions, no headings, no Wedding text, no slogans or other typography. Only the one simple platform logo glyph requested below is allowed. No photos, people, confetti, hearts, flowers or unrelated ornaments.\nSubject: Naver Blog wedding-hall blog management. A single thick upright emerald-green rounded square app tile, with a softly extruded white rounded speech bubble on the front. Inside the white speech bubble is one simple lowercase emerald-green 'b' logo glyph. The bubble and b clearly suggest a blog channel. Beside its lower right corner lean two small slim champagne-gold wedding bands together, one plain and one small diamond solitaire, identical design language to the reference. The green tile is dominant; rings are a quiet secondary accent. Saturated clean Naver-style green and soft white. No full blog posts, notebook pages, book cover, pen, miniature text, extra symbols or additional tiles. Large unified silhouette, mostly frontal, turned 12 degrees.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 697116
+    },
+    {
+      "id": "posting",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-ea5edcd7-e40d-427f-9fe7-75fb3a9672d7.png",
+      "path": "/images/service-art/posting-wedding-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Asset type: one standalone premium 3D brand illustration for a Korean wedding-marketing service website, not a UI mockup. Input image 1 is a STYLE REFERENCE ONLY: match its thick softly rounded enamel objects, softly raised white symbols, subtle translucent bevels, champagne-gold wedding bands, gently turned frontal perspective, and soft studio lighting. Do not reproduce its Instagram logo. This is a new independent illustration. High resolution, ideally 2048 x 2048, extremely crisp edges and fine ring reflections. Keep a clean square transparent alpha canvas with generous 12 percent margins, all objects fully visible, group occupying about 76 percent of canvas. The group floats without a floor, backdrop, scenery, panel, phone or monitor. Truly transparent alpha, no solid background, no fake transparency checkerboard, no visible rectangular shadow or edge halos. Gentle contact shadows around objects only. Refined polished 3D advertising art, not line art. No captions, no headings, no Wedding text, no slogans or other typography. Only the one simple platform logo glyph requested below is allowed. No photos, people, confetti, hearts, flowers or unrelated ornaments.\nSubject: Naver Blog and Cafe content posting for wedding halls. One compact group of TWO overlapping upright thick green rounded square app tiles. Larger back tile: medium emerald green with a raised white rounded speech-bubble symbol containing a single green lowercase 'b' glyph to suggest a blog. Front tile, slightly smaller and offset to the right: deeper forest green with a clean raised white simple coffee-cup silhouette and one curved steam stroke to suggest a Cafe community. Both logos large and easy to recognize. Two small champagne-gold wedding bands lean together at the lower right foreground, one plain and one small diamond solitaire, matching the reference. Two app tiles should read as one cohesive icon group, not a collage of multiple images. No words, miniature posts, message body text, third tile or loose floating icons. Balance the two green tones and white symbols. Mostly frontal, turned 12 degrees.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 710180
+    },
+    {
+      "id": "place",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-d80f395f-2aa2-488d-83f0-8826a40aff42.png",
+      "path": "/images/service-art/place-wedding-3d-lossless.webp",
+      "prompt": "Use case: stylized-concept. Asset type: one standalone premium 3D brand illustration for a Korean wedding-marketing service website, not a UI mockup. Input image 1 is a STYLE REFERENCE ONLY: match its thick softly rounded enamel objects, softly raised white symbols, subtle translucent bevels, champagne-gold wedding bands, gently turned frontal perspective, and soft studio lighting. Do not reproduce its Instagram logo. This is a new independent illustration. High resolution, ideally 2048 x 2048, extremely crisp edges and fine ring reflections. Keep a clean square transparent alpha canvas with generous 12 percent margins, all objects fully visible, group occupying about 76 percent of canvas. The group floats without a floor, backdrop, scenery, panel, phone or monitor. Truly transparent alpha, no solid background, no fake transparency checkerboard, no visible rectangular shadow or edge halos. Gentle contact shadows around objects only. Refined polished 3D advertising art, not line art. No captions, no headings, no Wedding text, no slogans or other typography. Only the one simple platform logo glyph requested below is allowed. No photos, people, confetti, hearts, flowers or unrelated ornaments.\nSubject: Naver Place wedding-hall location marketing. A single elegant chunky emerald-green 3D map location pin as the dominant object, with a raised soft-white uppercase 'N' centered in its round upper area. The pin points down onto a small softly folded white and pale-mint map shape underneath it, with only two broad abstract route lines, no street names or actual geography. Beside the lower right edge lean two small slim champagne-gold wedding bands, one plain and one small diamond solitaire, matching the reference. The map is a very restrained secondary base and the pin is large and immediately recognizable. Clean Naver-style green, soft white, pale mint, champagne gold. No words, neighborhood labels, tiny buildings, car, compass, second pin, phone or screens. Mostly frontal, turned 12 degrees.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 598956
+    }
+  ]
+}

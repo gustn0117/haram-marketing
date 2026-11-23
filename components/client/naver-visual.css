@@ -1,0 +1,21 @@
+/* 기존 기기 목업과 같은 바깥 치수 안에 3D 심벌만 배치합니다. */
+.mk-naver-visual { position: relative; width: 25em; height: 52em; }
+.mk-naver-art { position: absolute; top: 10em; left: 50%; width: 32em; height: 32em; transform: translateX(-50%); }
+.mk-naver-art > img { object-fit: contain; filter: drop-shadow(0 1.2em 1.6em #123a211a); }
+.mk-naver-visual.is-wide { width: 56em; height: 37.9em; }
+.mk-naver-visual.is-wide .mk-naver-art { top: 50%; width: 38em; height: 38em; transform: translate(-50%, -50%); }
+:is(.wq-card-visual, .pt-card-thumb) .mk-naver-visual:not(.is-wide) .mk-naver-art { top: .7em; }
+
+/* 대표 이미지 영역의 중앙 정렬. 구역 크기와 그리드는 기존 값을 사용합니다. */
+.wq-visual[data-service]:is([data-service="blog"], [data-service="posting"], [data-service="place"]) { display: grid; place-items: center; }
+.wq-visual[data-service]:is([data-service="blog"], [data-service="posting"], [data-service="place"]) .wq-visual-mock { position: relative; inset: auto; margin: 0; }
+.wq-visual[data-service]:is([data-service="posting"], [data-service="place"]) .mk { font-size: 12px; }
+@media (max-width: 960px) {
+  .wq-visual[data-service]:is([data-service="blog"], [data-service="posting"], [data-service="place"]) { margin-top: 0; }
+  .wq-visual[data-service="blog"] .mk { font-size: min(10px, calc((100vw - 44px) / 56)); }
+  .wq-visual[data-service]:is([data-service="posting"], [data-service="place"]) .mk { font-size: 9.6px; }
+}
+@media (max-width: 480px) {
+  .wq-visual[data-service]:is([data-service="posting"], [data-service="place"]) .mk { font-size: 9.1px; }
+  .wq-card-visual .mk-naver-visual:not(.is-wide) .mk-naver-art { top: -2em; }
+}

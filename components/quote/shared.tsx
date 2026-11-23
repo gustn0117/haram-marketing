@@ -104,17 +104,17 @@ export function LockIcon() {
   );
 }
 
-/** 서비스별 대표 비주얼. 인스타그램은 배경 사진 없이 3D 로고만 표시합니다. */
+/** 마케팅 대행 4종은 사진과 문구 없이 개별 3D 비주얼만 표시합니다. */
 export function ServiceVisual({ service }: { service: Service }) {
-  const isInstagram = service.id === "instagram";
-  const photos: Record<string, PhotoId> = { blog: "hero", posting: "couple", place: "hero", crm: "consultation", homepage: "hero", landing: "couple", fair: "consultation", membership: "reception" };
+  const isBrandVisual = service.group === "marketing";
+  const photos: Record<string, PhotoId> = { crm: "consultation", homepage: "hero", landing: "couple", fair: "consultation", membership: "reception" };
   return (
     <figure className="wq-visual" data-device={SPECIMEN_DEVICE[service.id]} data-service={service.id}>
-      {!isInstagram && <Hatch className="wq-visual-image" label={IMAGE_LABEL[service.id]} image={photos[service.id]} />}
+      {!isBrandVisual && <Hatch className="wq-visual-image" label={IMAGE_LABEL[service.id]} image={photos[service.id]} />}
       <div className="wq-visual-mock">
         <Specimen id={service.id} />
       </div>
-      {!isInstagram && <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>}
+      {!isBrandVisual && <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>}
     </figure>
   );
 }
