@@ -7,7 +7,7 @@ import { company, serviceGroups, services } from "@/lib/content";
 import { DETAILS, QUOTE_URL, VAT_LABEL, billingBasis, priceOf } from "@/lib/client-details";
 import PriceLines from "@/components/client/PriceLines";
 import { hasClientAccess } from "@/lib/client-access";
-import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
+import ServicePreview from "@/components/client/ServicePreview";
 import SectionTabs from "@/components/client/SectionTabs";
 import Typo from "@/components/client/Typo";
 import LockedPanel from "@/components/client/LockedPanel";
@@ -124,11 +124,11 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
         </aside>
 
         <div className="pt-body">
-          <figure className="pt-specimen" data-device={SPECIMEN_DEVICE[service.id]}>
-            <div className="pt-specimen-stage">
-              <Specimen id={service.id} />
+          <figure className="pt-preview">
+            <div className="pt-preview-stage">
+              <ServicePreview id={service.id} preload />
             </div>
-            <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>
+            <figcaption>서비스 이해를 돕는 예시 이미지입니다. 실제 화면·정보·수치는 예식장에 맞춰 구성합니다.</figcaption>
           </figure>
 
           <SectionTabs tabs={TABS} />

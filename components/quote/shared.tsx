@@ -1,5 +1,5 @@
 import { CLIENT, DOC, GROUPS, PDF_FILENAME, PDF_URL, SENDER, VAT_LABEL, servicesOf, serviceNo, type Service } from "@/lib/quote-data";
-import Specimen, { SPECIMEN_DEVICE } from "@/components/client/Specimen";
+import ServicePreview from "@/components/client/ServicePreview";
 import type { NavGroup, NavLink } from "./QuoteHeader";
 
 /* /quote 견적서 메뉴 페이지와 /quote/[서비스] 안내 페이지가 함께 쓰는 것들 */
@@ -15,19 +15,6 @@ export const THEME: Record<string, string> = {
   landing: "dark",
   fair: "light",
   membership: "dark",
-};
-
-/** 사진 자리(빗금)에 적는 말 — 어떤 사진을 넣을 자리인지 */
-export const IMAGE_LABEL: Record<string, string> = {
-  instagram: "이미지 · 피드 사진",
-  blog: "이미지 · 블로그 대표 사진",
-  posting: "이미지 · 후기 사진",
-  place: "이미지 · 홀 전경 사진",
-  crm: "이미지 · 운영 화면",
-  homepage: "이미지 · 홈페이지 첫 화면",
-  landing: "이미지 · 이벤트 배너",
-  fair: "이미지 · 박람회 현장 사진",
-  membership: "이미지 · 회원 카드",
 };
 
 export const GROUP_EN: Record<string, string> = { marketing: "Marketing", build: "Development" };
@@ -72,13 +59,9 @@ export function RichText({ text }: { text: string }) {
   );
 }
 
-/** 사진 자리 — 빗금 상자 + 어떤 사진인지 한 줄 */
-export function Hatch({ label, className = "" }: { label: string; className?: string }) {
-  return (
-    <div className={`wq-hatch ${className}`} aria-hidden="true">
-      <span>{label}</span>
-    </div>
-  );
+/** 포함 사항에도 해당 서비스의 새 화면 이미지를 사용합니다. */
+export function FeatureVisual({ serviceId, index }: { serviceId: string; index: number }) {
+  return <span className="wq-feature-image" data-detail={index % 4}><ServicePreview id={serviceId} decorative sizes="(max-width: 960px) 45vw, 280px" /></span>;
 }
 
 export function PhoneIcon() {
@@ -98,15 +81,12 @@ export function LockIcon() {
   );
 }
 
-/** 사진 자리(빗금) 위에 예시 화면을 겹쳐 놓은 그림 */
+/** 인스타그램·블로그 등 서비스 화면을 담은 완성 이미지를 보여 줍니다. */
 export function ServiceVisual({ service }: { service: Service }) {
   return (
-    <figure className="wq-visual" data-device={SPECIMEN_DEVICE[service.id]}>
-      <Hatch className="wq-visual-image" label={IMAGE_LABEL[service.id]} />
-      <div className="wq-visual-mock">
-        <Specimen id={service.id} />
-      </div>
-      <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>
+    <figure className="wq-visual">
+      <ServicePreview id={service.id} preload />
+      <figcaption>서비스 이해를 돕는 예시 이미지입니다. 실제 화면·정보·수치는 예식장에 맞춰 구성합니다.</figcaption>
     </figure>
   );
 }

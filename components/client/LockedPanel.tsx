@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { company } from "@/lib/content";
 import ClientAccessForm from "./ClientAccessForm";
-import Specimen from "./Specimen";
+import ServicePreview from "./ServicePreview";
 
 /* 고객 전용 로그인 화면 — 잠긴 주소(/client/...)로 바로 들어왔을 때 주소는 그대로 두고 화면 전체를 덮습니다.
-   비밀번호가 맞으면 지금 주소를 다시 열어 본문을 보여 줍니다. 왼쪽 예시 화면은 공개 목업(상세 문구 없음). */
+   비밀번호가 맞으면 지금 주소를 다시 열어 본문을 보여 줍니다. 왼쪽은 서비스 이해를 돕는 예시 디자인입니다. */
 export default function LockedPanel() {
   return (
     <div className="ca-login">
@@ -29,10 +29,10 @@ export default function LockedPanel() {
         </div>
         <div className="ca-login-shots" aria-hidden="true">
           <div className="ca-login-shot is-browser">
-            <Specimen id="crm" />
+            <ServicePreview id="crm" />
           </div>
           <div className="ca-login-shot is-phone">
-            <Specimen id="instagram" />
+            <ServicePreview id="instagram" />
           </div>
         </div>
       </aside>

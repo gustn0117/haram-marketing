@@ -36,7 +36,7 @@ npm run indexnow -- /about /services   # 바뀐 페이지만
   - 각 페이지도 한 번 더 확인합니다.
   - 응답은 no-store이고, 검색 노출을 막고(noindex), 사이트맵에서 뺍니다.
 - 화면: 사이트 머리말 대신 포털 틀(`components/client/PortalShell.tsx` — 위쪽 바 하나: 하람마케팅(홈페이지로) · 위치 표시 · 견적서 보기 · 잠그기 · 전화 상담). 대시보드 `app/(portal)/client/page.tsx`, 서비스 상세 `app/(portal)/client/[slug]/page.tsx`, 로그인 화면 `components/client/LockedPanel.tsx`
-- 상세 문구: `lib/client-details.ts` · 예시 화면(목업): `components/client/Specimen.tsx` · 스타일: `app/(portal)/client/client.css`
+- 상세 문구: `lib/client-details.ts` · 예시 디자인: `components/client/ServicePreview.tsx` · 이미지 스타일: `components/client/service-preview.css` · 스타일: `app/(portal)/client/client.css`
 - 비용: `lib/client-details.ts` 의 `CLIENT_PRICES`는 `lib/quote-data.ts`(견적서 data.ts 사본)에서 가져옵니다. 아래 '웹 견적서'의 갱신 방법을 따릅니다.
   - 금액은 서버 컴포넌트에서만 그려서 브라우저 JS 파일에는 들어가지 않습니다.
 
@@ -50,7 +50,8 @@ haram-marketing.co.kr/quote 는 견적서를 받은 분께 보내는 웹 견적�
     - 구성: 첫 화면, 포함 사항, 진행 방식, 비용, 이전 · 다음 서비스
     - 첫 화면은 플랫폼 색입니다. 인스타그램은 그라데이션, 네이버 블로그 · 카페 · 플레이스는 네이버 초록, 제작 · 개발은 차콜과 오프화이트입니다.
     - 아래 구역은 흰 바탕이고, 같은 색을 포인트로 씁니다.
-- 사진 자리는 빗금 상자로 표시합니다. 어떤 사진을 넣을지는 `components/quote/shared.tsx`의 `IMAGE_LABEL`에 적혀 있습니다.
+- 기존 흑백 목업과 빗금 이미지를 제거하고 인스타그램·블로그·플레이스 등 각 서비스의 실제 화면 구성을 담은 새 예시 이미지 9종을 사용합니다. 견적서 메뉴·서비스 안내·고객 전용·잠금 화면에 함께 반영됩니다.
+- 서비스 이미지 9장: `public/images/services/` (WebP). 이미지 매핑: `lib/service-previews.ts` · ImageGen 생성 프롬프트: `docs/service-image-prompts.json`. 이미지 속 화면·정보·수치는 설명을 위한 가상의 예시입니다.
 - 파일:
   - `app/(quote)/quote/page.tsx`(메뉴)
   - `app/(quote)/quote/[slug]/page.tsx`(안내 페이지)

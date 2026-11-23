@@ -1,0 +1,2 @@
+.service-preview { position: relative; display: block; width: 100%; aspect-ratio: 3 / 2; overflow: hidden; background: #f3ede5; }
+.service-preview > img { object-fit: contain; }
