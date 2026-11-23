@@ -8,3 +8,16 @@
 .wq-card-visual .mk-instagram-caption, .wq-visual-mock .mk-instagram-caption { color: #fff5ee; }
 :is(.wq-card-visual, .pt-card-thumb) .mk-instagram-art { top: -2em; }
 :is(.wq-card-visual, .pt-card-thumb) .mk-instagram-caption { top: 27em; }
+
+/* 사진을 뺀 대표 영역 안에서 로고와 문구를 한 덩어리로 중앙 정렬합니다. */
+.wq-visual[data-service="instagram"] { display: grid; place-items: center; }
+.wq-visual[data-service="instagram"] .wq-visual-mock { position: relative; inset: auto; margin: 0; }
+.wq-visual[data-service="instagram"] .mk { font-size: 12px; }
+.wq-visual[data-service="instagram"] .mk-instagram-caption { top: 37em; }
+@media (max-width: 960px) {
+  .wq-visual[data-service="instagram"] { margin-top: 0; }
+  .wq-visual[data-service="instagram"] .mk { font-size: 9.6px; }
+}
+@media (max-width: 480px) {
+  .wq-visual[data-service="instagram"] .mk { font-size: 9.1px; }
+}
