@@ -32,10 +32,10 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title={
           <>
-            예식장 마케팅의 시작은 <span className="foil">한 통의 문의</span>입니다.
+            상담 문의
           </>
         }
-        description="진단 단계부터 함께합니다. 예식장에 대한 간단한 정보만 남겨주시면 담당 마케터가 무료 진단과 맞춤 제안을 드립니다."
+        description="예식장에 대한 간단한 정보만 남겨 주시면 담당 마케터가 무료 진단과 제안을 드립니다."
         backgroundImage={pageHeroImages.contact}
       />
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
               Contact
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              언제든 편하게 연락주세요.
+              언제든 편하게 연락 주세요
             </h2>
           </Reveal>
 
@@ -83,7 +83,7 @@ export default function ContactPage() {
               Inquiry
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              간단한 정보만 남겨주세요.
+              간단한 정보만 남겨 주세요
             </h2>
           </Reveal>
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
               How it works
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              문의부터 성과 리포트까지.
+              진행 절차
             </h2>
           </Reveal>
 
@@ -131,7 +131,7 @@ export default function ContactPage() {
               FAQ
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              자주 묻는 질문.
+              자주 묻는 질문
             </h2>
           </Reveal>
 

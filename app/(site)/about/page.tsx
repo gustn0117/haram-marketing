@@ -18,7 +18,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "회사소개",
   description:
-    "웨딩홀 마케팅 전문 하람마케팅의 운영 철학과 조직, 운영 채널 이야기. 채널 운영과 콘텐츠 제작부터 홈페이지·프로그램 개발까지 자사 팀이 직접 진행하며, 노출에서 끝나지 않고 예약까지 책임집니다.",
+    "웨딩홀 마케팅 전문 하람마케팅의 일하는 기준, 팀 구성, 운영 채널을 소개합니다. 채널 운영, 콘텐츠 제작, 홈페이지·프로그램 개발을 자사 팀이 직접 합니다.",
   path: "/about",
   image: pageHeroImages.about,
 });
@@ -30,7 +30,7 @@ export default function AboutPage() {
         eyebrow="About Haram Marketing"
         title={
           <>
-            마케팅의 끝은 <span className="foil">예약</span>이라 믿습니다.
+            하람마케팅을 소개합니다
           </>
         }
         description={company.intro}
@@ -45,10 +45,8 @@ export default function AboutPage() {
               Our Mission
             </p>
             <p className="mx-auto mt-8 max-w-3xl text-[clamp(1.6rem,3.6vw,2.6rem)] font-light leading-[1.45] tracking-[-0.015em] text-paper/90">
-              우리는 <span className="text-gold">노출</span>을 팔지 않습니다.
-              신랑신부가 우리 예식장을 선택하는 순간을 설계하고, 그 선택이{" "}
-              <span className="text-gold">예약</span>으로 이어지도록 보이지 않는
-              모든 동선을 준비합니다.
+              웨딩홀·예식장 마케팅만 합니다. 결과는 매달 상담 문의와 예약
+              수로 말씀드리겠습니다.
             </p>
             <p className="mt-10 text-[0.66rem] uppercase tracking-[0.24em] text-faint">
               — 대표 {company.ceo}
@@ -65,7 +63,7 @@ export default function AboutPage() {
               Our Philosophy
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              마케팅을 대하는 우리의 기준
+              하람마케팅이 일하는 기준
             </h2>
           </Reveal>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -123,7 +121,7 @@ export default function AboutPage() {
               Our Team
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              한 팀이 같은 기준으로 움직입니다
+              세 팀이 나눠 맡습니다
             </h2>
           </Reveal>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -199,8 +197,8 @@ export default function AboutPage() {
       </section>
 
       <CTASection
-        title="우리 예식장, 어디서부터 시작할까요?"
-        description="정해진 상품을 권하지 않습니다. 예식장의 상황과 목표만 알려주시면, 그 예식장에 맞게 설계한 제안과 견적을 보내드립니다."
+        title="진단과 상담은 무료입니다"
+        description="예식장 상황과 목표를 알려 주시면 필요한 서비스와 견적을 정리해 보내드립니다."
       />
     </>
   );

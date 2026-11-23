@@ -97,7 +97,7 @@ export default async function OfferingDetailPage({
       <ServiceBody service={service} />
 
       <CTASection
-        title={`${title}, 하람마케팅과 함께하세요.`}
+        title={`${title} 상담`}
         description="간단한 정보만 남겨주시면 담당 마케터가 맞춤 제안과 견적을 보내드립니다."
         label="견적·상담 신청하기"
       />
@@ -150,7 +150,7 @@ function ServiceBody({ service }: { service: Service }) {
           </ul>
           {service.priceNote ? (
             <p className="mx-auto mt-10 max-w-2xl text-center text-sm font-light leading-[1.75] text-faint">
-              비용 · {service.priceNote} — 문의 주시면 맞춤 견적을 안내드립니다.
+              비용 · {service.priceNote}. 문의 주시면 견적을 안내드립니다.
             </p>
           ) : null}
         </Container>
@@ -229,7 +229,7 @@ function ServiceBody({ service }: { service: Service }) {
             Q&amp;A
           </p>
           <h2 className="mx-auto mt-10 max-w-xl text-center text-[clamp(2rem,4.8vw,3.5rem)] font-light leading-[1.16] tracking-[-0.03em] text-paper">
-            결정 전에 많이 묻는 질문
+            자주 묻는 질문
           </h2>
           <div className="mx-auto mt-10 max-w-2xl">
             <FaqList items={faqs} />

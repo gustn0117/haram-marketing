@@ -16,8 +16,7 @@ export default function HomePage() {
               Wedding Hall Marketing
             </p>
             <h1 className="mx-auto mt-7 max-w-3xl text-[clamp(2rem,5.4vw,3.7rem)] font-light leading-[1.22] tracking-[-0.02em] text-paper">
-              노출이 아니라, <span className="text-gold">예약</span>으로
-              <br className="hidden sm:block" /> 증명하는 웨딩홀 전문 마케팅
+              웨딩홀·예식장 전문 마케팅
             </h1>
             <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] font-light leading-[1.8] text-muted">
               {company.intro}
@@ -34,10 +33,10 @@ export default function HomePage() {
               Our Services
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              검색부터 예약까지, 한 팀이 책임집니다
+              마케팅 대행 4가지, 제작·개발 5가지
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
-              정해진 상품이 아니라, 예식장에 필요한 방법만 골라 설계합니다.
+              필요한 서비스만 골라 진행할 수 있습니다.
             </p>
           </Reveal>
 
@@ -57,7 +56,7 @@ export default function HomePage() {
               How We Work
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              진단부터 리포트까지, 4단계로 운영합니다
+              마케팅은 매달 4단계로 운영합니다
             </h2>
           </Reveal>
 
@@ -85,10 +84,10 @@ export default function HomePage() {
         <Container size="narrow" className="relative z-2">
           <Reveal>
             <h2 className="mx-auto max-w-2xl text-[clamp(1.9rem,4.2vw,3rem)] font-light leading-[1.25] tracking-[-0.02em] text-paper">
-              우리 예식장, 어디서부터 시작할까요?
+              진단과 상담은 무료입니다
             </h2>
             <p className="mx-auto mt-6 max-w-md text-[1rem] font-light leading-[1.75] text-muted">
-              예식장의 상황과 목표만 알려주시면, 맞춤 진단과 제안을 보내드립니다.
+              예식장 상황을 남겨 주시면 1영업일 안에 담당자가 연락드립니다.
             </p>
             <div className="mt-10 flex justify-center">
               <CTAButton href="/contact">무료 진단 신청</CTAButton>

@@ -28,7 +28,6 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 const TABS = [
   { id: "overview", label: "개요" },
-  { id: "why", label: "필요한 이유" },
   { id: "scope", label: "맡는 일" },
   { id: "flow", label: "진행 방식" },
   { id: "deliver", label: "결과물" },
@@ -129,7 +128,7 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
             <div className="pt-specimen-stage">
               <Specimen id={service.id} />
             </div>
-            <figcaption>예시 화면 — 실제 구성은 예식장에 맞춰 설계합니다.</figcaption>
+            <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>
           </figure>
 
           <SectionTabs tabs={TABS} />
@@ -140,19 +139,6 @@ export default async function ClientServicePage({ params }: { params: Promise<Pa
                 <p key={paragraph}>
                   <Typo text={paragraph} />
                 </p>
-              ))}
-            </div>
-          </Panel>
-
-          <Panel id="why" title="필요한 이유">
-            <div className="pt-why">
-              {detail.why.map((item) => (
-                <div key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>
-                    <Typo text={item.body} />
-                  </p>
-                </div>
               ))}
             </div>
           </Panel>

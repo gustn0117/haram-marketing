@@ -37,10 +37,10 @@ export default function ServicesPage() {
         eyebrow="Our services"
         title={
           <>
-            검색 노출부터 예약까지, <span className="foil">하나의 팀이.</span>
+            마케팅 대행과 제작·개발
           </>
         }
-        description="마케팅 대행 4가지, 제작·개발 5가지 — 우리가 하는 일은 분명합니다. 다만 무엇을 어떻게 엮을지는 예식장마다 다르게 설계합니다. 각 서비스를 눌러 자세한 내용을 확인하세요."
+        description="마케팅 대행 4가지와 제작·개발 5가지가 있습니다. 필요한 서비스만 골라 진행할 수 있고, 서비스를 누르면 자세한 내용을 볼 수 있습니다."
         backgroundImage={pageHeroImages.services}
       />
 
@@ -89,10 +89,10 @@ export default function ServicesPage() {
               Approach
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.3] tracking-[-0.02em] text-paper">
-              마케팅도 제작도, 네 단계로 진행합니다
+              네 단계로 진행합니다
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[1rem] font-light leading-[1.75] text-muted">
-              마케팅은 매달 돌아가는 운영 사이클로, 제작은 기획부터 오픈·유지보수까지
+              마케팅은 매달 같은 순서로 운영하고, 제작은 기획부터 오픈·유지보수까지
               단계별로 진행합니다.
             </p>
           </Reveal>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
 
       <CTASection
         title="어떤 예식장을 운영하고 계신가요?"
-        description="정해진 상품을 권하지 않습니다. 예식장의 상황과 목표를 알려주시면, 그 예식장에 맞게 설계한 제안과 견적을 보내드립니다."
+        description="예식장 상황과 목표를 알려 주시면 필요한 서비스와 견적을 정리해 보내드립니다."
       />
     </>
   );

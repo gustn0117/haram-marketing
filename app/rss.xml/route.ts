@@ -35,7 +35,7 @@ export async function GET() {
   <channel>
     <title>${esc(company.nameKo)} | 웨딩홀 마케팅</title>
     <link>${siteUrl}</link>
-    <description>웨딩홀 마케팅 전문 하람마케팅 — 노출에서 끝나지 않고 예약까지.</description>
+    <description>웨딩홀·예식장 마케팅 전문 하람마케팅</description>
     <language>ko</language>
     <lastBuildDate>${buildDate}</lastBuildDate>
 ${items

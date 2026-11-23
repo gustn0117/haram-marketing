@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: `${company.nameKo} | 웨딩홀 마케팅 전문`,
     short_name: company.nameKo,
     description:
-      "웨딩홀 마케팅 전문 하람마케팅 — 노출에서 끝나지 않고 예약까지 책임집니다.",
+      "웨딩홀·예식장 마케팅 전문 하람마케팅",
     start_url: "/",
     display: "standalone",
     background_color: "#100d0b",

@@ -18,8 +18,8 @@ export default function LockedPanel() {
         <div className="ca-login-copy">
           <p className="ca-login-kicker">고객 전용</p>
           <h1>
-            견적서에 담긴 서비스를
-            <br />한 곳에서 자세히.
+            견적서에 담긴 서비스
+            <br />9종의 상세 안내입니다
           </h1>
           <ul>
             <li>서비스 9종 상세 안내</li>

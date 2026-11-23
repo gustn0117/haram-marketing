@@ -6,7 +6,7 @@ import { ogImage, rssFeed } from "@/lib/metadata";
 const orgId = `${siteUrl}/#organization`;
 // 서비스 9종(인스타그램·블로그 관리 대행, 블로그·카페 포스팅, 플레이스 / 홈페이지·랜딩, CRM·ERP, 박람회 플랫폼, 멤버십)만 언급한다.
 const description =
-  "웨딩홀 마케팅 전문 하람마케팅. 인스타그램·블로그 관리 대행, 네이버 블로그·카페 포스팅, 네이버 플레이스 마케팅부터 홈페이지·랜딩페이지, 웨딩홀 CRM·ERP, 웨딩박람회 플랫폼, 멤버십 프로그램 제작까지 — 예식장의 상담 문의와 예약을 책임지는 웨딩홀 특화 파트너입니다.";
+  "웨딩홀 마케팅 전문 하람마케팅. 인스타그램·블로그 관리 대행, 네이버 블로그·카페 포스팅, 네이버 플레이스 마케팅과 홈페이지·랜딩페이지, 웨딩홀 CRM·ERP, 웨딩박람회 플랫폼, 멤버십 프로그램 제작을 합니다.";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -112,7 +112,7 @@ export const metadata: Metadata = {
     siteName: company.nameKo,
     title: "하람마케팅 | 웨딩홀 마케팅 전문",
     description:
-      "웨딩홀 마케팅 전문 하람마케팅 — 예식장을 예약으로 채웁니다. 검색 노출부터 상담 예약까지.",
+      "웨딩홀·예식장 마케팅 전문 하람마케팅. 인스타그램·블로그·플레이스 운영과 홈페이지·관리 프로그램 제작.",
     images: [
       {
         url: ogImage,
@@ -125,7 +125,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "하람마케팅 | 웨딩홀 마케팅 전문",
-    description: "웨딩홀 마케팅 전문 하람마케팅 — 예식장을 예약으로 채웁니다.",
+    description: "웨딩홀·예식장 마케팅 전문 하람마케팅.",
     images: [ogImage],
   },
 };

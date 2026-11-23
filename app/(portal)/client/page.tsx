@@ -31,7 +31,7 @@ export default async function ClientDashboard() {
           <p className="pt-kicker">견적서를 받은 분께만 공개하는 서비스 안내</p>
           <h1 id="pt-welcome-title">견적서에 담긴 아홉 가지 서비스</h1>
           <p className="pt-welcome-lead">
-            서비스마다 무엇을 맡고, 어떤 순서로 진행하고, 무엇을 받아보시는지 한 페이지씩 정리했습니다. 아래 카드에서 필요한 서비스를 골라 보세요.
+            서비스마다 맡는 일, 진행 순서, 결과물, 비용을 한 페이지씩 정리했습니다. 아래 카드에서 서비스를 골라 보세요.
           </p>
           <div className="pt-actions">
             <a href={QUOTE_URL} target="_blank" rel="noopener noreferrer" className="pt-btn is-solid">

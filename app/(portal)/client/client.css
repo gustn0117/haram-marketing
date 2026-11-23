@@ -158,10 +158,6 @@
 .pt-panel-head p { font-size: 13px; line-height: 1.6; color: var(--pt-faint); }
 .pt-overview p { max-width: 40em; font-size: 16px; font-weight: 300; line-height: 1.9; color: var(--pt-muted); }
 .pt-overview p + p { margin-top: 16px; }
-.pt-why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.pt-why > div { padding: 20px 20px 22px; border: 1px solid var(--pt-line); background: var(--pt-card-2); }
-.pt-why h3 { font-size: 15px; font-weight: 500; line-height: 1.5; letter-spacing: -.02em; }
-.pt-why p { margin-top: 8px; font-size: 13.5px; line-height: 1.75; color: var(--pt-muted); }
 .pt-scope > div { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--pt-line); }
 .pt-scope > div:first-child { padding-top: 0; border-top: 0; }
 .pt-scope > div:last-child { padding-bottom: 0; }
@@ -249,7 +245,6 @@
   .pt-specimen[data-device="browser"] { --stage-h: 250px; --mk-scale: .55; }
   .pt-tabs { top: 56px; margin-left: -16px; margin-right: -16px; padding: 0 8px; }
   .pt-panel { padding: 24px 20px 26px; scroll-margin-top: 120px; }
-  .pt-why { grid-template-columns: minmax(0, 1fr); }
   .pt-scope > div { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .pt-steps { grid-template-columns: minmax(0, 1fr); }
   .pt-deliver { grid-template-columns: minmax(0, 1fr); }
