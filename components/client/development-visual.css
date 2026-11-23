@@ -1,0 +1,10 @@
+/* 기존 브라우저 목업의 바깥 치수 안에 개별 3D 이미지를 배치합니다. */
+.mk-development-visual { position: relative; width: 56em; height: 37.9em; }
+.mk-development-art { position: absolute; top: 50%; left: 50%; width: 42em; height: 42em; transform: translate(-50%, -50%); }
+.mk-development-art > img { object-fit: contain; filter: drop-shadow(0 1em 1.5em #22233b1a); }
+.wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) { display: grid; place-items: center; }
+.wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) .wq-visual-mock { position: relative; inset: auto; margin: 0; }
+@media (max-width: 960px) {
+  .wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) { margin-top: 0; }
+  .wq-visual[data-service]:is([data-service="crm"], [data-service="homepage"]) .mk { font-size: min(10px, calc((100vw - 44px) / 56)); }
+}

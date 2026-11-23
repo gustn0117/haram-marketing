@@ -1,0 +1,33 @@
+{
+  "generator": "built-in ImageGen",
+  "reference": "/images/service-art/instagram-wedding-3d-lossless.webp",
+  "usage": "Two independent 3D device illustrations for wedding-hall CRM/ERP and website creation. Device screens show only the exact Korean word 하람. No background photos or decorative captions. Existing image slots and page layouts remain in place.",
+  "delivery": {
+    "encoding": "lossless WebP",
+    "resize": false,
+    "additionalOptimization": false,
+    "alphaPreserved": true
+  },
+  "assets": [
+    {
+      "id": "crm",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-061b7c23-f41a-4b38-a454-1a96fd304e28.png",
+      "path": "/images/service-art/crm-haram-3d-lossless.webp",
+      "screenText": "하람",
+      "prompt": "Use case: stylized-concept. Asset type: one separate premium 3D device illustration for an existing Korean wedding-marketing company website.\nImage 1 is a STYLE REFERENCE ONLY. Match the thick soft rounded forms, polished satin-enamel material, fine beveled highlights, subtle object depth, beautiful soft studio lighting from upper left, gentle 10-degree frontal perspective, and small champagne-gold wedding ring pair. Do not reproduce its Instagram app logo or its gradient tile.\nThe illustration must be extremely crisp, preferably 2048 x 2048. One coherent object group centered in a square canvas, about 80 percent of canvas width, with generous transparent margins and all device edges, stands, rings and accents fully visible. Truly transparent alpha background, no scene, floor plane, photo background, background square, haze rectangle, checkerboard, or visible shadow plane. Fine local ambient occlusion between objects only.\nThe ONLY readable text anywhere must be the exact two Korean characters \"하람\", flat clean dark-charcoal sans-serif lettering, centered and large on each device screen. The characters are U+D558 followed by U+B78C. Correct Korean spelling, two complete syllable blocks on one line. The screen background is a simple pale ivory surface. No menus, no dashboards inside the screen, no charts, no forms, no UI body, no document content, no numbers, no tiny labels, no English, no WEDDING or HARAM typography, no decorative headline outside the device. No text on bezels or stands. Do not add a logo other than the text 하람 on the screens.\nSubject: wedding-hall company-wide CRM/ERP management software. A single elegant desktop computer monitor with a thick softly rounded midnight-navy frame, a subtle muted periwinkle bevel, a softly rounded slim silver pedestal and a restrained rounded foot. The monitor faces mostly forward, gently turned 10 degrees, with a large clear pale ivory screen displaying only \"하람\" in dark charcoal, centered and large. Just outside the monitor, one small floating rounded light-periwinkle calendar symbol tile at the upper right and one small soft-blue two-person user symbol tile near the lower left; these are simple 3D pictograms, without text, dates, grids of data, statistics, or interface detail. Those secondary symbols suggest schedule and customer management but must remain much smaller than the monitor. Two small slim champagne-gold wedding bands lean together at the lower right foreground, one plain band and one very small diamond solitaire. Keep the ring style matching the reference. Premium calm blue, navy, soft ivory and silver. Do not add a phone or keyboard, no extra device.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 736952
+    },
+    {
+      "id": "homepage",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-718452c3-df10-43ba-9dce-c1cd29e81f92.png",
+      "path": "/images/service-art/homepage-haram-3d-lossless.webp",
+      "screenText": "하람",
+      "prompt": "Use case: stylized-concept. Asset type: one separate premium 3D device illustration for an existing Korean wedding-marketing company website.\nImage 1 is a STYLE REFERENCE ONLY. Match the thick soft rounded forms, polished satin-enamel material, fine beveled highlights, subtle object depth, beautiful soft studio lighting from upper left, gentle 10-degree frontal perspective, and small champagne-gold wedding ring pair. Do not reproduce its Instagram app logo or its gradient tile.\nThe illustration must be extremely crisp, preferably 2048 x 2048. One coherent object group centered in a square canvas, about 80 percent of canvas width, with generous transparent margins and all device edges, stands, rings and accents fully visible. Truly transparent alpha background, no scene, floor plane, photo background, background square, haze rectangle, checkerboard, or visible shadow plane. Fine local ambient occlusion between objects only.\nThe ONLY readable text anywhere must be the exact two Korean characters \"하람\", flat clean dark-charcoal sans-serif lettering, centered and large on each device screen. The characters are U+D558 followed by U+B78C. Correct Korean spelling, two complete syllable blocks on one line. The screen background is a simple pale ivory surface. No menus, no dashboards inside the screen, no charts, no forms, no UI body, no document content, no numbers, no tiny labels, no English, no WEDDING or HARAM typography, no decorative headline outside the device. No text on bezels or stands. Do not add a logo other than the text 하람 on the screens.\nSubject: professional wedding-hall website creation, recognizable as responsive web design. A single elegant desktop monitor with a smoothly rounded pearl-white frame, delicate cool silver edge and a slim soft-silver pedestal with a rounded foot. A single smaller matching pearl-white smartphone stands slightly in front of the monitor at its lower right, turned the same gentle 10-degree angle. Both screens are clean, simple pale ivory with ONLY the exact word \"하람\" in flat dark-charcoal sans-serif type, large and centered. No website layout or photographs on either screen; only the word 하람. On the monitor, just one very restrained narrow blank browser strip with three tiny unlettered dots may sit at the very top; do not put any other controls or addresses. The large desktop screen is dominant; the phone is secondary. Two small slim champagne-gold wedding bands lean together in the lower foreground beside the monitor base, one plain and one very small diamond solitaire, matching the reference. Pearl white, silver, very subtle lilac reflected edge light. No keyboard, no floating icons, no extra devices or ornaments.",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 733454
+    }
+  ]
+}

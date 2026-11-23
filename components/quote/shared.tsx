@@ -104,17 +104,17 @@ export function LockIcon() {
   );
 }
 
-/** 마케팅 대행 4종은 사진과 문구 없이 개별 3D 비주얼만 표시합니다. */
+/** 3D 비주얼이 있는 서비스는 뒤 사진과 별도 문구 없이 표시합니다. */
 export function ServiceVisual({ service }: { service: Service }) {
-  const isBrandVisual = service.group === "marketing";
-  const photos: Record<string, PhotoId> = { crm: "consultation", homepage: "hero", landing: "couple", fair: "consultation", membership: "reception" };
+  const isStandaloneVisual = service.group === "marketing" || service.id === "crm" || service.id === "homepage";
+  const photos: Record<string, PhotoId> = { landing: "couple", fair: "consultation", membership: "reception" };
   return (
     <figure className="wq-visual" data-device={SPECIMEN_DEVICE[service.id]} data-service={service.id}>
-      {!isBrandVisual && <Hatch className="wq-visual-image" label={IMAGE_LABEL[service.id]} image={photos[service.id]} />}
+      {!isStandaloneVisual && <Hatch className="wq-visual-image" label={IMAGE_LABEL[service.id]} image={photos[service.id]} />}
       <div className="wq-visual-mock">
         <Specimen id={service.id} />
       </div>
-      {!isBrandVisual && <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>}
+      {!isStandaloneVisual && <figcaption>예시 화면입니다. 실제 구성은 예식장에 맞춰 정합니다.</figcaption>}
     </figure>
   );
 }

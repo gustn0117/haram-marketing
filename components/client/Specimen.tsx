@@ -1,6 +1,7 @@
-import { CrmDashboard, FairPage, LandingPage, MembershipApp, VenueSite } from "./previews/screens";
+import { FairPage, LandingPage, MembershipApp } from "./previews/screens";
 import InstagramVisual from "./InstagramVisual";
 import NaverVisual from "./NaverVisual";
+import DevelopmentVisual from "./DevelopmentVisual";
 import "./specimen.css";
 import "./specimen-visuals.css";
 import "./specimen-content.css";
@@ -14,18 +15,19 @@ export const SPECIMEN_DEVICE: Record<string, Device> = {
 };
 
 const SCREENS = {
-  crm: CrmDashboard, homepage: VenueSite, landing: LandingPage,
+  landing: LandingPage,
   fair: FairPage, membership: MembershipApp,
 };
 
 const TITLES: Record<string, string> = {
-  crm: "웨딩홀 CRM · ERP", homepage: "웨딩홀 홈페이지", fair: "웨딩박람회 플랫폼",
+  fair: "웨딩박람회 플랫폼",
 };
 
 /** 페이지와 프레임의 배치는 그대로 두고, 그 안의 예시 화면만 교체합니다. */
 export default function Specimen({ id }: { id: string }) {
   if (id === "instagram") return <InstagramVisual />;
   if (id === "blog" || id === "posting" || id === "place") return <NaverVisual id={id} />;
+  if (id === "crm" || id === "homepage") return <DevelopmentVisual id={id} />;
   const Screen = SCREENS[id as keyof typeof SCREENS];
   const device = SPECIMEN_DEVICE[id];
   if (!Screen || !device) return null;
