@@ -1,57 +1,49 @@
-/* 견적서와 고객 전용 화면에서 함께 사용하는 서비스별 배경색·그라데이션·패턴. */
+/* 서비스 9종의 바탕 — 3D 아이콘 색에서 뽑은 그라데이션 하나 (패턴 없음).
+   견적서 카드 · 서비스 안내 첫 화면 · 이전/다음 카드(quote.css 의 --t-bg · --t-tile),
+   고객 전용 카드 · 서비스 상세 이미지 칸(client.css)이 같은 값을 씁니다.
+   --service-stage-image 그라데이션 · --service-stage-bg 대표 단색(버튼 글자 등) · --service-point 흰 바탕 위 포인트 */
+:is([data-theme="instagram"], [data-service="instagram"]) {
+  --service-stage-bg: #9b3cb7;
+  --service-point: #c13584;
+  --service-stage-image: linear-gradient(135deg, #5b51d8 0%, #9b3cb7 35%, #d6336f 70%, #f4793b 100%);
+}
+:is([data-theme="naver"], [data-service="blog"]) {
+  --service-stage-bg: #10c457;
+  --service-point: #037a39;
+  --service-stage-image: linear-gradient(135deg, #46da82 0%, #10c457 50%, #069a44 100%);
+}
+:is([data-theme="naver-deep"], [data-service="posting"]) {
+  --service-stage-bg: #155e36;
+  --service-point: #037a39;
+  --service-stage-image: linear-gradient(135deg, #23804a 0%, #155e36 50%, #0b3d22 100%);
+}
+:is([data-theme="naver-pale"], [data-service="place"]) {
+  --service-stage-bg: #e0f5e8;
+  --service-point: #037a39;
+  --service-stage-image: linear-gradient(135deg, #f6fcf8 0%, #e0f5e8 50%, #c2e8cf 100%);
+}
 :is([data-theme="build-crm"], [data-service="crm"]) {
-  --service-stage-bg: #172b46;
-  --service-point: #29486c;
-  --service-stage-image:
-    radial-gradient(ellipse at 86% 32%, rgba(112, 151, 197, .24), transparent 58%),
-    radial-gradient(circle, rgba(222, 234, 250, .12) .8px, transparent 1px),
-    linear-gradient(125deg, #111f35 0%, #192f4b 58%, #253f5d 100%);
-  --service-stage-size: auto, 28px 28px, auto;
+  --service-stage-bg: #4a4643;
+  --service-point: #4a4643;
+  --service-stage-image: linear-gradient(135deg, #67635f 0%, #4a4643 50%, #2f2c2a 100%);
 }
 :is([data-theme="build-homepage"], [data-service="homepage"]) {
-  --service-stage-bg: #e7edf6;
-  --service-point: #345579;
-  --service-stage-image:
-    radial-gradient(ellipse at 80% 26%, rgba(255, 255, 255, .8), transparent 60%),
-    linear-gradient(rgba(52, 85, 121, .075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 85, 121, .075) 1px, transparent 1px),
-    linear-gradient(135deg, #f3f6fb 0%, #e4edf7 54%, #cbdced 100%);
-  --service-stage-size: auto, 44px 44px, 44px 44px, auto;
+  --service-stage-bg: #e6dcd3;
+  --service-point: #7a6656;
+  --service-stage-image: linear-gradient(135deg, #f5f0ec 0%, #e6dcd3 50%, #d2c2b4 100%);
 }
 :is([data-theme="build-landing"], [data-service="landing"]) {
-  --service-stage-bg: #3f5b73;
-  --service-point: #3f5b73;
-  --service-stage-image:
-    radial-gradient(ellipse at 88% 35%, rgba(158, 203, 211, .2), transparent 55%),
-    repeating-linear-gradient(135deg, rgba(239, 248, 255, .055) 0 1px, transparent 1px 32px),
-    linear-gradient(125deg, #2e4d67 0%, #3f6179 58%, #4b6b80 100%);
-  --service-stage-size: auto;
+  --service-stage-bg: #3a414a;
+  --service-point: #3a414a;
+  --service-stage-image: linear-gradient(135deg, #545c66 0%, #3a414a 50%, #252a31 100%);
 }
 :is([data-theme="build-fair"], [data-service="fair"]) {
-  --service-stage-bg: #dfebe7;
-  --service-point: #3e645e;
-  --service-stage-image:
-    radial-gradient(ellipse at 80% 28%, rgba(255, 255, 255, .7), transparent 64%),
-    repeating-radial-gradient(circle at 84% 45%, transparent 0 45px, rgba(62, 100, 94, .075) 45px 46px),
-    linear-gradient(140deg, #f0f5f0 0%, #dfebe6 55%, #cbded5 100%);
-  --service-stage-size: auto;
+  --service-stage-bg: #dde1e7;
+  --service-point: #4f5a66;
+  --service-stage-image: linear-gradient(135deg, #f3f5f8 0%, #dde1e7 50%, #c0c7d0 100%);
 }
 :is([data-theme="build-membership"], [data-service="membership"]) {
-  --service-stage-bg: #e9e1d5;
+  --service-stage-bg: #e0cfbc;
   --service-point: #6e5741;
-  --service-stage-image:
-    radial-gradient(ellipse at 82% 26%, rgba(255, 255, 255, .65), transparent 60%),
-    repeating-linear-gradient(90deg, rgba(110, 87, 65, .055) 0 1px, transparent 1px 20px),
-    linear-gradient(130deg, #f3eee7 0%, #e8dfd1 56%, #ded0be 100%);
-  --service-stage-size: auto;
-}
-
-/* 같은 배경을 목록 카드와 상세 이미지 영역에 적용하며, 기존 배치와 치수는 유지합니다. */
-.wq-lp[data-theme^="build-"] .wq-lp-hero,
-.wq-card[data-theme^="build-"] .wq-card-visual,
-.pt-card-thumb[data-service],
-.pt-specimen[data-service] .pt-specimen-stage {
-  background-image: var(--service-stage-image, none);
-  background-size: var(--service-stage-size, auto);
-  background-position: center;
+  --service-stage-image: linear-gradient(135deg, #f3ebe2 0%, #e0cfbc 50%, #c6aa8b 100%);
 }

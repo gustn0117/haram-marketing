@@ -1,8 +1,8 @@
 /* ─────────────────────────────────────────────────────────────
    견적서 (haram-marketing.co.kr/quote · /quote/[서비스])
    · 머리말 · 꼬리말은 사이트와 같게 — 쿨 차콜 #16161a · 오프화이트 #ecebe8 · 본 #c7c0b2 · Pretendard 가는 굵기
-   · 견적서 메뉴(/quote)는 흰 바탕. 서비스 안내 페이지는 첫 화면만 플랫폼 색, 아래 구역은 흰 바탕에 같은 색을 포인트로
-   · 색은 [data-theme] 하나로 정합니다 — 구역 · 카드 · 점 · 버튼 · 빗금이 같은 색을 씁니다
+   · 견적서 메뉴(/quote)는 흰 바탕. 서비스 안내 페이지는 첫 화면만 서비스 색, 아래 구역은 흰 바탕에 같은 색을 포인트로
+   · 색은 [data-theme] 하나로 정합니다. 서비스 바탕 그라데이션(3D 아이콘 색)은 components/client/service-backgrounds.css
    · 사진 자리는 빗금(.wq-hatch). 예시 화면 속 사진도 빗금으로 바꿉니다
    사이트 스타일(globals.css)과 겹치지 않게 이름은 모두 .wq- / --wq- 로 시작합니다.
    '고객 전용' 자물쇠는 사이트의 ClientGate(.ca-trigger) 를 그대로 씁니다.
@@ -55,81 +55,85 @@ body:has(.wq) { background: #16161a; }
 
 /* ── 색 ──
    --t-bg 바탕 · --t-fg 글자 · --t-mute 보조 글자 · --t-accent 번호 · 금액 · --t-line 선
-   --t-card-* 비용 카드 · --t-btn-* 꽉 찬 버튼 · --t-hatch(-bg) 빗금 · --t-tile 카드 그림 바탕 · --t-dot / --t-ring 메뉴 · 표의 점
+   --t-card-* 비용 카드 · --t-btn-* 꽉 찬 버튼 · --t-hatch(-bg) 빗금 · --t-tile 카드 그림 바탕
    --t-ink 흰 바탕 위 글자 포인트 · --t-deco 흰 바탕 위 선 · 막대 포인트 · --t-solid(-fg) 흰 바탕 위 꽉 찬 버튼 */
 .wq [data-theme] {
   --t-bg: var(--wq-ink-2); --t-fg: var(--wq-paper); --t-mute: var(--wq-muted); --t-accent: var(--wq-bone); --t-line: var(--wq-line-strong);
   --t-card-bg: rgba(236, 236, 234, .025); --t-card-line: var(--wq-line-strong);
   --t-btn-bg: var(--wq-paper); --t-btn-fg: var(--wq-ink); --t-btn-line: rgba(236, 236, 234, .3);
   --t-hatch: rgba(236, 236, 234, .14); --t-hatch-bg: rgba(236, 236, 234, .02);
-  --t-tile: var(--t-bg); --t-tile-line: transparent; --t-dot: #3a3a42; --t-ring: rgba(236, 236, 234, .42);
+  --t-tile: var(--t-bg); --t-tile-line: transparent;
   --t-ink: var(--wq-ink); --t-deco: var(--wq-ink); --t-solid: var(--wq-ink); --t-solid-fg: var(--wq-paper);
 }
-/* 인스타그램 — 따뜻한 색(노랑 · 주황)은 사진 · 예시 화면 뒤 오른쪽 위에만. 글자 쪽은 분홍 · 보라 · 파랑이라 흰 글자가 읽힘 */
+/* 서비스 9종 — 첫 화면 · 카드 바탕은 3D 아이콘 색에서 뽑은 그라데이션 하나 (service-backgrounds.css) */
+.wq :is([data-theme="instagram"], [data-theme^="naver"], [data-theme^="build-"]) {
+  --t-bg: var(--service-stage-image); --t-tile: var(--service-stage-image);
+}
+/* 인스타그램 — 아이콘과 같은 보라 → 분홍 → 주황. 글자가 놓이는 왼쪽 위는 보라라 흰 글자가 읽힘 */
 .wq [data-theme="instagram"] {
-  --t-bg: radial-gradient(110% 130% at 92% 10%, #feda75 0%, #fa7e1e 14%, #d62976 34%, #962fbf 60%, #4f5bd5 100%);
   --t-fg: #fff; --t-mute: rgba(255, 255, 255, .84); --t-accent: #fff; --t-line: rgba(255, 255, 255, .32);
   --t-card-bg: rgba(255, 255, 255, .1); --t-card-line: rgba(255, 255, 255, .38);
   --t-btn-bg: #fff; --t-btn-fg: #3a1f63; --t-btn-line: rgba(255, 255, 255, .62);
   --t-hatch: rgba(255, 255, 255, .36); --t-hatch-bg: rgba(255, 255, 255, .08);
-  --t-tile: linear-gradient(135deg, #4f5bd5 0%, #962fbf 35%, #d62976 70%, #fa7e1e 100%); --t-dot: var(--t-tile); --t-ring: transparent;
   --t-ink: #c13584; --t-deco: linear-gradient(90deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75); --t-solid: #d62976; --t-solid-fg: #fff;
 }
-/* 네이버 — 초록 바탕엔 검은 글자 (네이버페이처럼). 블로그 = 초록 · 블로그 · 카페 포스팅 = 짙은 초록 · 플레이스 = 연한 초록. 점은 모두 네이버 초록 */
+/* 네이버 — 초록 바탕엔 검은 글자 (네이버페이처럼). 블로그 = 초록 · 블로그 · 카페 포스팅 = 짙은 초록 · 플레이스 = 연한 초록 */
 .wq [data-theme="naver"] {
-  --t-bg: var(--naver); --t-fg: var(--naver-ink); --t-mute: rgba(6, 23, 13, .74); --t-accent: var(--naver-ink); --t-line: rgba(6, 23, 13, .2);
+  --t-fg: var(--naver-ink); --t-mute: rgba(6, 23, 13, .74); --t-accent: var(--naver-ink); --t-line: rgba(6, 23, 13, .2);
   --t-card-bg: rgba(255, 255, 255, .2); --t-card-line: rgba(6, 23, 13, .22);
   --t-btn-bg: var(--naver-ink); --t-btn-fg: #fff; --t-btn-line: rgba(6, 23, 13, .5);
   --t-hatch: rgba(6, 23, 13, .26); --t-hatch-bg: rgba(255, 255, 255, .14);
-  --t-dot: var(--naver); --t-ring: transparent;
   --t-ink: var(--naver-text); --t-deco: var(--naver); --t-solid: var(--naver); --t-solid-fg: var(--naver-ink);
 }
 .wq [data-theme="naver-deep"] {
-  --t-bg: #0e2a1b; --t-fg: #fff; --t-mute: rgba(255, 255, 255, .72); --t-accent: var(--naver); --t-line: rgba(255, 255, 255, .14);
-  --t-card-bg: rgba(255, 255, 255, .04); --t-card-line: rgba(255, 255, 255, .16);
+  --t-fg: #fff; --t-mute: rgba(255, 255, 255, .76); --t-accent: #8ee6b0; --t-line: rgba(255, 255, 255, .18);
+  --t-card-bg: rgba(255, 255, 255, .06); --t-card-line: rgba(255, 255, 255, .2);
   --t-btn-bg: var(--naver); --t-btn-fg: var(--naver-ink); --t-btn-line: rgba(255, 255, 255, .42);
   --t-hatch: rgba(255, 255, 255, .15); --t-hatch-bg: rgba(255, 255, 255, .03);
-  --t-tile-line: rgba(3, 199, 90, .35); --t-dot: var(--naver); --t-ring: transparent;
   --t-ink: var(--naver-text); --t-deco: var(--naver); --t-solid: var(--naver); --t-solid-fg: var(--naver-ink);
 }
 .wq [data-theme="naver-pale"] {
-  --t-bg: #e8f7ee; --t-fg: #0b1a11; --t-mute: #44554b; --t-accent: var(--naver-text); --t-line: rgba(3, 122, 57, .2);
+  --t-fg: #0b1a11; --t-mute: #44554b; --t-accent: var(--naver-text); --t-line: rgba(3, 122, 57, .2);
   --t-card-bg: #fff; --t-card-line: rgba(3, 122, 57, .2);
   --t-btn-bg: var(--naver); --t-btn-fg: var(--naver-ink); --t-btn-line: rgba(3, 122, 57, .5);
   --t-hatch: rgba(3, 122, 57, .22); --t-hatch-bg: rgba(255, 255, 255, .55);
-  --t-dot: var(--naver); --t-ring: transparent;
   --t-ink: var(--naver-text); --t-deco: var(--naver); --t-solid: var(--naver); --t-solid-fg: var(--naver-ink);
 }
-/* 제작 · 개발 — 사이트와 같은 차콜 / 오프화이트 */
+/* 사이트와 같은 차콜 / 오프화이트 (꼬리말 등) */
 .wq [data-theme="dark"] { --t-tile-line: var(--wq-line-strong); }
 .wq [data-theme="light"] {
   --t-bg: var(--wq-paper); --t-fg: var(--wq-ink); --t-mute: #55565b; --t-accent: var(--wq-ink); --t-line: rgba(22, 22, 26, .13);
   --t-card-bg: #f6f5f2; --t-card-line: rgba(22, 22, 26, .14);
   --t-btn-bg: var(--wq-ink); --t-btn-fg: var(--wq-paper); --t-btn-line: rgba(22, 22, 26, .35);
   --t-hatch: rgba(22, 22, 26, .15); --t-hatch-bg: rgba(22, 22, 26, .02);
-  --t-tile-line: rgba(22, 22, 26, .08); --t-dot: var(--wq-paper); --t-ring: rgba(22, 22, 26, .32);
+  --t-tile-line: rgba(22, 22, 26, .08);
 }
 
-/* 제작·개발 5종 — 이미지 뒤 배경을 서비스마다 구분합니다. 색상값은 service-backgrounds.css와 공유합니다. */
+/* 제작 · 개발 5종 — 흰 바탕 위 포인트는 서비스 색(--service-point), 첫 화면 글자는 바탕 밝기에 맞춤 */
 .wq [data-theme^="build-"] {
-  --t-bg: var(--service-stage-bg); --t-tile: var(--service-stage-bg); --t-dot: var(--service-stage-bg);
   --t-ink: var(--service-point); --t-deco: var(--service-point); --t-solid: var(--service-point); --t-solid-fg: #fff;
 }
+/* 어두운 바탕 — 전사 관리(따뜻한 흑연) · 랜딩(슬레이트) */
 .wq :is([data-theme="build-crm"], [data-theme="build-landing"]) {
-  --t-fg: #f5f7fc; --t-mute: #d6e0ec; --t-accent: #e4ecf7; --t-line: rgba(245, 247, 252, .28);
-  --t-card-bg: rgba(255, 255, 255, .07); --t-card-line: rgba(245, 247, 252, .3);
-  --t-btn-bg: #f5f7fc; --t-btn-fg: var(--service-stage-bg); --t-btn-line: rgba(245, 247, 252, .55);
-  --t-hatch: rgba(245, 247, 252, .22); --t-hatch-bg: rgba(245, 247, 252, .04);
-  --t-tile-line: rgba(245, 247, 252, .15); --t-ring: rgba(245, 247, 252, .4);
+  --t-line: rgba(255, 255, 255, .26);
+  --t-card-bg: rgba(255, 255, 255, .07); --t-card-line: rgba(255, 255, 255, .3);
+  --t-btn-fg: var(--service-stage-bg); --t-btn-line: rgba(255, 255, 255, .55);
+  --t-hatch: rgba(255, 255, 255, .22); --t-hatch-bg: rgba(255, 255, 255, .04);
+  --t-tile-line: rgba(255, 255, 255, .15);
 }
+.wq [data-theme="build-crm"] { --t-fg: #f7f3ef; --t-mute: #ddd5cd; --t-accent: #efe6dd; --t-btn-bg: #f7f3ef; }
+.wq [data-theme="build-landing"] { --t-fg: #f4f6f9; --t-mute: #d6dce3; --t-accent: #e6ebf1; --t-btn-bg: #f4f6f9; }
+/* 밝은 바탕 — 홈페이지(펄) · 멤버십(토프)은 따뜻한 글자, 박람회(은색)는 차가운 글자 */
 .wq :is([data-theme="build-homepage"], [data-theme="build-fair"], [data-theme="build-membership"]) {
-  --t-fg: #172334; --t-mute: #4d5b6d; --t-accent: var(--service-point); --t-line: rgba(23, 35, 52, .17);
-  --t-card-bg: rgba(255, 255, 255, .45); --t-card-line: rgba(23, 35, 52, .19);
-  --t-btn-bg: var(--service-point); --t-btn-fg: #fff; --t-btn-line: rgba(23, 35, 52, .35);
-  --t-hatch: rgba(23, 35, 52, .2); --t-hatch-bg: rgba(255, 255, 255, .3);
-  --t-tile-line: rgba(23, 35, 52, .1); --t-ring: rgba(23, 35, 52, .22);
+  --t-accent: var(--service-point); --t-line: rgba(0, 0, 0, .15);
+  --t-card-bg: rgba(255, 255, 255, .45); --t-card-line: rgba(0, 0, 0, .16);
+  --t-btn-bg: var(--service-point); --t-btn-fg: #fff; --t-btn-line: rgba(0, 0, 0, .3);
+  --t-hatch: rgba(0, 0, 0, .18); --t-hatch-bg: rgba(255, 255, 255, .3);
+  --t-tile-line: rgba(0, 0, 0, .08);
 }
-.wq [data-theme="build-landing"] { --t-mute: #edf3f9; }
+.wq [data-theme="build-homepage"] { --t-fg: #2a231e; --t-mute: #5f554d; }
+.wq [data-theme="build-fair"] { --t-fg: #1c2128; --t-mute: #4f5862; }
+.wq [data-theme="build-membership"] { --t-fg: #2c221b; --t-mute: #5e4f43; }
 
 /* ── 버튼 ── */
 .wq-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 22px; border: 1px solid var(--t-btn-line, var(--p-line-strong)); color: var(--t-fg, var(--p-fg)); font-size: 14.5px; letter-spacing: -.02em; white-space: nowrap; transition: border-color .5s var(--wq-ease), opacity .3s; }
@@ -274,7 +278,7 @@ body:has(.wq) { background: #16161a; }
 .wq-strengths strong { font-size: 18px; font-weight: 500; letter-spacing: -.035em; }
 .wq-strengths p { margin-top: 10px; font-size: 14.5px; font-weight: 300; line-height: 1.75; color: var(--p-mute); }
 
-/* ── 서비스 안내 페이지: 첫 화면 — 플랫폼 색 ── */
+/* ── 서비스 안내 페이지: 첫 화면 — 서비스 그라데이션 ── */
 .wq-svc { position: relative; overflow: hidden; background: var(--t-bg); color: var(--t-fg); scroll-margin-top: var(--wq-head-h); }
 .wq-svc-grid {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); grid-template-areas: "copy visual";
@@ -393,8 +397,6 @@ body:has(.wq) { background: #16161a; }
   .wq-hero-image { min-height: 0; aspect-ratio: 16 / 10; }
   .wq-menu, .wq-summary, .wq-process, .wq-about, .wq-lp-section { padding: 96px 0; }
   .wq-svc-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "visual"; min-height: 0; padding: 48px 0 72px; }
-  /* 세로로 쌓이면 사진 · 예시 화면이 아래 — 인스타그램의 따뜻한 색도 아래로 */
-  .wq-svc[data-theme="instagram"], .wq-lp[data-theme="instagram"] .wq-svc { background: radial-gradient(130% 70% at 85% 100%, #feda75 0%, #fa7e1e 16%, #d62976 38%, #962fbf 64%, #4f5bd5 100%); }
   .wq-visual, .wq-visual[data-device="browser"] { display: flex; flex-direction: column; align-items: center; height: auto; margin-top: 56px; }
   .wq-visual-image, .wq-visual[data-device="browser"] .wq-visual-image { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 4 / 3; }
   .wq-visual-mock, .wq-visual[data-device="browser"] .wq-visual-mock { position: relative; inset: auto; margin-top: -26%; }
