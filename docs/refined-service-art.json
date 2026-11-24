@@ -1,0 +1,62 @@
+{
+  "generator": "built-in ImageGen",
+  "request": "Improve the visual quality of CRM, landing-page and membership 3D icons with deliberate perspective, dimensional layering, precise materials and refined proportions.",
+  "usage": "Three independent replacement illustrations inside the existing slots. Existing service backgrounds, patterns, image dimensions in the page and card layouts are preserved.",
+  "delivery": {
+    "encoding": "lossless WebP",
+    "resize": false,
+    "additionalOptimization": false,
+    "alphaPreserved": true,
+    "visiblePixelsAndAlphaMatchSource": true
+  },
+  "assets": [
+    {
+      "id": "crm",
+      "name": "crm-refined-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-c3b5e7f2-4ac7-4d29-bb0b-735a63299340.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 719004,
+      "transparentPixels": 760143,
+      "path": "/images/service-art/crm-refined-3d-lossless.webp",
+      "concept": "Dimensional graphite clipboard with layered A4 paper, sculpted titanium clip and completion badge",
+      "references": [
+        "/images/service-art/crm-graphite-3d-lossless.webp",
+        "/images/service-art/homepage-pearl-3d-lossless.webp"
+      ],
+      "prompt": "Use case: stylized-concept / premium 3D product illustration.\nINPUT IMAGE 1 is the old CRM clipboard concept and official HARAM gold H/R monogram reference. INPUT IMAGE 2 is an approved homepage illustration, supplied ONLY as context for the elegant wedding-marketing brand and level of finished 3D lighting. Do not copy the devices or rings from Image 2.\nREBUILD the CRM illustration with substantially more deliberate 3D art direction, dimensional construction and premium finish. Preserve the subject: A4 checklist on a clipboard, conveying wedding-hall operations management. The result must look like a beautifully designed 3D object, not a flat front-on photo of stationery.\nOne portrait clipboard made from smooth satin graphite anodized aluminum, slim but visibly thick, with precisely machined small bevels and fine silver edge highlights. A beautifully sculpted brushed titanium clip with a clean spring hinge holds TWO subtly separated warm-white A4 sheets. Show the sheet thickness and a slightly lifted lower paper edge. Paper is smooth and softly matte, no rough grain. On the top sheet: a small accurate official interwoven serif H and looping calligraphic R monogram in restrained gold foil near the top; below, exactly three spacious checklist rows, two checked and one empty. Use elegant fine charcoal linework and short restrained rules, not giant plastic pills. A separate small smoked-glass circular completion badge with a polished silver rim floats 1–2 cm in front of the lower-right corner; a single satin-silver sculpted check is inset into it. Badge is a secondary accent, not oversized.\nCOMPOSITION: confident three-quarter product angle, board rotated slightly counterclockwise and leaned back about 12 degrees; right-hand edge and paper layering clearly visible. Entire clipboard, clip and badge fully within a square canvas with 10–12 percent safe transparent margin. Balanced compact silhouette, about 78 percent of canvas height, suitable as one website service icon.\nQUALITY: refined contemporary CGI, crisp machined edges, physically coherent metal reflections, large softbox key at upper left, delicate white rim light from the right, controlled ambient occlusion between clip/paper/board and badge, rich but calm tonal separation. Fine material detail without dirt, scratches or grain noise. Graphite, off-white, titanium and one tiny brand-gold accent.\nBACKGROUND: genuine transparent alpha, no background scene, colored panel, surface plane, rectangular glow, cast shadow field, checkerboard or vignette. All object edges intact.\nNO additional objects, monitors, phones, cursors, wedding arches, wedding rings, headings, numbers or readable text beyond the provided monogram. Please produce an extremely crisp large square image, ideally 2048 × 2048, with clear depth even at thumbnail size."
+    },
+    {
+      "id": "landing",
+      "name": "landing-refined-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-697081ac-af5c-4144-82b5-2039bce8006d.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 647550,
+      "transparentPixels": 765061,
+      "path": "/images/service-art/landing-refined-3d-lossless.webp",
+      "concept": "Thin opal-glass browser with separated CTA, target and cursor depth planes",
+      "references": [
+        "/images/service-art/landing-monochrome-3d-lossless.webp",
+        "/images/service-art/homepage-pearl-3d-lossless.webp"
+      ],
+      "prompt": "Use case: stylized-concept / premium 3D product illustration.\nINPUT IMAGE 1 is the old landing-page illustration and small official gold HARAM H/R monogram reference. INPUT IMAGE 2 is an approved homepage illustration supplied ONLY as finished-brand/lighting context. Do not copy its monitor, phone, wedding arch or rings.\nREBUILD the landing-page icon into an elegant sculptural composition with clearly separated shallow UI layers, excellent depth and refined materials. Subject remains a promotional one-page web experience with a consultation CTA and clicking cursor. Keep its identity clearly DIGITAL and LANDSCAPE, distinct from portrait paper stationery.\nMain object: one thin landscape floating browser panel made of opal-white satin glass with a precise neutral-chrome perimeter. Angle it in a gentle three-quarter view, a slight clockwise tilt and backward lean, so its thin side and layered depth are visible. No screen hardware or pedestal. Slim top bar with three tiny neutral-gray dots and the small accurate original gold interwoven H/R mark at top left.\nInside the browser, a beautifully proportioned sparse landing-page layout: on the left two refined charcoal headline placeholder bars and one thin supporting bar; at upper right a simple sculpted silver target/conversion symbol; below two pale-gray thin signup fields. A single deep-charcoal rounded consultation CTA module floats slightly in front of the page near lower right, connected visually to its original page position. The module is only a few millimeters thick, with a satin black face and fine silver bevel. A carefully designed dark-graphite 3D cursor with a thin polished silver edge points at its corner; two short fine silver click rays indicate interaction. Cursor is modest, around one-quarter of the main panel height, with a crisp geometric silhouette. The floating button and target create two subtle depth planes, not a pile of unrelated windows.\nCOMPOSITION: compact asymmetric landscape object group centered in a SQUARE canvas with 10–12 percent transparent safety margins. About 80 percent of canvas width; entire browser, target, CTA, cursor and rays visible. Dimensional yet calm, generous internal whitespace. Do not turn the browser into a tablet.\nQUALITY: sophisticated high-end CGI, precise microbevels, convincing thin glass/metal construction, smooth clean surfaces, soft upper-left studio softbox, delicate rim reflections, crisp local contact shadows between layers. Ivory/white, chrome, silver and graphite; tiny gold brand mark only. No coarse texture or puffy toy materials.\nBACKGROUND: genuinely transparent alpha with no floor, environment, backdrop rectangle, haze panel, checkerboard, vignette or painted glow.\nNO readable copy, numbers, huge thick black bars, extra text, devices, clipboard, flowers or rings. Please produce an extremely crisp large square image, ideally 2048 × 2048, that reads beautifully at thumbnail size."
+    },
+    {
+      "id": "membership",
+      "name": "membership-refined-3d-lossless.webp",
+      "source": "/Users/hyunsu/.codex/generated_images/01a207ff-8318-75a1-9bf8-e28795a8fe16/exec-ee4c48d5-8d58-4962-9acd-5b065aff42ad.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 763274,
+      "transparentPixels": 751248,
+      "path": "/images/service-art/membership-refined-3d-lossless.webp",
+      "concept": "Coated-metal membership card with ivory benefit voucher and small precision brass tier badge",
+      "references": [
+        "/images/service-art/membership-taupe-3d-lossless.webp",
+        "/images/service-art/homepage-pearl-3d-lossless.webp"
+      ],
+      "prompt": "Use case: stylized-concept / premium 3D product illustration.\nINPUT IMAGE 1 is the old membership concept and official HARAM gold H/R monogram reference. INPUT IMAGE 2 is an approved homepage illustration supplied ONLY as finished brand/lighting context; do not copy its devices, arch or rings.\nREBUILD the membership icon as a refined premium club-card product composition with excellent 3D depth, cleaner proportions and meticulously controlled materials. Convey membership, tier and benefits.\nOne dominant landscape membership card made of satin warm-charcoal / deep espresso-gray coated metal, thin and rigid with a finely machined brushed-champagne edge and precise small corner radii. A very restrained thin gold foil border sits well inside the face. Center the exact official interwoven serif H and elegant looping calligraphic R monogram from the reference, in delicate champagne-gold foil. Reduce the logo to around half the card height so there is substantial elegant negative space. The face is almost smooth, no coarse leather grain or fabric.\nOne pale warm-ivory secondary card peeks from behind at a different slight angle, revealing clean layered thickness. At lower-left add a small ivory BENEFIT VOUCHER, only about one-quarter of the main card size, with two shallow side notches and one tiny embossed gift pictogram (no words, numbers or barcode). It tucks partially in front of the card, replacing the large toy gift box. At lower-right a small thin brushed-champagne metal tier medallion leans against the card: clean circular form, precise beveled rim, a finely sculpted five-point star in low relief. The badge is about one-third the main card height, not an oversized coin. No bright yellow glare.\nCOMPOSITION: sophisticated asymmetry and visible 3D layering, main card rotated slightly counterclockwise in a gentle three-quarter angle with its thin right edge visible, secondary card peeking above right, voucher and medallion secondary below. Entire object group centered within a square canvas with 10–12 percent clear transparent margins. Every edge fully visible.\nQUALITY: luxury CGI still-life object icon, subtle satin coated-metal face against brushed brass details and smooth ivory voucher; physically coherent reflections, fine edge highlights, soft upper-left key light, restrained fill and right rim light, crisp local ambient occlusion. Desaturated warm charcoal, ivory, champagne brass. Delicate details, no excessive shine, no grain noise, no thick inflated plastic. Keep the official monogram proportions and crossing strokes faithful.\nBACKGROUND: genuine transparent alpha. No background scene, floor, colored panel, cast-shadow rectangle, vignette, checkerboard or hazy box.\nNO readable words or numbers, credit-card chip, bank marks, QR, ribbon/bow gift box, giant star coin, wedding rings, phones or computers. Please produce an extremely crisp large square image, ideally 2048 × 2048, retaining a clean readable silhouette at thumbnail size."
+    }
+  ]
+}
