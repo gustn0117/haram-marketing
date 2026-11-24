@@ -86,7 +86,7 @@ export const GROUPS: {
     label: "마케팅 대행",
     en: "Marketing",
     cycle: "월",
-    basis: "월 단위 (플레이스 건당)",
+    basis: "월 단위",
     description:
       "인스타그램 · 블로그 · 네이버 검색 · 플레이스를 대신 운영합니다.",
   },
@@ -201,7 +201,7 @@ export const SERVICES: Service[] = [
       "최적화 노출 트래픽",
       "키워드별 진행",
     ],
-    price: [{ cycle: "건", amount: 500_000, from: true }],
+    price: [{ cycle: "월", amount: 500_000, from: true }],
     note: "키워드마다 상이",
     notice: "표기 금액은 시작 금액입니다. 키워드마다 검색량과 경쟁 정도가 달라, 키워드를 정한 뒤 최종 금액을 안내드립니다.",
   },

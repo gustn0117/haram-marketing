@@ -164,7 +164,6 @@ function Summary() {
                   {servicesOf(group.id).map((service) => (
                     <li key={service.id}>
                       <Link href={`/quote/${service.id}`} className="wq-sum-row">
-                        <i data-theme={THEME[service.id]} aria-hidden="true" />
                         <span className="wq-sum-name">{keepDots(service.title)}</span>
                         <span className="wq-sum-summary">{keepDots(service.summary)}</span>
                         <PriceLines service={service} className="wq-sum-price" />

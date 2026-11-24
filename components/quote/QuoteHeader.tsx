@@ -94,10 +94,8 @@ export default function QuoteHeader({
                       <Link
                         key={item.id}
                         href={`/quote/${item.id}`}
-                        data-theme={item.theme}
                         aria-current={item.id === current ? "page" : undefined}
                       >
-                        <i aria-hidden="true" />
                         <small>{item.no}</small>
                         {item.label}
                       </Link>
@@ -158,10 +156,8 @@ export default function QuoteHeader({
                     key={item.id}
                     href={`/quote/${item.id}`}
                     onClick={close}
-                    data-theme={item.theme}
                     aria-current={item.id === current ? "page" : undefined}
                   >
-                    <i aria-hidden="true" />
                     {item.no} {item.label}
                   </Link>
                 ))}
