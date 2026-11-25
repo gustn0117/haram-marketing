@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } fr
 /* 하루 단위 선 그래프 한 줄 — 방문 수 · 키워드 순위. 차트 라이브러리 없이 SVG.
    마우스를 올리거나 키보드(← →, Home · End)로 날짜를 옮기면 그날 값이 뜨고, 같은 값은 '표로 보기'에도 있습니다.
    kind="rank" 는 숫자가 작을수록 위(1위가 맨 위). 값이 없는 날(null)은 선을 끊고 emptyText 로 표시합니다.
-   너비는 들어간 칸에 맞춰 재고(ResizeObserver), 높이에는 아래 날짜 줄까지 포함합니다. */
+   너비는 들어간 칸에 맞춰 재고(ResizeObserver), 높이에는 아래 날짜 줄까지 포함합니다. 스타일: app/(platform)/hall.css */
 
 export type ChartPoint = { day: string; value: number | null };
 
@@ -51,7 +51,7 @@ function rankScale(worst: number) {
 const countTick = (value: number) =>
   value >= 10000 ? `${(value / 10000).toFixed(value % 10000 === 0 ? 0 : 1)}만` : value.toLocaleString("ko-KR");
 
-export default function LineChart({ points, kind, title, unit = "", height = 240, emptyText = "자료 없음" }: Props) {
+export default function LineChart({ points, kind, title, unit = "", height = 260, emptyText = "자료 없음" }: Props) {
   const boxRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number | null>(null);
   const [active, setActive] = useState<number | null>(null);
@@ -65,7 +65,7 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
   }, []);
 
   const values = points.flatMap((point) => (point.value === null ? [] : [point.value]));
-  if (values.length === 0) return <p className="pf-chart-empty">{emptyText}</p>;
+  if (values.length === 0) return <p className="hp-chart-empty">{emptyText}</p>;
 
   const format = (value: number) => (kind === "rank" ? `${value}위` : `${value.toLocaleString("ko-KR")}${unit}`);
   const firstIndex = points.findIndex((point) => point.value !== null);
@@ -76,10 +76,10 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
   )}, ${kind === "rank" ? "가장 높은 순위" : "가장 많은 날"} ${format(best)}`;
 
   const table = (
-    <details className="pf-table-toggle">
+    <details className="hp-table-toggle">
       <summary>표로 보기</summary>
-      <div className="pf-table-wrap">
-        <table className="pf-table is-compact">
+      <div className="hp-table-wrap">
+        <table className="hp-table is-compact">
           <caption className="sr-only">{title}</caption>
           <thead>
             <tr>
@@ -105,15 +105,15 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
   // 너비를 재기 전에는 같은 높이의 빈 칸만 둠 (화면이 튀지 않게)
   if (width === null) {
     return (
-      <figure className="pf-figure">
-        <div ref={boxRef} className="pf-chart" style={{ height }} />
+      <figure className="hp-figure">
+        <div ref={boxRef} className="hp-chart" style={{ height }} />
         {table}
       </figure>
     );
   }
 
   const narrow = width < 520;
-  const pad = { top: 14, right: narrow ? 36 : 52, bottom: 30, left: kind === "rank" ? 38 : 50 };
+  const pad = { top: 16, right: narrow ? 40 : 56, bottom: 32, left: kind === "rank" ? 40 : 48 };
   const plotW = width - pad.left - pad.right;
   const plotH = height - pad.top - pad.bottom;
   const scale = kind === "rank" ? rankScale(Math.max(...values)) : countScale(Math.max(...values));
@@ -176,14 +176,14 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
   const point = active === null ? null : points[active];
   const pointY = point && point.value !== null ? y(point.value) : null;
   const tipLeft = active === null ? 0 : Math.min(width - 56, Math.max(56, x(active)));
-  const tipTop = pointY === null ? pad.top : pointY - 54 < 0 ? pointY + 14 : pointY - 54;
+  const tipTop = pointY === null ? pad.top : pointY - 58 < 0 ? pointY + 16 : pointY - 58;
   const end = points[lastIndex];
 
   return (
-    <figure className="pf-figure">
+    <figure className="hp-figure">
       <div
         ref={boxRef}
-        className="pf-chart"
+        className="hp-chart"
         style={{ height }}
         tabIndex={0}
         role="group"
@@ -200,9 +200,9 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
                 x2={width - pad.right}
                 y1={y(tick)}
                 y2={y(tick)}
-                className={kind === "count" && tick === 0 ? "pf-baseline" : "pf-grid"}
+                className={kind === "count" && tick === 0 ? "hp-baseline" : "hp-grid"}
               />
-              <text x={pad.left - 10} y={y(tick)} dy="0.32em" textAnchor="end" className="pf-axis">
+              <text x={pad.left - 10} y={y(tick)} dy="0.32em" textAnchor="end" className="hp-axis">
                 {kind === "rank" ? `${tick}위` : countTick(tick)}
               </text>
             </g>
@@ -213,30 +213,30 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
               x={x(i)}
               y={height - 8}
               textAnchor={i === 0 ? "start" : i === last ? "end" : "middle"}
-              className="pf-axis"
+              className="hp-axis"
             >
               {dayLabel(points[i].day)}
             </text>
           ))}
-          {area ? <path d={area} className="pf-area" /> : null}
+          {area ? <path d={area} className="hp-area" /> : null}
           {segments.map((d) => (
-            <path key={d} d={d} className="pf-line" />
+            <path key={d} d={d} className="hp-line" />
           ))}
           {lonely.map((i) => (
-            <circle key={i} cx={x(i)} cy={y(points[i].value!)} r={2.5} className="pf-dot is-small" />
+            <circle key={i} cx={x(i)} cy={y(points[i].value!)} r={2.5} className="hp-dot is-small" />
           ))}
-          {active !== null ? <line x1={x(active)} x2={x(active)} y1={pad.top} y2={pad.top + plotH} className="pf-cross" /> : null}
-          <circle cx={x(lastIndex)} cy={y(end.value!)} r={4} className="pf-dot" />
-          <text x={x(lastIndex) + 9} y={y(end.value!)} dy="0.32em" className="pf-end-label">
+          {active !== null ? <line x1={x(active)} x2={x(active)} y1={pad.top} y2={pad.top + plotH} className="hp-cross" /> : null}
+          <circle cx={x(lastIndex)} cy={y(end.value!)} r={4.5} className="hp-dot" />
+          <text x={x(lastIndex) + 10} y={y(end.value!)} dy="0.32em" className="hp-end-label">
             {kind === "rank" ? `${end.value}위` : end.value!.toLocaleString("ko-KR")}
           </text>
-          {active !== null && pointY !== null ? <circle cx={x(active)} cy={pointY} r={4.5} className="pf-dot" /> : null}
+          {active !== null && pointY !== null ? <circle cx={x(active)} cy={pointY} r={5} className="hp-dot" /> : null}
           <rect
             x={pad.left}
             y={pad.top}
             width={plotW}
             height={plotH}
-            className="pf-hit"
+            className="hp-hit"
             onPointerDown={pick}
             onPointerMove={pick}
             onPointerLeave={(event) => {
@@ -245,7 +245,7 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
           />
         </svg>
         {point ? (
-          <div className="pf-tip" style={{ left: tipLeft, top: tipTop }} aria-hidden="true">
+          <div className="hp-tip" style={{ left: tipLeft, top: tipTop }} aria-hidden="true">
             <strong>{point.value === null ? emptyText : format(point.value)}</strong>
             <span>{dayLabel(point.day)}</span>
           </div>
@@ -254,7 +254,7 @@ export default function LineChart({ points, kind, title, unit = "", height = 240
           {point ? `${dayLabel(point.day)} ${point.value === null ? emptyText : format(point.value)}` : ""}
         </p>
       </div>
-      {values.length < points.length ? <p className="pf-chart-note">선이 끊긴 날: {emptyText}</p> : null}
+      {values.length < points.length ? <p className="hp-chart-note">선이 끊긴 날: {emptyText}</p> : null}
       {table}
     </figure>
   );

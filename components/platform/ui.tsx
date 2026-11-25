@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import { CHANNEL_LABEL, STATUS_LABEL, displayUrl, num, timeAgo } from "@/lib/platform/format";
-import type { Channel, ChannelKind, ChannelStatus, Freshness } from "@/lib/platform/types";
+import type { Channel, ChannelKind, ChannelStatus } from "@/lib/platform/types";
 
-/* 웨딩홀 플랫폼 화면 조각 — 서버에서 그립니다 (스타일: app/(platform)/platform.css) */
+/* 하람 관리자 화면 조각 — 서버에서 그립니다 (스타일: app/(platform)/platform.css).
+   웨딩홀 화면 조각은 components/hall/ui.tsx */
 
 export function PageHead({ title, lead, aside }: { title: string; lead?: ReactNode; aside?: ReactNode }) {
   return (
@@ -74,50 +75,6 @@ export function StatTile({
   );
 }
 
-/** 변동 — 순위는 오른 계단 수, 퍼센트는 늘어난 비율. 색만으로 뜻을 전하지 않도록 화살표와 글자를 함께 둡니다 */
-export function Change({ value, kind, against }: { value: number | null; kind: "rank" | "percent"; against?: string }) {
-  const suffix = against ? <span className="pf-change-against">{against} 대비</span> : null;
-  if (value === null) return <span className="pf-change is-flat">—</span>;
-  if (value === 0) {
-    return (
-      <span className="pf-change is-flat">
-        변동 없음{suffix}
-      </span>
-    );
-  }
-  const up = value > 0;
-  const size = Math.abs(value);
-  const amount = kind === "rank" ? `${size}` : `${size}%`;
-  const words = kind === "rank" ? `${size}계단 ${up ? "오름" : "내림"}` : `${amount} ${up ? "늘어남" : "줄어듦"}`;
-  return (
-    <span className={`pf-change ${up ? "is-up" : "is-down"}`}>
-      <span aria-hidden="true">
-        {up ? "▲" : "▼"} {amount}
-      </span>
-      <span className="sr-only">{words}</span>
-      {suffix}
-    </span>
-  );
-}
-
-/** 순위 칸 — undefined = 확인하지 않는 영역, null = 확인한 범위 안에 없음 */
-export function RankCell({ rank }: { rank: number | null | undefined }) {
-  if (rank === undefined) {
-    return (
-      <span className="pf-none" title="확인하지 않는 영역">
-        —
-      </span>
-    );
-  }
-  if (rank === null) return <span className="pf-rank-out">순위 밖</span>;
-  return (
-    <span className={rank <= 10 ? "pf-rank is-top" : "pf-rank"}>
-      {rank}
-      <small>위</small>
-    </span>
-  );
-}
-
 export function StatusBadge({ status }: { status: ChannelStatus }) {
   return (
     <span className={`pf-status is-${status}`}>
@@ -156,60 +113,6 @@ export function ChannelCard({ channel }: { channel: Channel }) {
       </dl>
       <p className="pf-channel-time">{channel.updatedAt ? `갱신 ${timeAgo(channel.updatedAt)}` : "아직 숫자가 없습니다"}</p>
     </article>
-  );
-}
-
-/** 채널 짧은 목록 — 개요 화면 */
-export function ChannelList({ channels }: { channels: Channel[] }) {
-  if (channels.length === 0) return <p className="pf-empty">등록한 채널이 없습니다.</p>;
-  return (
-    <ul className="pf-chlist">
-      {channels.map((channel) => (
-        <li key={channel.id}>
-          <span className="pf-chlist-kind">{CHANNEL_LABEL[channel.kind]}</span>
-          <span className="pf-chlist-url">{displayUrl(channel.url)}</span>
-          <StatusBadge status={channel.status} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-/** 순서대로 놓은 가로 막대 — 이름 · 막대 · 숫자 (값이 모두 글자로 보이므로 따로 마우스 안내는 두지 않음) */
-export function BarList({ rows, unit = "" }: { rows: { label: string; value: number }[]; unit?: string }) {
-  const max = Math.max(1, ...rows.map((row) => row.value));
-  const total = rows.reduce((sum, row) => sum + row.value, 0) || 1;
-  return (
-    <ul className="pf-bars">
-      {rows.map((row) => (
-        <li key={row.label}>
-          <span className="pf-bars-label">{row.label}</span>
-          <span className="pf-bars-track" aria-hidden="true">
-            <i style={{ width: `${(row.value / max) * 100}%` }} />
-          </span>
-          <span className="pf-bars-value">
-            {num(row.value)}
-            {unit}
-            <small>{Math.round((row.value / total) * 100)}%</small>
-          </span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-/** 자료마다 가져오는 곳과 마지막 시각 */
-export function FreshnessList({ items }: { items: Freshness[] }) {
-  return (
-    <ul className="pf-fresh">
-      {items.map((item) => (
-        <li key={item.label}>
-          <span>{item.label}</span>
-          <span className="pf-fresh-source">{item.source}</span>
-          <span className="pf-fresh-at">{item.at ? timeAgo(item.at) : "연결 전"}</span>
-        </li>
-      ))}
-    </ul>
   );
 }
 

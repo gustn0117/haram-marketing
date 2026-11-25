@@ -47,13 +47,22 @@ npm run indexnow -- /about /services   # 바뀐 페이지만
 - 로그인: `/login` (홈페이지 머리말의 **로그인**, 모바일은 메뉴 안). 가입 화면은 없습니다.
   - 샘플 웨딩홀 계정: `sample` / `1234`(샘플 웨딩홀), `sample2` / `1234`(샘플 컨벤션). `sample3`은 계약 종료라 로그인이 막힙니다.
   - 하람 계정: `haram` / 문의 관리(`/admin`)와 같은 `ADMIN_PASSWORD`(없으면 `1234`)
-- 웨딩홀 화면: 개요 `/dashboard` · 키워드 순위 `/dashboard/keywords` · 방문 분석 `/dashboard/traffic`(기간 `?range=7|30|90`) · 채널 관리 `/dashboard/channels` · 월간 리포트 `/dashboard/reports`
+- 웨딩홀 화면: 개요 `/dashboard`(키워드 카드 순서 `?kw=moved`) · 키워드 순위 `/dashboard/keywords`(`?view=top10|up|down` · `?sort=search|change` · 검색 `?q=` · 그래프 키워드 `?k=`) · 방문 분석 `/dashboard/traffic`(기간 `?range=7|30|90`) · 채널 관리 `/dashboard/channels` · 월간 리포트 `/dashboard/reports`
 - 하람 화면: 웨딩홀 계정 `/dashboard/halls` · 웨딩홀 상세 `/dashboard/halls/<웨딩홀>`
+- 디자인
+  - 로그인 · 웨딩홀 화면은 흰 바탕 플랫폼입니다(참고: wedipedia.co.kr). 흰 바탕에 검은 글자, 굵은 제목, 둥근 카드를 씁니다.
+  - 넓은 화면의 위쪽 구성: 샘플 안내 띠, 작은 링크 줄, 로고 + 키워드 검색 + 계정 창, 가운데 메뉴.
+  - 좁은 화면(767px 이하)에서는 위 막대가 붙어 있고, 메뉴는 아래 탭바로 바뀝니다.
+  - 변동 표시는 한국식입니다. 오르면 빨간 ▲, 내리면 파란 ▼이고, 화살표와 읽기용 글자를 함께 둡니다.
+  - 채널 아이콘은 홈페이지 서비스 3D 그림을 작게 줄인 사본(`public/images/platform/`)입니다.
+  - 하람 관리자 화면은 어두운 관리 틀 그대로입니다.
 - 잠금
   - `proxy.ts`가 로그인 쿠키(`hm_platform`)가 없는 `/dashboard` 요청을 `/login?next=<주소>`로 보냅니다.
   - 각 페이지가 `lib/platform/dal.ts`의 `requireHall` · `requireAdmin`으로 서명 · 계정 · 역할을 다시 확인합니다. 웨딩홀 자료 함수에는 로그인 세션의 웨딩홀만 넘기므로, 주소창을 바꿔도 다른 웨딩홀 자료는 열리지 않습니다.
   - 세션: `lib/platform/session.ts` — 서버가 서명한 쿠키, 12시간. 서명 비밀 값은 서버 환경변수 `PLATFORM_SESSION_SECRET`입니다. 없으면 서버를 켤 때마다 새로 만들어서, 재시작하면 모두 다시 로그인합니다.
-- 파일: 자료 모양 `lib/platform/types.ts` · 자료 함수 `lib/platform/data.ts` · 샘플 `lib/platform/sample.ts` · 계정 `lib/platform/accounts.ts` · 로그인/로그아웃 `lib/platform/actions.ts` · 화면 `app/(platform)/` · 조각 `components/platform/` · 스타일 `app/(platform)/platform.css`
+- 파일: 자료 모양 `lib/platform/types.ts` · 자료 함수 `lib/platform/data.ts` · 샘플 `lib/platform/sample.ts` · 계정 `lib/platform/accounts.ts` · 로그인/로그아웃 `lib/platform/actions.ts` · 화면 `app/(platform)/`
+  - 웨딩홀 화면 · 로그인: 틀 `components/hall/HallShell.tsx` · 아래 `components/hall/HallFooter.tsx` · 조각 `components/hall/ui.tsx` · 그래프 `components/hall/LineChart.tsx` · 스타일 `app/(platform)/hall.css`
+  - 하람 관리자 화면: 틀 `components/platform/PlatformShell.tsx` · 조각 `components/platform/ui.tsx` · 스타일 `app/(platform)/platform.css`
 - 아직 연결하지 않은 것 (화면에도 '아직 연결하지 않았습니다'로 표시)
   - 계정 발급 · 비밀번호 재발급 · 로그인 중지, 링크 등록 저장, 리포트 PDF 받기: 계정과 채널을 저장할 DB가 필요합니다. 비밀번호는 해시로만 보관하고 로그인 시도 횟수 제한을 함께 붙입니다.
   - 실제 숫자: `lib/platform/data.ts`의 함수만 바꾸면 화면은 그대로입니다.

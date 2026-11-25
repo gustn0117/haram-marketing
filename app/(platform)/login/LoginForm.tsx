@@ -10,11 +10,15 @@ export default function LoginForm({ next }: { next: string }) {
   const [state, formAction, pending] = useActionState(login, initialState);
 
   return (
-    <form action={formAction} className="pf-login-form">
+    <form action={formAction} className="hp-login-form">
       <input type="hidden" name="next" value={next} />
-      <label className="pf-field">
-        <span>아이디</span>
+      <div className="hp-form-field">
+        <label htmlFor="login-id" className="hp-form-label">
+          아이디<span className="hp-req" aria-hidden="true">*</span>
+        </label>
         <input
+          id="login-id"
+          className="hp-input is-lg"
           name="loginId"
           autoComplete="username"
           autoCapitalize="none"
@@ -22,24 +26,28 @@ export default function LoginForm({ next }: { next: string }) {
           defaultValue={state.loginId}
           required
           aria-invalid={state.error ? true : undefined}
-          aria-describedby="pf-login-error"
+          aria-describedby="hp-login-error"
         />
-      </label>
-      <label className="pf-field">
-        <span>비밀번호</span>
+      </div>
+      <div className="hp-form-field">
+        <label htmlFor="login-password" className="hp-form-label">
+          비밀번호<span className="hp-req" aria-hidden="true">*</span>
+        </label>
         <input
+          id="login-password"
+          className="hp-input is-lg"
           name="password"
           type="password"
           autoComplete="current-password"
           required
           aria-invalid={state.error ? true : undefined}
-          aria-describedby="pf-login-error"
+          aria-describedby="hp-login-error"
         />
-      </label>
-      <p id="pf-login-error" className="pf-form-error" aria-live="polite">
+      </div>
+      <p id="hp-login-error" className="hp-form-error" aria-live="polite">
         {state.error}
       </p>
-      <button type="submit" className="pf-btn is-solid is-block" disabled={pending}>
+      <button type="submit" className="hp-btn is-dark is-block is-lg" disabled={pending}>
         {pending ? "확인 중…" : "로그인"}
       </button>
     </form>

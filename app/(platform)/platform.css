@@ -1,21 +1,18 @@
 /* ─────────────────────────────────────────────────────────────
-   웨딩홀 플랫폼 — 고객 전용 포털(/client)과 같은 다크 톤(쿨 차콜 · 본 그레이지 · Pretendard).
-   숫자가 주인공이고 틀은 조용하게: 헤어라인 · 각진 패널 · 밝기와 여백으로 강조.
-   그래프는 선 한 줄(본색) · 옅은 면 · 헤어라인 눈금. 작은 글씨는 대비 4.5 이상(#9a978f).
+   하람 관리자 화면(/dashboard/halls 이하) — 고객 전용 포털(/client)과 같은 다크 톤(쿨 차콜 · 본 그레이지 · Pretendard).
+   헤어라인 · 각진 패널 · 밝기와 여백으로 강조. 작은 글씨는 대비 4.5 이상(#9a978f).
+   로그인 · 웨딩홀 화면은 hall.css(흰 바탕 플랫폼).
    ───────────────────────────────────────────────────────────── */
 
-.pf,
-.pf-login {
+.pf {
   --pf-card: #1b1b20;
   --pf-card-2: #222228;
   --pf-line: rgba(236, 236, 234, 0.075);
   --pf-line-strong: rgba(236, 236, 234, 0.15);
-  --pf-grid: rgba(236, 236, 234, 0.07);
   --pf-dim: #9a978f;
   --pf-accent: var(--color-gold);
   --pf-accent-bright: var(--color-gold-bright);
   --pf-good: #8fcf9d;
-  --pf-bad: #e5958a;
   --pf-warn: #d8b26e;
   position: relative;
   z-index: 2;
@@ -89,23 +86,7 @@
 .pf-stat-value small { margin-left: 4px; font-size: 13px; font-weight: 400; letter-spacing: 0; color: var(--color-muted); }
 .pf-stat-note { font-size: 12.5px; color: var(--pf-dim); }
 
-/* 첫 화면의 큰 숫자 하나 + 추이 */
-.pf-hero { display: grid; grid-template-columns: 220px minmax(0, 1fr); align-items: start; gap: 28px; }
-.pf-hero-figure { padding-top: 4px; }
-.pf-hero-figure p { font-size: 13.5px; color: var(--pf-dim); }
-.pf-hero-figure strong { display: block; margin-top: 10px; font-size: 56px; font-weight: 200; line-height: 1; letter-spacing: -0.045em; }
-.pf-hero-figure .pf-change { margin-top: 14px; }
 
-/* 변동 · 순위 */
-.pf-change { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.pf-change.is-up { color: var(--pf-good); }
-.pf-change.is-down { color: var(--pf-bad); }
-.pf-change.is-flat { color: var(--pf-dim); }
-.pf-change-against { color: var(--pf-dim); }
-.pf-rank { font-variant-numeric: tabular-nums; color: var(--color-muted); }
-.pf-rank small { margin-left: 1px; font-size: 0.82em; color: var(--pf-dim); }
-.pf-rank.is-top { color: var(--color-paper); font-weight: 500; }
-.pf-rank-out { font-size: 13px; color: var(--pf-dim); }
 .pf-none { color: var(--pf-dim); }
 
 /* ── 표 ── */
@@ -124,64 +105,9 @@
 .pf-table .is-num { text-align: right; font-variant-numeric: tabular-nums; }
 .pf-table a { color: var(--color-paper); text-decoration: underline; text-decoration-color: var(--pf-line-strong); text-underline-offset: 4px; transition: text-decoration-color 0.2s; }
 .pf-table a:hover { text-decoration-color: var(--pf-accent); }
-.pf-table tbody tr[aria-current] { background: rgba(236, 236, 234, 0.045); }
-.pf-table tbody tr[aria-current] > :first-child { box-shadow: inset 2px 0 0 var(--pf-accent); }
-.pf-table tbody tr[aria-current] a { text-decoration-color: var(--pf-accent); }
-.pf-table.is-compact th,
-.pf-table.is-compact td { height: 34px; font-size: 13px; }
-.pf-legend { margin-top: 14px; font-size: 12.5px; color: var(--pf-dim); }
 
-/* ── 그래프 ── */
-.pf-figure { min-width: 0; }
-.pf-chart { position: relative; width: 100%; outline: none; }
-.pf-chart:focus-visible { box-shadow: 0 0 0 2px var(--pf-card), 0 0 0 4px rgba(199, 192, 178, 0.55); }
-.pf-chart svg { display: block; overflow: visible; }
-.pf-grid { stroke: var(--pf-grid); stroke-width: 1; shape-rendering: crispEdges; }
-.pf-baseline { stroke: rgba(236, 236, 234, 0.2); stroke-width: 1; shape-rendering: crispEdges; }
-.pf-axis { fill: var(--pf-dim); font-size: 11.5px; font-variant-numeric: tabular-nums; }
-.pf-line { fill: none; stroke: var(--pf-accent-bright); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.pf-area { fill: var(--pf-accent-bright); opacity: 0.1; }
-.pf-cross { stroke: rgba(236, 236, 234, 0.34); stroke-width: 1; shape-rendering: crispEdges; }
-.pf-dot { fill: var(--pf-accent-bright); stroke: var(--pf-card); stroke-width: 2; }
-.pf-dot.is-small { stroke-width: 0; }
-.pf-end-label { fill: var(--color-paper); font-size: 12.5px; font-variant-numeric: tabular-nums; }
-.pf-hit { fill: transparent; cursor: crosshair; touch-action: pan-y; }
-.pf-tip { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 7px 11px; border: 1px solid var(--pf-line-strong); background: #27272e; transform: translateX(-50%); pointer-events: none; white-space: nowrap; }
-.pf-tip strong { font-size: 14px; font-weight: 500; font-variant-numeric: tabular-nums; }
-.pf-tip span { font-size: 11.5px; color: var(--pf-dim); }
-.pf-chart-empty { padding: 48px 0; font-size: 14px; text-align: center; color: var(--pf-dim); }
-.pf-chart-note { margin-top: 6px; font-size: 12.5px; color: var(--pf-dim); }
-.pf-table-toggle { margin-top: 10px; }
-.pf-table-toggle summary { display: inline-block; font-size: 12.5px; color: var(--pf-dim); cursor: pointer; transition: color 0.2s; }
-.pf-table-toggle summary:hover { color: var(--color-paper); }
-.pf-table-toggle .pf-table-wrap { max-height: 320px; margin-top: 10px; overflow-y: auto; }
 
-/* ── 가로 막대 (들어온 경로) ── */
-.pf-bars { display: flex; flex-direction: column; gap: 14px; }
-.pf-bars li { display: grid; grid-template-columns: 96px minmax(0, 1fr) 104px; align-items: center; gap: 14px; }
-.pf-bars-label { overflow: hidden; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
-.pf-bars-track { height: 6px; background: rgba(236, 236, 234, 0.05); }
-.pf-bars-track i { display: block; height: 100%; border-radius: 0 3px 3px 0; background: var(--pf-accent); }
-.pf-bars-value { font-size: 14px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.pf-bars-value small { display: inline-block; min-width: 34px; margin-left: 8px; font-size: 12px; color: var(--pf-dim); }
 
-/* ── 목록 ── */
-.pf-movers li,
-.pf-chlist li,
-.pf-fresh li { display: grid; align-items: center; gap: 12px; min-height: 46px; border-bottom: 1px solid var(--pf-line); }
-.pf-movers li:last-child,
-.pf-chlist li:last-child,
-.pf-fresh li:last-child { border-bottom: 0; }
-.pf-movers li { grid-template-columns: minmax(0, 1fr) auto 84px; }
-.pf-movers-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pf-movers-rank { font-size: 13px; color: var(--pf-dim); white-space: nowrap; }
-.pf-movers .pf-change { justify-content: flex-end; }
-.pf-chlist li { grid-template-columns: 76px minmax(0, 1fr) auto; }
-.pf-chlist-kind { font-size: 13px; color: var(--pf-dim); }
-.pf-chlist-url { overflow: hidden; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
-.pf-fresh li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; font-size: 14px; }
-.pf-fresh-source { font-size: 13px; color: var(--pf-dim); }
-.pf-fresh-at { font-size: 13px; color: var(--color-muted); white-space: nowrap; }
 
 /* ── 채널 ── */
 .pf-channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -202,18 +128,8 @@
 .pf-status.is-collecting i { border-color: var(--pf-good); background: var(--pf-good); }
 .pf-status.is-pending i { border-color: var(--pf-warn); background: var(--pf-warn); }
 
-/* ── 기간 고르기 (방문 분석) ── */
-.pf-range { display: flex; flex-wrap: wrap; gap: 6px; }
-.pf-range a { display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border: 1px solid var(--pf-line-strong); font-size: 13px; color: var(--color-muted); transition: color 0.2s, border-color 0.2s; }
-.pf-range a:hover { border-color: rgba(236, 236, 234, 0.3); color: var(--color-paper); }
-.pf-range a[aria-current="page"] { border-color: var(--pf-accent); background: rgba(199, 192, 178, 0.08); color: var(--color-paper); }
 
-/* ── 리포트 ── */
-.pf-reports li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--pf-line); }
-.pf-reports li:first-child { padding-top: 0; }
-.pf-reports li:last-child { border-bottom: 0; }
-.pf-reports strong { font-size: 15px; font-weight: 500; }
-.pf-reports p { margin-top: 2px; font-size: 13.5px; color: var(--color-muted); }
+/* ── 표시 ── */
 .pf-chip { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border: 1px solid var(--pf-line-strong); font-size: 12px; line-height: 1; color: var(--color-muted); white-space: nowrap; }
 .pf-chip.is-quiet { border-color: var(--pf-line); color: var(--pf-dim); }
 
@@ -249,18 +165,6 @@
 .pf-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; border: 0; }
 .pf-actions:disabled { opacity: 0.55; }
 
-/* ── 로그인 ── */
-.pf-login { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; min-height: 100vh; padding: 48px 16px; }
-.pf-login .pf-brand { align-items: center; padding: 0; }
-.pf-login-card { width: min(420px, 100%); padding: 40px 36px 30px; border: 1px solid var(--color-line-strong); background: var(--color-surface); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.75); }
-.pf-login-card h1 { font-size: 26px; font-weight: 300; line-height: 1.3; letter-spacing: -0.04em; }
-.pf-login-card > p { margin-top: 10px; font-size: 14px; line-height: 1.75; color: var(--color-muted); }
-.pf-login-form { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
-.pf-login-form .pf-btn { margin-top: 4px; }
-.pf-form-error { min-height: 20px; margin-top: -4px; font-size: 13px; color: var(--pf-bad); }
-.pf-login-help { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--color-line); font-size: 13px; line-height: 1.7; color: var(--pf-dim); }
-.pf-login-help a { color: var(--color-paper); text-decoration: underline; text-decoration-color: var(--pf-line-strong); text-underline-offset: 4px; white-space: nowrap; }
-.pf-login-sample { font-size: 12.5px; color: var(--pf-dim); }
 
 /* ── 좁은 화면: 위쪽 바 + 가로 메뉴 ── */
 @media (max-width: 960px) {
@@ -282,7 +186,6 @@
   .pf-stats:not(.is-3) .pf-stat:nth-child(n + 3) { border-top: 1px solid var(--pf-line); }
   .pf-grid-2,
   .pf-channels { grid-template-columns: minmax(0, 1fr); }
-  .pf-hero { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .pf-panel { padding: 20px 18px 22px; }
   .pf-table-wrap { margin: 0 -18px; }
   .pf-table th:first-child,
@@ -295,21 +198,10 @@
   .pf-stats.is-3 .pf-stat { padding: 16px 14px; }
   .pf-stat-value { font-size: 26px; }
   .pf-stats.is-3 .pf-stat-value { font-size: 23px; }
-  .pf-hero-figure strong { font-size: 46px; }
   .pf-channel { padding: 20px 18px 18px; }
   .pf-channel-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pf-bars li { grid-template-columns: 84px minmax(0, 1fr) auto; gap: 10px; }
-  .pf-movers li { grid-template-columns: minmax(0, 1fr) auto 64px; gap: 10px; }
-  .pf-fresh li { grid-template-columns: minmax(0, 1fr) auto; }
-  .pf-fresh-source { display: none; }
-  .pf-reports li { grid-template-columns: minmax(0, 1fr) auto; }
-  .pf-reports li .pf-btn { grid-column: 1 / -1; justify-self: start; }
   .pf-facts { grid-template-columns: 100px minmax(0, 1fr); }
-  .pf-login-card { padding: 32px 22px 26px; }
 }
 
 /* ── 글자 링크 · 보조 ── */
-.pf-path { margin-left: 8px; font-size: 12.5px; color: var(--pf-dim); }
-.pf-movers-name { color: var(--color-paper); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color 0.2s; }
-.pf-movers-name:hover { text-decoration-color: var(--pf-accent); }
 .pf-empty a { color: var(--color-paper); text-decoration: underline; text-decoration-color: var(--pf-line-strong); text-underline-offset: 4px; }
