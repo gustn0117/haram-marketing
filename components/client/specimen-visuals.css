@@ -280,3 +280,31 @@
 .sm-concept-coupon small { font-size: .6em; letter-spacing: .05em; }
 .sm-concept-coupon b { display: block; margin: .7em 0 .9em; font-size: 1em; }
 .sm-concept-coupon > .pv-icon:last-child { width: 1.2em; }
+/* 인스타그램 포함 사항 9개용 — 콘텐츠 기획 · 이미지 편집 · 문구 작성 · 해시태그 · 위치 · 프로필 · 상담 유입 */
+.sm-concept-feed { display: grid; grid-template-columns: repeat(3, 4.6em); grid-auto-rows: 4.6em; gap: .45em; justify-content: center; }
+.sm-concept-feed .sm-art { border-radius: .2em; }
+.sm-feed-next { display: grid; place-items: center; border: .12em dashed color-mix(in srgb, var(--sm-accent) 45%, white); border-radius: .2em; color: var(--sm-accent); }
+.sm-feed-next .pv-icon { width: 1.4em; height: 1.4em; }
+.sm-concept-edit { display: flex; align-items: center; gap: 1.6em; }
+.sm-concept-edit > .sm-art { width: 7.6em; height: 7.6em; flex-shrink: 0; border-radius: .3em; outline: .1em dashed color-mix(in srgb, var(--sm-accent) 50%, white); outline-offset: .35em; }
+.sm-sliders { display: flex; flex: 1; flex-direction: column; gap: 1.1em; min-width: 0; }
+.sm-sliders > span { display: flex; flex-direction: column; gap: .55em; }
+.sm-sliders b { color: var(--sm-muted); font-size: .7em; font-weight: 500; }
+.sm-sliders i { position: relative; display: block; height: .3em; border-radius: .15em; background: linear-gradient(90deg, color-mix(in srgb, var(--sm-accent) 55%, white) var(--x), var(--sm-line) var(--x)); }
+.sm-sliders i::after { content: ""; position: absolute; top: 50%; left: var(--x); box-sizing: border-box; width: 1em; height: 1em; border: .15em solid var(--sm-accent); border-radius: 50%; background: #fff; transform: translate(-50%, -50%); }
+.sm-concept-copy { display: flex; flex-direction: column; gap: .9em; }
+.sm-concept-copy > b { height: .6em; color: var(--sm-accent); font-family: Georgia, serif; font-size: 4.6em; font-weight: 400; line-height: 1; opacity: .6; }
+.sm-concept-copy .sm-lines { gap: .9em; }
+.sm-concept-copy .sm-lines i:nth-child(3) { width: 85%; }
+.sm-copy-cursor { display: flex; align-items: center; gap: .3em; }
+.sm-copy-cursor > i:first-child { width: 40%; height: .5em; border-radius: .25em; background: var(--sm-line); }
+.sm-copy-cursor > i:last-child { width: .14em; height: 1.2em; background: var(--sm-accent); }
+.sm-concept-tags { display: flex; align-items: center; justify-content: center; gap: 1.2em; }
+.sm-concept .sm-concept-tags > .sm-map { width: 11em; height: 6.6em; }
+.sm-concept-tags .sm-map > span { left: 18%; }
+.sm-tags { display: flex; flex-direction: column; align-items: flex-start; gap: .55em; }
+.sm-tags > i { padding: .45em .7em; border-radius: .4em; background: var(--sm-tint); color: var(--sm-accent); font-size: .7em; font-style: normal; white-space: nowrap; }
+.sm-concept-contact { display: flex; flex-direction: column; align-items: center; gap: .9em; }
+.sm-concept-contact > .sm-round-icon { width: 3.4em; height: 3.4em; }
+.sm-concept-contact > .sm-lines { width: 50%; align-items: center; }
+.sm-concept-contact > .sm-button { width: 62%; padding: .7em 1em; font-size: .85em; }

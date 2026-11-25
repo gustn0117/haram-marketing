@@ -10,7 +10,6 @@ import PriceLines from "@/components/quote/PriceLines";
 import QuoteHeader from "@/components/quote/QuoteHeader";
 import {
   Hatch,
-  LockIcon,
   PhoneIcon,
   QuoteFooter,
   ServiceVisual,
@@ -25,7 +24,7 @@ import {
    서비스 안내 페이지 (/quote/[서비스]) — 서비스 하나를 랜딩페이지 한 장으로.
    첫 화면은 플랫폼 색(인스타그램 그라데이션 · 네이버 초록 · 차콜 / 오프화이트), 아래 구역은 흰 바탕에 같은 색을 포인트로.
    첫 화면 · 포함 사항 · 진행 방식 · 비용 · 이전 / 다음 서비스.
-   글과 금액은 lib/quote-data.ts. 더 자세한 내용은 고객 전용 페이지(/client/[서비스], 비밀번호)로 연결합니다.
+   글과 금액은 lib/quote-data.ts. 이 페이지에서 고객 전용 상세(/client/[서비스])로 한 번 더 넘기는 '자세히 보기'는 두지 않습니다.
    ───────────────────────────────────────────────────────────── */
 
 type Params = { slug: string };
@@ -44,6 +43,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 /** 금액이 두 줄이거나 '견적 협의'가 있으면 그 설명, 아니면 data.ts 의 비용 안내 문장 */
 const priceNotice = (service: Service) => service.notice;
+
+/** 포함 사항 칸 수 — 4개 · 8개는 4칸, 9개처럼 3으로 나눠떨어지면 3칸 (줄 끝이 비지 않게) */
+const includeCols = (count: number) => (count % 4 !== 0 && count % 3 === 0 ? 3 : 4);
 
 const PROCESS_NOTE: Record<string, string> = {
   marketing: "첫 달에는 진단과 셋업을 함께 하고, 이후에는 매달 같은 순서로 운영합니다.",
@@ -93,10 +95,6 @@ export default async function ServiceLanding({ params }: { params: Promise<Param
                     <PhoneIcon />
                     전화 상담
                   </a>
-                  <a href={`/client/${service.id}`} className="wq-btn" title="견적서와 함께 받은 비밀번호로 열립니다">
-                    <LockIcon />
-                    자세히 보기
-                  </a>
                 </div>
               </div>
             </div>
@@ -112,7 +110,7 @@ export default async function ServiceLanding({ params }: { params: Promise<Param
               <h2 id="wq-lp-includes">포함 사항</h2>
               <p>{keepDots(service.summary)}</p>
             </header>
-            <ul className="wq-features">
+            <ul className="wq-features" data-cols={includeCols(service.includes.length)}>
               {service.includes.map((item, index) => (
                 <li key={item} className="wq-feature">
                   <Hatch label="이미지" serviceId={service.id} index={index} />

@@ -1,12 +1,23 @@
-import type { ReactNode } from "react";
-import { Artwork, I, Lines, MemberCard, MiniCalendar, MockForm, MockList, SimpleMap } from "./previews/elements";
+import type { CSSProperties, ReactNode } from "react";
+import { Artwork, I, Lines, MemberCard, MiniCalendar, MockButton, MockForm, MockList, SimpleMap } from "./previews/elements";
 import "./specimen-visuals.css";
 
-type Kind = "calendar" | "search" | "flow" | "profile" | "layout" | "articles" | "checklist" | "channels" | "monitor" | "map" | "payments" | "form" | "steps" | "chat" | "responsive" | "artwork" | "benefits" | "success" | "ticket" | "member" | "coupon" | "history";
+type Kind = "calendar" | "search" | "flow" | "profile" | "layout" | "articles" | "checklist" | "channels" | "monitor" | "map" | "payments" | "form" | "steps" | "chat" | "responsive" | "artwork" | "benefits" | "success" | "ticket" | "member" | "coupon" | "history" | "feed" | "edit" | "copy" | "tags" | "contact" | "report";
 type Feature = { kind: Kind; label: string };
 
+/** 포함 사항(lib/quote-data.ts 의 includes)과 같은 순서 · 같은 개수 */
 const FEATURES: Record<string, Feature[]> = {
-  instagram: [{ kind: "calendar", label: "콘텐츠 발행" }, { kind: "search", label: "검색 설정" }, { kind: "flow", label: "콘텐츠 유입" }, { kind: "profile", label: "계정 관리" }],
+  instagram: [
+    { kind: "calendar", label: "콘텐츠 발행" },
+    { kind: "feed", label: "콘텐츠 기획" },
+    { kind: "edit", label: "이미지 편집" },
+    { kind: "copy", label: "문구 작성" },
+    { kind: "search", label: "키워드 최적화" },
+    { kind: "tags", label: "해시태그 · 위치" },
+    { kind: "contact", label: "프로필 · 상담 유입" },
+    { kind: "monitor", label: "반응 분석" },
+    { kind: "report", label: "월간 리포트" },
+  ],
   blog: [{ kind: "profile", label: "블로그 관리" }, { kind: "layout", label: "디자인 구성" }, { kind: "articles", label: "게시글 발행" }, { kind: "checklist", label: "발행 전 점검" }],
   posting: [{ kind: "channels", label: "블로그 · 카페" }, { kind: "search", label: "키워드 콘텐츠" }, { kind: "calendar", label: "꾸준한 발행" }, { kind: "monitor", label: "게시글 확인" }],
   place: [{ kind: "map", label: "지도 · 플레이스" }, { kind: "articles", label: "블로그 콘텐츠" }, { kind: "flow", label: "플레이스 유입" }, { kind: "search", label: "키워드 설정" }],
@@ -41,11 +52,18 @@ function Concept({ kind }: { kind: Kind }): ReactNode {
     case "success": return <div className="sm-concept-success"><span><I name="check" /></span><b>신청 완료</b><Lines /></div>;
     case "ticket": return <div className="sm-concept-ticket"><I name="ticket" /><b>WEDDING FAIR</b><span>모바일 입장권</span><div>{Array.from({ length: 19 }, (_, i) => <i key={i} />)}</div></div>;
     case "coupon": return <div className="sm-concept-coupon"><I name="gift" /><span><small>MEMBERS ONLY</small><b>회원 전용 혜택</b><Lines count={1} /></span><I name="ticket" /></div>;
+    case "feed": return <div className="sm-concept-feed">{[0, 1, 2, 3, 2].map((variant, i) => <Artwork key={i} variant={variant} />)}<span className="sm-feed-next"><I name="plus" /></span></div>;
+    case "edit": return <div className="sm-concept-edit"><Artwork variant={2} /><div className="sm-sliders">{([["밝기", "62%"], ["대비", "40%"], ["색감", "74%"]] as const).map(([name, x]) => <span key={name}><b>{name}</b><i style={{ "--x": x } as CSSProperties} /></span>)}</div></div>;
+    case "copy": return <div className="sm-concept-copy"><b>“</b><Lines count={3} /><span className="sm-copy-cursor"><i /><i /></span></div>;
+    case "tags": return <div className="sm-concept-tags"><SimpleMap /><div className="sm-tags"><i># 웨딩홀</i><i># 예식장</i><i># 결혼식</i></div></div>;
+    case "contact": return <div className="sm-concept-contact"><span className="sm-round-icon"><I name="users" /></span><Lines /><MockButton>상담 문의</MockButton></div>;
+    case "report": return <MockList labels={["게시물 도달", "반응", "상담 유입"]} icon="chart" />;
   }
 }
 
 export default function ServiceFeature({ id, index }: { id: string; index: number }) {
-  const feature = FEATURES[id]?.[index % 4];
-  if (!feature) return null;
-  return <div className="pv-feature sm-feature" data-service={id} data-feature={index % 4} aria-hidden="true"><div className="sm-feature-window"><div className="sm-feature-bar"><span><i /><i /><i /></span><small>{feature.label}</small></div><div className={`sm-concept is-${feature.kind}`}><Concept kind={feature.kind} /></div></div></div>;
+  const list = FEATURES[id];
+  if (!list?.length) return null;
+  const feature = list[index % list.length];
+  return <div className="pv-feature sm-feature" data-service={id} data-feature={index % list.length} aria-hidden="true"><div className="sm-feature-window"><div className="sm-feature-bar"><span><i /><i /><i /></span><small>{feature.label}</small></div><div className={`sm-concept is-${feature.kind}`}><Concept kind={feature.kind} /></div></div></div>;
 }
