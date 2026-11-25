@@ -27,7 +27,7 @@ npm run indexnow -- /about /services   # 바뀐 페이지만
 ## 고객 전용 (`/quote` · `/client`, 비밀번호 1234)
 
 헤더의 **고객 전용**(모바일은 자물쇠 아이콘)을 누르고 비밀번호를 넣으면 **웹 견적서(`/quote`)**가 열립니다.
-- 견적서의 서비스 안내 페이지(`/quote/<서비스>`)에서 [자세히 보기]를 누르면 서비스 상세 페이지(`/client/<서비스>`)로 갑니다.
+- 견적서의 서비스 안내 페이지(`/quote/<서비스>`)에는 서비스 상세 페이지(`/client/<서비스>`)로 넘어가는 버튼을 두지 않습니다. 상세 페이지는 주소로만 열립니다.
 - 견적서 머리말의 **잠그기**를 누르면 열람이 끝나고 홈으로 돌아갑니다.
 
 - 비밀번호: `lib/client-access.ts` 의 `CLIENT_PASSWORD` (서버 환경변수 `CLIENT_PASSWORD` 로도 변경 가능, 바꾸면 이미 열어 둔 브라우저도 다시 잠김)
@@ -39,6 +39,29 @@ npm run indexnow -- /about /services   # 바뀐 페이지만
 - 상세 문구: `lib/client-details.ts` · 예시 화면(목업): `components/client/Specimen.tsx` · 스타일: `app/(portal)/client/client.css`
 - 비용: `lib/client-details.ts` 의 `CLIENT_PRICES`는 `lib/quote-data.ts`(견적서 data.ts 사본)에서 가져옵니다. 아래 '웹 견적서'의 갱신 방법을 따릅니다.
   - 금액은 서버 컴포넌트에서만 그려서 브라우저 JS 파일에는 들어가지 않습니다.
+
+## 웨딩홀 플랫폼 (`/login` · `/dashboard`) — 틀
+
+계약한 웨딩홀마다 하람이 아이디와 비밀번호를 발급하고, 웨딩홀이 로그인해서 등록한 홈페이지 · 블로그 · 플레이스 · 인스타그램의 숫자와 키워드 순위를 보는 화면입니다. 지금은 **틀만** 있고 숫자는 모두 샘플입니다(화면 위에 '샘플 데이터' 안내).
+
+- 로그인: `/login` (홈페이지 머리말의 **로그인**, 모바일은 메뉴 안). 가입 화면은 없습니다.
+  - 샘플 웨딩홀 계정: `sample` / `1234`(샘플 웨딩홀), `sample2` / `1234`(샘플 컨벤션). `sample3`은 계약 종료라 로그인이 막힙니다.
+  - 하람 계정: `haram` / 문의 관리(`/admin`)와 같은 `ADMIN_PASSWORD`(없으면 `1234`)
+- 웨딩홀 화면: 개요 `/dashboard` · 키워드 순위 `/dashboard/keywords` · 방문 분석 `/dashboard/traffic`(기간 `?range=7|30|90`) · 채널 관리 `/dashboard/channels` · 월간 리포트 `/dashboard/reports`
+- 하람 화면: 웨딩홀 계정 `/dashboard/halls` · 웨딩홀 상세 `/dashboard/halls/<웨딩홀>`
+- 잠금
+  - `proxy.ts`가 로그인 쿠키(`hm_platform`)가 없는 `/dashboard` 요청을 `/login?next=<주소>`로 보냅니다.
+  - 각 페이지가 `lib/platform/dal.ts`의 `requireHall` · `requireAdmin`으로 서명 · 계정 · 역할을 다시 확인합니다. 웨딩홀 자료 함수에는 로그인 세션의 웨딩홀만 넘기므로, 주소창을 바꿔도 다른 웨딩홀 자료는 열리지 않습니다.
+  - 세션: `lib/platform/session.ts` — 서버가 서명한 쿠키, 12시간. 서명 비밀 값은 서버 환경변수 `PLATFORM_SESSION_SECRET`입니다. 없으면 서버를 켤 때마다 새로 만들어서, 재시작하면 모두 다시 로그인합니다.
+- 파일: 자료 모양 `lib/platform/types.ts` · 자료 함수 `lib/platform/data.ts` · 샘플 `lib/platform/sample.ts` · 계정 `lib/platform/accounts.ts` · 로그인/로그아웃 `lib/platform/actions.ts` · 화면 `app/(platform)/` · 조각 `components/platform/` · 스타일 `app/(platform)/platform.css`
+- 아직 연결하지 않은 것 (화면에도 '아직 연결하지 않았습니다'로 표시)
+  - 계정 발급 · 비밀번호 재발급 · 로그인 중지, 링크 등록 저장, 리포트 PDF 받기: 계정과 채널을 저장할 DB가 필요합니다. 비밀번호는 해시로만 보관하고 로그인 시도 횟수 제한을 함께 붙입니다.
+  - 실제 숫자: `lib/platform/data.ts`의 함수만 바꾸면 화면은 그대로입니다.
+    - 키워드 순위 · 월 검색량 · 블로그 · 플레이스 리뷰: PC 순위 프로그램(ranktracker)이 광고주별로 모은 자료를 서버로 동기화 (`Hall.trackerClientId`로 웨딩홀과 광고주 연결)
+    - 홈페이지 방문: haram-analytics 수집기 (웨딩홀 홈페이지에 tracker.js)
+    - 플레이스 조회수: 공식 연동이 없어 직접 입력
+    - 인스타그램 도달 · 반응: Meta 연동
+  - 웨딩홀에게 보내지 않는 값: 계약 금액 · 내부 메모 · 경쟁 업체 추적 · 방문자 IP
 
 ## 웹 견적서 (`/quote`)
 

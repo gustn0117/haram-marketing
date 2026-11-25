@@ -76,6 +76,10 @@ export function SpineRail() {
             );
           })}
           <ClientGate />
+          {/* 계약한 웨딩홀 로그인 — 웨딩홀 플랫폼(app/(platform)) */}
+          <Link href="/login" className="link-underline text-sm text-muted transition-colors hover:text-paper">
+            로그인
+          </Link>
           <Link
             href="/contact"
             className="rounded-none border border-line-strong px-5 py-2 text-[0.82rem] tracking-tight text-paper transition-colors duration-500 hover:border-gold hover:text-gold"
@@ -184,6 +188,13 @@ export function MobileNav() {
             className="link-underline mt-10 inline-block text-base text-gold"
           >
             무료 진단 신청 →
+          </Link>
+          <Link
+            href="/login"
+            onClick={() => setOpen(false)}
+            className="mt-5 inline-block text-sm text-muted"
+          >
+            웨딩홀 로그인
           </Link>
         </nav>
       </div>
